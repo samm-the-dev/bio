@@ -1,0 +1,185 @@
+{
+  "site": {
+    // Display name — appears in the header nav and as the home page hero title
+    "name": "Sam Marsh",
+    // Shown below the name on the home page hero
+    "descriptor": "Improv, Movies, TTRPGs, Code",
+    // GitHub profile URL — used in the footer link and social links section
+    "githubUrl": "https://github.com/samm-the-dev"
+  },
+
+  "home": {
+    // One-liner subtitle under your name on the home page hero.
+    // Sets the tone — could be a role, a vibe, or something playful.
+    // If taglineUrl is set, the attribution becomes a link to the source.
+    "tagline": "\"If we want the rewards of being loved, we have to submit to the mortifying ordeal of being known.\"",
+    "taglineAttribution": "Tim Kreider",
+    "taglineUrl": "https://archive.nytimes.com/opinionator.blogs.nytimes.com/2013/06/15/i-know-what-you-think-of-me/",
+
+    // 2-3 sentences, conversational. This is the first thing people read.
+    // Voice: authentic, specific over generic, no marketing speak.
+    // What do you want someone to walk away knowing about you?
+    "intro": [
+      "I enjoy creative pursuits and my ADHD likes being involved.\n",
+
+      "I love finding the story in everything and engaging in play wherever I can, especially when it connects me to others.\n",
+
+      "This is where I share what I'm working on and what I care about."
+    ],
+
+    // One sentence teaser on the Projects card in the home page grid.
+    // Should make someone want to click through.
+    "projectsTeaser": "Web apps, TTRPG systems and tools, maybe even some video editing (someday).",
+
+    // One sentence teaser on the About card in the home page grid.
+    "aboutTeaser": "My improv journey, movie preferences and goals, and thoughts on TTRPGs and software development."
+  },
+
+  "about": {
+    // 1-3 paragraphs. Journey from Alternative Comedy Theatre to Stomping Ground
+    // Comedy. Level 1 status and plans. What draws you to improv — performance
+    // philosophy, Beff Lejowski character if desired.
+    "improv": [
+      "Improv helped me crawl out of a deep dark hole after the pandemic.",
+      "Through improv I've made more friends in a couple of years than I did in the previous 10+ years.\n",
+
+      "I started with [The Alternative Comedy Theater](https://www.improvact.org/) in summer 2024, training in both short and long form improv, and I'm currently training with [Stomping Ground Comedy Theater](https://stompinggroundcomedy.org/).",
+      "I regularly perform with ACT in a show called Goofs & Goblins, which is a D&D-themed long-form show every second Tuesday of the month at [Pocket Sandwich Theatre](https://www.pocketsandwich.com/).",
+      "I also do some short form and am always looking for more opportunities to play and learn.\n",
+
+      "I attended Out of Bounds in Austin in 2025 and had an absolute blast seeing shows, taking workshops, and generally hanging out and connecting with comedy people.",
+      "I even got my first tattoos during one of the after-parties.",
+      "I plan to attend again in 2026, and I'm hoping to make it to some other festivals as well."
+   ],
+
+    // 1-3 paragraphs. Alamo Drafthouse Richardson, Season Pass All-In, 60+ new
+    // releases annually. Letterboxd usage and habits. Favorite genres, directors,
+    // or notable watches if you want.
+    "movies": [
+      "I've loved movies since I was a teenager, maybe even longer.",
+      "I used to ride my bike across town to the dollar theater, and once I started driving and working I'd regularly go to Blockbuster.",
+      "Recently I've been more ambitious with my cinephilia, watching 60+ new releases in 2025 and targeting 100 in 2026.\n",
+
+      "I'm an [Alamo Drafthouse](https://drafthouse.com/) regular, Season Pass holder, and I typically go there at least once a week.",
+      "If you have one near you, check 'em out, and make sure you get there a half-hour early for the pre-show reel.\n",
+
+      "I log most things I watch on [Letterboxd](https://letterboxd.com/samm_loves_film/).",
+      "I'll be embedding some Letterboxd statistics and lists here soon."
+    ],
+
+    // 1-3 paragraphs. Systems played, what you enjoy about TTRPGs, design
+    // interests. Markdown links supported: [text](url).
+    "ttrpgs": [
+      "D&D was my first real long-lasting social hobby.",
+      "I didn't get into it until my mid-20s, but since then I haven't stopped loving TTRPGs.",
+      "I became obsessed with building characters and discovering their stories.",
+      "The way game mechanics shape storytelling fascinates me.\n",
+
+      "I've played [D&D 5e](https://www.dndbeyond.com/), [Pathfinder 2e](https://paizo.com/pathfinder), several [PbtA](https://en.wikipedia.org/wiki/Powered_by_the_Apocalypse) systems, and many others.\n",
+
+      "Stay tuned for multiple TTRPG projects, both systems and tools."
+    ],
+
+    // 1-3 paragraphs. Angular to React transition. What you build and what
+    // excites you about development. How it balances with creative work.
+    "code": [
+      "My web dev journey began in 2014 at an [Improving](https://www.improving.com/) boot camp.",
+      "There I learned full stack web development using the Microsoft stack. I've since moved from Angular to React, and now most of my projects are built with React.\n",
+
+      "I love developing simple, useful web apps as a way to grow and sharpen my skills.",
+      "Check out my [[Projects]] page for recent work or my [GitHub](https://github.com/samm-the-dev) for repos both new and old."
+    ] 
+  },
+
+  "projects": {
+    // Each entry becomes a card on the Projects page.
+    // Add or remove entries freely — the script regenerates the whole page.
+    //
+    // Known code projects from planning docs:
+    //   - Alt Text Generator (accessibility, Bluesky integration)
+    //   - Event Monitors (Alamo Drafthouse, improv events across DFW/Austin/SA)
+    //   - Discord & Bluesky automation bots
+    //   - Other dev tools / web apps
+    //
+    // Description: 1-2 short paragraphs. What it does, why it exists.
+    // Include tech stack if notable. Link to live demo or repo in the text.
+    "code": [
+      {
+        "name": "Ohm",
+        "description": [
+          "A [personal kanban](https://personalkanban.com/learn/personal-kanban/) app developed using ADHD research.",
+          "It features optional Google Drive integration for storage/backup, as well as restore points and export/import functionality."
+        ],
+        "tech": ["PWA", "React 19", "TypeScript", "Vite", "Tailwind CSS", "Google Drive API", "GCP Cloud Functions"],
+        "link": "https://ohm.samm-the.dev/"
+      },
+      {
+        "name": "Build-a-Jam",
+        "description": [
+          "A tool for selecting improv warm-ups and exercises based on tags like 'connection', 'structure', 'heightening', and more.\n",
+          
+          "It features exercises from multiple sources (credited on the site), a session queue with timers, and fields for notes.\n",
+
+          "I'm actively improving this; more concise exercise descriptions, better mobile scaling, and a feedback form are next."
+        ],
+        "tech": ["PWA", "React 19", "TypeScript", "Vite", "Tailwind CSS"],
+        "link": "https://build-a-jam.app/"
+      },
+      {
+        "name": "The Enchiridion",
+        "description": [
+          "An Adventure Time catalog with a multi-theme system (8 character themes).\n",
+
+          "AT is one of my favorite things on the planet, and for a while now I've wanted to build a proper episode guide.",
+          "This project is meant to replace the fandom wiki (which is messy and rife with ads), and improve on it with transcript searching and other features.\n",
+
+          "Stay tuned..."
+        ],
+        "tech": ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Playwright", "axe-core"]
+      },
+      {
+        "name": "Adventure Time Transcripts",
+        "description": [
+          "A speaker diarization pipeline which generates voice profiles from audio samples, then uses them in conjunction with Claude Vision to validate and generate transcripts.\n",
+
+          "This was based on a repository of transcripts that I believe was scraped from the fan wiki.",
+          "I wanted to fill out the catalog of transcripts, get them into a consistent format, and use them for The Enchiridion.\n",
+
+          "This is easily the most technically complex solo project I've done, and I'm still working on it.",
+          "Once it's done, I plan to make it generic for use with any show."
+        ],
+        "tech": ["Python", "Claude Vision API", "ffmpeg", "Docker", "CUDA"]
+      },
+      {
+        "name": "Toolbox",
+        "description": [
+          "A library of templates and tools for enhancing my AI-assisted project development, distributed to my projects via Git submodule."
+        ],
+        "tech": ["Claude AI", "Google OAuth", "GCP Cloud Functions", "React", "Vite", "TypeScript", "GitHub Actions"],
+        "link": "https://github.com/samm-the-dev/toolbox"
+      }
+    ]
+  },
+
+  "credits": {
+    // Brief acknowledgment of how the site was built. Per DECISIONS.md,
+    // AI transparency is a project value — mention Claude/AI assistance
+    // alongside the tech stack (React, Vite, Tailwind, etc.).
+    "siteDescription": [
+      "This site and most of my projects were developed with the assistance of Claude AI.",
+      "The vast majority of the prose was written by me, but I generally lean on Claude for brainstorming, editing, and overcoming writer's block.",
+      "It helps me be more productive and creative, while preserving my authentic voice and vision."
+    ]
+  },
+
+  // Social profile links shown on the home page.
+  // Add or remove entries as needed. If you add a new platform, also add
+  // its Lucide icon mapping in scripts/inject-content.mjs (socialIconMap).
+  // Current mappings: Film (Letterboxd), BlueskyIcon (Bluesky), Instagram, Github
+  "social": [
+    { "label": "Letterboxd", "href": "https://letterboxd.com/samm_loves_film/" },
+    { "label": "Bluesky", "href": "https://bsky.app/profile/samm-the-human/" },
+    { "label": "Instagram", "href": "https://instagram.com/samm.the.human/" },
+    { "label": "GitHub", "href": "https://github.com/samm-the-dev/" }
+  ]
+}

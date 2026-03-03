@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * CSS Variables for theming
+ *
+ * Light mode: Clean, minimal with subtle accent
+ * Dark mode: Easy on the eyes with good contrast
+ *
+ * HSL format allows easy tweaking of saturation/lightness
+ */
+
+@layer base {
+  :root {
+    /* Light mode */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --primary-hover: 221.2 83.2% 45%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark mode — lifted from build-a-jam */
+    --background: 0 0% 10%; /* #1a1a1a */
+    --foreground: 220 10% 93%; /* soft off-white */
+
+    --card: 217 33% 17%; /* gray-800 */
+    --card-foreground: 220 10% 93%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 220 10% 93%;
+
+    --primary: 216 85% 65%; /* #5A97F2 cobalt */
+    --primary-foreground: 222 47% 11%;
+    --primary-hover: 216 86% 73%;
+
+    --secondary: 217 19% 27%; /* gray-700 */
+    --secondary-foreground: 214 14% 84%;
+
+    --muted: 217 33% 17%; /* gray-800 */
+    --muted-foreground: 218 11% 65%; /* gray-400 */
+
+    --accent: 217 19% 27%;
+    --accent-foreground: 220 10% 93%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 220 10% 93%;
+
+    --border: 217 19% 27%; /* gray-700 */
+    --input: 215 14% 34%;
+    --ring: 216 85% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
