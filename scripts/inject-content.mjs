@@ -46,12 +46,14 @@ function mdLinksToJsx(text) {
     return `<a href="${route}" className="underline hover:text-foreground">${label}</a>`;
   });
   // [text](url) -> external or internal link
-  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label, url) => {
+  // Capture optional trailing punctuation so prettier doesn't split it onto its own line
+  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)([.,;:!?])?/g, (_match, label, url, punct) => {
     const external = url.startsWith('http');
     const attrs = external
       ? ` target="_blank" rel="noopener noreferrer"`
       : '';
-    return `<a href="${url}"${attrs} className="underline hover:text-foreground">${label}</a>`;
+    const suffix = punct ? `{'${punct}'}` : '';
+    return `<a href="${url}"${attrs} className="underline hover:text-foreground">${label}</a>${suffix}`;
   });
   return text;
 }
@@ -89,10 +91,6 @@ const injections = [
       src = src.replace(
         /const (?:GITHUB_URL|REPO_URL) = '.*?';/,
         `const REPO_URL = '${content.site.repoUrl}';`,
-      );
-      src = src.replace(
-        /(<Link to="\/" className="[^"]*"[^>]*>)\s*\n?\s*.*?\s*\n?\s*(<\/Link>)/,
-        `$1\n              ${content.site.name}\n            $2`,
       );
       return src;
     },
