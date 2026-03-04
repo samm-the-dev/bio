@@ -88,7 +88,7 @@ const injections = [
     transform(src) {
       src = src.replace(
         /const (?:GITHUB_URL|REPO_URL) = '.*?';/,
-        `const REPO_URL = '${content.site.githubUrl}';`,
+        `const REPO_URL = '${content.site.repoUrl}';`,
       );
       src = src.replace(
         /(<Link to="\/" className="[^"]*">)\s*\n?\s*.*?\s*\n?\s*(<\/Link>)/,

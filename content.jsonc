@@ -4,8 +4,10 @@
     "name": "Sam Marsh",
     // Shown below the name on the home page hero
     "descriptor": "Improv, Movies, TTRPGs, Code",
-    // GitHub profile URL — used in the footer link and social links section
-    "githubUrl": "https://github.com/samm-the-dev"
+    // GitHub profile URL — used in social links and About > Code section
+    "githubUrl": "https://github.com/samm-the-dev",
+    // GitHub repo URL — used in the footer "Source on GitHub" link
+    "repoUrl": "https://github.com/samm-the-dev/bio"
   },
 
   "home": {
