@@ -47,13 +47,13 @@ export function HomePage() {
             to="/about"
             icon={User}
             title="About Me"
-            description="My improv journey, movie preferences and goals, and thoughts on TTRPGs and software development."
+            description="My improv journey, movie obsession, TTRPG experience, and how I code."
           />
           <SectionCard
             to="/projects"
             icon={Code}
             title="Projects"
-            description="Web apps, TTRPG systems and tools, maybe even some video editing (someday)."
+            description="Web apps, TTRPG systems and tools, and more on the way."
           />
         </div>
       </section>

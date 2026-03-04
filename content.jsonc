@@ -4,8 +4,10 @@
     "name": "Sam Marsh",
     // Shown below the name on the home page hero
     "descriptor": "Improv, Movies, TTRPGs, Code",
-    // GitHub profile URL — used in the footer link and social links section
-    "githubUrl": "https://github.com/samm-the-dev"
+    // GitHub profile URL — used in social links and About > Code section
+    "githubUrl": "https://github.com/samm-the-dev",
+    // GitHub repo URL — used in the footer "Source on GitHub" link
+    "repoUrl": "https://github.com/samm-the-dev/bio"
   },
 
   "home": {
@@ -29,10 +31,10 @@
 
     // One sentence teaser on the Projects card in the home page grid.
     // Should make someone want to click through.
-    "projectsTeaser": "Web apps, TTRPG systems and tools, maybe even some video editing (someday).",
+    "projectsTeaser": "Web apps, TTRPG systems and tools, and more on the way.",
 
     // One sentence teaser on the About card in the home page grid.
-    "aboutTeaser": "My improv journey, movie preferences and goals, and thoughts on TTRPGs and software development."
+    "aboutTeaser": "My improv journey, movie obsession, TTRPG experience, and how I code."
   },
 
   "about": {
@@ -87,8 +89,12 @@
       "There I learned full stack web development using the Microsoft stack. I've since moved from Angular to React, and now most of my projects are built with React.\n",
 
       "I love developing simple, useful web apps as a way to grow and sharpen my skills.",
-      "Check out my [[Projects]] page for recent work or my [GitHub](https://github.com/samm-the-dev) for repos both new and old."
-    ] 
+      "Check out my [[Projects]] page for recent work or my [GitHub](https://github.com/samm-the-dev) for repos both new and old.\n",
+
+      "This site and most of my projects were developed with the assistance of [Claude AI](https://claude.ai/).",
+      "The vast majority of the prose was written by me, but I generally lean on Claude for brainstorming, editing, and overcoming writer's block.",
+      "It helps me be more productive and creative, while preserving my authentic voice and vision."
+    ]
   },
 
   "projects": {
@@ -161,24 +167,13 @@
     ]
   },
 
-  "credits": {
-    // Brief acknowledgment of how the site was built. Per DECISIONS.md,
-    // AI transparency is a project value — mention Claude/AI assistance
-    // alongside the tech stack (React, Vite, Tailwind, etc.).
-    "siteDescription": [
-      "This site and most of my projects were developed with the assistance of Claude AI.",
-      "The vast majority of the prose was written by me, but I generally lean on Claude for brainstorming, editing, and overcoming writer's block.",
-      "It helps me be more productive and creative, while preserving my authentic voice and vision."
-    ]
-  },
-
   // Social profile links shown on the home page.
   // Add or remove entries as needed. If you add a new platform, also add
   // its Lucide icon mapping in scripts/inject-content.mjs (socialIconMap).
   // Current mappings: Film (Letterboxd), BlueskyIcon (Bluesky), Instagram, Github
   "social": [
     { "label": "Letterboxd", "href": "https://letterboxd.com/samm_loves_film/" },
-    { "label": "Bluesky", "href": "https://bsky.app/profile/samm-the-human/" },
+    { "label": "Bluesky", "href": "https://bsky.app/profile/samm-the-human.bsky.social/" },
     { "label": "Instagram", "href": "https://instagram.com/samm.the.human/" },
     { "label": "GitHub", "href": "https://github.com/samm-the-dev/" }
   ]
