@@ -251,17 +251,6 @@ ${content.projects.code.map(projectCard).join('\n')}
     },
   },
   {
-    file: 'src/pages/CreditsPage.tsx',
-    transform(src) {
-      const desc = toText(content.credits.siteDescription);
-      src = src.replace(
-        /(About This Site<\/h2>\s*<p class[^>]*>)\s*.*?\s*(<\/p>)/s,
-        `$1\n          ${desc}\n        $2`,
-      );
-      return src;
-    },
-  },
-  {
     file: 'src/components/SocialLinks.tsx',
     transform(_src) {
       const lucideIcons = content.social

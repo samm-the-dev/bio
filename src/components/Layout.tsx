@@ -4,8 +4,7 @@ import { toast } from 'sonner';
 import { useTheme } from '@/hooks/useTheme';
 import { cn } from '@/lib/utils';
 
-// TODO: Update with your GitHub username
-const GITHUB_URL = 'https://github.com/samm-the-dev';
+const REPO_URL = 'https://github.com/samm-the-dev/bio';
 
 const navItems = [
   { to: '/', label: 'Home' },
@@ -87,18 +86,14 @@ export function Layout() {
       </main>
 
       <footer className="mt-auto border-t border-border">
-        <div className="container mx-auto flex items-center justify-center gap-4 px-4 py-6 text-sm text-muted-foreground">
-          <Link to="/credits" className="underline hover:text-foreground">
-            Credits & Licenses
-          </Link>
-          <span aria-hidden="true">&middot;</span>
+        <div className="container mx-auto flex items-center justify-center px-4 py-6 text-sm text-muted-foreground">
           <a
-            href={GITHUB_URL}
+            href={REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="underline hover:text-foreground"
           >
-            GitHub
+            Source on GitHub
           </a>
         </div>
       </footer>

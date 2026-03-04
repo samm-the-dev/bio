@@ -164,6 +164,20 @@ export function AboutPage() {
             </a>{' '}
             for repos both new and old.
           </p>
+          <p className="mt-3 text-muted-foreground">
+            This site and most of my projects were developed with the assistance of{' '}
+            <a
+              href="https://claude.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-foreground"
+            >
+              Claude AI
+            </a>
+            . The vast majority of the prose was written by me, but I generally lean on Claude for
+            brainstorming, editing, and overcoming writer's block. It helps me be more productive
+            and creative, while preserving my authentic voice and vision.
+          </p>
         </section>
       </div>
     </div>
