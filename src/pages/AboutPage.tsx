@@ -42,8 +42,7 @@ export function AboutPage() {
             >
               Pocket Sandwich Theatre
             </a>
-            . I also do some short form and am always looking for more opportunities to play and
-            learn.
+            .
           </p>
           <p className="mt-3 text-muted-foreground">
             I attended{' '}

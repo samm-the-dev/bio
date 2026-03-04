@@ -40,7 +40,11 @@ export function Layout() {
       <header className="border-b border-border">
         <div className="container mx-auto flex h-14 items-center justify-between px-4">
           <div className="flex items-center gap-3 sm:gap-6">
-            <Link to="/" className="text-xl font-bold text-primary hover:text-primary-hover">
+            <Link
+              to="/"
+              className="text-xl font-bold text-primary hover:text-primary-hover"
+              aria-label="Sam Marsh home"
+            >
               <span className="sm:hidden">SM</span>
               <span className="hidden sm:inline">Sam Marsh</span>
             </Link>

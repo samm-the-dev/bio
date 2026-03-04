@@ -176,7 +176,7 @@
   // Current mappings: Film (Letterboxd), BlueskyIcon (Bluesky), Instagram, Github
   "social": [
     { "label": "Letterboxd", "href": "https://letterboxd.com/samm_loves_film/" },
-    { "label": "Bluesky", "href": "https://bsky.app/profile/samm-the-human.bsky.social/" },
+    { "label": "Bluesky", "href": "https://bsky.app/profile/samm-the-human.online/" },
     { "label": "Instagram", "href": "https://instagram.com/samm.the.human/" },
     { "label": "GitHub", "href": "https://github.com/samm-the-dev/" }
   ]

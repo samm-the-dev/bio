@@ -91,7 +91,7 @@ const injections = [
         `const REPO_URL = '${content.site.repoUrl}';`,
       );
       src = src.replace(
-        /(<Link to="\/" className="[^"]*">)\s*\n?\s*.*?\s*\n?\s*(<\/Link>)/,
+        /(<Link to="\/" className="[^"]*"[^>]*>)\s*\n?\s*.*?\s*\n?\s*(<\/Link>)/,
         `$1\n              ${content.site.name}\n            $2`,
       );
       return src;
