@@ -36,12 +36,13 @@ export function Layout() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground">
+    <div className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
       <header className="border-b border-border">
         <div className="container mx-auto flex h-14 items-center justify-between px-4">
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 sm:gap-6">
             <Link to="/" className="text-xl font-bold text-primary hover:text-primary-hover">
-              Sam Marsh
+              <span className="sm:hidden">SM</span>
+              <span className="hidden sm:inline">Sam Marsh</span>
             </Link>
             <nav className="flex items-center gap-4">
               {navItems.map(({ to, label }) => (

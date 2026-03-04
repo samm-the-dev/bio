@@ -285,7 +285,7 @@ ${entries.join('\n')}
 
 export function SocialLinks() {
   return (
-    <nav aria-label="Social profiles" className="flex items-center justify-center gap-4">
+    <nav aria-label="Social profiles" className="flex flex-wrap items-center justify-center gap-4">
       {socialLinks.map(({ href, label, icon: Icon }) => (
         <a
           key={label}
