@@ -46,10 +46,9 @@
       "Through improv I've made more friends in a couple of years than I did in the previous 10+ years.\n",
 
       "I started with [The Alternative Comedy Theater](https://www.improvact.org/) in summer 2024, training in both short and long form improv, and I'm currently training with [Stomping Ground Comedy Theater](https://stompinggroundcomedy.org/).",
-      "I regularly perform with ACT in a show called Goofs & Goblins, which is a D&D-themed long-form show every second Tuesday of the month at [Pocket Sandwich Theatre](https://www.pocketsandwich.com/).",
-      "I also do some short form and am always looking for more opportunities to play and learn.\n",
+      "I regularly perform with ACT in a show called Goofs & Goblins, which is a D&D-themed long-form show every second Tuesday of the month at [Pocket Sandwich Theatre](https://www.pocketsandwich.com/).\n",
 
-      "I attended Out of Bounds in Austin in 2025 and had an absolute blast seeing shows, taking workshops, and generally hanging out and connecting with comedy people.",
+      "I attended [Out of Bounds](https://oobfest.com/) in Austin in 2025 and had an absolute blast seeing shows, taking workshops, and generally hanging out and connecting with comedy people.",
       "I even got my first tattoos during one of the after-parties.",
       "I plan to attend again in 2026, and I'm hoping to make it to some other festivals as well."
    ],
@@ -117,19 +116,21 @@
           "It features optional Google Drive integration for storage/backup, as well as restore points and export/import functionality."
         ],
         "tech": ["PWA", "React 19", "TypeScript", "Vite", "Tailwind CSS", "Google Drive API", "GCP Cloud Functions"],
-        "link": "https://ohm.samm-the.dev/"
+        "link": "https://ohm.samm-the.dev/",
+        "repo": "https://github.com/samm-the-dev/ohm"
       },
       {
         "name": "Build-a-Jam",
         "description": [
           "A tool for selecting improv warm-ups and exercises based on tags like 'connection', 'structure', 'heightening', and more.\n",
-          
+
           "It features exercises from multiple sources (credited on the site), a session queue with timers, and fields for notes.\n",
 
           "I'm actively improving this; more concise exercise descriptions, better mobile scaling, and a feedback form are next."
         ],
         "tech": ["PWA", "React 19", "TypeScript", "Vite", "Tailwind CSS"],
-        "link": "https://build-a-jam.app/"
+        "link": "https://build-a-jam.app/",
+        "repo": "https://github.com/samm-the-dev/build-a-jam"
       },
       {
         "name": "The Enchiridion",
@@ -141,7 +142,8 @@
 
           "Stay tuned..."
         ],
-        "tech": ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Playwright", "axe-core"]
+        "tech": ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Playwright", "axe-core"],
+        "repo": "https://github.com/samm-the-dev/the-enchiridion"
       },
       {
         "name": "Adventure Time Transcripts",
@@ -154,7 +156,8 @@
           "This is easily the most technically complex solo project I've done, and I'm still working on it.",
           "Once it's done, I plan to make it generic for use with any show."
         ],
-        "tech": ["Python", "Claude Vision API", "ffmpeg", "Docker", "CUDA"]
+        "tech": ["Python", "Claude Vision API", "ffmpeg", "Docker", "CUDA"],
+        "repo": "https://github.com/samm-the-dev/adventuretime-transcripts"
       },
       {
         "name": "Toolbox",
@@ -162,7 +165,7 @@
           "A library of templates and tools for enhancing my AI-assisted project development, distributed to my projects via Git submodule."
         ],
         "tech": ["Claude AI", "Google OAuth", "GCP Cloud Functions", "React", "Vite", "TypeScript", "GitHub Actions"],
-        "link": "https://github.com/samm-the-dev/toolbox"
+        "repo": "https://github.com/samm-the-dev/toolbox"
       }
     ]
   },

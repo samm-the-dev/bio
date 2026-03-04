@@ -18,4 +18,25 @@ describe('ProjectsPage', () => {
     renderWithRouter(<ProjectsPage />);
     expect(screen.getAllByRole('article').length).toBeGreaterThan(0);
   });
+
+  it('renders Source Code links with unique aria-labels', () => {
+    renderWithRouter(<ProjectsPage />);
+    const sourceLinks = screen.getAllByText('Source Code');
+    expect(sourceLinks.length).toBeGreaterThan(1);
+    for (const link of sourceLinks) {
+      expect(link).toHaveAttribute('aria-label');
+      expect(link.getAttribute('aria-label')).toMatch(/source code on GitHub$/i);
+    }
+    const labels = sourceLinks.map((l) => l.getAttribute('aria-label'));
+    expect(new Set(labels).size).toBe(labels.length);
+  });
+
+  it('renders Source Code links with correct hrefs', () => {
+    renderWithRouter(<ProjectsPage />);
+    const sourceLinks = screen.getAllByText('Source Code');
+    for (const link of sourceLinks) {
+      expect(link).toHaveAttribute('href');
+      expect(link.getAttribute('href')).toMatch(/^https:\/\/github\.com\//);
+    }
+  });
 });

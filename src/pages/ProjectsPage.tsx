@@ -1,4 +1,4 @@
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 
 export function ProjectsPage() {
@@ -10,18 +10,28 @@ export function ProjectsPage() {
         <h2 className="mb-4 text-xl font-semibold">Code Projects</h2>
         <div className="space-y-6">
           <article className="rounded-lg border border-border bg-card p-4">
-            <h3 className="font-semibold text-card-foreground">
-              Ohm{' '}
+            <h3 className="font-semibold text-card-foreground">Ohm</h3>
+            <div className="mt-1 flex items-center gap-3 text-xs">
               <a
                 href="https://ohm.samm-the.dev/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-1 inline-flex translate-y-[-1px] align-middle text-muted-foreground hover:text-foreground"
-                aria-label="Visit Ohm"
+                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
               >
-                <ExternalLink className="h-4 w-4" />
+                <ExternalLink className="h-3.5 w-3.5" />
+                ohm.samm-the.dev
               </a>
-            </h3>
+              <a
+                href="https://github.com/samm-the-dev/ohm"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ohm source code on GitHub"
+                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+              >
+                <Github className="h-3.5 w-3.5" />
+                Source Code
+              </a>
+            </div>
             <p className="mt-1 text-sm text-muted-foreground">
               A{' '}
               <a
@@ -41,18 +51,28 @@ export function ProjectsPage() {
             </p>
           </article>
           <article className="rounded-lg border border-border bg-card p-4">
-            <h3 className="font-semibold text-card-foreground">
-              Build-a-Jam{' '}
+            <h3 className="font-semibold text-card-foreground">Build-a-Jam</h3>
+            <div className="mt-1 flex items-center gap-3 text-xs">
               <a
                 href="https://build-a-jam.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-1 inline-flex translate-y-[-1px] align-middle text-muted-foreground hover:text-foreground"
-                aria-label="Visit Build-a-Jam"
+                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
               >
-                <ExternalLink className="h-4 w-4" />
+                <ExternalLink className="h-3.5 w-3.5" />
+                build-a-jam.app
               </a>
-            </h3>
+              <a
+                href="https://github.com/samm-the-dev/build-a-jam"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Build-a-Jam source code on GitHub"
+                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+              >
+                <Github className="h-3.5 w-3.5" />
+                Source Code
+              </a>
+            </div>
             <p className="mt-1 text-sm text-muted-foreground">
               A tool for selecting improv warm-ups and exercises based on tags like 'connection',
               'structure', 'heightening', and more.
@@ -71,6 +91,18 @@ export function ProjectsPage() {
           </article>
           <article className="rounded-lg border border-border bg-card p-4">
             <h3 className="font-semibold text-card-foreground">The Enchiridion</h3>
+            <div className="mt-1 flex items-center gap-3 text-xs">
+              <a
+                href="https://github.com/samm-the-dev/the-enchiridion"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="The Enchiridion source code on GitHub"
+                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+              >
+                <Github className="h-3.5 w-3.5" />
+                Source Code
+              </a>
+            </div>
             <p className="mt-1 text-sm text-muted-foreground">
               An Adventure Time catalog with a multi-theme system (8 character themes).
             </p>
@@ -87,6 +119,18 @@ export function ProjectsPage() {
           </article>
           <article className="rounded-lg border border-border bg-card p-4">
             <h3 className="font-semibold text-card-foreground">Adventure Time Transcripts</h3>
+            <div className="mt-1 flex items-center gap-3 text-xs">
+              <a
+                href="https://github.com/samm-the-dev/adventuretime-transcripts"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Adventure Time Transcripts source code on GitHub"
+                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+              >
+                <Github className="h-3.5 w-3.5" />
+                Source Code
+              </a>
+            </div>
             <p className="mt-1 text-sm text-muted-foreground">
               A speaker diarization pipeline which generates voice profiles from audio samples, then
               uses them in conjunction with Claude Vision to validate and generate transcripts.
@@ -105,18 +149,19 @@ export function ProjectsPage() {
             </p>
           </article>
           <article className="rounded-lg border border-border bg-card p-4">
-            <h3 className="font-semibold text-card-foreground">
-              Toolbox{' '}
+            <h3 className="font-semibold text-card-foreground">Toolbox</h3>
+            <div className="mt-1 flex items-center gap-3 text-xs">
               <a
                 href="https://github.com/samm-the-dev/toolbox"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-1 inline-flex translate-y-[-1px] align-middle text-muted-foreground hover:text-foreground"
-                aria-label="Visit Toolbox"
+                aria-label="Toolbox source code on GitHub"
+                className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
               >
-                <ExternalLink className="h-4 w-4" />
+                <Github className="h-3.5 w-3.5" />
+                Source Code
               </a>
-            </h3>
+            </div>
             <p className="mt-1 text-sm text-muted-foreground">
               A library of templates and tools for enhancing my AI-assisted project development,
               distributed to my projects via Git submodule.
