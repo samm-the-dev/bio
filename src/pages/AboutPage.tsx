@@ -48,7 +48,7 @@ export function AboutPage() {
           <p className="mt-3 text-muted-foreground">
             I attended{' '}
             <a
-              href="https://outofboundscomedy.com/"
+              href="https://oobfest.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-foreground"
