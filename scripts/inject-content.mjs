@@ -195,11 +195,8 @@ ${introJsx}
   {
     file: 'src/pages/ProjectsPage.tsx',
     transform(_src) {
-      const projectCard = ({ name, description, tech, link }) => {
+      const projectCard = ({ name, description, tech, link, repo }) => {
         const paragraphs = toParagraphs(description);
-        const heading = link
-          ? `${name} <a href="${link}" target="_blank" rel="noopener noreferrer" className="ml-1 inline-flex translate-y-[-1px] align-middle text-muted-foreground hover:text-foreground" aria-label="Visit ${name}"><ExternalLink className="h-4 w-4" /></a>`
-          : name;
         const pTags = paragraphs
           .map((p, i) => {
             const mt = i === 0 ? 'mt-1' : 'mt-3';
@@ -209,8 +206,25 @@ ${introJsx}
         const techLine = tech?.length
           ? `\n            <p className="mt-2 text-xs text-muted-foreground">${tech.join(' · ')}</p>`
           : '';
+
+        const linkItems = [];
+        if (link) {
+          const domain = new URL(link).hostname;
+          linkItems.push(
+            `<a href="${link}" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"><ExternalLink className="h-3.5 w-3.5" />${domain}</a>`,
+          );
+        }
+        if (repo) {
+          linkItems.push(
+            `<a href="${repo}" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"><Github className="h-3.5 w-3.5" />Source Code</a>`,
+          );
+        }
+        const linksRow = linkItems.length
+          ? `\n            <div className="mt-1 flex items-center gap-3 text-xs">${linkItems.join('')}</div>`
+          : '';
+
         return `          <article className="rounded-lg border border-border bg-card p-4">
-            <h3 className="font-semibold text-card-foreground">${heading}</h3>
+            <h3 className="font-semibold text-card-foreground">${name}</h3>${linksRow}
 ${pTags}${techLine}
           </article>`;
       };
@@ -226,13 +240,17 @@ ${content.projects.tabletop.map(projectCard).join('\n')}
       </section>`
           : '';
 
-      const hasLinks = content.projects.code.some((p) => p.link) ||
-        content.projects.tabletop?.some((p) => p.link);
-      const externalLinkImport = hasLinks
-        ? `import { ExternalLink } from 'lucide-react';\n`
+      const allProjects = [...content.projects.code, ...(content.projects.tabletop || [])];
+      const hasLinks = allProjects.some((p) => p.link);
+      const hasRepos = allProjects.some((p) => p.repo);
+      const lucideIcons = [];
+      if (hasLinks) lucideIcons.push('ExternalLink');
+      if (hasRepos) lucideIcons.push('Github');
+      const iconImport = lucideIcons.length
+        ? `import { ${lucideIcons.join(', ')} } from 'lucide-react';\n`
         : '';
 
-      return `${externalLinkImport}import { PageHeader } from '@/components/PageHeader';
+      return `${iconImport}import { PageHeader } from '@/components/PageHeader';
 
 export function ProjectsPage() {
   return (
