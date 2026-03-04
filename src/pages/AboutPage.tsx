@@ -46,7 +46,16 @@ export function AboutPage() {
             learn.
           </p>
           <p className="mt-3 text-muted-foreground">
-            I attended Out of Bounds in Austin in 2025 and had an absolute blast seeing shows,
+            I attended{' '}
+            <a
+              href="https://outofboundscomedy.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-foreground"
+            >
+              Out of Bounds
+            </a>{' '}
+            in Austin in 2025 and had an absolute blast seeing shows,
             taking workshops, and generally hanging out and connecting with comedy people. I even
             got my first tattoos during one of the after-parties. I plan to attend again in 2026,
             and I'm hoping to make it to some other festivals as well.
