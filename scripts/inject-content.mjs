@@ -216,7 +216,7 @@ ${introJsx}
         }
         if (repo) {
           linkItems.push(
-            `<a href="${repo}" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"><Github className="h-3.5 w-3.5" />Source Code</a>`,
+            `<a href="${repo}" target="_blank" rel="noopener noreferrer" aria-label="${name} source code on GitHub" className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"><Github className="h-3.5 w-3.5" />Source Code</a>`,
           );
         }
         const linksRow = linkItems.length

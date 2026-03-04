@@ -25,6 +25,7 @@ export function ProjectsPage() {
                 href="https://github.com/samm-the-dev/ohm"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Ohm source code on GitHub"
                 className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
               >
                 <Github className="h-3.5 w-3.5" />
@@ -65,6 +66,7 @@ export function ProjectsPage() {
                 href="https://github.com/samm-the-dev/build-a-jam"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Build-a-Jam source code on GitHub"
                 className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
               >
                 <Github className="h-3.5 w-3.5" />
@@ -94,6 +96,7 @@ export function ProjectsPage() {
                 href="https://github.com/samm-the-dev/the-enchiridion"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="The Enchiridion source code on GitHub"
                 className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
               >
                 <Github className="h-3.5 w-3.5" />
@@ -121,6 +124,7 @@ export function ProjectsPage() {
                 href="https://github.com/samm-the-dev/adventuretime-transcripts"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Adventure Time Transcripts source code on GitHub"
                 className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
               >
                 <Github className="h-3.5 w-3.5" />
@@ -151,6 +155,7 @@ export function ProjectsPage() {
                 href="https://github.com/samm-the-dev/toolbox"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Toolbox source code on GitHub"
                 className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
               >
                 <Github className="h-3.5 w-3.5" />

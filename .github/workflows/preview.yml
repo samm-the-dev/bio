@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: Build with relative paths
-        run: npm run content && tsc -b && vite build --base ./
+        run: npm run content && npx tsc -b && npx vite build --base ./
 
       - name: Upload preview artifact
         uses: actions/upload-artifact@v4
@@ -42,6 +42,7 @@ jobs:
 
       - name: Comment preview link
         if: github.event_name == 'pull_request'
+        continue-on-error: true
         uses: actions/github-script@v7
         with:
           script: |
