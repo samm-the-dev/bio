@@ -10,7 +10,11 @@ function BlueskyIcon({ className }: { className?: string }) {
 
 const socialLinks = [
   { href: 'https://letterboxd.com/samm_loves_film/', label: 'Letterboxd', icon: Film },
-  { href: 'https://bsky.app/profile/samm-the-human/', label: 'Bluesky', icon: BlueskyIcon },
+  {
+    href: 'https://bsky.app/profile/samm-the-human.bsky.social/',
+    label: 'Bluesky',
+    icon: BlueskyIcon,
+  },
   { href: 'https://instagram.com/samm.the.human/', label: 'Instagram', icon: Instagram },
   { href: 'https://github.com/samm-the-dev/', label: 'GitHub', icon: Github },
 ];
