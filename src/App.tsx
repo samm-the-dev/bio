@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'sonner';
 import { Layout } from './components/Layout';
 import { HomePage } from './pages/HomePage';
@@ -13,6 +13,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
       <Toaster position="bottom-center" />

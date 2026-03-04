@@ -36,9 +36,8 @@ const VIEWPORTS = {
 // Routes to audit (add your app's routes here)
 const ROUTES = [
   { path: '/', name: 'Home' },
+  { path: '/about', name: 'About Me' },
   { path: '/projects', name: 'Projects' },
-  { path: '/about', name: 'About' },
-  { path: '/credits', name: 'Credits' },
 ];
 
 // ─── AUDIT LOGIC ─────────────────────────────────────────────

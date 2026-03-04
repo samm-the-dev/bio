@@ -165,11 +165,6 @@
     ]
   },
 
-  "credits": {
-    // The "About This Site" content now lives at the end of about.code.
-    // This section is for licensing and attribution only.
-  },
-
   // Social profile links shown on the home page.
   // Add or remove entries as needed. If you add a new platform, also add
   // its Lucide icon mapping in scripts/inject-content.mjs (socialIconMap).

@@ -15,6 +15,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { execSync } from 'child_process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
@@ -86,8 +87,8 @@ const injections = [
     file: 'src/components/Layout.tsx',
     transform(src) {
       src = src.replace(
-        /const GITHUB_URL = '.*?';/,
-        `const GITHUB_URL = '${content.site.githubUrl}';`,
+        /const (?:GITHUB_URL|REPO_URL) = '.*?';/,
+        `const REPO_URL = '${content.site.githubUrl}';`,
       );
       src = src.replace(
         /(<Link to="\/" className="[^"]*">)\s*\n?\s*.*?\s*\n?\s*(<\/Link>)/,
@@ -313,9 +314,12 @@ let changed = 0;
 for (const { file, transform } of injections) {
   const filepath = resolve(root, file);
   const before = readFileSync(filepath, 'utf-8');
-  const after = transform(before);
+  const raw = transform(before);
+  // Write, format, then compare against original to detect real changes
+  writeFileSync(filepath, raw);
+  execSync(`npx prettier --write "${filepath}"`, { cwd: root, stdio: 'ignore' });
+  const after = readFileSync(filepath, 'utf-8');
   if (after !== before) {
-    writeFileSync(filepath, after);
     console.log(`  Updated: ${file}`);
     changed++;
   } else {

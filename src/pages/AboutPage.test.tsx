@@ -6,7 +6,7 @@ import { AboutPage } from './AboutPage';
 describe('AboutPage', () => {
   it('renders the main heading', () => {
     render(<AboutPage />);
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('About');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('About Me');
   });
 
   it('renders all bio sections', () => {
