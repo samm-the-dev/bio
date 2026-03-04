@@ -32,8 +32,8 @@ export function AboutPage() {
             >
               Stomping Ground Comedy Theater
             </a>
-            . I regularly perform with ACT in a show called Goofs & Goblins, which is a D&D-themed
-            long-form show every second Tuesday of the month at{' '}
+            {'.'} I regularly perform with ACT in a show called Goofs & Goblins, which is a
+            D&D-themed long-form show every second Tuesday of the month at{' '}
             <a
               href="https://www.pocketsandwich.com/"
               target="_blank"
@@ -42,8 +42,7 @@ export function AboutPage() {
             >
               Pocket Sandwich Theatre
             </a>
-            . I also do some short form and am always looking for more opportunities to play and
-            learn.
+            {'.'}
           </p>
           <p className="mt-3 text-muted-foreground">
             I attended{' '}
@@ -94,7 +93,7 @@ export function AboutPage() {
             >
               Letterboxd
             </a>
-            . I'll be embedding some Letterboxd statistics and lists here soon.
+            {'.'} I'll be embedding some Letterboxd statistics and lists here soon.
           </p>
         </section>
 
@@ -116,7 +115,7 @@ export function AboutPage() {
             >
               D&D 5e
             </a>
-            ,{' '}
+            {','}{' '}
             <a
               href="https://paizo.com/pathfinder"
               target="_blank"
@@ -125,7 +124,7 @@ export function AboutPage() {
             >
               Pathfinder 2e
             </a>
-            , several{' '}
+            {','} several{' '}
             <a
               href="https://en.wikipedia.org/wiki/Powered_by_the_Apocalypse"
               target="_blank"
@@ -183,9 +182,9 @@ export function AboutPage() {
             >
               Claude AI
             </a>
-            . The vast majority of the prose was written by me, but I generally lean on Claude for
-            brainstorming, editing, and overcoming writer's block. It helps me be more productive
-            and creative, while preserving my authentic voice and vision.
+            {'.'} The vast majority of the prose was written by me, but I generally lean on Claude
+            for brainstorming, editing, and overcoming writer's block. It helps me be more
+            productive and creative, while preserving my authentic voice and vision.
           </p>
         </section>
       </div>
