@@ -1,0 +1,5 @@
+A tool for selecting improv warm-ups and exercises based on tags like 'connection', 'structure', 'heightening', and more.
+
+It features exercises from multiple sources (credited on the site), a session queue with timers, and fields for notes.
+
+I'm actively improving this; more concise exercise descriptions, better mobile scaling, and a feedback form are next.

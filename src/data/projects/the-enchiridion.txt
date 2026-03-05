@@ -1,0 +1,5 @@
+An Adventure Time catalog with a multi-theme system (8 character themes).
+
+AT is one of my favorite things on the planet, and for a while now I've wanted to build a proper episode guide. This project is meant to replace the fandom wiki (which is messy and rife with ads), and improve on it with transcript searching and other features.
+
+Stay tuned...
