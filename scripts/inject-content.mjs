@@ -193,14 +193,21 @@ ${introJsx}
   {
     file: 'src/pages/ProjectsPage.tsx',
     transform(_src) {
-      // Derive txt filename from repo URL (last path segment)
+      // Derive txt filename from repo URL (last path segment) or kebab-cased name
       function txtFilename(project) {
-        const repoName = project.repo.replace(/\/$/, '').split('/').pop();
-        return repoName;
+        if (project.repo) {
+          return project.repo.replace(/\/$/, '').split('/').pop();
+        }
+        return project.name.toLowerCase().replace(/\s+/g, '-');
       }
 
+      const allProjectLists = [
+        content.projects.code,
+        ...(content.projects.tabletop ? [content.projects.tabletop] : []),
+      ].flat();
+
       // Generate raw text imports
-      const txtImports = content.projects.code
+      const txtImports = allProjectLists
         .map((p) => {
           const filename = txtFilename(p);
           const varName = filename.replace(/-/g, '_') + 'Desc';

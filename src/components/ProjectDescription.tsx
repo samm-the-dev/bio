@@ -5,9 +5,8 @@ const LINK_RE = /\[([^\]]+)\]\(([^)]+)\)/g;
 function renderTextWithLinks(text: string) {
   const parts: ReactNode[] = [];
   let lastIndex = 0;
-  let match;
 
-  while ((match = LINK_RE.exec(text)) !== null) {
+  for (const match of text.matchAll(LINK_RE)) {
     if (match.index > lastIndex) {
       parts.push(text.slice(lastIndex, match.index));
     }
