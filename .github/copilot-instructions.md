@@ -74,3 +74,4 @@ Universal guidance for automated code reviews. Prioritize real bugs and security
 - TODOs or FIXMEs (these are intentional markers)
 - `console.log` in CLI scripts and build tools (use `console.debug` for temporary debugging in app code)
 - Magic numbers that are obvious in context (HTTP status codes, etc.)
+- Missing URL/href sanitization on author-controlled content — this is a static personal site with no user-generated content; all text and links are hand-authored
