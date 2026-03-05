@@ -1,3 +1,3 @@
 A [personal kanban](https://personalkanban.com/learn/personal-kanban/) app developed using ADHD research. It features optional Google Drive integration for storage/backup, as well as restore points and export/import functionality.
 
-test change
+I have a big refactor planned for this, and some ideas for turning it into a coordinator for various specific task/habit apps. Let me know if you're using it and/or interested in testing the larger ecosystem of apps I have in mind.
