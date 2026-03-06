@@ -193,14 +193,31 @@ ${introJsx}
   {
     file: 'src/pages/ProjectsPage.tsx',
     transform(_src) {
-      const projectCard = ({ name, description, tech, link, repo }) => {
-        const paragraphs = toParagraphs(description);
-        const pTags = paragraphs
-          .map((p, i) => {
-            const mt = i === 0 ? 'mt-1' : 'mt-3';
-            return `            <p className="${mt} text-sm text-muted-foreground">${mdLinksToJsx(p)}</p>`;
-          })
-          .join('\n');
+      // Derive txt filename from repo URL (last path segment) or kebab-cased name
+      function txtFilename(project) {
+        if (project.repo) {
+          return project.repo.replace(/\/$/, '').split('/').pop();
+        }
+        return project.name.toLowerCase().replace(/\s+/g, '-');
+      }
+
+      const allProjectLists = [
+        content.projects.code,
+        ...(content.projects.tabletop ? [content.projects.tabletop] : []),
+      ].flat();
+
+      // Generate raw text imports
+      const txtImports = allProjectLists
+        .map((p) => {
+          const filename = txtFilename(p);
+          const varName = filename.replace(/-/g, '_') + 'Desc';
+          return `import ${varName} from '@/data/projects/${filename}.txt?raw';`;
+        })
+        .join('\n');
+
+      const projectCard = ({ name, tech, link, repo }) => {
+        const filename = txtFilename({ name, repo });
+        const varName = filename.replace(/-/g, '_') + 'Desc';
         const techLine = tech?.length
           ? `\n            <p className="mt-2 text-xs text-muted-foreground">${tech.join(' · ')}</p>`
           : '';
@@ -223,7 +240,7 @@ ${introJsx}
 
         return `          <article className="rounded-lg border border-border bg-card p-4">
             <h3 className="font-semibold text-card-foreground">${name}</h3>${linksRow}
-${pTags}${techLine}
+            <ProjectDescription text={${varName}} />${techLine}
           </article>`;
       };
 
@@ -249,6 +266,8 @@ ${content.projects.tabletop.map(projectCard).join('\n')}
         : '';
 
       return `${iconImport}import { PageHeader } from '@/components/PageHeader';
+import { ProjectDescription } from '@/components/ProjectDescription';
+${txtImports}
 
 export function ProjectsPage() {
   return (
