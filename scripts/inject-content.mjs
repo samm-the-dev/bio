@@ -216,7 +216,7 @@ ${introJsx}
         .join('\n');
 
       const projectCard = ({ name, tech, link, repo }) => {
-        const filename = txtFilename({ repo });
+        const filename = txtFilename({ name, repo });
         const varName = filename.replace(/-/g, '_') + 'Desc';
         const techLine = tech?.length
           ? `\n            <p className="mt-2 text-xs text-muted-foreground">${tech.join(' · ')}</p>`
