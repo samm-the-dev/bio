@@ -3,8 +3,8 @@ import { Moon, Share2, Sun } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTheme } from '@/hooks/useTheme';
 import { cn } from '@/lib/utils';
-
-const REPO_URL = 'https://github.com/samm-the-dev/bio';
+import { useSanityQuery } from '@/hooks/useSanityQuery';
+import { SITE_SETTINGS_QUERY, type SiteSettings } from '@/lib/queries';
 
 const navItems = [
   { to: '/', label: 'Home' },
@@ -34,6 +34,10 @@ async function handleShare() {
 
 export function Layout() {
   const { theme, toggleTheme } = useTheme();
+  const { data: settings } = useSanityQuery<SiteSettings>(SITE_SETTINGS_QUERY);
+
+  const siteName = settings?.name ?? 'Sam Marsh';
+  const repoUrl = settings?.repoUrl ?? '';
 
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
@@ -43,10 +47,10 @@ export function Layout() {
             <Link
               to="/"
               className="text-xl font-bold text-primary hover:text-primary-hover"
-              aria-label="Sam Marsh home"
+              aria-label={`${siteName} home`}
             >
               <span className="sm:hidden">SM</span>
-              <span className="hidden sm:inline">Sam Marsh</span>
+              <span className="hidden sm:inline">{siteName}</span>
             </Link>
             <nav className="flex items-center gap-4">
               {navItems.map(({ to, label }) => (
@@ -92,14 +96,16 @@ export function Layout() {
 
       <footer className="mt-auto border-t border-border">
         <div className="container mx-auto flex items-center justify-center px-4 py-6 text-sm text-muted-foreground">
-          <a
-            href={REPO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-foreground"
-          >
-            Source on GitHub
-          </a>
+          {repoUrl && (
+            <a
+              href={repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-foreground"
+            >
+              Source on GitHub
+            </a>
+          )}
         </div>
       </footer>
     </div>

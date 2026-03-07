@@ -1,7 +1,12 @@
 import { screen } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
+import { mockSettings } from '@/test/sanity-mock';
 import { AboutPage } from './AboutPage';
+
+vi.mock('@/hooks/useSanityQuery', () => ({
+  useSanityQuery: () => ({ data: mockSettings, loading: false, error: null }),
+}));
 
 describe('AboutPage', () => {
   it('renders the main heading', () => {

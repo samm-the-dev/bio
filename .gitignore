@@ -7,4 +7,9 @@ dist/
 *.tsbuildinfo
 .vite
 axe-audit.json
+.vercel
 .DS_Store
+
+# Sanity Studio
+studio/.sanity
+studio/dist

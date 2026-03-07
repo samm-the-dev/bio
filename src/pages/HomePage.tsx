@@ -2,43 +2,44 @@ import { Code, User } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { SectionCard } from '@/components/SectionCard';
 import { SocialLinks } from '@/components/SocialLinks';
+import { PortableText } from '@/components/PortableText';
+import { useSanityQuery } from '@/hooks/useSanityQuery';
+import { SITE_SETTINGS_QUERY, type SiteSettings } from '@/lib/queries';
 
 export function HomePage() {
+  const { data: settings, loading } = useSanityQuery<SiteSettings>(SITE_SETTINGS_QUERY);
+
+  if (loading || !settings) return null;
+
   return (
     <div className="mx-auto max-w-2xl text-center">
-      <PageHeader title="Sam Marsh" descriptor="Improv, Movies, TTRPGs, Code" />
+      <PageHeader title={settings.name} descriptor={settings.descriptor} />
 
       <blockquote className="mb-8 text-sm italic text-muted-foreground">
-        "If we want the rewards of being loved, we have to submit to the mortifying ordeal of being
-        known."
+        {settings.tagline}
         <footer className="mt-1 text-xs text-muted-foreground/70">
           &mdash;{' '}
-          <a
-            href="https://archive.nytimes.com/opinionator.blogs.nytimes.com/2013/06/15/i-know-what-you-think-of-me/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-foreground"
-          >
-            Tim Kreider
-          </a>
+          {settings.taglineUrl ? (
+            <a
+              href={settings.taglineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-foreground"
+            >
+              {settings.taglineAttribution}
+            </a>
+          ) : (
+            settings.taglineAttribution
+          )}
         </footer>
       </blockquote>
 
       <h2 className="mb-4 text-xl font-semibold">Welcome!</h2>
       <div className="mb-8 space-y-3">
-        <p className="text-muted-foreground">
-          I enjoy creative pursuits and my ADHD likes being involved.
-        </p>
-        <p className="text-muted-foreground">
-          I love finding the story in everything and engaging in play wherever I can, especially
-          when it connects me to others.
-        </p>
-        <p className="text-muted-foreground">
-          This is where I share what I'm working on and what I care about.
-        </p>
+        <PortableText value={settings.intro} />
       </div>
 
-      <SocialLinks />
+      <SocialLinks links={settings.socialLinks} />
 
       <section className="mt-12">
         <h2 className="mb-4 text-xl font-semibold">Explore</h2>
@@ -47,13 +48,13 @@ export function HomePage() {
             to="/about"
             icon={User}
             title="About Me"
-            description="My improv journey, movie obsession, TTRPG experience, and how I code."
+            description={settings.aboutTeaser}
           />
           <SectionCard
             to="/projects"
             icon={Code}
             title="Projects"
-            description="Web apps, TTRPG systems and tools, and more on the way."
+            description={settings.projectsTeaser}
           />
         </div>
       </section>
