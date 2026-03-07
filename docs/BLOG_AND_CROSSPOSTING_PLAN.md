@@ -30,7 +30,7 @@ settings and projects.
 - [x] CI runs on blog post PRs (paths-ignore narrowed to `docs/**`)
 - [ ] RSS feed generation (`/feed.xml`)
 - [ ] Per-post OG meta tags for social previews
-- [ ] Blog post tests
+- [x] Blog post tests
 
 ## Phase 3 — Cross-Posting
 
