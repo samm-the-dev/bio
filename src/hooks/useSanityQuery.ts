@@ -1,7 +1,19 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useSyncExternalStore } from 'react';
 import { sanityClient } from '@/lib/sanity';
 
-const cache = new Map<string, unknown>();
+type CacheEntry<T> = { data: T; error: null } | { data: null; error: string };
+
+const cache = new Map<string, CacheEntry<unknown>>();
+const listeners = new Set<() => void>();
+
+function subscribe(cb: () => void) {
+  listeners.add(cb);
+  return () => listeners.delete(cb);
+}
+
+function notify() {
+  listeners.forEach((cb) => cb());
+}
 
 export function useSanityQuery<T>(
   query: string,
@@ -12,24 +24,10 @@ export function useSanityQuery<T>(
   error: string | null;
 } {
   const cacheKey = query + JSON.stringify(params ?? {});
-  const prevKeyRef = useRef(cacheKey);
-  const [data, setData] = useState<T | null>((cache.get(cacheKey) as T) ?? null);
-  const [loading, setLoading] = useState(!cache.has(cacheKey));
-  const [error, setError] = useState<string | null>(null);
 
-  if (prevKeyRef.current !== cacheKey) {
-    prevKeyRef.current = cacheKey;
-    const cached = cache.get(cacheKey) as T | undefined;
-    if (cached !== undefined) {
-      setData(cached);
-      setLoading(false);
-      setError(null);
-    } else {
-      setData(null);
-      setLoading(true);
-      setError(null);
-    }
-  }
+  const entry = useSyncExternalStore(subscribe, () => cache.get(cacheKey)) as
+    | CacheEntry<T>
+    | undefined;
 
   useEffect(() => {
     if (cache.has(cacheKey)) return;
@@ -39,14 +37,16 @@ export function useSanityQuery<T>(
       .fetch<T>(query, params ?? {})
       .then((result) => {
         if (cancelled) return;
-        cache.set(cacheKey, result);
-        setData(result);
-        setLoading(false);
+        cache.set(cacheKey, { data: result, error: null });
+        notify();
       })
       .catch((err: unknown) => {
         if (cancelled) return;
-        setError(err instanceof Error ? err.message : 'Failed to fetch content');
-        setLoading(false);
+        cache.set(cacheKey, {
+          data: null,
+          error: err instanceof Error ? err.message : 'Failed to fetch content',
+        });
+        notify();
       });
 
     return () => {
@@ -54,5 +54,6 @@ export function useSanityQuery<T>(
     };
   }, [cacheKey]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return { data, loading, error };
+  if (!entry) return { data: null, loading: true, error: null };
+  return { data: entry.data as T | null, loading: false, error: entry.error };
 }
