@@ -28,8 +28,8 @@ settings and projects.
 - [x] Scaffolding script: `npm run new-post "Title"`
 - [x] Claude skill: `/publish-post` for metadata generation + timestamp
 - [x] CI runs on blog post PRs (paths-ignore narrowed to `docs/**`)
-- [ ] RSS feed generation (`/feed.xml`)
-- [ ] Per-post OG meta tags for social previews
+- [x] RSS feed generation (`/feed.xml`)
+- [x] Per-post OG meta tags for social previews
 - [x] Blog post tests
 
 ## Phase 3 — Cross-Posting
@@ -92,8 +92,8 @@ LINKEDIN_AUTHOR_ID=xxx
 
 ### Tasks
 
-- [ ] Set up Bluesky app password
-- [ ] Build or configure cross-posting (serverless or Pipedream/Zapier)
+- [x] Set up Bluesky app password + add repo secrets (BLUESKY_HANDLE, BLUESKY_APP_PASSWORD)
+- [x] Build cross-posting script (GHA job, `@atproto/api`, `.crossposted.json` tracking)
 - [ ] Test with a real blog post
 - [ ] Add LinkedIn integration
 
