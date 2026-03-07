@@ -38,6 +38,7 @@ export const project = defineType({
       type: 'array',
       of: [{...richTextBlock}],
       description: '1-2 short paragraphs. What it does, why it exists.',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'tech',
@@ -84,6 +85,7 @@ export const project = defineType({
         ],
       },
       initialValue: 'active',
+      validation: (rule) => rule.required(),
     }),
   ],
   orderings: [

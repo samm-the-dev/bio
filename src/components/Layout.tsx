@@ -16,7 +16,7 @@ async function handleShare() {
 
   if (navigator.share) {
     try {
-      await navigator.share({ title: 'Sam Marsh', url });
+      await navigator.share({ title: settings.name, url });
       return;
     } catch (error: unknown) {
       if (error instanceof DOMException && error.name === 'AbortError') return;
