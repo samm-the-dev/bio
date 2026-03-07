@@ -92,8 +92,8 @@ LINKEDIN_AUTHOR_ID=xxx
 
 ### Tasks
 
-- [ ] Set up Bluesky app password
-- [ ] Build or configure cross-posting (serverless or Pipedream/Zapier)
+- [x] Set up Bluesky app password + add repo secrets (BLUESKY_HANDLE, BLUESKY_APP_PASSWORD)
+- [x] Build cross-posting script (GHA job, `@atproto/api`, `.crossposted.json` tracking)
 - [ ] Test with a real blog post
 - [ ] Add LinkedIn integration
 
