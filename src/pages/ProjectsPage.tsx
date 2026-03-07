@@ -1,8 +1,8 @@
 import { ExternalLink, Github } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { PortableText } from '@/components/PortableText';
-import { useSanityQuery } from '@/hooks/useSanityQuery';
-import { PROJECTS_QUERY, type Project } from '@/lib/queries';
+import { projects } from '@/data/projects';
+import type { Project } from '@/lib/queries';
 
 function hostFromUrl(url: string): string {
   try {
@@ -12,27 +12,10 @@ function hostFromUrl(url: string): string {
   }
 }
 
+const codeProjects = projects.filter((p) => p.category === 'code');
+const tabletopProjects = projects.filter((p) => p.category === 'tabletop');
+
 export function ProjectsPage() {
-  const { data: projects, loading, error } = useSanityQuery<Project[]>(PROJECTS_QUERY);
-
-  if (loading)
-    return (
-      <div className="mx-auto max-w-2xl">
-        <PageHeader title="Projects" />
-        <p className="text-sm text-muted-foreground">Loading...</p>
-      </div>
-    );
-  if (error || !projects)
-    return (
-      <div className="mx-auto max-w-2xl">
-        <PageHeader title="Projects" />
-        <p className="text-sm text-destructive">Failed to load projects.</p>
-      </div>
-    );
-
-  const codeProjects = projects.filter((p) => p.category === 'code');
-  const tabletopProjects = projects.filter((p) => p.category === 'tabletop');
-
   return (
     <div className="mx-auto max-w-2xl">
       <PageHeader title="Projects" />

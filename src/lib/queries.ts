@@ -29,16 +29,3 @@ export interface Project {
   displayOrder: number;
   status: 'active' | 'paused' | 'concept' | 'complete';
 }
-
-export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
-  name, descriptor, githubUrl, repoUrl,
-  tagline, taglineAttribution, taglineUrl,
-  intro, projectsTeaser, aboutTeaser,
-  aboutImprov, aboutMovies, aboutTtrpgs, aboutCode,
-  "socialLinks": coalesce(socialLinks[]{ label, href }, [])
-}`;
-
-export const PROJECTS_QUERY = `*[_type == "project"] | order(displayOrder asc){
-  name, "slug": slug.current, category,
-  description, tech, link, repo, displayOrder, status
-}`;

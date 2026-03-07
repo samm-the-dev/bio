@@ -8,8 +8,9 @@
     "prepare": "husky",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "content": "node scripts/fetch-content.mjs",
+    "dev": "npm run content && vite",
+    "build": "npm run content && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
@@ -18,7 +19,6 @@
   },
   "dependencies": {
     "@portabletext/react": "^6.0.3",
-    "@sanity/client": "^7.16.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.563.0",
@@ -30,6 +30,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@sanity/client": "^7.16.0",
     "@eslint/js": "^9.39.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",

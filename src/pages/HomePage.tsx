@@ -3,16 +3,9 @@ import { PageHeader } from '@/components/PageHeader';
 import { SectionCard } from '@/components/SectionCard';
 import { SocialLinks } from '@/components/SocialLinks';
 import { PortableText } from '@/components/PortableText';
-import { useSanityQuery } from '@/hooks/useSanityQuery';
-import { SITE_SETTINGS_QUERY, type SiteSettings } from '@/lib/queries';
+import { settings } from '@/data/settings';
 
 export function HomePage() {
-  const { data: settings, loading, error } = useSanityQuery<SiteSettings>(SITE_SETTINGS_QUERY);
-
-  if (loading) return <p className="text-center text-sm text-muted-foreground">Loading...</p>;
-  if (error || !settings)
-    return <p className="text-center text-sm text-destructive">Failed to load content.</p>;
-
   return (
     <div className="mx-auto max-w-2xl text-center">
       <PageHeader title={settings.name} descriptor={settings.descriptor} />

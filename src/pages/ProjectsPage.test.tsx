@@ -4,9 +4,7 @@ import { renderWithRouter } from '@/test/utils';
 import { mockProjects } from '@/test/sanity-mock';
 import { ProjectsPage } from './ProjectsPage';
 
-vi.mock('@/hooks/useSanityQuery', () => ({
-  useSanityQuery: () => ({ data: mockProjects, loading: false, error: null }),
-}));
+vi.mock('@/data/projects', () => ({ projects: mockProjects }));
 
 describe('ProjectsPage', () => {
   it('renders the main heading', () => {

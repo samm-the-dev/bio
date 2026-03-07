@@ -11,7 +11,6 @@ on:
       - 'LICENSE*'
       - '.gitignore'
       - '.vscode/**'
-      - 'src/data/projects/*.txt'
 
   push:
     branches: ['main']

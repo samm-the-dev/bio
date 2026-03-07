@@ -3,8 +3,7 @@ import { Moon, Share2, Sun } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTheme } from '@/hooks/useTheme';
 import { cn } from '@/lib/utils';
-import { useSanityQuery } from '@/hooks/useSanityQuery';
-import { SITE_SETTINGS_QUERY, type SiteSettings } from '@/lib/queries';
+import { settings } from '@/data/settings';
 
 const navItems = [
   { to: '/', label: 'Home' },
@@ -34,10 +33,6 @@ async function handleShare() {
 
 export function Layout() {
   const { theme, toggleTheme } = useTheme();
-  const { data: settings } = useSanityQuery<SiteSettings>(SITE_SETTINGS_QUERY);
-
-  const siteName = settings?.name ?? 'Sam Marsh';
-  const repoUrl = settings?.repoUrl ?? '';
 
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
@@ -47,10 +42,10 @@ export function Layout() {
             <Link
               to="/"
               className="text-xl font-bold text-primary hover:text-primary-hover"
-              aria-label={`${siteName} home`}
+              aria-label={`${settings.name} home`}
             >
               <span className="sm:hidden">SM</span>
-              <span className="hidden sm:inline">{siteName}</span>
+              <span className="hidden sm:inline">{settings.name}</span>
             </Link>
             <nav className="flex items-center gap-4">
               {navItems.map(({ to, label }) => (
@@ -96,9 +91,9 @@ export function Layout() {
 
       <footer className="mt-auto border-t border-border">
         <div className="container mx-auto flex items-center justify-center px-4 py-6 text-sm text-muted-foreground">
-          {repoUrl && (
+          {settings.repoUrl && (
             <a
-              href={repoUrl}
+              href={settings.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-foreground"

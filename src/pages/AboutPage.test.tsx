@@ -4,9 +4,7 @@ import { render } from '@testing-library/react';
 import { mockSettings } from '@/test/sanity-mock';
 import { AboutPage } from './AboutPage';
 
-vi.mock('@/hooks/useSanityQuery', () => ({
-  useSanityQuery: () => ({ data: mockSettings, loading: false, error: null }),
-}));
+vi.mock('@/data/settings', () => ({ settings: mockSettings }));
 
 describe('AboutPage', () => {
   it('renders the main heading', () => {

@@ -10,6 +10,10 @@ axe-audit.json
 .vercel
 .DS_Store
 
+# Generated content (build-time fetch from Sanity)
+src/data/settings.ts
+src/data/projects.ts
+
 # Sanity Studio
 studio/.sanity
 studio/dist
