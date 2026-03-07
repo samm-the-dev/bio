@@ -13,8 +13,6 @@ import matter from 'gray-matter';
 
 const SITE_URL = 'https://samm.bio';
 const TRACKING_FILE = '.crossposted.json';
-const BLUESKY_MAX_LENGTH = 300;
-
 const handle = process.env.BLUESKY_HANDLE;
 const password = process.env.BLUESKY_APP_PASSWORD;
 const dryRun = process.env.DRY_RUN === '1';
@@ -62,14 +60,7 @@ await agent.login({ identifier: handle, password });
 
 for (const post of newPosts) {
   const postUrl = `${SITE_URL}/blog/${post.slug}`;
-  const prefix = `New blog post: ${post.title}\n\n`;
-  const suffix = `\n\n${postUrl}`;
-  const maxExcerpt = BLUESKY_MAX_LENGTH - prefix.length - suffix.length;
-  const excerpt =
-    post.excerpt.length > maxExcerpt
-      ? post.excerpt.slice(0, maxExcerpt - 1) + '\u2026'
-      : post.excerpt;
-  const text = `${prefix}${excerpt}${suffix}`;
+  const text = `New blog post: ${post.title}\n\n${postUrl}`;
 
   // Build rich text to detect link facets
   const rt = new RichText({ text });
