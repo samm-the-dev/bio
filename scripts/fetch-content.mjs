@@ -105,4 +105,4 @@ writeFileSync(
   `${HEADER}import type { BlogPost } from '@/lib/queries';\n\nexport const posts: BlogPost[] = ${JSON.stringify(posts, null, 2)};\n`,
 );
 
-console.log('Content fetched from Sanity and written to src/data/.');
+console.log('Content fetched and written to src/data/.');

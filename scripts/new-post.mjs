@@ -21,8 +21,9 @@ if (existsSync(path)) {
   process.exit(1);
 }
 
+const safeTitle = title.replace(/"/g, '\\"');
 const frontmatter = `---
-title: "${title}"
+title: "${safeTitle}"
 slug: ${slug}
 excerpt: ""
 publishedAt:

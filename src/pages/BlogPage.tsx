@@ -1,16 +1,7 @@
 import { Link } from 'react-router-dom';
 import { PageHeader } from '@/components/PageHeader';
 import { posts } from '@/data/posts';
-
-function formatDate(iso: string): string {
-  return new Date(iso).toLocaleString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-  });
-}
+import { formatDate } from '@/lib/formatDate';
 
 export function BlogPage() {
   return (
@@ -28,7 +19,10 @@ export function BlogPage() {
                   {post.title}
                 </h2>
               </Link>
-              <time className="mt-1 block text-xs text-muted-foreground">
+              <time
+                className="mt-1 block text-xs text-muted-foreground"
+                dateTime={post.publishedAt}
+              >
                 {formatDate(post.publishedAt)}
               </time>
               <p className="mt-2 text-sm text-muted-foreground">{post.excerpt}</p>

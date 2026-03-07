@@ -1,16 +1,7 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { posts } from '@/data/posts';
-
-function formatDate(iso: string): string {
-  return new Date(iso).toLocaleString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: '2-digit',
-  });
-}
+import { formatDate } from '@/lib/formatDate';
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -30,14 +21,16 @@ export function BlogPostPage() {
 
       <header className="mb-8">
         <h1 className="mb-2 text-3xl font-bold">{post.title}</h1>
-        <time className="text-sm text-muted-foreground">{formatDate(post.publishedAt)}</time>
+        <time className="text-sm text-muted-foreground" dateTime={post.publishedAt}>
+          {formatDate(post.publishedAt)}
+        </time>
         {post.tags && post.tags.length > 0 && (
           <p className="mt-1 text-xs text-muted-foreground">{post.tags.join(' \u00B7 ')}</p>
         )}
       </header>
 
       <div
-        className="prose prose-invert max-w-none prose-headings:mb-2 prose-headings:mt-6 prose-headings:font-semibold prose-headings:text-foreground prose-p:my-3 prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary-hover prose-blockquote:my-3 prose-blockquote:border-border prose-blockquote:text-muted-foreground prose-strong:text-foreground prose-code:text-foreground prose-pre:my-3 prose-ol:my-2 prose-ul:my-2 prose-li:my-0 prose-li:text-muted-foreground prose-hr:my-4"
+        className="prose max-w-none dark:prose-invert prose-headings:mb-2 prose-headings:mt-6 prose-headings:font-semibold prose-headings:text-foreground prose-p:my-3 prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary-hover prose-blockquote:my-3 prose-blockquote:border-border prose-blockquote:text-muted-foreground prose-strong:text-foreground prose-code:text-foreground prose-pre:my-3 prose-ol:my-2 prose-ul:my-2 prose-li:my-0 prose-li:text-muted-foreground prose-hr:my-4"
         dangerouslySetInnerHTML={{ __html: post.body }}
       />
 
