@@ -29,3 +29,13 @@ export interface Project {
   displayOrder: number;
   status: 'active' | 'paused' | 'concept' | 'complete';
 }
+
+export interface BlogPost {
+  title: string;
+  slug: string;
+  excerpt: string;
+  body: string;
+  publishedAt: string;
+  tags: string[] | null;
+  relatedProjects: { name: string; slug: string }[] | null;
+}

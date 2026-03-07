@@ -13,6 +13,7 @@ axe-audit.json
 # Generated content (build-time fetch from Sanity)
 src/data/settings.ts
 src/data/projects.ts
+src/data/posts.ts
 
 # Sanity Studio
 studio/.sanity
