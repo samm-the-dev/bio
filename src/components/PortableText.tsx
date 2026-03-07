@@ -4,7 +4,7 @@ import {
   type PortableTextBlock,
 } from '@portabletext/react';
 
-const ALLOWED_PROTOCOLS = /^(https?:\/\/|\/)/;
+const ALLOWED_PROTOCOLS = /^(https?:\/\/|\/(?!\/))/;
 
 const components: PortableTextComponents = {
   marks: {

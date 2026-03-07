@@ -19,21 +19,23 @@ export function HomePage() {
 
       <blockquote className="mb-8 text-sm italic text-muted-foreground">
         {settings.tagline}
-        <footer className="mt-1 text-xs text-muted-foreground/70">
-          &mdash;{' '}
-          {settings.taglineUrl ? (
-            <a
-              href={settings.taglineUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-foreground"
-            >
-              {settings.taglineAttribution}
-            </a>
-          ) : (
-            settings.taglineAttribution
-          )}
-        </footer>
+        {settings.taglineAttribution && (
+          <footer className="mt-1 text-xs text-muted-foreground/70">
+            &mdash;{' '}
+            {settings.taglineUrl ? (
+              <a
+                href={settings.taglineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-foreground"
+              >
+                {settings.taglineAttribution}
+              </a>
+            ) : (
+              settings.taglineAttribution
+            )}
+          </footer>
+        )}
       </blockquote>
 
       <h2 className="mb-4 text-xl font-semibold">Welcome!</h2>

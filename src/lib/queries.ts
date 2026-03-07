@@ -35,7 +35,7 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
   tagline, taglineAttribution, taglineUrl,
   intro, projectsTeaser, aboutTeaser,
   aboutImprov, aboutMovies, aboutTtrpgs, aboutCode,
-  socialLinks[]{ label, href }
+  "socialLinks": coalesce(socialLinks[]{ label, href }, [])
 }`;
 
 export const PROJECTS_QUERY = `*[_type == "project"] | order(displayOrder asc){
