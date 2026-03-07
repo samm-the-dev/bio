@@ -83,8 +83,7 @@ for (const post of newPosts) {
 
   console.log(`Posted: "${post.title}"`);
   posted.push(post.slug);
+  writeFileSync(TRACKING_FILE, JSON.stringify(posted, null, 2) + '\n');
 }
 
-// Save tracking state
-writeFileSync(TRACKING_FILE, JSON.stringify(posted, null, 2) + '\n');
 console.log('Tracking file updated.');
