@@ -1,11 +1,14 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { posts } from '@/data/posts';
 import { formatDate } from '@/lib/formatDate';
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = posts.find((p) => p.slug === slug);
+
+  useDocumentTitle(post?.title);
 
   if (!post) return <Navigate to="/blog" replace />;
 

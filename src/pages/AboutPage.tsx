@@ -1,5 +1,6 @@
 import { PageHeader } from '@/components/PageHeader';
 import { PortableText } from '@/components/PortableText';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { settings } from '@/data/settings';
 
 const sections = [
@@ -10,6 +11,8 @@ const sections = [
 ];
 
 export function AboutPage() {
+  useDocumentTitle('About Me');
+
   return (
     <div className="mx-auto max-w-2xl">
       <PageHeader title="About Me" />

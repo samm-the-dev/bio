@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { PageHeader } from '@/components/PageHeader';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { posts } from '@/data/posts';
 import { formatDate } from '@/lib/formatDate';
 
 export function BlogPage() {
+  useDocumentTitle('ADHDev');
+
   return (
     <div className="mx-auto max-w-2xl">
       <PageHeader title="ADHDev" descriptor="My scatterbrained dev journey with Claude Code" />

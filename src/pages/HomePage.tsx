@@ -3,9 +3,11 @@ import { PageHeader } from '@/components/PageHeader';
 import { SectionCard } from '@/components/SectionCard';
 import { SocialLinks } from '@/components/SocialLinks';
 import { PortableText } from '@/components/PortableText';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { settings } from '@/data/settings';
 
 export function HomePage() {
+  useDocumentTitle();
   return (
     <div className="mx-auto max-w-2xl text-center">
       <PageHeader title={settings.name} descriptor={settings.descriptor} />

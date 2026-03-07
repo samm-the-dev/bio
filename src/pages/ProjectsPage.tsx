@@ -1,6 +1,7 @@
 import { ExternalLink, Github } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { PortableText } from '@/components/PortableText';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { projects } from '@/data/projects';
 import type { Project } from '@/lib/queries';
 
@@ -16,6 +17,8 @@ const codeProjects = projects.filter((p) => p.category === 'code');
 const tabletopProjects = projects.filter((p) => p.category === 'tabletop');
 
 export function ProjectsPage() {
+  useDocumentTitle('Projects');
+
   return (
     <div className="mx-auto max-w-2xl">
       <PageHeader title="Projects" />
