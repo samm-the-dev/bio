@@ -1,6 +1,6 @@
 # Personal Site
 
-@.toolbox/templates/ai-context/CLAUDE.md
+@.toolbox/ai-context/CLAUDE.md
 
 ## Project-Specific Context
 
@@ -22,11 +22,11 @@ for voice guidelines.
 
 ### Key Directories
 
-| Directory | Contents |
-|---|---|
-| `src/pages/` | Route-level page components (Home, Projects, About) |
-| `src/components/` | Shared UI components |
-| `docs/` | Planning docs (structure, content plan, decisions, assets) |
+| Directory         | Contents                                                   |
+| ----------------- | ---------------------------------------------------------- |
+| `src/pages/`      | Route-level page components (Home, Projects, About)        |
+| `src/components/` | Shared UI components                                       |
+| `docs/`           | Planning docs (structure, content plan, decisions, assets) |
 
 ### Social Profiles
 
