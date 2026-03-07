@@ -1,5 +1,0 @@
-A speaker diarization pipeline which generates voice profiles from audio samples, then uses them in conjunction with Claude Vision to validate and generate transcripts.
-
-This was based on a repository of transcripts that I believe was scraped from the fan wiki. I wanted to fill out the catalog of transcripts, get them into a consistent format, and use them for The Enchiridion.
-
-This is easily the most technically complex solo project I've done, and I'm still working on it. Once it's done, I plan to make it generic for use with any show.

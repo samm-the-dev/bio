@@ -3,8 +3,7 @@ import { Moon, Share2, Sun } from 'lucide-react';
 import { toast } from 'sonner';
 import { useTheme } from '@/hooks/useTheme';
 import { cn } from '@/lib/utils';
-
-const REPO_URL = 'https://github.com/samm-the-dev/bio';
+import { settings } from '@/data/settings';
 
 const navItems = [
   { to: '/', label: 'Home' },
@@ -17,7 +16,7 @@ async function handleShare() {
 
   if (navigator.share) {
     try {
-      await navigator.share({ title: 'Sam Marsh', url });
+      await navigator.share({ title: settings.name, url });
       return;
     } catch (error: unknown) {
       if (error instanceof DOMException && error.name === 'AbortError') return;
@@ -43,10 +42,10 @@ export function Layout() {
             <Link
               to="/"
               className="text-xl font-bold text-primary hover:text-primary-hover"
-              aria-label="Sam Marsh home"
+              aria-label={`${settings.name} home`}
             >
               <span className="sm:hidden">SM</span>
-              <span className="hidden sm:inline">Sam Marsh</span>
+              <span className="hidden sm:inline">{settings.name}</span>
             </Link>
             <nav className="flex items-center gap-4">
               {navItems.map(({ to, label }) => (
@@ -92,14 +91,16 @@ export function Layout() {
 
       <footer className="mt-auto border-t border-border">
         <div className="container mx-auto flex items-center justify-center px-4 py-6 text-sm text-muted-foreground">
-          <a
-            href={REPO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-foreground"
-          >
-            Source on GitHub
-          </a>
+          {settings.repoUrl && (
+            <a
+              href={settings.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-foreground"
+            >
+              Source on GitHub
+            </a>
+          )}
         </div>
       </footer>
     </div>

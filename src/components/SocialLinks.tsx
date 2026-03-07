@@ -1,4 +1,4 @@
-import { Film, Instagram, Github } from 'lucide-react';
+import { Film, Instagram, Github, type LucideIcon } from 'lucide-react';
 
 function BlueskyIcon({ className }: { className?: string }) {
   return (
@@ -8,29 +8,38 @@ function BlueskyIcon({ className }: { className?: string }) {
   );
 }
 
-const socialLinks = [
-  { href: 'https://letterboxd.com/samm_loves_film/', label: 'Letterboxd', icon: Film },
-  { href: 'https://bsky.app/profile/samm-the-human.online/', label: 'Bluesky', icon: BlueskyIcon },
-  { href: 'https://instagram.com/samm.the.human/', label: 'Instagram', icon: Instagram },
-  { href: 'https://github.com/samm-the-dev/', label: 'GitHub', icon: Github },
-];
+type IconComponent = LucideIcon | typeof BlueskyIcon;
 
-export function SocialLinks() {
+const iconMap: Record<string, IconComponent> = {
+  Letterboxd: Film,
+  Bluesky: BlueskyIcon,
+  Instagram: Instagram,
+  GitHub: Github,
+};
+
+interface SocialLinksProps {
+  links: { label: string; href: string }[];
+}
+
+export function SocialLinks({ links }: SocialLinksProps) {
   return (
     <nav aria-label="Social profiles" className="flex flex-wrap items-center justify-center gap-4">
-      {socialLinks.map(({ href, label, icon: Icon }) => (
-        <a
-          key={label}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-          aria-label={label}
-        >
-          <Icon className="h-5 w-5 shrink-0" />
-          <span>{label}</span>
-        </a>
-      ))}
+      {links.map(({ href, label }) => {
+        const Icon = iconMap[label];
+        return (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
+            aria-label={label}
+          >
+            {Icon && <Icon className="h-5 w-5 shrink-0" />}
+            <span>{label}</span>
+          </a>
+        );
+      })}
     </nav>
   );
 }

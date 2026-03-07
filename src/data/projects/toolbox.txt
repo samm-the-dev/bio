@@ -1,1 +1,0 @@
-A library of templates and tools for enhancing my AI-assisted project development, distributed to my projects via Git submodule.
