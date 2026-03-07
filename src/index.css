@@ -87,3 +87,54 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Blog prose overrides to match VS Code markdown preview */
+@layer components {
+  .prose h1 {
+    font-size: 2em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+  .prose h2 {
+    font-size: 1.5em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+  .prose h3 {
+    font-size: 1.17em;
+  }
+  .prose blockquote {
+    font-style: normal;
+  }
+  .prose blockquote p::before,
+  .prose blockquote p::after {
+    content: none;
+  }
+  .prose :not(pre) > code {
+    background: hsl(var(--muted));
+    padding: 0.2em 0.4em;
+    border-radius: 0.25rem;
+    font-size: 0.85em;
+    font-weight: normal;
+  }
+  .prose :not(pre) > code::before,
+  .prose :not(pre) > code::after {
+    content: none;
+  }
+  .prose pre {
+    padding: 0;
+    background: transparent;
+  }
+  .prose .shiki {
+    padding: 0.75rem 1rem;
+    border-radius: 0.375rem;
+    overflow-x: auto;
+  }
+  .prose hr {
+    border-color: hsl(var(--border));
+  }
+  .prose ul,
+  .prose ol {
+    padding-left: 2em;
+  }
+}

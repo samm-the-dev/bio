@@ -1,12 +1,16 @@
 /**
- * Build-time content fetch: Sanity -> static TypeScript modules.
+ * Build-time content fetch: Sanity + local markdown -> static TypeScript modules.
  * Run from project root: node scripts/fetch-content.mjs
  *
- * Generates src/data/settings.ts and src/data/projects.ts (gitignored).
- * No auth needed — reads from the public CDN.
+ * Generates src/data/settings.ts, src/data/projects.ts, and src/data/posts.ts (gitignored).
+ * Settings and projects come from Sanity (public CDN, no auth needed).
+ * Blog posts come from local markdown files in content/posts/.
  */
 import { createClient } from '@sanity/client';
-import { writeFileSync, mkdirSync } from 'fs';
+import { writeFileSync, mkdirSync, readdirSync, readFileSync } from 'fs';
+import matter from 'gray-matter';
+import { marked } from 'marked';
+import { createHighlighter } from 'shiki';
 
 const client = createClient({
   projectId: 'wqqh5015',
@@ -35,6 +39,50 @@ const [settings, projects] = await Promise.all([
   client.fetch(PROJECTS_QUERY),
 ]);
 
+// Set up syntax highlighting with VS Code's Dark+ theme
+const highlighter = await createHighlighter({
+  themes: ['dark-plus'],
+  langs: ['typescript', 'javascript', 'html', 'css', 'json', 'bash', 'markdown'],
+});
+
+const renderer = {
+  code({ text, lang }) {
+    const language = highlighter.getLoadedLanguages().includes(lang) ? lang : 'text';
+    return highlighter.codeToHtml(text, { lang: language, theme: 'dark-plus' });
+  },
+};
+
+marked.use({ renderer });
+
+// Read blog posts from local markdown files
+const postsDir = 'content/posts';
+const postFiles = readdirSync(postsDir).filter((f) => f.endsWith('.md'));
+
+const posts = postFiles
+  .map((file) => {
+    const raw = readFileSync(`${postsDir}/${file}`, 'utf-8');
+    const { data, content } = matter(raw);
+    if (!data.publishedAt) return null;
+
+    // Resolve relatedProjects slugs to { name, slug } objects
+    const relatedProjects = (data.relatedProjects || [])
+      .map((slug) => projects.find((p) => p.slug === slug))
+      .filter(Boolean)
+      .map(({ name, slug }) => ({ name, slug }));
+
+    return {
+      title: data.title,
+      slug: data.slug,
+      excerpt: data.excerpt,
+      body: marked(content),
+      publishedAt: new Date(data.publishedAt).toISOString(),
+      tags: data.tags || null,
+      relatedProjects: relatedProjects.length > 0 ? relatedProjects : null,
+    };
+  })
+  .filter(Boolean)
+  .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+
 if (!settings) {
   console.error('No siteSettings document found in Sanity.');
   process.exit(1);
@@ -52,4 +100,9 @@ writeFileSync(
   `${HEADER}import type { Project } from '@/lib/queries';\n\nexport const projects: Project[] = ${JSON.stringify(projects, null, 2)};\n`,
 );
 
-console.log('Content fetched from Sanity and written to src/data/.');
+writeFileSync(
+  'src/data/posts.ts',
+  `${HEADER}import type { BlogPost } from '@/lib/queries';\n\nexport const posts: BlogPost[] = ${JSON.stringify(posts, null, 2)};\n`,
+);
+
+console.log('Content fetched and written to src/data/.');

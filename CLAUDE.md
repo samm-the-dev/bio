@@ -1,5 +1,7 @@
 # Personal Site
 
+@todo.md
+
 @.toolbox/ai-context/CLAUDE.md
 
 ## Project-Specific Context

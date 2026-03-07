@@ -1,4 +1,4 @@
-import { Code, User } from 'lucide-react';
+import { Code, PenLine, User } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { SectionCard } from '@/components/SectionCard';
 import { SocialLinks } from '@/components/SocialLinks';
@@ -52,6 +52,12 @@ export function HomePage() {
             icon={Code}
             title="Projects"
             description={settings.projectsTeaser}
+          />
+          <SectionCard
+            to="/blog"
+            icon={PenLine}
+            title="ADHDev"
+            description="My scatterbrained dev journey with Claude Code."
           />
         </div>
       </section>

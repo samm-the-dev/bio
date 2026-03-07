@@ -7,7 +7,7 @@ on:
   pull_request:
     branches: ['*']
     paths-ignore:
-      - '**.md'
+      - 'docs/**'
       - 'LICENSE*'
       - '.gitignore'
       - '.vscode/**'
