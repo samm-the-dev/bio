@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {richTextBlock} from './richText'
 
 export const project = defineType({
   name: 'project',
@@ -35,7 +36,7 @@ export const project = defineType({
       name: 'description',
       title: 'Description',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [{...richTextBlock}],
       description: '1-2 short paragraphs. What it does, why it exists.',
     }),
     defineField({

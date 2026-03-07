@@ -13,9 +13,22 @@ function hostFromUrl(url: string): string {
 }
 
 export function ProjectsPage() {
-  const { data: projects, loading } = useSanityQuery<Project[]>(PROJECTS_QUERY);
+  const { data: projects, loading, error } = useSanityQuery<Project[]>(PROJECTS_QUERY);
 
-  if (loading || !projects) return null;
+  if (loading)
+    return (
+      <div className="mx-auto max-w-2xl">
+        <PageHeader title="Projects" />
+        <p className="text-sm text-muted-foreground">Loading...</p>
+      </div>
+    );
+  if (error || !projects)
+    return (
+      <div className="mx-auto max-w-2xl">
+        <PageHeader title="Projects" />
+        <p className="text-sm text-destructive">Failed to load projects.</p>
+      </div>
+    );
 
   const codeProjects = projects.filter((p) => p.category === 'code');
   const tabletopProjects = projects.filter((p) => p.category === 'tabletop');
@@ -81,7 +94,7 @@ function ProjectCard({ project }: { project: Project }) {
       <div className="mt-1 text-sm">
         <PortableText value={project.description} />
       </div>
-      {project.tech?.length > 0 && (
+      {project.tech && project.tech.length > 0 && (
         <p className="mt-2 text-xs text-muted-foreground">{project.tech.join(' \u00B7 ')}</p>
       )}
     </article>

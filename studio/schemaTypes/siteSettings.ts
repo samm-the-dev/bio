@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import {richTextBlock} from './richText'
 
 export const siteSettings = defineType({
   name: 'siteSettings',
@@ -53,7 +54,7 @@ export const siteSettings = defineType({
       name: 'intro',
       title: 'Home Intro',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [{...richTextBlock}],
       description: 'Opening paragraphs on the home page below the hero',
     }),
     defineField({
@@ -72,25 +73,25 @@ export const siteSettings = defineType({
       name: 'aboutImprov',
       title: 'About: Improv',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [{...richTextBlock}],
     }),
     defineField({
       name: 'aboutMovies',
       title: 'About: Movies',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [{...richTextBlock}],
     }),
     defineField({
       name: 'aboutTtrpgs',
       title: 'About: TTRPGs',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [{...richTextBlock}],
     }),
     defineField({
       name: 'aboutCode',
       title: 'About: Code',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [{...richTextBlock}],
     }),
     defineField({
       name: 'socialLinks',

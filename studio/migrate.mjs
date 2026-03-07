@@ -3,6 +3,9 @@
  * Run from studio/: node migrate.mjs
  *
  * Requires SANITY_API_TOKEN env var (create at sanity.io/manage -> API -> Tokens -> Add token with Editor role).
+ *
+ * Note: content.jsonc was removed after migration. To re-run, restore it from git history:
+ *   git show 8bf990c^:content.jsonc > ../content.jsonc
  */
 import {createClient} from '@sanity/client'
 import {readFileSync} from 'fs'

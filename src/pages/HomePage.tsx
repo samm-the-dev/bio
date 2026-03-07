@@ -7,9 +7,11 @@ import { useSanityQuery } from '@/hooks/useSanityQuery';
 import { SITE_SETTINGS_QUERY, type SiteSettings } from '@/lib/queries';
 
 export function HomePage() {
-  const { data: settings, loading } = useSanityQuery<SiteSettings>(SITE_SETTINGS_QUERY);
+  const { data: settings, loading, error } = useSanityQuery<SiteSettings>(SITE_SETTINGS_QUERY);
 
-  if (loading || !settings) return null;
+  if (loading) return <p className="text-center text-sm text-muted-foreground">Loading...</p>;
+  if (error || !settings)
+    return <p className="text-center text-sm text-destructive">Failed to load content.</p>;
 
   return (
     <div className="mx-auto max-w-2xl text-center">

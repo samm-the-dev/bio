@@ -4,9 +4,11 @@ import { useSanityQuery } from '@/hooks/useSanityQuery';
 import { SITE_SETTINGS_QUERY, type SiteSettings } from '@/lib/queries';
 
 export function AboutPage() {
-  const { data: settings, loading } = useSanityQuery<SiteSettings>(SITE_SETTINGS_QUERY);
+  const { data: settings, loading, error } = useSanityQuery<SiteSettings>(SITE_SETTINGS_QUERY);
 
-  if (loading || !settings) return null;
+  if (loading) return <p className="text-sm text-muted-foreground">Loading...</p>;
+  if (error || !settings)
+    return <p className="text-sm text-destructive">Failed to load content.</p>;
 
   const sections = [
     { title: 'Improv', content: settings.aboutImprov },

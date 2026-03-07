@@ -3,11 +3,11 @@ import type { PortableTextBlock } from '@portabletext/react';
 export interface SiteSettings {
   name: string;
   descriptor: string;
-  githubUrl: string;
-  repoUrl: string;
+  githubUrl: string | null;
+  repoUrl: string | null;
   tagline: string;
-  taglineAttribution: string;
-  taglineUrl: string;
+  taglineAttribution: string | null;
+  taglineUrl: string | null;
   intro: PortableTextBlock[];
   projectsTeaser: string;
   aboutTeaser: string;
@@ -21,13 +21,13 @@ export interface SiteSettings {
 export interface Project {
   name: string;
   slug: string;
-  category: string;
+  category: 'code' | 'tabletop';
   description: PortableTextBlock[];
-  tech: string[];
+  tech: string[] | null;
   link: string | null;
-  repo: string;
+  repo: string | null;
   displayOrder: number;
-  status: string;
+  status: 'active' | 'paused' | 'concept' | 'complete';
 }
 
 export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{

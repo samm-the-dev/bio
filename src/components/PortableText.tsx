@@ -4,10 +4,13 @@ import {
   type PortableTextBlock,
 } from '@portabletext/react';
 
+const ALLOWED_PROTOCOLS = /^(https?:\/\/|\/)/;
+
 const components: PortableTextComponents = {
   marks: {
     link: ({ children, value }) => {
-      const href = value?.href ?? '';
+      const href = value?.href;
+      if (!href || !ALLOWED_PROTOCOLS.test(href)) return <>{children}</>;
       const isExternal = href.startsWith('http');
       return (
         <a
