@@ -10,7 +10,7 @@
     "format:check": "prettier --check .",
     "content": "node scripts/fetch-content.mjs",
     "dev": "npm run content && vite",
-    "build": "npm run content && tsc -b && vite build",
+    "build": "npm run content && tsc -b && vite build && node scripts/inject-og-tags.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",

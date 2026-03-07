@@ -29,7 +29,7 @@ settings and projects.
 - [x] Claude skill: `/publish-post` for metadata generation + timestamp
 - [x] CI runs on blog post PRs (paths-ignore narrowed to `docs/**`)
 - [x] RSS feed generation (`/feed.xml`)
-- [ ] Per-post OG meta tags for social previews
+- [x] Per-post OG meta tags for social previews
 - [x] Blog post tests
 
 ## Phase 3 — Cross-Posting
