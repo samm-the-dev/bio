@@ -14,9 +14,13 @@ const template = readFileSync('dist/index.html', 'utf-8');
 
 const postFiles = readdirSync(postsDir).filter((f) => f.endsWith('.md'));
 
+let generatedCount = 0;
+
 for (const file of postFiles) {
   const { data } = matter(readFileSync(`${postsDir}/${file}`, 'utf-8'));
   if (!data.publishedAt) continue;
+
+  generatedCount++;
 
   const ogBlock = [
     `<title>${escapeHtml(data.title)} - ADHDev</title>`,
@@ -38,7 +42,7 @@ for (const file of postFiles) {
   writeFileSync(`${dir}/index.html`, html);
 }
 
-console.log(`Generated OG pages for ${postFiles.length} post(s).`);
+console.log(`Generated OG pages for ${generatedCount} post(s).`);
 
 function escapeAttr(str) {
   return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
