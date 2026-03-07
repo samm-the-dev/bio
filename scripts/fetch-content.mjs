@@ -12,6 +12,15 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import { createHighlighter } from 'shiki';
 
+function escapeXml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 const client = createClient({
   projectId: 'wqqh5015',
   dataset: 'production',
@@ -105,4 +114,33 @@ writeFileSync(
   `${HEADER}import type { BlogPost } from '@/lib/queries';\n\nexport const posts: BlogPost[] = ${JSON.stringify(posts, null, 2)};\n`,
 );
 
-console.log('Content fetched and written to src/data/.');
+// Generate RSS feed
+const siteUrl = 'https://samm.bio';
+const feedItems = posts
+  .map(
+    (post) => `    <item>
+      <title>${escapeXml(post.title)}</title>
+      <link>${siteUrl}/blog/${post.slug}</link>
+      <guid isPermaLink="true">${siteUrl}/blog/${post.slug}</guid>
+      <description>${escapeXml(post.excerpt)}</description>
+      <pubDate>${new Date(post.publishedAt).toUTCString()}</pubDate>
+    </item>`,
+  )
+  .join('\n');
+
+const feed = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ADHDev</title>
+    <link>${siteUrl}/blog</link>
+    <description>My scatterbrained dev journey with Claude Code</description>
+    <language>en-us</language>
+    <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>
+${feedItems}
+  </channel>
+</rss>
+`;
+
+writeFileSync('public/feed.xml', feed);
+
+console.log('Content fetched and written to src/data/ + public/feed.xml.');

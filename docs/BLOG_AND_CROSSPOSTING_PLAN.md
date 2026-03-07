@@ -28,7 +28,7 @@ settings and projects.
 - [x] Scaffolding script: `npm run new-post "Title"`
 - [x] Claude skill: `/publish-post` for metadata generation + timestamp
 - [x] CI runs on blog post PRs (paths-ignore narrowed to `docs/**`)
-- [ ] RSS feed generation (`/feed.xml`)
+- [x] RSS feed generation (`/feed.xml`)
 - [ ] Per-post OG meta tags for social previews
 - [x] Blog post tests
 
