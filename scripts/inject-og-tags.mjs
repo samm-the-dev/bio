@@ -23,12 +23,12 @@ for (const file of postFiles) {
   generatedCount++;
 
   const ogBlock = [
-    `<title>${escapeHtml(data.title)} - ADHDev</title>`,
+    `<title>${escapeHtml(data.title)} - Sam Marsh</title>`,
     `<meta property="og:title" content="${escapeAttr(data.title)}" />`,
     `<meta property="og:description" content="${escapeAttr(data.excerpt)}" />`,
     `<meta property="og:url" content="${siteUrl}/blog/${data.slug}" />`,
     `<meta property="og:type" content="article" />`,
-    `<meta property="og:site_name" content="ADHDev" />`,
+    `<meta property="og:site_name" content="Sam Marsh" />`,
     `<meta name="description" content="${escapeAttr(data.excerpt)}" />`,
   ].join('\n    ');
 

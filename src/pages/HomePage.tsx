@@ -55,12 +55,7 @@ export function HomePage() {
             title="Projects"
             description={settings.projectsTeaser}
           />
-          <SectionCard
-            to="/blog"
-            icon={PenLine}
-            title="ADHDev"
-            description="My scatterbrained dev journey with Claude Code."
-          />
+          <SectionCard to="/blog" icon={PenLine} title="Blog" description={settings.blogTeaser} />
         </div>
       </section>
     </div>

@@ -11,6 +11,7 @@ export interface SiteSettings {
   intro: PortableTextBlock[];
   projectsTeaser: string;
   aboutTeaser: string;
+  blogTeaser: string;
   aboutImprov: PortableTextBlock[];
   aboutMovies: PortableTextBlock[];
   aboutTtrpgs: PortableTextBlock[];

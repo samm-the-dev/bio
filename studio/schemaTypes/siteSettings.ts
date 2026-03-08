@@ -73,6 +73,13 @@ export const siteSettings = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'blogTeaser',
+      title: 'Blog Teaser',
+      type: 'string',
+      description: 'One sentence on the Blog card in the home page grid',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'aboutImprov',
       title: 'About: Improv',
       type: 'array',

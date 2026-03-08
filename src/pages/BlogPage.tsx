@@ -5,11 +5,11 @@ import { posts } from '@/data/posts';
 import { formatDate } from '@/lib/formatDate';
 
 export function BlogPage() {
-  useDocumentTitle('ADHDev');
+  useDocumentTitle('Blog');
 
   return (
     <div className="mx-auto max-w-2xl">
-      <PageHeader title="ADHDev" descriptor="My scatterbrained dev journey with Claude Code" />
+      <PageHeader title="Blog" />
 
       {posts.length === 0 ? (
         <p className="text-center text-muted-foreground">No posts yet. Check back soon!</p>

@@ -31,7 +31,7 @@ const client = createClient({
 const SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
   name, descriptor, githubUrl, repoUrl,
   tagline, taglineAttribution, taglineUrl,
-  intro, projectsTeaser, aboutTeaser,
+  intro, projectsTeaser, aboutTeaser, blogTeaser,
   aboutImprov, aboutMovies, aboutTtrpgs, aboutCode,
   "socialLinks": coalesce(socialLinks[]{ label, href }, [])
 }`;
@@ -131,9 +131,9 @@ const feedItems = posts
 const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ADHDev</title>
+    <title>Sam Marsh's Blog</title>
     <link>${siteUrl}/blog</link>
-    <description>My scatterbrained dev journey with Claude Code</description>
+    <description>Improv, code, games, and whatever else is on my mind.</description>
     <language>en-us</language>
     <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>
 ${feedItems}

@@ -18,9 +18,9 @@ vi.mock('@/data/posts', () => ({
 }));
 
 describe('BlogPage', () => {
-  it('renders the ADHDev heading', () => {
+  it('renders the Blog heading', () => {
     renderWithRouter(<BlogPage />);
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('ADHDev');
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Blog');
   });
 
   it('renders post cards', () => {

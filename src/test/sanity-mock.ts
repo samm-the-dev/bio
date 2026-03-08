@@ -22,6 +22,7 @@ export const mockSettings: SiteSettings = {
   intro: [textBlock('Test intro paragraph.')],
   projectsTeaser: 'Test projects teaser.',
   aboutTeaser: 'Test about teaser.',
+  blogTeaser: 'Test blog teaser.',
   aboutImprov: [textBlock('Test improv content.')],
   aboutMovies: [textBlock('Test movies content.')],
   aboutTtrpgs: [textBlock('Test ttrpgs content.')],
