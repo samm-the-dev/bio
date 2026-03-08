@@ -34,7 +34,11 @@ function daysUntil(datetime: string): string {
 }
 
 function toIcsTime(datetime: string): string {
-  return datetime.replace(/[-:]/g, '').replace('T', 'T') + '00';
+  return datetime.replace(/[-:]/g, '') + '00';
+}
+
+function safeFilename(title: string): string {
+  return title.replace(/[<>:"/\\|?*]/g, '').replace(/\s+/g, '-');
 }
 
 function calendarUrl(show: Show): string {
@@ -57,7 +61,9 @@ function calendarUrl(show: Show): string {
 }
 
 const now = new Date().toISOString();
-const upcoming = shows.filter((s) => s.datetime >= now.slice(0, 16));
+const upcoming = shows
+  .filter((s) => s.datetime >= now.slice(0, 16))
+  .sort((a, b) => a.datetime.localeCompare(b.datetime));
 
 export function ShowsPage() {
   useDocumentTitle('Shows');
@@ -109,7 +115,7 @@ export function ShowsPage() {
                 )}
                 <a
                   href={calendarUrl(show)}
-                  download={`${show.title}.ics`}
+                  download={`${safeFilename(show.title)}.ics`}
                   className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
                 >
                   <CalendarPlus className="h-3.5 w-3.5 shrink-0" />
