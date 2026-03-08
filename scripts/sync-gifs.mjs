@@ -2,21 +2,19 @@
  * Sync GIF/WebP files from source folders into public/gifs/
  * and regenerate content/gifs.yaml.
  *
- * Source: ~/OneDrive/Pictures/{Dropout, Game Grumps, Misc YouTube, Movies & TV}
+ * Source: ~/OneDrive/Pictures/{Dropout, Game Grumps, YouTube, Movies & TV}
  * Target: public/gifs/  (all files flat in one directory)
  *
  * Tags are derived from the folder hierarchy (show/series name).
  * Featured status is determined by presence in public/gifs/featured/.
- * Preserves hand-edited overrides across runs.
  *
  * Usage: node scripts/sync-gifs.mjs
  */
 
-import { copyFileSync, mkdirSync, writeFileSync, readFileSync, existsSync, readdirSync, statSync } from 'fs';
+import { copyFileSync, mkdirSync, writeFileSync, existsSync, readdirSync, statSync } from 'fs';
 import { execFileSync } from 'child_process';
 import { join, extname, basename, relative, sep } from 'path';
 import { homedir } from 'os';
-import yaml from 'js-yaml';
 
 const PICTURES = join(homedir(), 'OneDrive', 'Pictures');
 const YAML_PATH = 'content/gifs.yaml';

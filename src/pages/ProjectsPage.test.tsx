@@ -63,9 +63,11 @@ describe('ProjectsPage', () => {
     expect(sourceLink.getAttribute('href')).toMatch(/^https:\/\/github\.com\//);
   });
 
-  it('renders GIF images', () => {
+  it('renders GIF carousel images', () => {
     renderWithRouter(<ProjectsPage />);
     const gifImages = screen.getAllByRole('img');
-    expect(gifImages.length).toBe(mockGifs.length);
+    const featuredCount = mockGifs.filter((g) => g.featured).length;
+    // Carousel duplicates items for seamless looping
+    expect(gifImages.length).toBe(featuredCount * 2);
   });
 });

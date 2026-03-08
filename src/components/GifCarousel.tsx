@@ -30,10 +30,14 @@ export function GifCarousel({ gifs }: { gifs: Gif[] }) {
   }, [shuffled]);
 
   // Auto-scroll with infinite loop — when we reach the halfway point
-  // (end of first copy), silently jump back to the start
+  // (end of first copy), silently jump back to the start.
+  // Respects prefers-reduced-motion by not auto-scrolling.
   useEffect(() => {
     const el = scrollRef.current;
     if (!el || shuffled.length === 0) return;
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mq.matches) return;
+
     let prev: number | null = null;
     let accum = 0;
     let raf: number;

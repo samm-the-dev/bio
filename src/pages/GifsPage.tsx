@@ -120,6 +120,7 @@ export function GifsPage() {
 
       <input
         type="search"
+        aria-label="Search GIFs by name or tag"
         placeholder="Search by name or tag..."
         value={search}
         onChange={(e) => {
@@ -134,6 +135,7 @@ export function GifsPage() {
           <button
             key={tag}
             type="button"
+            aria-pressed={activeTag === tag}
             onClick={() => {
               setActiveTag(activeTag === tag ? null : tag);
               setVisibleCount(BATCH_SIZE);

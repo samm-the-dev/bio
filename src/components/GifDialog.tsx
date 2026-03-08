@@ -35,7 +35,7 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
     a.href = url;
     a.download = `${gif.slug}.${ext}`;
     a.click();
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 
   async function handleShare() {
