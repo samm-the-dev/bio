@@ -43,7 +43,7 @@ For each empty or missing field, generate a suggestion and present it to the use
    grep "^tags:" content/posts/*.md
    ```
 
-3. **relatedProjects** - Check if the post mentions any projects. Cross-reference against project slugs from Sanity (run `node -e "import('./src/data/projects.ts').then(m => console.log(m.projects.map(p => p.slug)))"` or read the projects data file if it exists). Only suggest if genuinely related.
+3. **relatedProjects** - Check if the post mentions any projects. Cross-reference against project slugs in `content/projects.yaml`. Only suggest if genuinely related.
 
 ### Confirm with User
 

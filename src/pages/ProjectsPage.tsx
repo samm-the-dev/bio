@@ -1,6 +1,6 @@
 import { ExternalLink, Github } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
-import { PortableText } from '@/components/PortableText';
+import { RichText } from '@/components/RichText';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { projects } from '@/data/projects';
 import type { Project } from '@/lib/queries';
@@ -78,7 +78,7 @@ function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
       <div className="mt-1 text-sm">
-        <PortableText value={project.description} />
+        <RichText html={project.description} />
       </div>
       {project.tech && project.tech.length > 0 && (
         <p className="mt-2 text-xs text-muted-foreground">{project.tech.join(' \u00B7 ')}</p>

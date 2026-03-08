@@ -10,12 +10,8 @@ axe-audit.json
 .vercel
 .DS_Store
 
-# Generated content (build-time fetch from Sanity + blog)
+# Generated content (build-time from YAML/markdown in content/)
 src/data/settings.ts
 src/data/projects.ts
 src/data/posts.ts
 public/feed.xml
-
-# Sanity Studio
-studio/.sanity
-studio/dist

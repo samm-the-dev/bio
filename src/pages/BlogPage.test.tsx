@@ -25,7 +25,7 @@ describe('BlogPage', () => {
 
   it('renders post cards', () => {
     renderWithRouter(<BlogPage />);
-    expect(screen.getByRole('article')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Test Post/ })).toBeInTheDocument();
     expect(screen.getByText('Test Post')).toBeInTheDocument();
   });
 

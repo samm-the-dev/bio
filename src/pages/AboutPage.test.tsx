@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/react';
-import { mockSettings } from '@/test/sanity-mock';
+import { mockSettings } from '@/test/mock-data';
 import { AboutPage } from './AboutPage';
 
 vi.mock('@/data/settings', () => ({ settings: mockSettings }));

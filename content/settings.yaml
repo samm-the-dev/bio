@@ -1,0 +1,76 @@
+name: Sam Marsh
+descriptor: "Improv, Movies, TTRPGs, Code"
+githubUrl: https://github.com/samm-the-dev
+repoUrl: https://github.com/samm-the-dev/bio
+tagline: '"If we want the rewards of being loved, we have to submit to the mortifying ordeal of being known."'
+taglineAttribution: Tim Kreider
+taglineUrl: https://archive.nytimes.com/opinionator.blogs.nytimes.com/2013/06/15/i-know-what-you-think-of-me/
+
+intro: |
+  I enjoy creative pursuits and my ADHD likes being involved.
+
+  I love finding the story in everything and engaging in play wherever I can, especially when it connects me to others.
+
+  This is where I share what I'm working on and what I care about.
+
+projectsTeaser: "The handful of ideas I've developed enough to be presentable. Dozens more still percolating."
+aboutTeaser: "My improv journey, movie obsession, TTRPG experience, and how I code."
+blogTeaser: "Project updates... probably some other stuff. Welcome to my mind palace."
+
+aboutImprov: |
+  Improv helped me crawl out of a deep dark hole after the pandemic.
+  Through improv I've made more friends in a couple of years than I did in the previous 10+ years.
+
+  I started with [The Alternative Comedy Theater](https://www.improvact.org/) in summer 2024, training in both 
+  short and long form improv, and I'm currently training with [Stomping Ground Comedy Theater](https://stompinggroundcomedy.org/).
+  I regularly perform with ACT in a show called Goofs & Goblins, which is a D&D-themed long-form show 
+  every second Tuesday of the month at [Pocket Sandwich Theatre](https://www.pocketsandwich.com/).
+
+  I attended [Out of Bounds](https://oobfest.com/) in Austin in 2025 and had an absolute blast seeing shows, 
+  taking workshops, and generally hanging out and connecting with comedy people. 
+  I even got my first tattoos during one of the after-parties. 
+  I plan to attend again in 2026, and I'm hoping to make it to some other festivals as well.
+
+aboutMovies: |
+  I've loved movies since I was a teenager, maybe even longer. 
+  I used to ride my bike across town to the dollar theater, and once I started driving and working I'd regularly go to Blockbuster. 
+  Recently I've been more ambitious with my cinephilia, watching 60+ new releases in 2025 and targeting 100 in 2026.
+
+  I'm an [Alamo Drafthouse](https://drafthouse.com/) regular, Season Pass holder, and I typically go there at least once a week. 
+  If you have one near you, check 'em out, and make sure you get there a half-hour early for the pre-show reel.
+
+  I log most things I watch on [Letterboxd](https://letterboxd.com/samm_loves_film/). 
+  I'll be embedding some Letterboxd statistics and lists here soon.
+
+aboutTtrpgs: |
+  D&D was my first real long-lasting social hobby. 
+  I didn't get into it until my mid-20s, but since then I haven't stopped loving TTRPGs. 
+  I became obsessed with building characters and discovering their stories. 
+  The way game mechanics shape storytelling fascinates me.
+
+  I've played [D&D 5e](https://www.dndbeyond.com/), [Pathfinder 2e](https://paizo.com/pathfinder), 
+  several [PbtA](https://en.wikipedia.org/wiki/Powered_by_the_Apocalypse) systems, and many others.
+
+  Stay tuned for multiple TTRPG projects, both systems and tools.
+
+aboutCode: |
+  My web dev journey began in 2014 at an [Improving](https://www.improving.com/) boot camp. 
+  There I learned full stack web development using the Microsoft stack. 
+  I've since moved from Angular to React, and now most of my projects are built with React.
+
+  I love developing simple, useful web apps as a way to grow and sharpen my skills. 
+  Check out my [Projects](/projects) page for recent work or my [GitHub](https://github.com/samm-the-dev) for repos both new and old.
+
+  This site and most of my projects were developed with the assistance of [Claude AI](https://claude.ai/). 
+  The vast majority of the prose was written by me, but I generally lean on Claude for brainstorming, editing, and overcoming writer's block. 
+  It helps me be more productive and creative, while preserving my authentic voice and vision.
+
+socialLinks:
+  - label: Letterboxd
+    href: https://letterboxd.com/samm_loves_film/
+  - label: Bluesky
+    href: https://bsky.app/profile/samm-the-human.online/
+  - label: Instagram
+    href: https://instagram.com/samm.the.human/
+  - label: GitHub
+    href: https://github.com/samm-the-dev/

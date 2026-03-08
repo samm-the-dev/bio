@@ -1,5 +1,3 @@
-import type { PortableTextBlock } from '@portabletext/react';
-
 export interface SiteSettings {
   name: string;
   descriptor: string;
@@ -8,14 +6,14 @@ export interface SiteSettings {
   tagline: string;
   taglineAttribution: string | null;
   taglineUrl: string | null;
-  intro: PortableTextBlock[];
+  intro: string;
   projectsTeaser: string;
   aboutTeaser: string;
   blogTeaser: string;
-  aboutImprov: PortableTextBlock[];
-  aboutMovies: PortableTextBlock[];
-  aboutTtrpgs: PortableTextBlock[];
-  aboutCode: PortableTextBlock[];
+  aboutImprov: string;
+  aboutMovies: string;
+  aboutTtrpgs: string;
+  aboutCode: string;
   socialLinks: { label: string; href: string }[];
 }
 
@@ -23,12 +21,10 @@ export interface Project {
   name: string;
   slug: string;
   category: 'code' | 'tabletop';
-  description: PortableTextBlock[];
+  description: string;
   tech: string[] | null;
   link: string | null;
   repo: string | null;
-  displayOrder: number;
-  status: 'active' | 'paused' | 'concept' | 'complete';
 }
 
 export interface BlogPost {

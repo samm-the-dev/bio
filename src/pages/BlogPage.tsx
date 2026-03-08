@@ -16,12 +16,14 @@ export function BlogPage() {
       ) : (
         <div className="space-y-6">
           {posts.map((post) => (
-            <article key={post.slug} className="rounded-lg border border-border bg-card p-4">
-              <Link to={`/blog/${post.slug}`} className="group">
-                <h2 className="font-semibold text-card-foreground group-hover:text-primary">
-                  {post.title}
-                </h2>
-              </Link>
+            <Link
+              key={post.slug}
+              to={`/blog/${post.slug}`}
+              className="group block rounded-lg border border-border bg-card p-4"
+            >
+              <h2 className="font-semibold text-card-foreground group-hover:text-primary">
+                {post.title}
+              </h2>
               <time
                 className="mt-1 block text-xs text-muted-foreground"
                 dateTime={post.publishedAt}
@@ -32,7 +34,7 @@ export function BlogPage() {
               {post.tags && post.tags.length > 0 && (
                 <p className="mt-2 text-xs text-muted-foreground">{post.tags.join(' \u00B7 ')}</p>
               )}
-            </article>
+            </Link>
           ))}
         </div>
       )}
