@@ -6,6 +6,7 @@ const testLinks = [
   { label: 'Letterboxd', href: 'https://letterboxd.com/test/' },
   { label: 'Bluesky', href: 'https://bsky.app/profile/test' },
   { label: 'GitHub', href: 'https://github.com/test' },
+  { label: 'Discord', href: 'https://discord.com/users/123' },
 ];
 
 describe('SocialLinks', () => {
@@ -19,6 +20,15 @@ describe('SocialLinks', () => {
     expect(screen.getByLabelText('Letterboxd')).toBeInTheDocument();
     expect(screen.getByLabelText('Bluesky')).toBeInTheDocument();
     expect(screen.getByLabelText('GitHub')).toBeInTheDocument();
+    expect(screen.getByLabelText('Discord')).toBeInTheDocument();
+  });
+
+  it('renders an icon for each social link', () => {
+    render(<SocialLinks links={testLinks} />);
+    const links = screen.getAllByRole('link');
+    for (const link of links) {
+      expect(link.querySelector('svg')).toBeInTheDocument();
+    }
   });
 
   it('opens links in new tabs', () => {
