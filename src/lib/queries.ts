@@ -38,7 +38,11 @@ export interface Gif {
   slug: string;
   alt: string;
   src: string;
-  tenor: string;
+  thumb: string;
+  width: number;
+  height: number;
+  tags: string[];
+  featured: boolean;
 }
 
 export interface Show {

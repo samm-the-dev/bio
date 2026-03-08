@@ -1,16 +1,21 @@
 sections:
+  - key: gifs
+    label: "Your Friendly Neighborhood GIF-Maker"
+    description: |
+      For a while I was obsessively making GIFs, mostly from [Dropout](https://www.dropout.tv/) shows, but also from movies and other shows I love.
+      I've since slowed down quite a bit, but I'm generally open to requests.
+
+      The vast majority of what I've made is also uploaded to [Tenor](https://tenor.com/users/smarshian) and [Klipy](https://klipy.com/profile/sammthehuman/uploads).
+      The tagging is better there, hah.
   - key: web-app
     label: Web Apps
     description: ""
   - key: code
     label: Other Code Projects
     description: ""
-  - key: gifs
-    label: "Your Friendly Neighborhood GIF-Maker"
-    description: ""
   - key: ttrpg
     label: TTRPG Projects
-    description: ""
+    description: "These are all in early design phases, but I figured I'd at least describe the ideas here."
 
 projects:
   - name: Ohm
@@ -79,11 +84,24 @@ projects:
     link: null
     repo: https://github.com/samm-the-dev/toolbox
 
+  - name: "Cartifex"
+    slug: cartifex
+    category: ttrpg
+    description: |
+      A Pathfinder 2e character builder.
+      [Pathbuilder](https://pathbuilder2e.com/) is the gold standard, but I think I can improve the UX a bit, particularly the data sync.
+      I also just enjoy making character builders.
+    tech: null
+    link: null
+    repo: null
+
   - name: "PF2e Lite"
     slug: pf2e-lite
     category: ttrpg
     description: |
-      TODO: Add description
+      With this project I'm trying to pare down and simplify Pathfinder 2e, as well as rework downtime and exploration.
+      At the moment I'm picturing it as a browser extension that modifies [Archives of Nethys](https://2e.aonprd.com/) 
+      and a character builder, but I'm still in early design.
     tech: null
     link: null
     repo: null
@@ -92,16 +110,8 @@ projects:
     slug: aether-rpg
     category: ttrpg
     description: |
-      TODO: Add description
-    tech: null
-    link: null
-    repo: null
-
-  - name: "Cartifex: A PF2e Character Builder"
-    slug: cartifex
-    category: ttrpg
-    description: |
-      TODO: Add description
+      This is a TTRPG project where I'm trying to design both lore and mechanics from scratch, borrowing from PF2e mechanics along the way.
+      Right now I just have some lore ideas sketched out, and it'll share some mechanics with my PF2e Lite project.
     tech: null
     link: null
     repo: null

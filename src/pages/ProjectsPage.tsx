@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import { PageHeader } from '@/components/PageHeader';
 import { ProjectCard } from '@/components/ProjectCard';
 import { ProjectDialog } from '@/components/ProjectDialog';
 import { GifCarousel } from '@/components/GifCarousel';
+import { RichText } from '@/components/RichText';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { useModalState } from '@/hooks/useModalState';
 import { projects, projectSections } from '@/data/projects';
@@ -30,12 +32,19 @@ export function ProjectsPage() {
             <section key={section.key} className={i > 0 ? 'mt-10' : undefined}>
               <h2 className="mb-1 text-xl font-semibold">{section.label}</h2>
               {section.description && (
-                <p
-                  className="mb-4 text-sm text-muted-foreground"
-                  dangerouslySetInnerHTML={{ __html: section.description }}
-                />
+                <div className="mb-4 text-sm text-muted-foreground">
+                  <RichText html={section.description} />
+                </div>
               )}
-              <GifCarousel gifs={gifs} />
+              <GifCarousel gifs={gifs.filter((g) => g.featured)} />
+              <div className="mt-3 text-right">
+                <Link
+                  to="/gifs"
+                  className="text-sm text-muted-foreground underline hover:text-foreground"
+                >
+                  View all GIFs
+                </Link>
+              </div>
             </section>
           );
         }
@@ -47,10 +56,9 @@ export function ProjectsPage() {
           <section key={section.key} className={i > 0 ? 'mt-10' : undefined}>
             <h2 className="mb-1 text-xl font-semibold">{section.label}</h2>
             {section.description && (
-              <p
-                className="mb-4 text-sm text-muted-foreground"
-                dangerouslySetInnerHTML={{ __html: section.description }}
-              />
+              <div className="mb-4 text-sm text-muted-foreground">
+                <RichText html={section.description} />
+              </div>
             )}
             {!section.description && <div className="mb-3" />}
             <div className="grid gap-4 sm:grid-cols-2">

@@ -81,11 +81,16 @@ const projects = (projectsFile.projects || []).map((p) => ({
 
 // --- GIFs ---
 const gifsRaw = yaml.load(readFileSync('content/gifs.yaml', 'utf-8')) || [];
-const gifs = gifsRaw.map((g) => ({
+const gifsList = Array.isArray(gifsRaw) ? gifsRaw : gifsRaw.gifs || [];
+const gifs = gifsList.map((g) => ({
   slug: g.slug,
   alt: g.alt,
   src: g.src,
-  tenor: g.tenor,
+  thumb: g.thumb || g.src,
+  width: g.width || 0,
+  height: g.height || 0,
+  tags: g.tags || [],
+  featured: !!g.featured,
 }));
 
 // --- Shows ---

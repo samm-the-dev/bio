@@ -1,59 +1,90 @@
-import { useRef, useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useRef, useEffect, useMemo } from 'react';
+import { GifDialog } from './GifDialog';
+import { useModalState } from '@/hooks/useModalState';
 import type { Gif } from '@/lib/queries';
+
+const AUTO_SCROLL_PX_PER_SEC = 30;
+
+function shuffle<T>(arr: T[]): T[] {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = copy[i]!;
+    copy[i] = copy[j]!;
+    copy[j] = tmp;
+  }
+  return copy;
+}
 
 export function GifCarousel({ gifs }: { gifs: Gif[] }) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(false);
+  const paused = useRef(false);
+  const modal = useModalState<Gif>();
 
-  function updateScrollState() {
-    const el = scrollRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 0);
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
-  }
+  const shuffled = useMemo(() => shuffle(gifs), [gifs]);
 
+  // Render items twice for seamless looping
+  const loopItems = useMemo(() => {
+    if (shuffled.length === 0) return [];
+    return [...shuffled, ...shuffled];
+  }, [shuffled]);
+
+  // Auto-scroll with infinite loop — when we reach the halfway point
+  // (end of first copy), silently jump back to the start
   useEffect(() => {
-    updateScrollState();
     const el = scrollRef.current;
-    if (!el) return;
-    el.addEventListener('scroll', updateScrollState, { passive: true });
-    window.addEventListener('resize', updateScrollState);
-    return () => {
-      el.removeEventListener('scroll', updateScrollState);
-      window.removeEventListener('resize', updateScrollState);
-    };
-  }, []);
+    if (!el || shuffled.length === 0) return;
+    let prev: number | null = null;
+    let accum = 0;
+    let raf: number;
 
-  function scroll(direction: 'left' | 'right') {
-    const el = scrollRef.current;
-    if (!el) return;
-    const amount = el.clientWidth * 0.8;
-    el.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' });
+    function step(time: number) {
+      if (prev !== null && !paused.current) {
+        const dt = (time - prev) / 1000;
+        accum += AUTO_SCROLL_PX_PER_SEC * dt;
+        const px = Math.floor(accum);
+        if (px >= 1) {
+          accum -= px;
+          el!.scrollLeft += px;
+          // When past the first set of items, jump back seamlessly
+          const halfWidth = el!.scrollWidth / 2;
+          if (el!.scrollLeft >= halfWidth) {
+            el!.scrollLeft -= halfWidth;
+          }
+        }
+      }
+      prev = time;
+      raf = requestAnimationFrame(step);
+    }
+
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [shuffled.length]);
+
+  function pause() {
+    paused.current = true;
+  }
+  function resume() {
+    paused.current = false;
   }
 
-  if (gifs.length === 0) return null;
+  if (shuffled.length === 0) return null;
 
   return (
-    <div className="group/carousel relative min-w-0">
-      {canScrollLeft && (
-        <button
-          onClick={() => scroll('left')}
-          aria-label="Scroll left"
-          className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border bg-card/90 p-1.5 text-muted-foreground opacity-0 backdrop-blur-sm transition-opacity hover:text-foreground group-hover/carousel:opacity-100"
-        >
-          <ChevronLeft className="h-5 w-5" />
-        </button>
-      )}
+    <div
+      className="group/carousel relative min-w-0"
+      onMouseEnter={pause}
+      onMouseLeave={resume}
+      onTouchStart={pause}
+      onTouchEnd={resume}
+    >
       <div ref={scrollRef} className="gif-carousel flex w-full gap-4 overflow-x-auto pb-2">
-        {gifs.map((gif) => (
-          <a
-            key={gif.slug}
-            href={gif.tenor}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="gif-card flex-none overflow-hidden rounded-lg border border-border bg-card transition-transform hover:scale-[1.02]"
+        {loopItems.map((gif, i) => (
+          <button
+            key={`${gif.slug}-${i}`}
+            type="button"
+            onClick={() => modal.open(gif)}
+            className="gif-card flex-none cursor-pointer overflow-hidden rounded-lg border border-border bg-card transition-transform hover:scale-[1.02]"
           >
             <img
               src={gif.src}
@@ -61,18 +92,10 @@ export function GifCarousel({ gifs }: { gifs: Gif[] }) {
               loading="lazy"
               className="h-48 w-auto object-cover sm:h-56"
             />
-          </a>
+          </button>
         ))}
       </div>
-      {canScrollRight && (
-        <button
-          onClick={() => scroll('right')}
-          aria-label="Scroll right"
-          className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border bg-card/90 p-1.5 text-muted-foreground opacity-0 backdrop-blur-sm transition-opacity hover:text-foreground group-hover/carousel:opacity-100"
-        >
-          <ChevronRight className="h-5 w-5" />
-        </button>
-      )}
+      {modal.item && <GifDialog gif={modal.item} onClose={modal.close} />}
     </div>
   );
 }
