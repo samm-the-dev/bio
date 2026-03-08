@@ -51,23 +51,19 @@ function stripHtml(html: string): string {
 
 export function ProjectCard({ project, onSeeMore }: ProjectCardProps) {
   return (
-    <article
-      role="button"
-      tabIndex={0}
+    <button
+      type="button"
+      data-testid="project-card"
       aria-label={project.name}
       onClick={() => onSeeMore(project)}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onSeeMore(project);
-        }
-      }}
-      className="min-w-0 cursor-pointer rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20"
+      className="min-w-0 cursor-pointer rounded-lg border border-border bg-card p-4 text-left transition-colors hover:border-foreground/20"
     >
-      <h3 className="font-semibold text-card-foreground">{project.name}</h3>
-      <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
-        {stripHtml(project.description)}
-      </p>
-    </article>
+      <article>
+        <h3 className="font-semibold text-card-foreground">{project.name}</h3>
+        <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
+          {stripHtml(project.description)}
+        </p>
+      </article>
+    </button>
   );
 }

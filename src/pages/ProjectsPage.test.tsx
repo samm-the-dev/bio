@@ -40,24 +40,19 @@ describe('ProjectsPage', () => {
 
   it('renders clickable project cards', () => {
     renderWithRouter(<ProjectsPage />);
-    const cards = screen.getAllByRole('button');
-    const projectCards = cards.filter((el) => el.tagName === 'ARTICLE');
+    const projectCards = screen.getAllByTestId('project-card');
     expect(projectCards.length).toBe(mockProjects.length);
   });
 
   it('opens dialog when a project card is clicked', () => {
     renderWithRouter(<ProjectsPage />);
-    const cards = screen.getAllByRole('button');
-    const projectCard = cards.find((el) => el.tagName === 'ARTICLE')!;
-    fireEvent.click(projectCard);
+    fireEvent.click(screen.getAllByTestId('project-card')[0]!);
     expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 
   it('shows Source Code link in dialog with correct href', () => {
     renderWithRouter(<ProjectsPage />);
-    const cards = screen.getAllByRole('button');
-    const projectCard = cards.find((el) => el.tagName === 'ARTICLE')!;
-    fireEvent.click(projectCard);
+    fireEvent.click(screen.getAllByTestId('project-card')[0]!);
     const sourceLink = screen.getByText('Source Code');
     expect(sourceLink).toHaveAttribute('href');
     expect(sourceLink.getAttribute('href')).toMatch(/^https:\/\/github\.com\//);

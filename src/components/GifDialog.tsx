@@ -57,6 +57,7 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
   }
 
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions -- keyboard close handled via useEffect keydown listener
     <div
       role="dialog"
       aria-modal="true"
