@@ -10,6 +10,7 @@ export interface SiteSettings {
   projectsTeaser: string;
   aboutTeaser: string;
   blogTeaser: string;
+  showsTeaser: string;
   aboutImprov: string;
   aboutMovies: string;
   aboutTtrpgs: string;
@@ -25,6 +26,16 @@ export interface Project {
   tech: string[] | null;
   link: string | null;
   repo: string | null;
+}
+
+export interface Show {
+  title: string;
+  venue: string;
+  venueUrl: string | null;
+  address: string | null;
+  datetime: string;
+  endDatetime: string | null;
+  note: string | null;
 }
 
 export interface BlogPost {

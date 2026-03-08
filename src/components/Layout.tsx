@@ -6,10 +6,11 @@ import { cn } from '@/lib/utils';
 import { settings } from '@/data/settings';
 
 const navItems = [
-  { to: '/', label: 'Home' },
+  { to: '/', label: 'Home', hideOnMobile: true },
   { to: '/about', label: 'About', smLabel: 'About Me' },
   { to: '/projects', label: 'Projects' },
   { to: '/blog', label: 'Blog' },
+  { to: '/shows', label: 'Shows' },
 ];
 
 async function handleShare() {
@@ -48,8 +49,8 @@ export function Layout() {
               <span className="sm:hidden">SM</span>
               <span className="hidden sm:inline">{settings.name}</span>
             </Link>
-            <nav className="flex items-center gap-2 sm:gap-4">
-              {navItems.map(({ to, label, smLabel }) => (
+            <nav className="flex items-center gap-3 sm:gap-4">
+              {navItems.map(({ to, label, smLabel, hideOnMobile }) => (
                 <NavLink
                   key={to}
                   to={to}
@@ -58,6 +59,7 @@ export function Layout() {
                     cn(
                       'whitespace-nowrap text-sm transition-colors',
                       isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground',
+                      hideOnMobile && 'hidden sm:inline',
                     )
                   }
                 >

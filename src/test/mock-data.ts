@@ -12,6 +12,7 @@ export const mockSettings: SiteSettings = {
   projectsTeaser: 'Test projects teaser.',
   aboutTeaser: 'Test about teaser.',
   blogTeaser: 'Test blog teaser.',
+  showsTeaser: 'Test shows teaser.',
   aboutImprov: '<p>Test improv content.</p>',
   aboutMovies: '<p>Test movies content.</p>',
   aboutTtrpgs: '<p>Test ttrpgs content.</p>',

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { RichText } from './RichText';
 
 interface SectionCardProps {
   to: string;
@@ -21,7 +22,9 @@ export function SectionCard({ to, icon: Icon, title, description }: SectionCardP
         <h2 className="text-xl font-semibold text-card-foreground transition-colors group-hover:text-primary">
           {title}
         </h2>
-        <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+        <div className="mt-1 text-sm text-muted-foreground">
+          <RichText html={description} />
+        </div>
       </div>
     </Link>
   );

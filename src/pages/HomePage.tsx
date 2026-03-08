@@ -1,4 +1,4 @@
-import { Code, PenLine, User } from 'lucide-react';
+import { Code, PenLine, Ticket, User } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { SectionCard } from '@/components/SectionCard';
 import { SocialLinks } from '@/components/SocialLinks';
@@ -56,6 +56,7 @@ export function HomePage() {
             description={settings.projectsTeaser}
           />
           <SectionCard to="/blog" icon={PenLine} title="Blog" description={settings.blogTeaser} />
+          <SectionCard to="/shows" icon={Ticket} title="Shows" description={settings.showsTeaser} />
         </div>
       </section>
     </div>

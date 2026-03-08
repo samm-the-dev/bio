@@ -50,6 +50,10 @@ const settingsRaw = yaml.load(readFileSync('content/settings.yaml', 'utf-8'));
 
 const richTextFields = [
   'intro',
+  'projectsTeaser',
+  'aboutTeaser',
+  'blogTeaser',
+  'showsTeaser',
   'aboutImprov',
   'aboutMovies',
   'aboutTtrpgs',
@@ -68,6 +72,22 @@ const projects = projectsRaw.map((p) => ({
   ...p,
   description: renderMarkdown(p.description),
 }));
+
+// --- Shows ---
+const showsData = yaml.load(readFileSync('content/shows.yaml', 'utf-8')) || {};
+const venues = showsData.venues || {};
+const shows = (showsData.shows || []).map((s) => {
+  const venue = venues[s.venue] || {};
+  return {
+    title: s.title,
+    venue: venue.name || s.venue,
+    venueUrl: venue.url || null,
+    address: venue.address || null,
+    datetime: String(s.datetime),
+    endDatetime: s.endDatetime ? String(s.endDatetime) : null,
+    note: s.note || null,
+  };
+});
 
 // --- Blog Posts ---
 const postsDir = 'content/posts';
@@ -111,6 +131,11 @@ writeFileSync(
 writeFileSync(
   'src/data/projects.ts',
   `${HEADER}import type { Project } from '@/lib/queries';\n\nexport const projects: Project[] = ${JSON.stringify(projects, null, 2)};\n`,
+);
+
+writeFileSync(
+  'src/data/shows.ts',
+  `${HEADER}import type { Show } from '@/lib/queries';\n\nexport const shows: Show[] = ${JSON.stringify(shows, null, 2)};\n`,
 );
 
 writeFileSync(
