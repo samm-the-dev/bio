@@ -9,12 +9,12 @@
 Personal portfolio and about-me site. Minimal, clean aesthetic. Dark mode
 default with light mode support.
 
-### V1 Scope
+### Pages
 
-Three pages: Home (hero + social links + section previews), Projects (code +
-games), About (bio covering improv, movies, game design, development).
-
-Stats, Now page, and GIF section are deferred to v2+.
+Five pages: Home (hero + social links + section previews), About (bio covering
+improv, movies, game design, development), Projects (code + games), Blog
+(markdown posts with syntax highlighting), Shows (upcoming improv shows with
+calendar + map links).
 
 ### Content Principle
 
@@ -24,16 +24,16 @@ the full decision log and `docs/CONTENT_PLANNING.md` for voice guidelines.
 
 ### Key Directories
 
-| Directory         | Contents                                                   |
-| ----------------- | ---------------------------------------------------------- |
-| `content/`        | Hand-authored YAML (settings, projects) + markdown (posts) |
-| `src/pages/`      | Route-level page components (Home, Projects, About, Blog)  |
-| `src/components/` | Shared UI components                                       |
-| `docs/`           | Planning docs (structure, content plan, decisions, assets) |
+| Directory         | Contents                                                          |
+| ----------------- | ----------------------------------------------------------------- |
+| `content/`        | Hand-authored YAML (settings, projects, shows) + markdown (posts) |
+| `src/pages/`      | Route-level page components (Home, About, Projects, Blog, Shows)  |
+| `src/components/` | Shared UI components                                              |
+| `docs/`           | Planning docs (structure, content plan, decisions, assets)        |
 
 ### Social Profiles
 
-- Letterboxd: smarshian
-- Bluesky: smarshian
-- Klipy: sammthehuman
-- GitHub: (see docs/ASSET_INVENTORY.md)
+- Bluesky: samm-the-human.online
+- Letterboxd: samm_loves_film
+- Instagram: samm.the.human
+- GitHub: samm-the-dev

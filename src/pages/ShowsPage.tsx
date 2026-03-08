@@ -65,7 +65,8 @@ function icsUrl(show: Show): string {
 
 function googleCalendarUrl(show: Show): string {
   const start = toIcsTime(show.datetime);
-  const dates = show.endDatetime ? `${start}/${toIcsTime(show.endDatetime)}` : start;
+  const end = show.endDatetime ? toIcsTime(show.endDatetime) : start;
+  const dates = `${start}/${end}`;
   const params = new URLSearchParams({
     action: 'TEMPLATE',
     text: show.title,

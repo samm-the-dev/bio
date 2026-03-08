@@ -9,7 +9,7 @@ vi.mock('@/data/shows', () => ({
       title: 'Later Show',
       venue: 'Another Venue',
       venueUrl: null,
-      address: null,
+      address: '456 Oak Ave, Plano, TX 75024',
       mapsUrl: null,
       datetime: '2099-12-01T19:00',
       endDatetime: null,
@@ -77,9 +77,18 @@ describe('ShowsPage', () => {
 
   it('renders map link using cached mapsUrl when available', () => {
     renderWithRouter(<ShowsPage />);
-    const mapLinks = screen.getAllByText('Map');
-    expect(mapLinks.length).toBe(1);
-    expect(mapLinks[0]).toHaveAttribute('href', 'https://maps.app.goo.gl/abc123');
+    const testShowArticle = screen.getByText('Test Show').closest('article');
+    const mapLink = testShowArticle?.querySelector('a[href*="maps"]');
+    expect(mapLink).toHaveAttribute('href', 'https://maps.app.goo.gl/abc123');
+  });
+
+  it('renders map link with search fallback when no mapsUrl', () => {
+    renderWithRouter(<ShowsPage />);
+    const laterShowArticle = screen.getByText('Later Show').closest('article');
+    const mapLink = laterShowArticle?.querySelector('a[href*="maps"]');
+    const href = mapLink?.getAttribute('href') ?? '';
+    expect(href).toContain('google.com/maps/search');
+    expect(href).toContain(encodeURIComponent('Another Venue, 456 Oak Ave'));
   });
 
   it('renders ICS calendar links on non-Android', () => {
@@ -110,28 +119,30 @@ describe('ShowsPage', () => {
       configurable: true,
     });
 
-    renderWithRouter(<ShowsPage />);
-    const calLinks = screen.getAllByText('Add to calendar');
-    expect(calLinks.length).toBe(2);
-    for (const link of calLinks) {
-      expect(link).toHaveAttribute(
-        'href',
-        expect.stringContaining('calendar.google.com/calendar/render'),
-      );
-      expect(link).not.toHaveAttribute('download');
+    try {
+      renderWithRouter(<ShowsPage />);
+      const calLinks = screen.getAllByText('Add to calendar');
+      expect(calLinks.length).toBe(2);
+      for (const link of calLinks) {
+        expect(link).toHaveAttribute(
+          'href',
+          expect.stringContaining('calendar.google.com/calendar/render'),
+        );
+        expect(link).not.toHaveAttribute('download');
+      }
+
+      // Verify location is included in Google Calendar URL
+      const testShowArticle = screen.getByText('Test Show').closest('article');
+      const testShowCalLink = testShowArticle?.querySelector('a[href*="calendar.google.com"]');
+      const href = testShowCalLink?.getAttribute('href') ?? '';
+      expect(href).toContain('location=');
+      expect(href).toContain('details=');
+    } finally {
+      Object.defineProperty(navigator, 'userAgent', {
+        value: original,
+        configurable: true,
+      });
     }
-
-    // Verify location is included in Google Calendar URL
-    const testShowArticle = screen.getByText('Test Show').closest('article');
-    const testShowCalLink = testShowArticle?.querySelector('a[href*="calendar.google.com"]');
-    const href = testShowCalLink?.getAttribute('href') ?? '';
-    expect(href).toContain('location=');
-    expect(href).toContain('details=');
-
-    Object.defineProperty(navigator, 'userAgent', {
-      value: original,
-      configurable: true,
-    });
   });
 
   it('renders note when present', () => {
