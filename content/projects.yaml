@@ -1,6 +1,6 @@
 - name: Ohm
   slug: ohm
-  category: code
+  category: web-app
   description: |
     A [personal kanban](https://personalkanban.com/learn/personal-kanban/) app developed using ADHD research. 
     It features optional Google Drive integration for storage/backup, as well as restore points and export/import functionality.
@@ -13,7 +13,7 @@
 
 - name: Build-a-Jam
   slug: build-a-jam
-  category: code
+  category: web-app
   description: |
     A tool for selecting improv warm-ups and exercises based on tags like 'connection', 'structure', 'heightening', and more.
 
@@ -26,7 +26,7 @@
 
 - name: The Enchiridion
   slug: the-enchiridion
-  category: code
+  category: web-app
   description: |
     An Adventure Time catalog with a multi-theme system (8 character themes).
 
@@ -63,3 +63,30 @@
   tech: [Claude AI, Google OAuth, GCP Cloud Functions, React, Vite, TypeScript, GitHub Actions]
   link: null
   repo: https://github.com/samm-the-dev/toolbox
+
+- name: "PF2e Lite"
+  slug: pf2e-lite
+  category: ttrpg
+  description: |
+    TODO: Add description
+  tech: null
+  link: null
+  repo: null
+
+- name: "Aether RPG"
+  slug: aether-rpg
+  category: ttrpg
+  description: |
+    TODO: Add description
+  tech: null
+  link: null
+  repo: null
+
+- name: "Cartifex: A PF2e Character Builder"
+  slug: cartifex
+  category: ttrpg
+  description: |
+    TODO: Add description
+  tech: null
+  link: null
+  repo: null

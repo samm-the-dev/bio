@@ -1,0 +1,58 @@
+# GIFs for the "Your Friendly Neighborhood GIF-Maker" section.
+# Drop actual files into public/gifs/ and update the src paths below.
+# Accepted formats: .gif, .webp
+
+- slug: gif-01
+  alt: "TODO: Add description"
+  src: /gifs/gif-01.gif
+  tenor: https://tenor.com/phDYXKyy7YM.gif
+
+- slug: gif-02
+  alt: "TODO: Add description"
+  src: /gifs/gif-02.gif
+  tenor: https://tenor.com/tJEIWPTSi10.gif
+
+- slug: gif-03
+  alt: "TODO: Add description"
+  src: /gifs/gif-03.gif
+  tenor: https://tenor.com/nRra5hWwOaS.gif
+
+- slug: gif-04
+  alt: "TODO: Add description"
+  src: /gifs/gif-04.gif
+  tenor: https://tenor.com/530BMI2qja.gif
+
+- slug: gif-05
+  alt: "TODO: Add description"
+  src: /gifs/gif-05.gif
+  tenor: https://tenor.com/chHCxeipAXY.gif
+
+- slug: gif-06
+  alt: "TODO: Add description"
+  src: /gifs/gif-06.gif
+  tenor: https://tenor.com/e59ATWp8HtW.gif
+
+- slug: gif-07
+  alt: "TODO: Add description"
+  src: /gifs/gif-07.gif
+  tenor: https://tenor.com/sOBVHNksP9b.gif
+
+- slug: gif-08
+  alt: "TODO: Add description"
+  src: /gifs/gif-08.gif
+  tenor: https://tenor.com/iVlN8N1tHNl.gif
+
+- slug: gif-09
+  alt: "TODO: Add description"
+  src: /gifs/gif-09.gif
+  tenor: https://tenor.com/huT5n6fCddY.gif
+
+- slug: gif-10
+  alt: "TODO: Add description"
+  src: /gifs/gif-10.gif
+  tenor: https://tenor.com/eXbMuzNVDoe.gif
+
+- slug: gif-11
+  alt: "TODO: Add description"
+  src: /gifs/gif-11.gif
+  tenor: https://tenor.com/jrYnvZRfCHR.gif

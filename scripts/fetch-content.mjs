@@ -73,6 +73,15 @@ const projects = projectsRaw.map((p) => ({
   description: renderMarkdown(p.description),
 }));
 
+// --- GIFs ---
+const gifsRaw = yaml.load(readFileSync('content/gifs.yaml', 'utf-8')) || [];
+const gifs = gifsRaw.map((g) => ({
+  slug: g.slug,
+  alt: g.alt,
+  src: g.src,
+  tenor: g.tenor,
+}));
+
 // --- Shows ---
 const showsData = yaml.load(readFileSync('content/shows.yaml', 'utf-8')) || {};
 const venues = showsData.venues || {};
@@ -132,6 +141,11 @@ writeFileSync(
 writeFileSync(
   'src/data/projects.ts',
   `${HEADER}import type { Project } from '@/lib/queries';\n\nexport const projects: Project[] = ${JSON.stringify(projects, null, 2)};\n`,
+);
+
+writeFileSync(
+  'src/data/gifs.ts',
+  `${HEADER}import type { Gif } from '@/lib/queries';\n\nexport const gifs: Gif[] = ${JSON.stringify(gifs, null, 2)};\n`,
 );
 
 writeFileSync(

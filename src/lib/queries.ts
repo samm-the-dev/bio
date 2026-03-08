@@ -21,11 +21,18 @@ export interface SiteSettings {
 export interface Project {
   name: string;
   slug: string;
-  category: 'code' | 'tabletop';
+  category: 'web-app' | 'code' | 'ttrpg';
   description: string;
   tech: string[] | null;
   link: string | null;
   repo: string | null;
+}
+
+export interface Gif {
+  slug: string;
+  alt: string;
+  src: string;
+  tenor: string;
 }
 
 export interface Show {
