@@ -71,6 +71,13 @@ Original collection started in Tenor (shares tracked there), but migrated to Kli
 - Discord doesn't have public user stats API — may not be feasible
 - **Decision needed:** Build at all? Bluesky-only? Manual vs. automated?
 
+## Content Gaps
+
+### Tabletop Game Projects
+
+- SMARS and Wizard Battle content not yet written for Projects page
+- Needs hand-authored descriptions in `content/projects.yaml`
+
 ## Future Features
 
 ### Analytics
