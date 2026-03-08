@@ -46,18 +46,23 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, onSeeMore }: ProjectCardProps) {
   return (
-    <article className="min-w-0 rounded-lg border border-border bg-card p-4">
+    <article
+      role="button"
+      tabIndex={0}
+      onClick={() => onSeeMore(project)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onSeeMore(project);
+        }
+      }}
+      className="min-w-0 cursor-pointer rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20"
+    >
       <h3 className="font-semibold text-card-foreground">{project.name}</h3>
       <div
         className="mt-1 line-clamp-2 text-sm text-muted-foreground"
         dangerouslySetInnerHTML={{ __html: project.description }}
       />
-      <button
-        onClick={() => onSeeMore(project)}
-        className="mt-1 text-xs text-primary hover:text-primary-hover"
-      >
-        see more
-      </button>
     </article>
   );
 }

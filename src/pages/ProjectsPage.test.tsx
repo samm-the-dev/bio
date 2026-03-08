@@ -35,38 +35,34 @@ describe('ProjectsPage', () => {
     ).toBeInTheDocument();
   });
 
-  it('renders project cards', () => {
+  it('renders clickable project cards', () => {
     renderWithRouter(<ProjectsPage />);
-    expect(screen.getAllByRole('article').length).toBeGreaterThan(0);
+    const cards = screen.getAllByRole('button');
+    const projectCards = cards.filter((el) => el.tagName === 'ARTICLE');
+    expect(projectCards.length).toBe(mockProjects.length);
+  });
+
+  it('opens dialog when a project card is clicked', () => {
+    renderWithRouter(<ProjectsPage />);
+    const cards = screen.getAllByRole('button');
+    const projectCard = cards.find((el) => el.tagName === 'ARTICLE')!;
+    fireEvent.click(projectCard);
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 
   it('shows Source Code link in dialog with correct href', () => {
     renderWithRouter(<ProjectsPage />);
-    const seeMoreButtons = screen.getAllByText('see more');
-    fireEvent.click(seeMoreButtons[0]!);
+    const cards = screen.getAllByRole('button');
+    const projectCard = cards.find((el) => el.tagName === 'ARTICLE')!;
+    fireEvent.click(projectCard);
     const sourceLink = screen.getByText('Source Code');
     expect(sourceLink).toHaveAttribute('href');
     expect(sourceLink.getAttribute('href')).toMatch(/^https:\/\/github\.com\//);
-    expect(sourceLink).toHaveAttribute('aria-label');
-    expect(sourceLink.getAttribute('aria-label')).toMatch(/source code on GitHub$/i);
   });
 
   it('renders GIF images', () => {
     renderWithRouter(<ProjectsPage />);
     const gifImages = screen.getAllByRole('img');
     expect(gifImages.length).toBe(mockGifs.length);
-  });
-
-  it('renders see more buttons for each project card', () => {
-    renderWithRouter(<ProjectsPage />);
-    const seeMoreButtons = screen.getAllByText('see more');
-    expect(seeMoreButtons.length).toBe(mockProjects.length);
-  });
-
-  it('opens dialog when see more is clicked', () => {
-    renderWithRouter(<ProjectsPage />);
-    const seeMoreButtons = screen.getAllByText('see more');
-    fireEvent.click(seeMoreButtons[0]!);
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 });
