@@ -92,6 +92,7 @@
 .gif-carousel {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
+  mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
 }
 .gif-carousel::-webkit-scrollbar {
   display: none; /* Chrome/Safari */
