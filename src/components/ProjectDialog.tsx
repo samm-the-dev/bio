@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 import { RichText } from './RichText';
-import { ProjectLinks } from './ProjectCard';
 import type { Project } from '@/lib/queries';
 
 interface ProjectDialogProps {
@@ -49,9 +48,6 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
           >
             <X className="h-5 w-5" />
           </button>
-        </div>
-        <div className="mt-2">
-          <ProjectLinks project={project} />
         </div>
         <div className="mt-3 text-sm">
           <RichText html={project.description} />

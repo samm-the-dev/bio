@@ -36,7 +36,7 @@ export function GifCarousel({ gifs }: { gifs: Gif[] }) {
   if (gifs.length === 0) return null;
 
   return (
-    <div className="group/carousel relative">
+    <div className="group/carousel relative min-w-0">
       {canScrollLeft && (
         <button
           onClick={() => scroll('left')}
