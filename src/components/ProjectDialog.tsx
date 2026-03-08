@@ -13,9 +13,11 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    panelRef.current?.focus();
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = prev;
     };
   }, []);
 
@@ -30,6 +32,7 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
   return (
     <div
       role="dialog"
+      aria-modal="true"
       aria-label={project.name}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
       onClick={(e) => {
@@ -38,7 +41,8 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
     >
       <div
         ref={panelRef}
-        className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-6 text-card-foreground"
+        tabIndex={-1}
+        className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-6 text-card-foreground outline-none"
       >
         <div className="flex items-start justify-between gap-4">
           <h2 className="text-lg font-semibold">{project.name}</h2>

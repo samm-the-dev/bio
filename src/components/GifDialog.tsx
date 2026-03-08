@@ -12,9 +12,10 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
   const ext = gif.src.split('.').pop() || 'gif';
 
   useEffect(() => {
+    const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = prev;
     };
   }, []);
 
@@ -51,6 +52,7 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
   return (
     <div
       role="dialog"
+      aria-modal="true"
       aria-label={gif.alt}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
       onClick={(e) => {

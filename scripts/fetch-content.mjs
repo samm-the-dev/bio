@@ -2,8 +2,8 @@
  * Build-time content: local YAML + markdown -> static TypeScript modules.
  * Run from project root: node scripts/fetch-content.mjs
  *
- * Generates src/data/settings.ts, src/data/projects.ts, and src/data/posts.ts (gitignored).
- * Settings and projects come from YAML files in content/.
+ * Generates src/data/{settings,projects,gifs,shows,posts}.ts (all gitignored).
+ * Settings, projects, GIFs, and shows come from YAML files in content/.
  * Blog posts come from markdown files in content/posts/.
  */
 import { writeFileSync, mkdirSync, readdirSync, readFileSync } from 'fs';

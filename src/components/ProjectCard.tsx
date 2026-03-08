@@ -44,11 +44,16 @@ interface ProjectCardProps {
   onSeeMore: (project: Project) => void;
 }
 
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').trim();
+}
+
 export function ProjectCard({ project, onSeeMore }: ProjectCardProps) {
   return (
     <article
       role="button"
       tabIndex={0}
+      aria-label={project.name}
       onClick={() => onSeeMore(project)}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -59,10 +64,9 @@ export function ProjectCard({ project, onSeeMore }: ProjectCardProps) {
       className="min-w-0 cursor-pointer rounded-lg border border-border bg-card p-4 transition-colors hover:border-foreground/20"
     >
       <h3 className="font-semibold text-card-foreground">{project.name}</h3>
-      <div
-        className="rich-text mt-1 line-clamp-2 text-sm text-muted-foreground"
-        dangerouslySetInnerHTML={{ __html: project.description }}
-      />
+      <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
+        {stripHtml(project.description)}
+      </p>
     </article>
   );
 }
