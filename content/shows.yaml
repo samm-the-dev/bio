@@ -1,0 +1,22 @@
+venues:
+  pocket-sandwich:
+    name: Pocket Sandwich Theatre
+    url: https://www.pocketsandwich.com/
+    address: "1104 Elm Street, Carrollton, TX 75006"
+  cafe-bohemia:
+    name: Cafe Bohemia
+    url: https://www.cafebohemia.net/
+    address: "2320 Los Rios Blvd, Suite 105, Plano, TX 75074"
+
+shows:
+  - title: "Goofs & Goblins: The Great Modron March"
+    venue: pocket-sandwich
+    datetime: "2026-03-10T20:00"
+    endDatetime: "2026-03-10T22:00"
+    note: "Doors at 7 PM. $12 / $10 students."
+
+  - title: "ACT Extreme Improv Challenge FINALS"
+    venue: cafe-bohemia
+    datetime: "2026-03-14T20:00"
+    endDatetime: "2026-03-14T22:00"
+    note: "Pay what you can (suggested $10). Arrive by 7:30 for a good seat."

@@ -14,4 +14,5 @@ axe-audit.json
 src/data/settings.ts
 src/data/projects.ts
 src/data/posts.ts
+src/data/shows.ts
 public/feed.xml

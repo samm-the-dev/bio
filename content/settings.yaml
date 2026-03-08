@@ -13,9 +13,17 @@ intro: |
 
   This is where I share what I'm working on and what I care about.
 
-projectsTeaser: "The handful of ideas I've developed enough to be presentable. Dozens more still percolating."
-aboutTeaser: "My improv journey, movie obsession, TTRPG experience, and how I code."
-blogTeaser: "Project updates... probably some other stuff. Welcome to my mind palace."
+projectsTeaser: |
+  The handful of ideas I've developed enough to be presentable.
+  Dozens more still percolating.
+aboutTeaser: |
+  My improv journey, movie obsession, TTRPG experience, and how I code.
+blogTeaser: |
+  Project updates... probably some other stuff. 
+  Welcome to my mind palace.
+showsTeaser: |
+  Improv shows I'm performing in.
+  Come see me be silly and have fun with friends on stage.
 
 aboutImprov: |
   Improv helped me crawl out of a deep dark hole after the pandemic.
@@ -74,3 +82,5 @@ socialLinks:
     href: https://instagram.com/samm.the.human/
   - label: GitHub
     href: https://github.com/samm-the-dev/
+  - label: LinkedIn
+    href: https://www.linkedin.com/in/samm-the-dev/
