@@ -1,4 +1,4 @@
-import type { SiteSettings, Project } from '@/lib/queries';
+import type { SiteSettings, Project, ProjectSection, Gif } from '@/lib/queries';
 
 export const mockSettings: SiteSettings = {
   name: 'Test User',
@@ -23,23 +23,60 @@ export const mockSettings: SiteSettings = {
   ],
 };
 
+export const mockProjectSections: ProjectSection[] = [
+  { key: 'web-app', label: 'Web Apps', description: '' },
+  { key: 'code', label: 'Other Code Projects', description: '' },
+  { key: 'gifs', label: 'Your Friendly Neighborhood GIF-Maker', description: '' },
+  { key: 'ttrpg', label: 'TTRPG Projects', description: '' },
+];
+
 export const mockProjects: Project[] = [
   {
-    name: 'Test Project',
-    slug: 'test-project',
-    category: 'code',
-    description: '<p>A test project.</p>',
+    name: 'Test App',
+    slug: 'test-app',
+    category: 'web-app',
+    description: '<p>A test web app.</p>',
     tech: ['React', 'TypeScript'],
     link: 'https://test.example.com',
-    repo: 'https://github.com/test/project',
+    repo: 'https://github.com/test/app',
   },
   {
-    name: 'Another Project',
-    slug: 'another-project',
+    name: 'Test Tool',
+    slug: 'test-tool',
     category: 'code',
-    description: '<p>Another project.</p>',
+    description: '<p>A test tool.</p>',
     tech: ['Python'],
     link: null,
-    repo: 'https://github.com/test/another',
+    repo: 'https://github.com/test/tool',
+  },
+  {
+    name: 'Test RPG',
+    slug: 'test-rpg',
+    category: 'ttrpg',
+    description: '<p>A test TTRPG project.</p>',
+    tech: null,
+    link: null,
+    repo: null,
+  },
+];
+
+export const mockGifs: Gif[] = [
+  {
+    slug: 'test-gif-1',
+    alt: 'Test GIF 1',
+    src: '/gifs/test-1.gif',
+    width: 480,
+    height: 360,
+    tags: ['Dropout', 'Game Changer'],
+    featured: true,
+  },
+  {
+    slug: 'test-gif-2',
+    alt: 'Test GIF 2',
+    src: '/gifs/test-2.gif',
+    width: 320,
+    height: 240,
+    tags: ['Movies & TV'],
+    featured: false,
   },
 ];

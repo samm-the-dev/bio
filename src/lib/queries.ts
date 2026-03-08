@@ -18,14 +18,30 @@ export interface SiteSettings {
   socialLinks: { label: string; href: string }[];
 }
 
+export interface ProjectSection {
+  key: string;
+  label: string;
+  description: string;
+}
+
 export interface Project {
   name: string;
   slug: string;
-  category: 'code' | 'tabletop';
+  category: 'web-app' | 'code' | 'ttrpg';
   description: string;
   tech: string[] | null;
   link: string | null;
   repo: string | null;
+}
+
+export interface Gif {
+  slug: string;
+  alt: string;
+  src: string;
+  width: number;
+  height: number;
+  tags: string[];
+  featured: boolean;
 }
 
 export interface Show {

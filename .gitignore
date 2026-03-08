@@ -15,4 +15,6 @@ src/data/settings.ts
 src/data/projects.ts
 src/data/posts.ts
 src/data/shows.ts
+src/data/gifs.ts
 public/feed.xml
+public/gifs/featured/

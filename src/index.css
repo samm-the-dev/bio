@@ -88,6 +88,16 @@
   }
 }
 
+/* GIF carousel — hide scrollbar, keep scroll functional */
+.gif-carousel {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.gif-carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
 /* Blog prose overrides to match VS Code markdown preview */
 @layer components {
   /* Rich text (settings, about, project descriptions) */

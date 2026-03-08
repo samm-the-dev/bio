@@ -20,7 +20,7 @@
 
 ## Future Features
 
-- [ ] Write tabletop game project descriptions (SMARS, Wizard Battle) for `content/projects.yaml`
-- [ ] GIF section (curated favorites, Klipy integration, or skip — TBD)
+- [x] GIF section (curated favorites, Klipy integration, or skip — TBD)
+- [ ] Generate better GIF alt text (currently just filenames)
 - [ ] Stats page (Letterboxd, GitHub, "terminally online" meter)
 - [ ] Analytics (Plausible/Fathom vs. none — TBD)

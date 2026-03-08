@@ -2,8 +2,8 @@
  * Build-time content: local YAML + markdown -> static TypeScript modules.
  * Run from project root: node scripts/fetch-content.mjs
  *
- * Generates src/data/settings.ts, src/data/projects.ts, and src/data/posts.ts (gitignored).
- * Settings and projects come from YAML files in content/.
+ * Generates src/data/{settings,projects,gifs,shows,posts}.ts (all gitignored).
+ * Settings, projects, GIFs, and shows come from YAML files in content/.
  * Blog posts come from markdown files in content/posts/.
  */
 import { writeFileSync, mkdirSync, readdirSync, readFileSync } from 'fs';
@@ -66,11 +66,30 @@ for (const field of richTextFields) {
 }
 
 // --- Projects ---
-const projectsRaw = yaml.load(readFileSync('content/projects.yaml', 'utf-8'));
+const projectsFile = yaml.load(readFileSync('content/projects.yaml', 'utf-8'));
 
-const projects = projectsRaw.map((p) => ({
+const projectSections = (projectsFile.sections || []).map((s) => ({
+  key: s.key,
+  label: s.label,
+  description: renderMarkdown(s.description || ''),
+}));
+
+const projects = (projectsFile.projects || []).map((p) => ({
   ...p,
   description: renderMarkdown(p.description),
+}));
+
+// --- GIFs ---
+const gifsRaw = yaml.load(readFileSync('content/gifs.yaml', 'utf-8')) || [];
+const gifsList = Array.isArray(gifsRaw) ? gifsRaw : gifsRaw.gifs || [];
+const gifs = gifsList.map((g) => ({
+  slug: g.slug,
+  alt: g.alt,
+  src: g.src,
+  width: g.width || 0,
+  height: g.height || 0,
+  tags: g.tags || [],
+  featured: !!g.featured,
 }));
 
 // --- Shows ---
@@ -131,7 +150,12 @@ writeFileSync(
 
 writeFileSync(
   'src/data/projects.ts',
-  `${HEADER}import type { Project } from '@/lib/queries';\n\nexport const projects: Project[] = ${JSON.stringify(projects, null, 2)};\n`,
+  `${HEADER}import type { Project, ProjectSection } from '@/lib/queries';\n\nexport const projectSections: ProjectSection[] = ${JSON.stringify(projectSections, null, 2)};\n\nexport const projects: Project[] = ${JSON.stringify(projects, null, 2)};\n`,
+);
+
+writeFileSync(
+  'src/data/gifs.ts',
+  `${HEADER}import type { Gif } from '@/lib/queries';\n\nexport const gifs: Gif[] = ${JSON.stringify(gifs, null, 2)};\n`,
 );
 
 writeFileSync(

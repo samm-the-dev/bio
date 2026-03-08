@@ -16,7 +16,8 @@
     "test": "vitest",
     "test:run": "vitest run",
     "audit:a11y": "node scripts/audit-a11y.mjs",
-    "new-post": "node scripts/new-post.mjs"
+    "new-post": "node scripts/new-post.mjs",
+    "sync-gifs": "node scripts/sync-gifs.mjs"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",

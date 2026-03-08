@@ -1,10 +1,14 @@
-import { screen } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { renderWithRouter } from '@/test/utils';
-import { mockProjects } from '@/test/mock-data';
+import { mockProjects, mockProjectSections, mockGifs } from '@/test/mock-data';
 import { ProjectsPage } from './ProjectsPage';
 
-vi.mock('@/data/projects', () => ({ projects: mockProjects }));
+vi.mock('@/data/projects', () => ({
+  projects: mockProjects,
+  projectSections: mockProjectSections,
+}));
+vi.mock('@/data/gifs', () => ({ gifs: mockGifs }));
 
 describe('ProjectsPage', () => {
   it('renders the main heading', () => {
@@ -12,34 +16,53 @@ describe('ProjectsPage', () => {
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Projects');
   });
 
-  it('renders code projects section', () => {
+  it('renders Web Apps section', () => {
     renderWithRouter(<ProjectsPage />);
-    expect(screen.getByRole('heading', { name: /code projects/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /web apps/i })).toBeInTheDocument();
   });
 
-  it('renders project cards', () => {
+  it('renders Other Code Projects section', () => {
     renderWithRouter(<ProjectsPage />);
-    expect(screen.getAllByRole('article').length).toBeGreaterThan(0);
+    expect(screen.getByRole('heading', { name: /other code projects/i })).toBeInTheDocument();
   });
 
-  it('renders Source Code links with unique aria-labels', () => {
+  it('renders TTRPG Projects section', () => {
     renderWithRouter(<ProjectsPage />);
-    const sourceLinks = screen.getAllByText('Source Code');
-    expect(sourceLinks.length).toBeGreaterThan(1);
-    for (const link of sourceLinks) {
-      expect(link).toHaveAttribute('aria-label');
-      expect(link.getAttribute('aria-label')).toMatch(/source code on GitHub$/i);
-    }
-    const labels = sourceLinks.map((l) => l.getAttribute('aria-label'));
-    expect(new Set(labels).size).toBe(labels.length);
+    expect(screen.getByRole('heading', { name: /ttrpg projects/i })).toBeInTheDocument();
   });
 
-  it('renders Source Code links with correct hrefs', () => {
+  it('renders GIF section', () => {
     renderWithRouter(<ProjectsPage />);
-    const sourceLinks = screen.getAllByText('Source Code');
-    for (const link of sourceLinks) {
-      expect(link).toHaveAttribute('href');
-      expect(link.getAttribute('href')).toMatch(/^https:\/\/github\.com\//);
-    }
+    expect(
+      screen.getByRole('heading', { name: /friendly neighborhood gif-maker/i }),
+    ).toBeInTheDocument();
+  });
+
+  it('renders clickable project cards', () => {
+    renderWithRouter(<ProjectsPage />);
+    const projectCards = screen.getAllByTestId('project-card');
+    expect(projectCards.length).toBe(mockProjects.length);
+  });
+
+  it('opens dialog when a project card is clicked', () => {
+    renderWithRouter(<ProjectsPage />);
+    fireEvent.click(screen.getAllByTestId('project-card')[0]!);
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+  });
+
+  it('shows Source Code link in dialog with correct href', () => {
+    renderWithRouter(<ProjectsPage />);
+    fireEvent.click(screen.getAllByTestId('project-card')[0]!);
+    const sourceLink = screen.getByText('Source Code');
+    expect(sourceLink).toHaveAttribute('href');
+    expect(sourceLink.getAttribute('href')).toMatch(/^https:\/\/github\.com\//);
+  });
+
+  it('renders GIF carousel images', () => {
+    renderWithRouter(<ProjectsPage />);
+    const gifImages = screen.getAllByRole('img');
+    const featuredCount = mockGifs.filter((g) => g.featured).length;
+    // Carousel duplicates items for seamless looping
+    expect(gifImages.length).toBe(featuredCount * 2);
   });
 });

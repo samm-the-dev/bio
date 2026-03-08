@@ -1,65 +1,117 @@
-- name: Ohm
-  slug: ohm
-  category: code
-  description: |
-    A [personal kanban](https://personalkanban.com/learn/personal-kanban/) app developed using ADHD research. 
-    It features optional Google Drive integration for storage/backup, as well as restore points and export/import functionality.
+sections:
+  - key: gifs
+    label: "Your Friendly Neighborhood GIF-Maker"
+    description: |
+      For a while I was obsessively making GIFs, mostly from [Dropout](https://www.dropout.tv/) shows, but also from movies and other shows I love.
+      I've since slowed down quite a bit, but I'm generally open to requests.
 
-    I have a big refactor planned for this, and some ideas for turning it into a coordinator for various specific task/habit apps. 
-    Let me know if you're using it and/or interested in testing the larger ecosystem of apps I have in mind.
-  tech: [PWA, React 19, TypeScript, Vite, Tailwind CSS, Google Drive API, GCP Cloud Functions]
-  link: https://ohm.samm-the.dev/
-  repo: https://github.com/samm-the-dev/ohm
+      The vast majority of what I've made is also uploaded to [Tenor](https://tenor.com/users/smarshian) and [Klipy](https://klipy.com/profile/sammthehuman/uploads).
+      The tagging is better there, hah.
+  - key: web-app
+    label: Web Apps
+    description: ""
+  - key: code
+    label: Other Code Projects
+    description: ""
+  - key: ttrpg
+    label: TTRPG Projects
+    description: "These are all in early design phases, but I figured I'd at least describe the ideas here."
 
-- name: Build-a-Jam
-  slug: build-a-jam
-  category: code
-  description: |
-    A tool for selecting improv warm-ups and exercises based on tags like 'connection', 'structure', 'heightening', and more.
+projects:
+  - name: Ohm
+    slug: ohm
+    category: web-app
+    description: |
+      A [personal kanban](https://personalkanban.com/learn/personal-kanban/) app developed using ADHD research.
+      It features optional Google Drive integration for storage/backup, as well as restore points and export/import functionality.
 
-    It features exercises from multiple sources (credited on the site), a session queue with timers, and fields for notes.
+      I have a big refactor planned for this, and some ideas for turning it into a coordinator for various specific task/habit apps.
+      Let me know if you're using it and/or interested in testing the larger ecosystem of apps I have in mind.
+    tech: [PWA, React 19, TypeScript, Vite, Tailwind CSS, Google Drive API, GCP Cloud Functions]
+    link: https://ohm.samm-the.dev/
+    repo: https://github.com/samm-the-dev/ohm
 
-    I'm actively improving this; more concise exercise descriptions, better mobile scaling, and a feedback form are next.
-  tech: [PWA, React 19, TypeScript, Vite, Tailwind CSS]
-  link: https://build-a-jam.app/
-  repo: https://github.com/samm-the-dev/build-a-jam
+  - name: Build-a-Jam
+    slug: build-a-jam
+    category: web-app
+    description: |
+      A tool for selecting improv warm-ups and exercises based on tags like 'connection', 'structure', 'heightening', and more.
 
-- name: The Enchiridion
-  slug: the-enchiridion
-  category: code
-  description: |
-    An Adventure Time catalog with a multi-theme system (8 character themes).
+      It features exercises from multiple sources (credited on the site), a session queue with timers, and fields for notes.
 
-    AT is one of my favorite things on the planet, and for a while now I've wanted to build a proper episode guide. 
-    This project is meant to replace the fandom wiki (which is messy and rife with ads), 
-    and improve on it with transcript searching and other features.
+      I'm actively improving this; more concise exercise descriptions, better mobile scaling, and a feedback form are next.
+    tech: [PWA, React 19, TypeScript, Vite, Tailwind CSS]
+    link: https://build-a-jam.app/
+    repo: https://github.com/samm-the-dev/build-a-jam
 
-    Stay tuned...
-  tech: [React 19, TypeScript, Vite, Tailwind CSS, Playwright, axe-core]
-  link: null
-  repo: https://github.com/samm-the-dev/the-enchiridion
+  - name: The Enchiridion
+    slug: the-enchiridion
+    category: web-app
+    description: |
+      An Adventure Time catalog with a multi-theme system (8 character themes).
 
-- name: Adventure Time Transcripts
-  slug: adventure-time-transcripts
-  category: code
-  description: |
-    A speaker diarization pipeline which generates voice profiles from audio samples, 
-    then uses them in conjunction with Claude Vision to validate and generate transcripts.
+      AT is one of my favorite things on the planet, and for a while now I've wanted to build a proper episode guide.
+      This project is meant to replace the fandom wiki (which is messy and rife with ads),
+      and improve on it with transcript searching and other features.
 
-    This was based on a repository of transcripts that I believe was scraped from the fan wiki. 
-    I wanted to fill out the catalog of transcripts, get them into a consistent format, and use them for The Enchiridion.
+      Stay tuned...
+    tech: [React 19, TypeScript, Vite, Tailwind CSS, Playwright, axe-core]
+    link: null
+    repo: https://github.com/samm-the-dev/the-enchiridion
 
-    This is easily the most technically complex solo project I've done, and I'm still working on it. 
-    Once it's done, I plan to make it generic for use with any show.
-  tech: [Python, Claude Vision API, ffmpeg, Docker, CUDA]
-  link: null
-  repo: https://github.com/samm-the-dev/adventuretime-transcripts
+  - name: Adventure Time Transcripts
+    slug: adventure-time-transcripts
+    category: code
+    description: |
+      A speaker diarization pipeline which generates voice profiles from audio samples,
+      then uses them in conjunction with Claude Vision to validate and generate transcripts.
 
-- name: Toolbox
-  slug: toolbox
-  category: code
-  description: |
-    A library of templates and tools for enhancing my AI-assisted project development, distributed to my projects via Git submodule.
-  tech: [Claude AI, Google OAuth, GCP Cloud Functions, React, Vite, TypeScript, GitHub Actions]
-  link: null
-  repo: https://github.com/samm-the-dev/toolbox
+      This was based on a repository of transcripts that I believe was scraped from the fan wiki.
+      I wanted to fill out the catalog of transcripts, get them into a consistent format, and use them for The Enchiridion.
+
+      This is easily the most technically complex solo project I've done, and I'm still working on it.
+      Once it's done, I plan to make it generic for use with any show.
+    tech: [Python, Claude Vision API, ffmpeg, Docker, CUDA]
+    link: null
+    repo: https://github.com/samm-the-dev/adventuretime-transcripts
+
+  - name: Toolbox
+    slug: toolbox
+    category: code
+    description: |
+      A library of templates and tools for enhancing my AI-assisted project development, distributed to my projects via Git submodule.
+    tech: [Claude AI, Google OAuth, GCP Cloud Functions, React, Vite, TypeScript, GitHub Actions]
+    link: null
+    repo: https://github.com/samm-the-dev/toolbox
+
+  - name: "Cartifex"
+    slug: cartifex
+    category: ttrpg
+    description: |
+      A Pathfinder 2e character builder.
+      [Pathbuilder](https://pathbuilder2e.com/) is the gold standard, but I think I can improve the UX a bit, particularly the data sync.
+      I also just enjoy making character builders.
+    tech: null
+    link: null
+    repo: null
+
+  - name: "PF2e Lite"
+    slug: pf2e-lite
+    category: ttrpg
+    description: |
+      With this project I'm trying to pare down and simplify Pathfinder 2e, as well as rework downtime and exploration.
+      At the moment I'm picturing it as a browser extension that modifies [Archives of Nethys](https://2e.aonprd.com/) 
+      and a character builder, but I'm still in early design.
+    tech: null
+    link: null
+    repo: null
+
+  - name: "Aether RPG"
+    slug: aether-rpg
+    category: ttrpg
+    description: |
+      This is a TTRPG project where I'm trying to design both lore and mechanics from scratch, borrowing from PF2e mechanics along the way.
+      Right now I just have some lore ideas sketched out, and it'll share some mechanics with my PF2e Lite project.
+    tech: null
+    link: null
+    repo: null
