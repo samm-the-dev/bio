@@ -33,6 +33,7 @@ export interface Show {
   venue: string;
   venueUrl: string | null;
   address: string | null;
+  mapsUrl: string | null;
   datetime: string;
   endDatetime: string | null;
   note: string | null;

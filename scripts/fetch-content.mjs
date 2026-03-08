@@ -83,6 +83,7 @@ const shows = (showsData.shows || []).map((s) => {
     venue: venue.name || s.venue,
     venueUrl: venue.url || null,
     address: venue.address || null,
+    mapsUrl: venue.mapsUrl || null,
     datetime: String(s.datetime),
     endDatetime: s.endDatetime ? String(s.endDatetime) : null,
     note: s.note || null,

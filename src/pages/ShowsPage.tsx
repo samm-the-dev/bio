@@ -41,8 +41,11 @@ function safeFilename(title: string): string {
   return title.replace(/[<>:"/\\|?*]/g, '').replace(/\s+/g, '-');
 }
 
-function calendarUrl(show: Show): string {
-  const location = show.address ? `${show.venue}, ${show.address}` : show.venue;
+function showLocation(show: Show): string {
+  return show.address ? `${show.venue}, ${show.address}` : show.venue;
+}
+
+function icsUrl(show: Show): string {
   const ics = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
@@ -50,7 +53,7 @@ function calendarUrl(show: Show): string {
     `DTSTART;TZID=America/Chicago:${toIcsTime(show.datetime)}`,
     show.endDatetime ? `DTEND;TZID=America/Chicago:${toIcsTime(show.endDatetime)}` : '',
     `SUMMARY:${show.title}`,
-    `LOCATION:${location}`,
+    `LOCATION:${showLocation(show)}`,
     show.note ? `DESCRIPTION:${show.note}` : '',
     'END:VEVENT',
     'END:VCALENDAR',
@@ -60,8 +63,24 @@ function calendarUrl(show: Show): string {
   return `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}`;
 }
 
+function googleCalendarUrl(show: Show): string {
+  const start = toIcsTime(show.datetime);
+  const end = show.endDatetime ? toIcsTime(show.endDatetime) : start;
+  const dates = `${start}/${end}`;
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: show.title,
+    dates,
+    ctz: 'America/Chicago',
+    location: showLocation(show),
+  });
+  if (show.note) params.set('details', show.note);
+  return `https://calendar.google.com/calendar/render?${params}`;
+}
+
 export function ShowsPage() {
   useDocumentTitle('Shows');
+  const isAndroid = /Android/i.test(navigator.userAgent);
 
   const now = new Date();
   const upcoming = shows
@@ -102,9 +121,12 @@ export function ShowsPage() {
                 ) : (
                   <span className="text-muted-foreground">{show.venue}</span>
                 )}
-                {show.address && (
+                {(show.mapsUrl || show.address) && (
                   <a
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(show.address)}`}
+                    href={
+                      show.mapsUrl ??
+                      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(showLocation(show))}`
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
@@ -113,14 +135,26 @@ export function ShowsPage() {
                     Map
                   </a>
                 )}
-                <a
-                  href={calendarUrl(show)}
-                  download={`${safeFilename(show.title)}.ics`}
-                  className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
-                >
-                  <CalendarPlus className="h-3.5 w-3.5 shrink-0" />
-                  Add to calendar
-                </a>
+                {isAndroid ? (
+                  <a
+                    href={googleCalendarUrl(show)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                  >
+                    <CalendarPlus className="h-3.5 w-3.5 shrink-0" />
+                    Add to calendar
+                  </a>
+                ) : (
+                  <a
+                    href={icsUrl(show)}
+                    download={`${safeFilename(show.title)}.ics`}
+                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                  >
+                    <CalendarPlus className="h-3.5 w-3.5 shrink-0" />
+                    Add to calendar
+                  </a>
+                )}
               </div>
               {show.note && <p className="mt-2 text-xs text-muted-foreground">{show.note}</p>}
             </article>
