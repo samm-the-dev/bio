@@ -80,12 +80,13 @@ const projects = (projectsFile.projects || []).map((p) => ({
 }));
 
 // --- GIFs ---
+const GCS_BUCKET = 'https://storage.googleapis.com/samm-bio-gifs';
 const gifsRaw = yaml.load(readFileSync('content/gifs.yaml', 'utf-8')) || [];
 const gifsList = Array.isArray(gifsRaw) ? gifsRaw : gifsRaw.gifs || [];
 const gifs = gifsList.map((g) => ({
   slug: g.slug,
   alt: g.alt,
-  src: g.src,
+  src: process.env.NODE_ENV === 'production' ? `${GCS_BUCKET}${g.src}` : g.src,
   width: g.width || 0,
   height: g.height || 0,
   tags: g.tags || [],

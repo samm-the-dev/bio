@@ -28,16 +28,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache LFS objects
-        uses: actions/cache@v4
-        with:
-          path: .git/lfs
-          key: lfs-${{ hashFiles('.gitattributes', 'public/gifs/**') }}
-          restore-keys: lfs-
-
-      - name: Pull LFS files
-        run: git lfs pull
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -49,6 +39,11 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Remove local GIFs from build output
+        run: rm -rf dist/gifs
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
