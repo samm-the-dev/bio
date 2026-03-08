@@ -76,7 +76,7 @@ describe('ProjectsPage', () => {
   it('opens dialog when see more is clicked', () => {
     renderWithRouter(<ProjectsPage />);
     const seeMoreButtons = screen.getAllByText('see more');
-    fireEvent.click(seeMoreButtons[0]);
+    fireEvent.click(seeMoreButtons[0]!);
     expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 });
