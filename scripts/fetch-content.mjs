@@ -86,7 +86,6 @@ const gifs = gifsList.map((g) => ({
   slug: g.slug,
   alt: g.alt,
   src: g.src,
-  thumb: g.thumb || g.src,
   width: g.width || 0,
   height: g.height || 0,
   tags: g.tags || [],

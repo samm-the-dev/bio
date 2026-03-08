@@ -38,7 +38,6 @@ export interface Gif {
   slug: string;
   alt: string;
   src: string;
-  thumb: string;
   width: number;
   height: number;
   tags: string[];

@@ -35,8 +35,7 @@ export function GifCarousel({ gifs }: { gifs: Gif[] }) {
   useEffect(() => {
     const el = scrollRef.current;
     if (!el || shuffled.length === 0) return;
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mq.matches) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
 
     let prev: number | null = null;
     let accum = 0;

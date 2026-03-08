@@ -28,7 +28,6 @@ const SOURCES = [
 
 const EXTS = new Set(['.gif', '.webp']);
 const TARGET = 'public/gifs';
-const THUMBS_DIR = join(TARGET, 'thumbs');
 const FEATURED_DIR = join(TARGET, 'featured');
 
 /** Episode-like folder names to skip when deriving tags. */
@@ -86,7 +85,6 @@ if (existsSync(FEATURED_DIR)) {
 }
 
 mkdirSync(TARGET, { recursive: true });
-mkdirSync(THUMBS_DIR, { recursive: true });
 
 const entries = [];
 const seenSlugs = new Set();
@@ -123,11 +121,9 @@ for (const folder of SOURCES) {
     const src = `/gifs/${file}`;
     const tags = deriveTags(srcPath, srcDir, folder);
 
-    // Read dimensions and generate static thumbnail via ImageMagick
+    // Read dimensions via ImageMagick
     let width = 0;
     let height = 0;
-    const thumbFile = `${slug}.webp`;
-    const thumbPath = join(THUMBS_DIR, thumbFile);
     try {
       const out = execFileSync('magick', ['identify', '-format', '%w %h', `${join(TARGET, file)}[0]`], {
         encoding: 'utf-8',
@@ -135,14 +131,6 @@ for (const folder of SOURCES) {
       }).trim();
       const [w, h] = out.split(' ').map(Number);
       if (w && h) { width = w; height = h; }
-
-      // First frame as static WebP thumbnail (skip if already exists and source unchanged)
-      const srcStat = statSync(join(TARGET, file));
-      if (!existsSync(thumbPath) || statSync(thumbPath).mtimeMs < srcStat.mtimeMs) {
-        execFileSync('magick', [`${join(TARGET, file)}[0]`, '-quality', '80', thumbPath], {
-          timeout: 10000,
-        });
-      }
     } catch {
       console.warn(`  Could not process: ${file}`);
     }
@@ -151,7 +139,6 @@ for (const folder of SOURCES) {
       slug,
       alt: basename(file, extname(file)),
       src,
-      thumb: `/gifs/thumbs/${thumbFile}`,
       width,
       height,
       tags,
@@ -176,7 +163,6 @@ for (const entry of entries) {
   lines.push(`- slug: ${entry.slug}`);
   lines.push(`  alt: "${entry.alt.replace(/"/g, '\\"')}"`);
   lines.push(`  src: "${entry.src}"`);
-  lines.push(`  thumb: "${entry.thumb}"`);
   if (entry.width && entry.height) {
     lines.push(`  width: ${entry.width}`);
     lines.push(`  height: ${entry.height}`);

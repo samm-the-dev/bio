@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { X, Download, Share2 } from 'lucide-react';
 import type { Gif } from '@/lib/queries';
 
@@ -8,12 +8,14 @@ interface GifDialogProps {
 }
 
 export function GifDialog({ gif, onClose }: GifDialogProps) {
+  const panelRef = useRef<HTMLDivElement>(null);
   const canShare = typeof navigator.share === 'function';
   const ext = gif.src.split('.').pop() || 'gif';
 
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    panelRef.current?.focus();
     return () => {
       document.body.style.overflow = prev;
     };
@@ -28,14 +30,19 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
   }, [onClose]);
 
   async function handleDownload() {
-    const res = await fetch(gif.src);
-    const blob = await res.blob();
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${gif.slug}.${ext}`;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    try {
+      const res = await fetch(gif.src);
+      if (!res.ok) return;
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${gif.slug}.${ext}`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch {
+      // Network error
+    }
   }
 
   async function handleShare() {
@@ -59,7 +66,11 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="flex max-h-[85vh] w-full max-w-lg flex-col overflow-hidden rounded-lg border border-border bg-card text-card-foreground">
+      <div
+        ref={panelRef}
+        tabIndex={-1}
+        className="flex max-h-[85vh] w-full max-w-lg flex-col overflow-hidden rounded-lg border border-border bg-card text-card-foreground outline-none"
+      >
         <div className="flex items-center justify-between gap-4 px-4 pb-2 pt-4">
           <div className="flex items-center gap-2">
             <button
