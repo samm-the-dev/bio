@@ -48,9 +48,6 @@ export function ProjectCard({ project, onSeeMore }: ProjectCardProps) {
   return (
     <article className="min-w-0 rounded-lg border border-border bg-card p-4">
       <h3 className="font-semibold text-card-foreground">{project.name}</h3>
-      <div className="mt-1">
-        <ProjectLinks project={project} />
-      </div>
       <div
         className="mt-1 line-clamp-2 text-sm text-muted-foreground"
         dangerouslySetInnerHTML={{ __html: project.description }}
