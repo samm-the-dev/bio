@@ -61,9 +61,6 @@ export function ProjectCard({ project, onSeeMore }: ProjectCardProps) {
       >
         see more
       </button>
-      {project.tech && project.tech.length > 0 && (
-        <p className="mt-2 text-xs text-muted-foreground">{project.tech.join(' \u00B7 ')}</p>
-      )}
     </article>
   );
 }
