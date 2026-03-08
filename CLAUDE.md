@@ -19,8 +19,7 @@ calendar + map links).
 ### Content Principle
 
 All content in `content/` is hand-authored — AI assists with design/build
-only, and may help summarize or draft blog posts. See `docs/DECISIONS.md` for
-the full decision log.
+only, and may help summarize or draft blog posts.
 
 ### Content Voice
 
@@ -36,7 +35,7 @@ the full decision log.
 | `content/`        | Hand-authored YAML (settings, projects, shows) + markdown (posts) |
 | `src/pages/`      | Route-level page components (Home, About, Projects, Blog, Shows)  |
 | `src/components/` | Shared UI components                                              |
-| `docs/`           | Planning docs (structure, decisions, open questions)               |
+| `docs/`           | Planning docs (structure, open questions, blog plan)               |
 
 ### Social Profiles
 
