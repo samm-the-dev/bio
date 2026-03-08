@@ -1,72 +1,58 @@
 # Site Structure
 
 ## Navigation
-Light navigation structure with the following pages:
+
+Five pages with light navigation:
 
 ### Home
-- Hero section with brief introduction
-- Quick links to main social profiles (Letterboxd, Bluesky, GitHub)
-- Overview/highlights of other sections
 
-### Projects
-Organized by type with visual elements where applicable:
-
-**Code Projects**
-- Alt text generator (with accessibility focus)
-- Event monitors (Alamo Drafthouse, Improv events across DFW/Austin/San Antonio)
-- Discord/Bluesky automation bots
-- Other development tools and web applications
-
-**Tabletop Games**
-- SMARS (simplified Pathfinder 2e derivative under ORC License)
-- Wizard Battle (arena combat with elemental magic system)
-- D&D one-shot development
-
-**Other Projects**
-- [To be determined during content writing]
-
-**Format Notes:**
-- Include screenshots/GIFs for visual projects
-- Link to live demos where applicable
-- Brief description + tech stack for code projects
-- Maintain grouping by project type
-
-### Now
-A "/now" page showing current interests and work-in-progress:
-- What I'm currently working on
-- Current tinkering/exploration
-- Things on my mind that don't yet have public web presence
-
-### Stats
-Fun data visualization and engagement metrics:
-
-**Confirmed Elements:**
-- Letterboxd embedded content (movie watching stats, reviews)
-- GitHub contribution graphs and activity
-- Current improv level progression
-
-**Open Questions:**
-- Bluesky post metrics for "terminally online" meter
-- Discord data integration (if feasible)
-- GIF library showcase (see OPEN_QUESTIONS.md)
+- Hero section with tagline and brief introduction
+- Social profile links (Letterboxd, Bluesky, Instagram, GitHub, Discord, LinkedIn)
+- Section previews for Projects, About, Blog, and Shows
 
 ### About
-Expanded biography covering:
-- Improv (currently Level 1 at Stomping Ground Comedy, previously with Alternative Comedy Theatre)
-- Game design work and philosophy
-- Movie enthusiasm (60+ new releases annually, Alamo Drafthouse Season Pass holder)
-- Development background (Angular → React transition)
 
-### Blog (Future)
-Not part of v1, but planned for future iterations:
-- Game design process thoughts
-- Development learnings
-- Movie commentary
-- Improv reflections
-- Project postmortems
+Expanded biography covering:
+
+- Improv (ACT, Stomping Ground, Goofs & Goblins, Out of Bounds festival)
+- Movies (Alamo Drafthouse Season Pass, 60+ new releases in 2025, Letterboxd logging)
+- TTRPGs (D&D 5e, Pathfinder 2e, PbtA systems, upcoming TTRPG projects)
+- Code (boot camp origin, Angular to React, Claude AI-assisted development)
+
+### Projects
+
+Organized by category:
+
+**Code Projects**
+
+- Ohm — personal kanban app with Google Drive integration
+- Build-a-Jam — improv warm-up/exercise selector
+- The Enchiridion — Adventure Time episode catalog
+- Adventure Time Transcripts — speaker diarization pipeline
+- Toolbox — shared templates and AI-assisted dev tools
+
+**Tabletop Games** (planned)
+
+- SMARS (simplified Pathfinder 2e derivative under ORC License)
+- Wizard Battle (arena combat with elemental magic system)
+
+### Blog
+
+- Markdown posts with syntax highlighting (Shiki, dark-plus theme)
+- Post list page titled "ADHDev"
+- Individual post pages with OG meta tags
+- RSS feed (`/feed.xml`)
+- Cross-posting to Bluesky
+
+### Shows
+
+- Upcoming improv shows
+- Calendar and map links for each show
 
 ## Technical Approach
-- Multi-page structure with React Router (or similar)
-- Responsive design
-- GitHub Pages deployment workflow
-- [Additional technical decisions to be made during implementation]
+
+- React 19 + TypeScript + Vite + Tailwind CSS
+- React Router for multi-page navigation
+- Content in `content/` as YAML + markdown, compiled at build time
+- GitHub Pages deployment via Actions workflow
+- Dark mode default with light mode support

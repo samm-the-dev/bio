@@ -1,101 +1,75 @@
 # Asset Inventory
 
-Resources needed or to be collected for the site.
+Resources needed or collected for the site.
 
 ## Images & Visual Assets
 
 ### Screenshots/Demos
-- [ ] Alt text generator tool screenshot or demo GIF
-- [ ] Event monitor outputs/examples
-- [ ] SMARS preview materials (if available and appropriate)
-- [ ] Wizard Battle concept art or mockups (if available)
-- [ ] Other project visuals as applicable
+
+- [ ] Project screenshots or demo GIFs (optional, for Projects page enhancement)
 
 ### Profile Images
-- [ ] Headshot or avatar for About page (optional)
-- [ ] Social profile icons/logos (Letterboxd, Bluesky, GitHub)
 
-### GIF Collection
-- [ ] Curated GIF selection (if implementing)
-- [ ] Links or files for chosen favorites
+- [ ] Headshot or avatar for About page (optional)
 
 ### Branding
+
+- [x] Favicon
 - [ ] Site logo or wordmark (optional)
-- [ ] Favicon
 
 ---
 
 ## External Content & Embeds
 
 ### Letterboxd
-- [ ] Profile URL: https://letterboxd.com/smarshian
-- [ ] RSS feed URL (if using)
-- [ ] Embed code or API approach (research needed)
+
+- Profile URL: https://letterboxd.com/samm_loves_film/
+- [ ] RSS feed or embed approach (deferred to Stats page)
 
 ### Bluesky
-- [ ] Profile URL: https://bsky.app/profile/smarshian
-- [ ] API credentials (if implementing post metrics)
-- [ ] Embed options (if any)
+
+- Profile URL: https://bsky.app/profile/samm-the-human.online/
+- [x] App password for cross-posting
 
 ### GitHub
-- [ ] Profile URL
-- [ ] Public repository links
-- [ ] API token (if needed for contribution graphs)
+
+- Profile URL: https://github.com/samm-the-dev
+- [ ] API integration for Stats page (deferred)
 
 ### Klipy
-- [ ] Profile URL: https://klipy.com/sammthehuman (verify exact URL)
-- [ ] API key (if pursuing integration)
+
+- Profile URL: https://klipy.com/sammthehuman (unverified)
+- [ ] API access research (deferred, see OPEN_QUESTIONS.md)
 
 ---
 
 ## Links & URLs
 
 ### Social Profiles
-- Letterboxd: smarshian
-- Bluesky: smarshian
-- GitHub: [to be added]
 
-### External Project Links
-- [ ] Alt text generator live demo
-- [ ] Event monitor outputs (if publicly accessible)
-- [ ] Any other public project links
+- Letterboxd: samm_loves_film
+- Bluesky: samm-the-human.online
+- Instagram: samm.the.human
+- GitHub: samm-the-dev
+- Discord: 1071548060682948668
+- LinkedIn: samm-the-dev
 
 ### Improv
-- [ ] Stomping Ground Comedy (reference link)
-- [ ] Alternative Comedy Theatre (reference link, if desired)
+
+- [Alternative Comedy Theater](https://www.improvact.org/)
+- [Stomping Ground Comedy Theater](https://stompinggroundcomedy.org/)
+- [Pocket Sandwich Theatre](https://www.pocketsandwich.com/)
+- [Out of Bounds Festival](https://oobfest.com/)
 
 ### Movies
-- [ ] Alamo Drafthouse Richardson link (optional)
 
----
-
-## Data Files (Future)
-
-### Blog Posts
-- [ ] Markdown files for posts
-- [ ] Metadata/frontmatter structure
-
-### Project Data
-- [ ] JSON or data structure for projects
-- [ ] Tags/categories taxonomy
+- [Alamo Drafthouse](https://drafthouse.com/)
 
 ---
 
 ## Legal/Attribution
 
 ### Licenses & Credits
-- [ ] ORC License reference for SMARS
+
+- [ ] ORC License reference for SMARS (when published)
 - [ ] Any third-party asset attributions
-- [ ] Font licenses (if using custom fonts)
-
-### API Attributions
-- [ ] Klipy attribution requirements (if using)
-- [ ] GitHub API terms
-- [ ] Letterboxd terms/attribution
-
----
-
-## Notes
-- Update this document as assets are collected or requirements change
-- Mark items complete as they're gathered or implemented
-- Some items may remain optional depending on final scope

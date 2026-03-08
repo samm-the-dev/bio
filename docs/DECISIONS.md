@@ -75,11 +75,11 @@ Track resolved questions and rationale. Move items here from OPEN_QUESTIONS.md a
 
 ## V1 Scope
 
-### V1 Pages: Home, Projects, About
+### V1 Pages: Home, About, Projects, Blog, Shows
 
-**Date:** 2026-03-02
-**Decision:** Ship Home, Projects, and About. Now page as stretch goal. Stats, Blog, GIF section deferred to v2+.
-**Rationale:** Three pages are enough to launch. Stats integrations add API complexity, Blog needs a content system, GIF section has uncertain Klipy API access. None of these block a useful site.
+**Date:** 2026-03-02 (updated 2026-03-08)
+**Decision:** Ship Home, About, Projects, Blog, and Shows. Now page, Stats page, and GIF section deferred to v2+.
+**Rationale:** Blog was added after a content pipeline was built (local markdown + Shiki syntax highlighting). Shows page added for upcoming improv performances. Five pages provide a complete personal site. Stats integrations and GIF section remain deferred due to API complexity and uncertain access.
 **Alternatives Considered:** Including Stats page — deferred because Letterboxd integration approach is still open and not worth blocking launch.
 
 ---
