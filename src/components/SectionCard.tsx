@@ -9,12 +9,17 @@ interface SectionCardProps {
 
 export function SectionCard({ to, icon: Icon, title, description }: SectionCardProps) {
   return (
-    <Link to={to} className="group rounded-lg border border-border bg-card p-6">
-      <h2 className="flex items-center justify-center gap-2 text-xl font-semibold text-card-foreground transition-colors group-hover:text-primary">
-        <Icon className="h-5 w-5 text-primary" />
-        {title}
-      </h2>
-      <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+    <Link
+      to={to}
+      className="group relative overflow-hidden rounded-lg border border-border bg-card p-6"
+    >
+      <Icon className="absolute left-1/4 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 text-muted-foreground/15" />
+      <div className="relative">
+        <h2 className="text-xl font-semibold text-card-foreground transition-colors group-hover:text-primary">
+          {title}
+        </h2>
+        <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+      </div>
     </Link>
   );
 }
