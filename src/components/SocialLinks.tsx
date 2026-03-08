@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { Film, Instagram, Github, type LucideIcon } from 'lucide-react';
 
 function BlueskyIcon({ className }: { className?: string }) {
