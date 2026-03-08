@@ -1,20 +1,16 @@
 # samm.bio — Blog + Cross-Posting Plan
 
-Originally drafted as a Sanity CMS + cross-posting plan. Blog authoring moved
-to local markdown files (authored in VS Code) after determining Sanity Studio's
-form layout was inadequate for long-form writing. Sanity still powers site
-settings and projects.
+All content is hand-authored in `content/` as YAML and markdown files.
+Settings and projects use YAML; blog posts use markdown with YAML frontmatter.
+Build script generates static TypeScript modules at build time.
 
 ---
 
 ## Phase 1 — Foundation (DONE)
 
-- [x] Create Sanity project + define schemas (`siteSettings`, `project`)
-- [x] Set up Sanity Studio, deploy to sanity.studio
-- [x] Migrate content.jsonc + project text files into Sanity
-- [x] Install `@sanity/client` in bio repo (devDependency, build-time only)
 - [x] Build-time content pipeline: `scripts/fetch-content.mjs` -> static TS modules
-- [x] Sanity webhook -> `repository_dispatch` -> GitHub Pages auto-redeploy
+- [x] Settings + projects in YAML (`content/settings.yaml`, `content/projects.yaml`)
+- [x] Content HMR via Vite plugin (edit YAML/markdown, see changes instantly)
 
 ## Phase 2 — Blog (IN PROGRESS)
 

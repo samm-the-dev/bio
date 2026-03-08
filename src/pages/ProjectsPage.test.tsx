@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { renderWithRouter } from '@/test/utils';
-import { mockProjects } from '@/test/sanity-mock';
+import { mockProjects } from '@/test/mock-data';
 import { ProjectsPage } from './ProjectsPage';
 
 vi.mock('@/data/projects', () => ({ projects: mockProjects }));

@@ -2,10 +2,12 @@ import { Code, PenLine, User } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { SectionCard } from '@/components/SectionCard';
 import { SocialLinks } from '@/components/SocialLinks';
-import { PortableText } from '@/components/PortableText';
+import { RichText } from '@/components/RichText';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { settings } from '@/data/settings';
 
 export function HomePage() {
+  useDocumentTitle();
   return (
     <div className="mx-auto max-w-2xl text-center">
       <PageHeader title={settings.name} descriptor={settings.descriptor} />
@@ -33,7 +35,7 @@ export function HomePage() {
 
       <h2 className="mb-4 text-xl font-semibold">Welcome!</h2>
       <div className="mb-8 space-y-3">
-        <PortableText value={settings.intro} />
+        <RichText html={settings.intro} />
       </div>
 
       <SocialLinks links={settings.socialLinks} />
@@ -53,12 +55,7 @@ export function HomePage() {
             title="Projects"
             description={settings.projectsTeaser}
           />
-          <SectionCard
-            to="/blog"
-            icon={PenLine}
-            title="ADHDev"
-            description="My scatterbrained dev journey with Claude Code."
-          />
+          <SectionCard to="/blog" icon={PenLine} title="Blog" description={settings.blogTeaser} />
         </div>
       </section>
     </div>

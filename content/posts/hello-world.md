@@ -5,6 +5,7 @@ excerpt: 'A test post to verify the markdown blog pipeline — code blocks, list
 publishedAt: 2026-03-07T12:56:26-06:00
 tags:
   - meta
+  - code
 relatedProjects:
   - bio
 ---

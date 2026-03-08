@@ -14,19 +14,20 @@ default with light mode support.
 Three pages: Home (hero + social links + section previews), Projects (code +
 games), About (bio covering improv, movies, game design, development).
 
-Stats, Blog, Now page, and GIF section are deferred to v2+.
+Stats, Now page, and GIF section are deferred to v2+.
 
 ### Content Principle
 
-All body text is hand-authored — AI assists with design/build only. See
-`docs/DECISIONS.md` for the full decision log and `docs/CONTENT_PLANNING.md`
-for voice guidelines.
+All content in `content/` is hand-authored — AI assists with design/build
+only, and may help summarize or draft blog posts. See `docs/DECISIONS.md` for
+the full decision log and `docs/CONTENT_PLANNING.md` for voice guidelines.
 
 ### Key Directories
 
 | Directory         | Contents                                                   |
 | ----------------- | ---------------------------------------------------------- |
-| `src/pages/`      | Route-level page components (Home, Projects, About)        |
+| `content/`        | Hand-authored YAML (settings, projects) + markdown (posts) |
+| `src/pages/`      | Route-level page components (Home, Projects, About, Blog)  |
 | `src/components/` | Shared UI components                                       |
 | `docs/`           | Planning docs (structure, content plan, decisions, assets) |
 

@@ -86,13 +86,12 @@ Track resolved questions and rationale. Move items here from OPEN_QUESTIONS.md a
 
 ## Content Management
 
-### Sanity CMS
+### Local YAML + Markdown
 
 **Date:** 2026-03-07
-**Decision:** Adopt Sanity as headless CMS. Studio lives in `studio/` subfolder (monorepo). Two schema types for v1: `siteSettings` (singleton) and `project`. Blog schema deferred to Phase 2.
-**Rationale:** Enables content editing without code changes, supports Portable Text (rich text with links), and provides a foundation for blog + cross-posting in Phase 2. Free tier covers all needs. Monorepo keeps deployment simple for a single-developer project.
+**Decision:** All content lives in `content/` as hand-authored YAML and markdown files. Settings and projects use YAML; blog posts use markdown with YAML frontmatter. Build script (`scripts/fetch-content.mjs`) parses content and generates static TypeScript modules in `src/data/` (gitignored).
+**Rationale:** Simple, version-controlled, no external dependencies. Markdown fields are rendered to HTML at build time via `marked`. Content HMR via Vite plugin makes editing fast.
 **Alternatives Considered:**
 
-- Separate `bio-studio` repo — unnecessary complexity for one developer
-- Keep `content.jsonc` + inject script — works but doesn't scale to blog/dynamic content
-- Embedded Studio (Next.js pattern) — not applicable to Vite + React Router stack
+- Sanity CMS (used previously) — removed due to unnecessary complexity for a single-author site with hand-authored content
+- Static JSON files — less ergonomic for multi-paragraph rich text

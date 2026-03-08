@@ -6,9 +6,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ['main']
-
-  repository_dispatch:
-    types: [sanity-publish]
+    paths-ignore: ['.crossposted.json']
 
   workflow_dispatch:
 
@@ -72,6 +70,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.CONTENT_PUSH_TOKEN }}
 
       - name: Setup Node
         uses: actions/setup-node@v4

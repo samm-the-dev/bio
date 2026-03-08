@@ -1,5 +1,6 @@
 import { PageHeader } from '@/components/PageHeader';
-import { PortableText } from '@/components/PortableText';
+import { RichText } from '@/components/RichText';
+import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { settings } from '@/data/settings';
 
 const sections = [
@@ -10,6 +11,8 @@ const sections = [
 ];
 
 export function AboutPage() {
+  useDocumentTitle('About Me');
+
   return (
     <div className="mx-auto max-w-2xl">
       <PageHeader title="About Me" />
@@ -18,7 +21,7 @@ export function AboutPage() {
         {sections.map(({ title, content }) => (
           <section key={title}>
             <h2 className="mb-3 text-xl font-semibold">{title}</h2>
-            <PortableText value={content} />
+            <RichText html={content} />
           </section>
         ))}
       </div>
