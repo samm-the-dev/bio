@@ -11,7 +11,7 @@ function contentHmr(): Plugin {
     configureServer(server) {
       server.watcher.add(path.resolve(__dirname, 'content'));
       let debounce: ReturnType<typeof setTimeout>;
-      server.watcher.on('change', (file) => {
+      server.watcher.on('all', (_event, file) => {
         if (!file.includes(path.resolve(__dirname, 'content'))) return;
         clearTimeout(debounce);
         debounce = setTimeout(() => {
