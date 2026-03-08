@@ -12,7 +12,7 @@ function hostFromUrl(url: string): string {
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="rounded-lg border border-border bg-card p-4">
+    <article className="min-w-0 rounded-lg border border-border bg-card p-4">
       <h3 className="font-semibold text-card-foreground">{project.name}</h3>
       <div className="mt-1 flex items-center gap-3 text-xs">
         {project.link && (

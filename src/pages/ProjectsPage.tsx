@@ -13,7 +13,7 @@ export function ProjectsPage() {
   useDocumentTitle('Projects');
 
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className="mx-auto max-w-2xl overflow-hidden">
       <PageHeader title="Projects" />
 
       {webApps.length > 0 && (
