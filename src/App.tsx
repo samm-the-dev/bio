@@ -22,7 +22,8 @@ export default function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/shows" element={<ShowsPage />} />
-          <Route path="/gifs" element={<GifsPage />} />
+          <Route path="/projects/gifs" element={<GifsPage />} />
+          <Route path="/gifs" element={<Navigate to="/projects/gifs" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

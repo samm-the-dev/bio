@@ -11,6 +11,7 @@ interface ProjectDialogProps {
 
 export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
   const panelRef = useRef<HTMLDivElement>(null);
+  const backdropRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -29,9 +30,24 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [onClose]);
 
+  // Close on scroll-wheel over the backdrop (not the panel)
+  useEffect(() => {
+    const backdrop = backdropRef.current;
+    if (!backdrop) return;
+    function onWheel(e: WheelEvent) {
+      if (e.target === backdrop) {
+        e.preventDefault();
+        onClose();
+      }
+    }
+    backdrop.addEventListener('wheel', onWheel, { passive: false });
+    return () => backdrop.removeEventListener('wheel', onWheel);
+  }, [onClose]);
+
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions -- keyboard close handled via useEffect keydown listener
     <div
+      ref={backdropRef}
       role="dialog"
       aria-modal="true"
       aria-label={project.name}
@@ -43,16 +59,16 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
       <div
         ref={panelRef}
         tabIndex={-1}
-        className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-6 text-card-foreground outline-none"
+        className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-4 text-card-foreground outline-none"
       >
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex items-center justify-between gap-4">
           <h2 className="text-lg font-semibold">{project.name}</h2>
           <button
             onClick={onClose}
             aria-label="Close dialog"
-            className="rounded-md p-1 text-muted-foreground hover:text-foreground"
+            className="shrink-0 rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
           >
-            <X className="h-5 w-5" />
+            <X className="h-4 w-4" />
           </button>
         </div>
         <div className="mt-2">

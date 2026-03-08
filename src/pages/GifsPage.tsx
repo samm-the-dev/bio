@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
-import { PageHeader } from '@/components/PageHeader';
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import { GifDialog } from '@/components/GifDialog';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { useModalState } from '@/hooks/useModalState';
@@ -116,7 +117,18 @@ export function GifsPage() {
 
   return (
     <div className="mx-auto max-w-4xl">
-      <PageHeader title="GIFs" />
+      <div className="mb-8 flex items-center justify-between">
+        <Link
+          to="/projects"
+          className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" />
+          Projects
+        </Link>
+        <h1 className="text-3xl font-bold">GIFs</h1>
+        <div className="w-[72px]" />
+      </div>
+      <hr className="mx-auto mb-8 max-w-xs border-border" />
 
       <input
         type="search"
