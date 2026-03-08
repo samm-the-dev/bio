@@ -60,13 +60,13 @@ function calendarUrl(show: Show): string {
   return `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}`;
 }
 
-const now = new Date().toISOString();
-const upcoming = shows
-  .filter((s) => s.datetime >= now.slice(0, 16))
-  .sort((a, b) => a.datetime.localeCompare(b.datetime));
-
 export function ShowsPage() {
   useDocumentTitle('Shows');
+
+  const now = new Date();
+  const upcoming = shows
+    .filter((s) => new Date(s.datetime) >= now)
+    .sort((a, b) => a.datetime.localeCompare(b.datetime));
 
   return (
     <div className="mx-auto max-w-2xl">

@@ -87,6 +87,17 @@ describe('ShowsPage', () => {
       expect(link).toHaveAttribute('href', expect.stringContaining('text/calendar'));
       expect(link).toHaveAttribute('download', expect.stringMatching(/\.ics$/));
     }
+
+    // Verify ICS content for the show with endDatetime and address
+    const testShowArticle = screen.getByText('Test Show').closest('article');
+    const testShowCalLink = testShowArticle?.querySelector('a[download]');
+    const href = testShowCalLink?.getAttribute('href') ?? '';
+    const ics = decodeURIComponent(href.slice(href.indexOf(',') + 1));
+
+    expect(ics).toContain('TZID=America/Chicago');
+    expect(ics).toContain('DTSTART;TZID=America/Chicago:');
+    expect(ics).toContain('DTEND;TZID=America/Chicago:');
+    expect(ics).toContain('LOCATION:Test Venue, 123 Main St, Dallas, TX 75001');
   });
 
   it('renders note when present', () => {
