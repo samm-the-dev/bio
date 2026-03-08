@@ -41,4 +41,3 @@ npm run dev
 | `src/pages/` | Route-level page components |
 | `src/components/` | Shared UI components |
 | `scripts/` | Build and content scripts |
-| `docs/` | Planning docs (structure, content plan, decisions, assets) |

@@ -35,7 +35,6 @@ only, and may help summarize or draft blog posts.
 | `content/`        | Hand-authored YAML (settings, projects, shows) + markdown (posts) |
 | `src/pages/`      | Route-level page components (Home, About, Projects, Blog, Shows)  |
 | `src/components/` | Shared UI components                                              |
-| `docs/`           | Reference docs (blog/crosspost plan)                              |
 
 ### Social Profiles
 
