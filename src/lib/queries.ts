@@ -18,6 +18,12 @@ export interface SiteSettings {
   socialLinks: { label: string; href: string }[];
 }
 
+export interface ProjectSection {
+  key: string;
+  label: string;
+  description: string;
+}
+
 export interface Project {
   name: string;
   slug: string;

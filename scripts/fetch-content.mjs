@@ -66,9 +66,15 @@ for (const field of richTextFields) {
 }
 
 // --- Projects ---
-const projectsRaw = yaml.load(readFileSync('content/projects.yaml', 'utf-8'));
+const projectsFile = yaml.load(readFileSync('content/projects.yaml', 'utf-8'));
 
-const projects = projectsRaw.map((p) => ({
+const projectSections = (projectsFile.sections || []).map((s) => ({
+  key: s.key,
+  label: s.label,
+  description: renderMarkdown(s.description || ''),
+}));
+
+const projects = (projectsFile.projects || []).map((p) => ({
   ...p,
   description: renderMarkdown(p.description),
 }));
@@ -140,7 +146,7 @@ writeFileSync(
 
 writeFileSync(
   'src/data/projects.ts',
-  `${HEADER}import type { Project } from '@/lib/queries';\n\nexport const projects: Project[] = ${JSON.stringify(projects, null, 2)};\n`,
+  `${HEADER}import type { Project, ProjectSection } from '@/lib/queries';\n\nexport const projectSections: ProjectSection[] = ${JSON.stringify(projectSections, null, 2)};\n\nexport const projects: Project[] = ${JSON.stringify(projects, null, 2)};\n`,
 );
 
 writeFileSync(

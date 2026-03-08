@@ -1,10 +1,13 @@
 import { screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { renderWithRouter } from '@/test/utils';
-import { mockProjects, mockGifs } from '@/test/mock-data';
+import { mockProjects, mockProjectSections, mockGifs } from '@/test/mock-data';
 import { ProjectsPage } from './ProjectsPage';
 
-vi.mock('@/data/projects', () => ({ projects: mockProjects }));
+vi.mock('@/data/projects', () => ({
+  projects: mockProjects,
+  projectSections: mockProjectSections,
+}));
 vi.mock('@/data/gifs', () => ({ gifs: mockGifs }));
 
 describe('ProjectsPage', () => {

@@ -1,4 +1,4 @@
-import type { SiteSettings, Project, Gif } from '@/lib/queries';
+import type { SiteSettings, Project, ProjectSection, Gif } from '@/lib/queries';
 
 export const mockSettings: SiteSettings = {
   name: 'Test User',
@@ -22,6 +22,13 @@ export const mockSettings: SiteSettings = {
     { label: 'Bluesky', href: 'https://bsky.app/profile/test' },
   ],
 };
+
+export const mockProjectSections: ProjectSection[] = [
+  { key: 'web-app', label: 'Web Apps', description: '' },
+  { key: 'code', label: 'Other Code Projects', description: '' },
+  { key: 'gifs', label: 'Your Friendly Neighborhood GIF-Maker', description: '' },
+  { key: 'ttrpg', label: 'TTRPG Projects', description: '' },
+];
 
 export const mockProjects: Project[] = [
   {
