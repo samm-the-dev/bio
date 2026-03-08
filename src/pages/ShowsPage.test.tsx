@@ -10,6 +10,7 @@ vi.mock('@/data/shows', () => ({
       venue: 'Another Venue',
       venueUrl: null,
       address: null,
+      mapsUrl: null,
       datetime: '2099-12-01T19:00',
       endDatetime: null,
       note: null,
@@ -19,6 +20,7 @@ vi.mock('@/data/shows', () => ({
       venue: 'Test Venue',
       venueUrl: 'https://example.com',
       address: '123 Main St, Dallas, TX 75001',
+      mapsUrl: 'https://maps.app.goo.gl/abc123',
       datetime: '2099-06-15T20:00',
       endDatetime: '2099-06-15T22:00',
       note: 'Doors at 7 PM.',
@@ -28,6 +30,7 @@ vi.mock('@/data/shows', () => ({
       venue: 'Old Venue',
       venueUrl: null,
       address: null,
+      mapsUrl: null,
       datetime: '2020-01-01T20:00',
       endDatetime: null,
       note: null,
@@ -72,14 +75,14 @@ describe('ShowsPage', () => {
     expect(venue.tagName).toBe('SPAN');
   });
 
-  it('renders map link when address exists', () => {
+  it('renders map link using cached mapsUrl when available', () => {
     renderWithRouter(<ShowsPage />);
     const mapLinks = screen.getAllByText('Map');
     expect(mapLinks.length).toBe(1);
-    expect(mapLinks[0]).toHaveAttribute('href', expect.stringContaining('google.com/maps'));
+    expect(mapLinks[0]).toHaveAttribute('href', 'https://maps.app.goo.gl/abc123');
   });
 
-  it('renders calendar download links', () => {
+  it('renders ICS calendar links on non-Android', () => {
     renderWithRouter(<ShowsPage />);
     const calLinks = screen.getAllByText('Add to calendar');
     expect(calLinks.length).toBe(2);
@@ -98,6 +101,37 @@ describe('ShowsPage', () => {
     expect(ics).toContain('DTSTART;TZID=America/Chicago:');
     expect(ics).toContain('DTEND;TZID=America/Chicago:');
     expect(ics).toContain('LOCATION:Test Venue, 123 Main St, Dallas, TX 75001');
+  });
+
+  it('renders Google Calendar links on Android', () => {
+    const original = navigator.userAgent;
+    Object.defineProperty(navigator, 'userAgent', {
+      value: 'Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36',
+      configurable: true,
+    });
+
+    renderWithRouter(<ShowsPage />);
+    const calLinks = screen.getAllByText('Add to calendar');
+    expect(calLinks.length).toBe(2);
+    for (const link of calLinks) {
+      expect(link).toHaveAttribute(
+        'href',
+        expect.stringContaining('calendar.google.com/calendar/render'),
+      );
+      expect(link).not.toHaveAttribute('download');
+    }
+
+    // Verify location is included in Google Calendar URL
+    const testShowArticle = screen.getByText('Test Show').closest('article');
+    const testShowCalLink = testShowArticle?.querySelector('a[href*="calendar.google.com"]');
+    const href = testShowCalLink?.getAttribute('href') ?? '';
+    expect(href).toContain('location=');
+    expect(href).toContain('details=');
+
+    Object.defineProperty(navigator, 'userAgent', {
+      value: original,
+      configurable: true,
+    });
   });
 
   it('renders note when present', () => {
