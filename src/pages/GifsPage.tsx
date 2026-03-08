@@ -151,7 +151,7 @@ export function GifsPage() {
         ))}
       </div>
 
-      <div className="columns-2 gap-4 lg:columns-3">
+      <div className="columns-1 gap-4 sm:columns-2">
         {visible.map((gif) => (
           <LazyGifCard key={gif.slug} gif={gif} onClick={() => modal.open(gif)} />
         ))}

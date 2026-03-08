@@ -29,7 +29,6 @@ const SOURCES = [
 const EXTS = new Set(['.gif', '.webp']);
 const TARGET = 'public/gifs';
 const FEATURED_DIR = join(TARGET, 'featured');
-
 /** Episode-like folder names to skip when deriving tags. */
 const EP_PATTERN = /^(ep\s*\d+|\d+(\.\d+)?)$/i;
 
@@ -180,3 +179,16 @@ const featuredCount = entries.filter((e) => e.featured).length;
 if (featuredCount > 0) console.log(`${featuredCount} marked as featured`);
 const tagSet = new Set(entries.flatMap((e) => e.tags));
 console.log(`${tagSet.size} unique tags: ${[...tagSet].sort().join(', ')}`);
+
+// Upload to Google Cloud Storage
+const GCS_BUCKET = 'gs://samm-bio-gifs';
+console.log(`\nSyncing to ${GCS_BUCKET}...`);
+try {
+  execFileSync('gcloud', [
+    'storage', 'rsync', TARGET, `${GCS_BUCKET}/gifs/`,
+    '--recursive', '--delete-unmatched-destination-objects', '--exclude=featured/.*',
+  ], { stdio: 'inherit', timeout: 300000 });
+  console.log('GCS sync complete.');
+} catch {
+  console.warn('GCS sync failed — run manually: gcloud storage rsync public/gifs/ gs://samm-bio-gifs/gifs/ --recursive --exclude="featured/.*"');
+}
