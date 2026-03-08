@@ -3,12 +3,12 @@ venues:
     name: Pocket Sandwich Theatre
     url: https://www.pocketsandwich.com/
     address: "1104 Elm Street, Carrollton, TX 75006"
-    mapsUrl: https://maps.app.goo.gl/BdRDGnSiNvqJnWGP7
+    mapsUrl: https://www.google.com/maps/place/Pocket+Sandwich+Theatre/@32.9902,-96.8905,17z
   cafe-bohemia:
     name: Cafe Bohemia
     url: https://www.cafebohemia.net/
     address: "2320 Los Rios Blvd, Suite 105, Plano, TX 75074"
-    mapsUrl: https://maps.app.goo.gl/sGdZb7j3kdbQSfJp6
+    mapsUrl: https://www.google.com/maps/place/Cafe+Bohemia/@33.0192,-96.7389,17z
 
 shows:
   - title: "Goofs & Goblins: The Great Modron March"
