@@ -24,7 +24,7 @@ function DiscordIcon({ className }: { className?: string }) {
   );
 }
 
-type IconComponent = LucideIcon | typeof BlueskyIcon;
+type IconComponent = LucideIcon | ((props: { className?: string }) => React.JSX.Element);
 
 const iconMap: Record<string, IconComponent> = {
   Letterboxd: Film,
