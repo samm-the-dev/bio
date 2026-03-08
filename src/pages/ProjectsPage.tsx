@@ -17,7 +17,7 @@ export function ProjectsPage() {
   const modal = useModalState<Project>();
 
   return (
-    <div className="mx-auto max-w-2xl overflow-hidden">
+    <div className="mx-auto max-w-2xl">
       <PageHeader title="Projects" />
 
       {webApps.length > 0 && (

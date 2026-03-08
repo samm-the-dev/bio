@@ -46,7 +46,7 @@ export function GifCarousel({ gifs }: { gifs: Gif[] }) {
           <ChevronLeft className="h-5 w-5" />
         </button>
       )}
-      <div ref={scrollRef} className="gif-carousel flex gap-4 overflow-x-auto pb-2">
+      <div ref={scrollRef} className="gif-carousel flex w-full gap-4 overflow-x-auto pb-2">
         {gifs.map((gif) => (
           <a
             key={gif.slug}
