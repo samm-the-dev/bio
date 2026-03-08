@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import { renderWithRouter } from '@/test/utils';
 import { mockProjects, mockGifs } from '@/test/mock-data';
@@ -65,5 +65,18 @@ describe('ProjectsPage', () => {
     renderWithRouter(<ProjectsPage />);
     const gifImages = screen.getAllByRole('img');
     expect(gifImages.length).toBe(mockGifs.length);
+  });
+
+  it('renders see more buttons for each project card', () => {
+    renderWithRouter(<ProjectsPage />);
+    const seeMoreButtons = screen.getAllByText('see more');
+    expect(seeMoreButtons.length).toBe(mockProjects.length);
+  });
+
+  it('opens dialog when see more is clicked', () => {
+    renderWithRouter(<ProjectsPage />);
+    const seeMoreButtons = screen.getAllByText('see more');
+    fireEvent.click(seeMoreButtons[0]);
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 });
