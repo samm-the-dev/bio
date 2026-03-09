@@ -15,7 +15,7 @@ export function HomePage() {
       <blockquote className="mb-8 text-sm italic text-muted-foreground">
         {settings.tagline}
         {settings.taglineAttribution && (
-          <footer className="mt-1 text-xs text-muted-foreground/70">
+          <footer className="mt-1 text-xs text-muted-foreground">
             &mdash;{' '}
             {settings.taglineUrl ? (
               <a

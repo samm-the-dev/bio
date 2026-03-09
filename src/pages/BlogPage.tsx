@@ -38,12 +38,19 @@ function BlogPostCard({ post }: { post: (typeof posts)[number] }) {
           <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground">
             Blog
           </span>
+          {post.draft && (
+            <span className="rounded bg-yellow-100 px-1.5 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-500/20 dark:text-yellow-400">
+              Draft
+            </span>
+          )}
         </div>
         <h2 className="mt-2 font-semibold text-card-foreground">{post.title}</h2>
-        <time className="mt-1 block text-xs text-muted-foreground" dateTime={post.publishedAt}>
-          {formatDate(post.publishedAt)}
-        </time>
         <p className="mt-2 text-sm text-muted-foreground">{post.excerpt}</p>
+        {!post.draft && (
+          <time className="mt-2 block text-xs text-muted-foreground" dateTime={post.publishedAt}>
+            {formatDate(post.publishedAt)}
+          </time>
+        )}
         {post.tags && post.tags.length > 0 && (
           <p className="mt-2 text-xs text-muted-foreground">{post.tags.join(' · ')}</p>
         )}
@@ -139,7 +146,7 @@ export function BlogPage() {
               className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                 activeTab === tab.key
                   ? 'bg-card text-foreground shadow-sm'
-                  : 'text-muted-foreground hover:text-foreground'
+                  : 'text-foreground/60 hover:text-foreground'
               }`}
             >
               <span className="inline-flex items-center gap-1.5">

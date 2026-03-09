@@ -3,6 +3,7 @@ import { X } from 'lucide-react';
 import { RichText } from './RichText';
 import { ProjectLinks } from './ProjectCard';
 import type { Project } from '@/lib/queries';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 interface ProjectDialogProps {
   project: Project;
@@ -10,13 +11,12 @@ interface ProjectDialogProps {
 }
 
 export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
-  const panelRef = useRef<HTMLDivElement>(null);
+  const trapRef = useFocusTrap<HTMLDivElement>();
   const backdropRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    panelRef.current?.focus();
     return () => {
       document.body.style.overflow = prev;
     };
@@ -47,20 +47,20 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions -- keyboard close handled via useEffect keydown listener
     <div
-      ref={backdropRef}
+      ref={(el) => {
+        trapRef.current = el;
+        backdropRef.current = el;
+      }}
       role="dialog"
       aria-modal="true"
       aria-label={project.name}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+      tabIndex={-1}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 outline-none"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div
-        ref={panelRef}
-        tabIndex={-1}
-        className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-4 text-card-foreground outline-none"
-      >
+      <div className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-4 text-card-foreground">
         <div className="flex items-center justify-between gap-4">
           <h2 className="text-lg font-semibold">{project.name}</h2>
           <button

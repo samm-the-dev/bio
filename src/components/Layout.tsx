@@ -38,6 +38,12 @@ export function Layout() {
 
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+      >
+        Skip to content
+      </a>
       <header className="border-b border-border">
         <div className="container mx-auto flex h-14 items-center justify-between px-4">
           <div className="flex items-center gap-3 sm:gap-6">
@@ -95,7 +101,7 @@ export function Layout() {
         </div>
       </header>
 
-      <main className="min-w-0 flex-1 px-6 py-8 sm:px-12 lg:px-24">
+      <main id="main-content" className="min-w-0 flex-1 px-6 py-8 sm:px-12 lg:px-24">
         <Outlet />
       </main>
 

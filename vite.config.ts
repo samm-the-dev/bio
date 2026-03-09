@@ -16,7 +16,7 @@ function contentHmr(): Plugin {
         clearTimeout(debounce);
         debounce = setTimeout(() => {
           server.config.logger.info('content changed, rebuilding…', { timestamp: true });
-          exec('node scripts/fetch-content.mjs', (err) => {
+          exec('npm run content:drafts', (err) => {
             if (err) server.config.logger.error(`content build failed: ${err.message}`);
           });
         }, 300);

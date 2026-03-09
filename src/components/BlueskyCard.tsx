@@ -129,7 +129,7 @@ export function BlueskyCard({ post }: BlueskyCardProps) {
                     {post.external.description}
                   </p>
                 )}
-                <p className="mt-0.5 text-[10px] text-muted-foreground/70">
+                <p className="mt-0.5 text-xs text-muted-foreground">
                   {(() => {
                     try {
                       return new URL(post.external!.uri).hostname;

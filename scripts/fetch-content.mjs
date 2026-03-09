@@ -118,7 +118,8 @@ const posts = postFiles
   .map((file) => {
     const raw = readFileSync(`${postsDir}/${file}`, 'utf-8');
     const { data, content } = matter(raw);
-    if (!data.publishedAt) return null;
+    const includeDrafts = process.argv.includes('--drafts');
+    if (!data.publishedAt && !includeDrafts) return null;
 
     // Resolve relatedProjects slugs to { name, slug } objects
     const relatedProjects = (data.relatedProjects || [])
@@ -126,13 +127,17 @@ const posts = postFiles
       .filter(Boolean)
       .map(({ name, slug }) => ({ name, slug }));
 
+    const draft = !data.publishedAt;
+
     return {
       title: data.title,
       slug: data.slug,
       excerpt: data.excerpt,
       body: marked(content),
-      publishedAt: new Date(data.publishedAt).toISOString(),
+      publishedAt: draft ? '9999-01-01T00:00:00.000Z' : new Date(data.publishedAt).toISOString(),
+      draft,
       tags: data.tags || null,
+      authors: data.authors || ['sam'],
       relatedProjects: relatedProjects.length > 0 ? relatedProjects : null,
     };
   })
