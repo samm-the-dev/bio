@@ -152,19 +152,22 @@ function decodeHtmlEntities(str) {
 }
 
 function parseLbDescription(html) {
-  if (!html) return { posterUrl: null, review: null };
+  if (!html) return { posterUrl: null, reviewHtml: null };
   const imgMatch = html.match(/<img\s+src="([^"]+)"/);
   const posterUrl = imgMatch ? imgMatch[1] : null;
-  // Review text is in <p> tags after the poster image
-  const paragraphs = html.match(/<p>(?!<img)([\s\S]*?)<\/p>/g);
-  let review = null;
-  if (paragraphs && paragraphs.length > 0) {
-    review = paragraphs
-      .map((p) => p.replace(/<\/?[^>]+>/g, '').trim())
-      .filter(Boolean)
-      .join('\n\n');
-  }
-  return { posterUrl, review: review || null };
+  // Extract everything after the poster image paragraph
+  const afterPoster = html.replace(/<p>\s*<img[^>]*>\s*<\/p>/, '').trim();
+  if (!afterPoster) return { posterUrl, reviewHtml: null };
+  // Remove "Watched on" / "Rewatched on" boilerplate paragraphs
+  const cleaned = afterPoster
+    .replace(/<p>\s*Watched on\s[\s\S]*?<\/p>/gi, '')
+    .replace(/<p>\s*Rewatched on\s[\s\S]*?<\/p>/gi, '')
+    .trim();
+  // Allow only safe HTML tags
+  const safeHtml = cleaned
+    .replace(/<(?!\/?(?:p|blockquote|em|strong|br)\b)[^>]+>/g, '')
+    .trim();
+  return { posterUrl, reviewHtml: safeHtml || null };
 }
 
 let letterboxdEntries = [];
@@ -197,8 +200,10 @@ try {
       const memberRating = get('letterboxd:memberRating') || null;
       const rewatchVal = get('letterboxd:rewatch');
       const isRewatch = rewatchVal === 'Yes';
+      const likeVal = get('letterboxd:memberLike');
+      const isLiked = likeVal === 'Yes';
       const description = getCdata('description') || get('description') || '';
-      const { posterUrl, review } = parseLbDescription(description);
+      const { posterUrl, reviewHtml } = parseLbDescription(description);
 
       const parsedDate = pubDate ? new Date(pubDate) : null;
       if (!filmTitle || !parsedDate || isNaN(parsedDate.getTime())) continue;
@@ -211,8 +216,9 @@ try {
         filmYear,
         rating: memberRating,
         isRewatch,
+        isLiked,
         posterUrl,
-        review,
+        reviewHtml,
       });
     }
   }
