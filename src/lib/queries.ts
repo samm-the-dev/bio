@@ -73,4 +73,6 @@ export interface LetterboxdEntry {
   filmYear: string | null;
   rating: string | null;
   isRewatch: boolean;
+  posterUrl: string | null;
+  review: string | null;
 }

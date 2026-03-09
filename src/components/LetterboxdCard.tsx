@@ -30,19 +30,33 @@ export function LetterboxdCard({ entry }: LetterboxdCardProps) {
         <Film className="h-4 w-4 shrink-0 text-muted-foreground" />
         <span className="text-xs font-medium text-muted-foreground">Letterboxd</span>
       </div>
-      <h2 className="mt-2 font-semibold text-card-foreground group-hover:text-primary">
-        {entry.filmTitle}
-        {entry.filmYear && (
-          <span className="ml-1 font-normal text-muted-foreground">({entry.filmYear})</span>
+      <div className="mt-2 flex gap-4">
+        <div className="min-w-0 flex-1">
+          <h2 className="font-semibold text-card-foreground group-hover:text-primary">
+            {entry.filmTitle}
+            {entry.filmYear && (
+              <span className="ml-1 font-normal text-muted-foreground">({entry.filmYear})</span>
+            )}
+          </h2>
+          <div className="mt-1 flex items-center gap-2">
+            {entry.rating && <StarRating rating={entry.rating} />}
+            {entry.isRewatch && <span className="text-xs text-muted-foreground">rewatch</span>}
+          </div>
+          {entry.review && (
+            <p className="mt-2 line-clamp-3 text-sm text-muted-foreground">{entry.review}</p>
+          )}
+          <time className="mt-1 block text-xs text-muted-foreground" dateTime={entry.publishedAt}>
+            {formatDate(entry.publishedAt)}
+          </time>
+        </div>
+        {entry.posterUrl && (
+          <img
+            src={entry.posterUrl}
+            alt={`${entry.filmTitle} poster`}
+            className="h-24 w-16 shrink-0 rounded object-cover"
+          />
         )}
-      </h2>
-      <div className="mt-1 flex items-center gap-2">
-        {entry.rating && <StarRating rating={entry.rating} />}
-        {entry.isRewatch && <span className="text-xs text-muted-foreground">rewatch</span>}
       </div>
-      <time className="mt-1 block text-xs text-muted-foreground" dateTime={entry.publishedAt}>
-        {formatDate(entry.publishedAt)}
-      </time>
     </a>
   );
 }

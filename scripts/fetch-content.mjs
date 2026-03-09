@@ -140,6 +140,33 @@ const posts = postFiles
   .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 
 // --- Letterboxd RSS ---
+function decodeHtmlEntities(str) {
+  return str
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, code) => String.fromCharCode(parseInt(code, 16)))
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'");
+}
+
+function parseLbDescription(html) {
+  if (!html) return { posterUrl: null, review: null };
+  const imgMatch = html.match(/<img\s+src="([^"]+)"/);
+  const posterUrl = imgMatch ? imgMatch[1] : null;
+  // Review text is in <p> tags after the poster image
+  const paragraphs = html.match(/<p>(?!<img)([\s\S]*?)<\/p>/g);
+  let review = null;
+  if (paragraphs && paragraphs.length > 0) {
+    review = paragraphs
+      .map((p) => p.replace(/<\/?[^>]+>/g, '').trim())
+      .filter(Boolean)
+      .join('\n\n');
+  }
+  return { posterUrl, review: review || null };
+}
+
 let letterboxdEntries = [];
 try {
   const lbRes = await fetch('https://letterboxd.com/samm_loves_film/rss/');
@@ -163,23 +190,29 @@ try {
       const title = getCdata('title') || get('title') || '';
       const link = get('link') || get('guid') || '';
       const pubDate = get('pubDate') || '';
-      const filmTitle =
-        getCdata('letterboxd:filmTitle') || get('letterboxd:filmTitle') || '';
+      const filmTitle = decodeHtmlEntities(
+        getCdata('letterboxd:filmTitle') || get('letterboxd:filmTitle') || '',
+      );
       const filmYear = get('letterboxd:filmYear') || null;
       const memberRating = get('letterboxd:memberRating') || null;
-      const isRewatch = itemXml.includes('<letterboxd:rewatch>');
+      const rewatchVal = get('letterboxd:rewatch');
+      const isRewatch = rewatchVal === 'Yes';
+      const description = getCdata('description') || get('description') || '';
+      const { posterUrl, review } = parseLbDescription(description);
 
       const parsedDate = pubDate ? new Date(pubDate) : null;
       if (!filmTitle || !parsedDate || isNaN(parsedDate.getTime())) continue;
 
       letterboxdEntries.push({
-        title,
+        title: decodeHtmlEntities(title),
         link,
         publishedAt: parsedDate.toISOString(),
         filmTitle,
         filmYear,
         rating: memberRating,
         isRewatch,
+        posterUrl,
+        review,
       });
     }
   }
