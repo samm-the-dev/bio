@@ -13,8 +13,8 @@ default with light mode support.
 
 Five pages: Home (hero + social links + section previews), About (bio covering
 improv, movies, game design, development), Projects (code + games), Blog
-(markdown posts with syntax highlighting), Shows (upcoming improv shows with
-calendar + map links).
+(tabbed feed: blog posts, Bluesky, Letterboxd, All), Shows (upcoming improv
+shows with calendar + map links).
 
 ### Content Principle
 

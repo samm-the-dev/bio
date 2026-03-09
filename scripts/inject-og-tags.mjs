@@ -85,6 +85,21 @@ const staticRoutes = [
     description: stripMarkdown(settings.blogTeaser),
   },
   {
+    path: 'blog/bluesky',
+    title: 'Bluesky',
+    description: 'Recent posts from Bluesky.',
+  },
+  {
+    path: 'blog/letterboxd',
+    title: 'Letterboxd',
+    description: 'Recent film watches and reviews from Letterboxd.',
+  },
+  {
+    path: 'blog/all',
+    title: 'All Posts',
+    description: 'Blog posts, Bluesky updates, and Letterboxd activity.',
+  },
+  {
     path: 'shows',
     title: 'Shows',
     description: stripMarkdown(settings.showsTeaser),

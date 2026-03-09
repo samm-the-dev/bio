@@ -18,6 +18,10 @@
 - [ ] Tag/category filtering on blog list
 - [ ] Blog card image generator (for social previews)
 
+## Quality
+
+- [ ] Add axe-core accessibility audit to CI (catch WCAG issues before review)
+
 ## Future Features
 
 - [x] GIF section (curated favorites, Klipy integration, or skip — TBD)

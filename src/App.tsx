@@ -20,6 +20,9 @@ export default function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/bluesky" element={<BlogPage />} />
+          <Route path="/blog/letterboxd" element={<BlogPage />} />
+          <Route path="/blog/all" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/shows" element={<ShowsPage />} />
           <Route path="/projects/gifs" element={<GifsPage />} />
