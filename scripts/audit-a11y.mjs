@@ -94,6 +94,133 @@ function logResult(name, theme, viewport, result) {
   );
 }
 
+// ─── KEYBOARD NAV TESTS ─────────────────────────────────────
+// Behavioral checks that Playwright can verify but axe-core cannot.
+
+const KBD_TESTS = [
+  {
+    name: 'Skip-to-content link',
+    path: '/',
+    test: async (page) => {
+      const skipLink = await page.locator('a[href="#main-content"], a[href="#content"], a.skip-link, a.sr-only').first().count();
+      const mainLandmark = await page.locator('main[id], [role="main"][id]').count();
+      const failures = [];
+      if (skipLink === 0) failures.push('No skip-to-content link found');
+      if (mainLandmark === 0) failures.push('Main content has no id target for skip link');
+      return failures;
+    },
+  },
+  {
+    name: 'Tab reaches all nav links',
+    path: '/',
+    test: async (page) => {
+      const failures = [];
+      // Get visible nav link hrefs as ground truth
+      const navHrefs = await page.locator('header nav a').evaluateAll(
+        (els) => els.map((el) => el.getAttribute('href')).filter(Boolean)
+      );
+      // Tab through all header elements (skip link is before header, so
+      // track whether we've entered the header before applying exit logic)
+      const visitedHrefs = [];
+      let enteredHeader = false;
+      for (let i = 0; i < 20; i++) {
+        await page.keyboard.press('Tab');
+        const info = await page.evaluate(() => {
+          const el = document.activeElement;
+          if (!el || el === document.body) return null;
+          return {
+            inHeader: el.closest('header') !== null,
+            href: el.getAttribute('href'),
+          };
+        });
+        if (!info) continue;
+        if (info.inHeader) enteredHeader = true;
+        if (info.href) visitedHrefs.push(info.href);
+        // Once we've left the header after entering it, stop
+        if (enteredHeader && !info.inHeader) break;
+      }
+      for (const href of navHrefs) {
+        if (!visitedHrefs.includes(href)) {
+          failures.push(`Nav link "${href}" not reached via Tab`);
+        }
+      }
+      return failures;
+    },
+  },
+  {
+    name: 'Dialog focus trap',
+    path: '/blog/bluesky',
+    test: async (page) => {
+      const failures = [];
+      // Open dialog
+      try {
+        await openFeedDialog(page);
+      } catch {
+        return ['Could not open dialog (content may not be loaded)'];
+      }
+
+      // Tab several times and verify focus stays inside dialog
+      for (let i = 0; i < 20; i++) {
+        await page.keyboard.press('Tab');
+        const insideDialog = await page.evaluate(() => {
+          const el = document.activeElement;
+          return el?.closest('[role="dialog"]') !== null;
+        });
+        if (!insideDialog) {
+          const focused = await page.evaluate(() => {
+            const el = document.activeElement;
+            return el ? `${el.tagName.toLowerCase()}${el.textContent?.trim().substring(0, 40) || ''}` : 'body';
+          });
+          failures.push(`Focus escaped dialog after ${i + 1} Tab(s) to: ${focused}`);
+          break;
+        }
+      }
+      return failures;
+    },
+  },
+  {
+    name: 'Escape closes dialog',
+    path: '/blog/bluesky',
+    test: async (page) => {
+      try {
+        await openFeedDialog(page);
+      } catch {
+        return ['Could not open dialog (content may not be loaded)'];
+      }
+      await page.keyboard.press('Escape');
+      // Wait briefly for React to process
+      await page.waitForTimeout(200);
+      const dialogVisible = await page.locator('[role="dialog"]').count();
+      if (dialogVisible > 0) {
+        return ['Dialog did not close on Escape'];
+      }
+      return [];
+    },
+  },
+  {
+    name: 'Dialog focus restore',
+    path: '/blog/bluesky',
+    test: async (page) => {
+      const card = page.locator('.group button[type="button"]').first();
+      await card.focus();
+      const beforeTag = await page.evaluate(() => document.activeElement?.tagName.toLowerCase());
+      try {
+        await card.click();
+        await page.locator('[role="dialog"]').waitFor({ timeout: 5000 });
+      } catch {
+        return ['Could not open dialog'];
+      }
+      await page.keyboard.press('Escape');
+      await page.waitForTimeout(200);
+      const afterTag = await page.evaluate(() => document.activeElement?.tagName.toLowerCase());
+      if (afterTag !== beforeTag) {
+        return [`Focus not restored to trigger after dialog close (expected ${beforeTag}, got ${afterTag})`];
+      }
+      return [];
+    },
+  },
+];
+
 // ─── FIXTURE SWAP ───────────────────────────────────────────
 // Swap build-time data files with deterministic fixtures for the audit,
 // then restore originals when done (even on failure).
@@ -184,15 +311,59 @@ async function main() {
     }
   }
 
+  // ─── KEYBOARD NAV TESTS ───────────────────────────────────
+  // Run once per theme at desktop viewport (keyboard behavior is viewport-independent)
+  const kbdResults = [];
+
+  for (const theme of themes) {
+    console.log(`--- KEYBOARD [${theme.toUpperCase()}] ---`);
+
+    const context = await browser.newContext({ viewport: VIEWPORTS.desktop });
+    const page = await context.newPage();
+
+    // Intercept Bluesky API calls
+    const BSKY_API = 'https://public.api.bsky.app/xrpc';
+    await page.route(`${BSKY_API}/app.bsky.actor.getProfile*`, (route) =>
+      route.fulfill({ contentType: 'application/json', body: JSON.stringify(BLUESKY_PROFILE) }),
+    );
+    await page.route(`${BSKY_API}/app.bsky.feed.getAuthorFeed*`, (route) =>
+      route.fulfill({ contentType: 'application/json', body: JSON.stringify(BLUESKY_FEED) }),
+    );
+
+    if (THEME_KEY) {
+      await page.addInitScript(
+        ([key, value]) => localStorage.setItem(key, value),
+        [THEME_KEY, theme]
+      );
+    }
+
+    for (const test of KBD_TESTS) {
+      await page.goto(`${BASE}${test.path}`, { waitUntil: 'networkidle' });
+      const failures = await test.test(page);
+      const icon = failures.length === 0 ? '\u2713' : '\u2717';
+      console.log(`  ${icon} ${test.name} [${theme}]: ${failures.length} failures`);
+      for (const f of failures) console.log(`    - ${f}`);
+      kbdResults.push({
+        test: test.name,
+        theme,
+        failures,
+        failureCount: failures.length,
+      });
+    }
+
+    await context.close();
+  }
+
   await browser.close();
   await server.close();
   restoreFixtures();
 
   // Write report
-  writeFileSync(OUTPUT, JSON.stringify(allResults, null, 2));
+  const report = { axe: allResults, keyboard: kbdResults };
+  writeFileSync(OUTPUT, JSON.stringify(report, null, 2));
   console.log(`\nResults written to ${OUTPUT}`);
 
-  // Summary
+  // Summary — axe
   const totalViolations = allResults.reduce(
     (sum, r) => sum + r.violationCount,
     0
@@ -201,8 +372,8 @@ async function main() {
     allResults.flatMap((r) => r.violations.map((v) => v.id))
   );
   console.log(
-    `\nSummary: ${allResults.length} audits, ` +
-      `${totalViolations} total violations (${uniqueIds.size} unique rules)`
+    `\naxe-core: ${allResults.length} audits, ` +
+      `${totalViolations} violations (${uniqueIds.size} unique rules)`
   );
 
   if (uniqueIds.size > 0) {
@@ -219,8 +390,14 @@ async function main() {
     }
   }
 
+  // Summary — keyboard
+  const totalKbdFailures = kbdResults.reduce((sum, r) => sum + r.failureCount, 0);
+  console.log(
+    `\nKeyboard nav: ${kbdResults.length} tests, ${totalKbdFailures} failures`
+  );
+
   // Exit with error if any violations found (for CI)
-  return totalViolations > 0 ? 1 : 0;
+  return (totalViolations > 0 || totalKbdFailures > 0) ? 1 : 0;
 }
 
 main()
