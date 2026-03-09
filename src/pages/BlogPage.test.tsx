@@ -143,6 +143,20 @@ describe('BlogPage', () => {
     }
   });
 
+  it('sets document title per tab route', () => {
+    renderWithRouter(<BlogPage />, { route: '/blog' });
+    expect(document.title).toBe('Blog - Sam Marsh');
+
+    renderWithRouter(<BlogPage />, { route: '/blog/bluesky' });
+    expect(document.title).toBe('Bluesky - Sam Marsh');
+
+    renderWithRouter(<BlogPage />, { route: '/blog/letterboxd' });
+    expect(document.title).toBe('Letterboxd - Sam Marsh');
+
+    renderWithRouter(<BlogPage />, { route: '/blog/all' });
+    expect(document.title).toBe('All Posts - Sam Marsh');
+  });
+
   it('navigates between tabs via click', () => {
     renderWithRouter(<BlogPage />, { route: '/blog' });
     expect(screen.getByText('Test Post')).toBeInTheDocument();
