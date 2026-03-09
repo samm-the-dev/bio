@@ -14,14 +14,26 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
   const trapRef = useFocusTrap<HTMLDivElement>();
   const backdropRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  function handleShare() {
-    const url = `${window.location.origin}/projects#${project.slug}`;
-    void navigator.clipboard.writeText(url).then(() => {
+  async function handleShare() {
+    const url = new URL(window.location.href);
+    url.hash = project.slug;
+    try {
+      await navigator.clipboard.writeText(url.toString());
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
+      timeoutRef.current = setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // clipboard unavailable (non-HTTPS or permission denied)
+    }
   }
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     const prev = document.body.style.overflow;

@@ -50,6 +50,18 @@ describe('ProjectsPage', () => {
     expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 
+  it('opens dialog when navigating with a matching hash', () => {
+    renderWithRouter(<ProjectsPage />, { route: '/projects#test-app' });
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    expect(screen.getByRole('dialog')).toHaveAccessibleName('Test App');
+  });
+
+  it('closes dialog and clears hash on close button click', () => {
+    renderWithRouter(<ProjectsPage />, { route: '/projects#test-app' });
+    fireEvent.click(screen.getByRole('button', { name: /close dialog/i }));
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
+
   it('shows Source Code link in dialog with correct href', () => {
     renderWithRouter(<ProjectsPage />);
     fireEvent.click(screen.getAllByTestId('project-card')[0]!);
