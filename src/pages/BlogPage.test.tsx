@@ -132,8 +132,10 @@ describe('BlogPage', () => {
     expect(screen.getByText('Test Film')).toBeInTheDocument();
 
     // Verify chronological order (newest first)
-    const times = screen.getAllByRole('time');
-    const dates = times.map((t) => new Date(t.getAttribute('dateTime') ?? '').getTime());
+    const times = document.querySelectorAll('time[dateTime]');
+    const dates = Array.from(times).map((t) =>
+      new Date(t.getAttribute('dateTime') ?? '').getTime(),
+    );
     for (let i = 1; i < dates.length; i++) {
       expect(dates[i]!).toBeLessThanOrEqual(dates[i - 1]!);
     }

@@ -6,7 +6,7 @@
  * Settings, projects, GIFs, and shows come from YAML files in content/.
  * Blog posts come from markdown files in content/posts/.
  */
-import { writeFileSync, mkdirSync, readdirSync, readFileSync } from 'fs';
+import { writeFileSync, mkdirSync, readdirSync, readFileSync, existsSync } from 'fs';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import { createHighlighter } from 'shiki';
@@ -253,10 +253,13 @@ writeFileSync(
   `${HEADER}import type { Show } from '@/lib/queries';\n\nexport const shows: Show[] = ${JSON.stringify(shows, null, 2)};\n`,
 );
 
-writeFileSync(
-  'src/data/letterboxd.ts',
-  `${HEADER}import type { LetterboxdEntry } from '@/lib/queries';\n\nexport const letterboxdEntries: LetterboxdEntry[] = ${JSON.stringify(letterboxdEntries, null, 2)};\n`,
-);
+// Only overwrite letterboxd data when we have entries (preserve last-known-good on fetch failure)
+if (letterboxdEntries.length > 0 || !existsSync('src/data/letterboxd.ts')) {
+  writeFileSync(
+    'src/data/letterboxd.ts',
+    `${HEADER}import type { LetterboxdEntry } from '@/lib/queries';\n\nexport const letterboxdEntries: LetterboxdEntry[] = ${JSON.stringify(letterboxdEntries, null, 2)};\n`,
+  );
+}
 
 writeFileSync(
   'src/data/posts.ts',
