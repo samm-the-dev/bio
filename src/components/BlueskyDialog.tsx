@@ -183,7 +183,7 @@ export function BlueskyDialog({ post, onClose }: BlueskyDialogProps) {
                     {post.external.description}
                   </p>
                 )}
-                <p className="mt-1 text-xs text-muted-foreground/70">
+                <p className="mt-1 text-xs text-muted-foreground">
                   {(() => {
                     try {
                       return new URL(post.external.uri).hostname;

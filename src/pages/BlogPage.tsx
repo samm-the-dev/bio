@@ -40,10 +40,10 @@ function BlogPostCard({ post }: { post: (typeof posts)[number] }) {
           </span>
         </div>
         <h2 className="mt-2 font-semibold text-card-foreground">{post.title}</h2>
-        <time className="mt-1 block text-xs text-muted-foreground" dateTime={post.publishedAt}>
+        <p className="mt-2 text-sm text-muted-foreground">{post.excerpt}</p>
+        <time className="mt-2 block text-xs text-muted-foreground" dateTime={post.publishedAt}>
           {formatDate(post.publishedAt)}
         </time>
-        <p className="mt-2 text-sm text-muted-foreground">{post.excerpt}</p>
         {post.tags && post.tags.length > 0 && (
           <p className="mt-2 text-xs text-muted-foreground">{post.tags.join(' · ')}</p>
         )}
@@ -139,7 +139,7 @@ export function BlogPage() {
               className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                 activeTab === tab.key
                   ? 'bg-card text-foreground shadow-sm'
-                  : 'text-muted-foreground hover:text-foreground'
+                  : 'text-foreground/60 hover:text-foreground'
               }`}
             >
               <span className="inline-flex items-center gap-1.5">

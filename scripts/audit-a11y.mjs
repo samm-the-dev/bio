@@ -15,8 +15,14 @@
 
 import { chromium } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
-import { writeFileSync } from 'fs';
+import { writeFileSync, copyFileSync, existsSync, unlinkSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
 import { createServer } from 'vite';
+import { BLUESKY_PROFILE, BLUESKY_FEED } from './a11y-fixtures.mjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = resolve(__dirname, '..');
 
 // ─── CONFIGURATION ───────────────────────────────────────────
 // Customize these for your project
@@ -33,11 +39,26 @@ const VIEWPORTS = {
   mobile: { width: 375, height: 812 },
 };
 
-// Routes to audit (add your app's routes here)
+// Open a dialog by clicking the first feed card button on the page
+async function openFeedDialog(page) {
+  const card = page.locator('.group button[type="button"]').first();
+  await card.click();
+  await page.locator('[role="dialog"]').waitFor({ timeout: 5000 });
+}
+
+// Routes to audit
+// Optional `action` runs after navigation to set up interactive state (e.g. dialogs)
 const ROUTES = [
   { path: '/', name: 'Home' },
   { path: '/about', name: 'About Me' },
   { path: '/projects', name: 'Projects' },
+  { path: '/blog', name: 'Blog' },
+  { path: '/blog/hello-world', name: 'Blog Post' },
+  { path: '/blog/bluesky', name: 'Bluesky Feed' },
+  { path: '/blog/bluesky', name: 'Bluesky Dialog', action: openFeedDialog },
+  { path: '/blog/letterboxd', name: 'Letterboxd Feed' },
+  { path: '/blog/letterboxd', name: 'Letterboxd Dialog', action: openFeedDialog },
+  { path: '/shows', name: 'Shows' },
 ];
 
 // ─── AUDIT LOGIC ─────────────────────────────────────────────
@@ -73,11 +94,37 @@ function logResult(name, theme, viewport, result) {
   );
 }
 
+// ─── FIXTURE SWAP ───────────────────────────────────────────
+// Swap build-time data files with deterministic fixtures for the audit,
+// then restore originals when done (even on failure).
+
+const LETTERBOXD_DATA = resolve(ROOT, 'src/data/letterboxd.ts');
+const LETTERBOXD_BACKUP = LETTERBOXD_DATA + '.bak';
+const LETTERBOXD_FIXTURE = resolve(__dirname, 'a11y-letterboxd-fixtures.ts');
+
+function swapFixtures() {
+  if (existsSync(LETTERBOXD_FIXTURE)) {
+    copyFileSync(LETTERBOXD_DATA, LETTERBOXD_BACKUP);
+    copyFileSync(LETTERBOXD_FIXTURE, LETTERBOXD_DATA);
+    console.log('Swapped letterboxd.ts with fixture data');
+  }
+}
+
+function restoreFixtures() {
+  if (existsSync(LETTERBOXD_BACKUP)) {
+    copyFileSync(LETTERBOXD_BACKUP, LETTERBOXD_DATA);
+    unlinkSync(LETTERBOXD_BACKUP);
+    console.log('Restored original letterboxd.ts');
+  }
+}
+
 async function main() {
+  swapFixtures();
+
   // Start Vite dev server
   console.log('Starting Vite dev server...');
   const server = await createServer({
-    server: { port: PORT, strictPort: true },
+    server: { port: PORT, strictPort: true, https: false },
     logLevel: 'error',
   });
   await server.listen();
@@ -95,6 +142,15 @@ async function main() {
       const context = await browser.newContext({ viewport: vpSize });
       const page = await context.newPage();
 
+      // Intercept Bluesky API calls with deterministic fixture data
+      const BSKY_API = 'https://public.api.bsky.app/xrpc';
+      await page.route(`${BSKY_API}/app.bsky.actor.getProfile*`, (route) =>
+        route.fulfill({ contentType: 'application/json', body: JSON.stringify(BLUESKY_PROFILE) }),
+      );
+      await page.route(`${BSKY_API}/app.bsky.feed.getAuthorFeed*`, (route) =>
+        route.fulfill({ contentType: 'application/json', body: JSON.stringify(BLUESKY_FEED) }),
+      );
+
       // Pre-set theme in localStorage before any navigation
       if (THEME_KEY) {
         await page.addInitScript(
@@ -105,6 +161,14 @@ async function main() {
 
       for (const route of ROUTES) {
         await page.goto(`${BASE}${route.path}`, { waitUntil: 'networkidle' });
+        if (route.action) {
+          try {
+            await route.action(page);
+          } catch {
+            console.log(`  ! Skipping ${route.name}: action failed (content may not be loaded)`);
+            continue;
+          }
+        }
         const result = await runAxe(page);
         allResults.push({
           page: route.name,
@@ -122,6 +186,7 @@ async function main() {
 
   await browser.close();
   await server.close();
+  restoreFixtures();
 
   // Write report
   writeFileSync(OUTPUT, JSON.stringify(allResults, null, 2));
@@ -161,6 +226,7 @@ async function main() {
 main()
   .then((exitCode) => process.exit(exitCode))
   .catch((e) => {
+    restoreFixtures();
     console.error('Audit failed:', e);
     process.exit(1);
   });
