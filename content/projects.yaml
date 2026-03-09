@@ -1,6 +1,7 @@
 sections:
   - key: gifs
     label: "Your Friendly Neighborhood GIF-Maker"
+    metaDescription: "All the GIFs I've made from various movies and shows."
     description: |
       For a while I was obsessively making GIFs, mostly from [Dropout](https://www.dropout.tv/) shows, but also from movies and other shows I love.
       I've since slowed down quite a bit, but I'm generally open to requests.
