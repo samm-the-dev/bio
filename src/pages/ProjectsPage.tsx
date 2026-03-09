@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { LayoutGrid } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { ProjectCard } from '@/components/ProjectCard';
 import { ProjectDialog } from '@/components/ProjectDialog';
@@ -37,14 +38,13 @@ export function ProjectsPage() {
                 </div>
               )}
               <GifCarousel gifs={gifs.filter((g) => g.featured)} />
-              <div className="mt-3 text-right">
-                <Link
-                  to="/gifs"
-                  className="text-sm text-muted-foreground underline hover:text-foreground"
-                >
-                  View all GIFs
-                </Link>
-              </div>
+              <Link
+                to="/projects/gifs"
+                className="mt-4 flex w-full items-center justify-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              >
+                <LayoutGrid className="h-4 w-4" />
+                View all GIFs
+              </Link>
             </section>
           );
         }

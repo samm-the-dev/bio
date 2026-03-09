@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
-import { PageHeader } from '@/components/PageHeader';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
 import { GifDialog } from '@/components/GifDialog';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { useModalState } from '@/hooks/useModalState';
@@ -67,6 +68,7 @@ export function GifsPage() {
   const [search, setSearch] = useState('');
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
+  const [tagsExpanded, setTagsExpanded] = useState(false);
   const sentinelRef = useRef<HTMLDivElement>(null);
 
   const shuffled = useMemo(() => shuffle(gifs), []);
@@ -116,7 +118,20 @@ export function GifsPage() {
 
   return (
     <div className="mx-auto max-w-4xl">
-      <PageHeader title="GIFs" />
+      <div className="mb-8 text-center">
+        <div className="mb-2 flex items-center justify-between">
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            Projects
+          </Link>
+          <h1 className="mb-0 text-3xl font-bold">GIFs</h1>
+          <div className="w-[72px]" />
+        </div>
+        <hr className="mx-auto mt-4 max-w-xs border-border" />
+      </div>
 
       <input
         type="search"
@@ -130,8 +145,8 @@ export function GifsPage() {
         className="mb-4 w-full rounded-md border border-border bg-card px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-foreground/30 focus:outline-none"
       />
 
-      <div className="mb-6 flex flex-wrap gap-2">
-        {allTags.map((tag) => (
+      <div className="mb-6 flex flex-wrap items-center gap-1.5">
+        {(tagsExpanded ? allTags : allTags.slice(0, 4)).map((tag) => (
           <button
             key={tag}
             type="button"
@@ -140,7 +155,7 @@ export function GifsPage() {
               setActiveTag(activeTag === tag ? null : tag);
               setVisibleCount(BATCH_SIZE);
             }}
-            className={`rounded-full border px-3 py-1 text-xs transition-colors ${
+            className={`rounded-full border px-2.5 py-1 text-xs transition-colors ${
               activeTag === tag
                 ? 'border-foreground bg-foreground text-background'
                 : 'border-border bg-card text-muted-foreground hover:text-foreground'
@@ -149,6 +164,23 @@ export function GifsPage() {
             {tag}
           </button>
         ))}
+        {allTags.length > 4 && (
+          <button
+            type="button"
+            onClick={() => setTagsExpanded(!tagsExpanded)}
+            className="inline-flex items-center gap-1 rounded-full border border-border px-2.5 py-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
+          >
+            {tagsExpanded ? (
+              <>
+                Less <ChevronUp className="h-3 w-3" />
+              </>
+            ) : (
+              <>
+                +{allTags.length - 4} more <ChevronDown className="h-3 w-3" />
+              </>
+            )}
+          </button>
+        )}
       </div>
 
       <div className="columns-1 gap-4 sm:columns-2">
