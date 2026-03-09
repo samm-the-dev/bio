@@ -33,6 +33,8 @@ vi.mock('@/hooks/useBlueskyFeed', () => ({
         quotedPost: null,
         external: null,
         video: null,
+        replyParentUri: null,
+        threadReplies: [],
       },
     ],
     loading: false,
