@@ -16,6 +16,5 @@ src/data/projects.ts
 src/data/posts.ts
 src/data/shows.ts
 src/data/gifs.ts
-src/data/letterboxd.ts
 public/feed.xml
 public/gifs/featured/
