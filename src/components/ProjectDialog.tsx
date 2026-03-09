@@ -5,6 +5,7 @@ import { ProjectLinks } from './ProjectCard';
 import type { Project } from '@/lib/queries';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { shareUrl } from '@/lib/share';
+import { useSwipeToDismiss } from '@/hooks/useSwipeToDismiss';
 
 interface ProjectDialogProps {
   project: Project;
@@ -15,7 +16,7 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
   const trapRef = useFocusTrap<HTMLDivElement>();
   const backdropRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-  const touchStartY = useRef<number>(0);
+  const swipe = useSwipeToDismiss(panelRef, onClose, { checkScrollLimits: true });
 
   async function handleShare() {
     const url = new URL(window.location.href);
@@ -72,17 +73,10 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
       <div
         ref={panelRef}
         className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-4 text-card-foreground"
-        onTouchStart={(e) => {
-          touchStartY.current = e.touches[0].clientY;
-        }}
-        onTouchEnd={(e) => {
-          const panel = panelRef.current;
-          if (!panel) return;
-          const deltaY = e.changedTouches[0].clientY - touchStartY.current;
-          const atTop = panel.scrollTop === 0;
-          const atBottom = panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 1;
-          if ((deltaY > 60 && atTop) || (deltaY < -60 && atBottom)) onClose();
-        }}
+        onTouchStart={swipe.onTouchStart}
+        onTouchMove={swipe.onTouchMove}
+        onTouchEnd={swipe.onTouchEnd}
+        onTouchCancel={swipe.onTouchCancel}
       >
         <div className="flex items-center justify-between gap-4">
           <h2 className="text-lg font-semibold">{project.name}</h2>
