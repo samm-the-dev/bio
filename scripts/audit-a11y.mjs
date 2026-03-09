@@ -231,6 +231,11 @@ const LETTERBOXD_FIXTURE = resolve(__dirname, 'a11y-letterboxd-fixtures.ts');
 
 function swapFixtures() {
   if (existsSync(LETTERBOXD_FIXTURE)) {
+    if (existsSync(LETTERBOXD_BACKUP)) {
+      console.error('Stale backup found — a previous run may have crashed.');
+      console.error('Restore manually: copy .bak back to letterboxd.ts, then delete .bak');
+      process.exit(1);
+    }
     copyFileSync(LETTERBOXD_DATA, LETTERBOXD_BACKUP);
     copyFileSync(LETTERBOXD_FIXTURE, LETTERBOXD_DATA);
     console.log('Swapped letterboxd.ts with fixture data');
@@ -291,8 +296,21 @@ async function main() {
         if (route.action) {
           try {
             await route.action(page);
-          } catch {
-            console.log(`  ! Skipping ${route.name}: action failed (content may not be loaded)`);
+          } catch (error) {
+            console.error(`  ! Skipping ${route.name}: action failed (content may not be loaded)`);
+            console.error(`    ${error.message}`);
+            allResults.push({
+              page: route.name,
+              path: route.path,
+              theme,
+              viewport: vpName,
+              violations: [],
+              violationCount: 0,
+              passCount: 0,
+              incompleteCount: 0,
+              skipped: true,
+              skipReason: error.message,
+            });
             continue;
           }
         }
@@ -390,14 +408,20 @@ async function main() {
     }
   }
 
+  // Summary — skipped
+  const skippedCount = allResults.filter((r) => r.skipped).length;
+  if (skippedCount > 0) {
+    console.log(`\n${skippedCount} route(s) skipped due to action failures`);
+  }
+
   // Summary — keyboard
   const totalKbdFailures = kbdResults.reduce((sum, r) => sum + r.failureCount, 0);
   console.log(
     `\nKeyboard nav: ${kbdResults.length} tests, ${totalKbdFailures} failures`
   );
 
-  // Exit with error if any violations found (for CI)
-  return (totalViolations > 0 || totalKbdFailures > 0) ? 1 : 0;
+  // Exit with error if any violations or skips found (for CI)
+  return (totalViolations > 0 || totalKbdFailures > 0 || skippedCount > 0) ? 1 : 0;
 }
 
 main()
