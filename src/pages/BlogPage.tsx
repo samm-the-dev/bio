@@ -60,14 +60,8 @@ export function BlogPage() {
   useDocumentTitle('Blog');
   const [activeTab, setActiveTab] = useState<Tab>('blog');
   const needsFeeds = activeTab === 'bluesky' || activeTab === 'all';
-  const needsLetterboxd = activeTab === 'letterboxd' || activeTab === 'all';
-
   // Letterboxd data is build-time, so entries are available immediately
-  const {
-    entries: lbEntries,
-    loading: lbLoading,
-    error: lbError,
-  } = useLetterboxdFeed(needsLetterboxd);
+  const { entries: lbEntries, loading: lbLoading, error: lbError } = useLetterboxdFeed();
 
   // Oldest Letterboxd entry sets the target date for Bluesky pagination
   const lbCutoff = useMemo(() => {

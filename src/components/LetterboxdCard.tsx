@@ -41,7 +41,8 @@ function getReviewPreview(html: string): { previewHtml: string; hasMore: boolean
   const preview: string[] = [];
   const limit = 3;
   for (let i = 0; i < Math.min(limit, topBlocks.length); i++) {
-    preview.push(topBlocks[i].outerHTML);
+    const block = topBlocks[i];
+    if (block) preview.push(block.outerHTML);
   }
   return { previewHtml: preview.join(''), hasMore: topBlocks.length > limit };
 }

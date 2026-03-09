@@ -1,5 +1,5 @@
 import { letterboxdEntries as buildTimeEntries } from '@/data/letterboxd';
 
-export function useLetterboxdFeed(_enabled = true) {
+export function useLetterboxdFeed() {
   return { entries: buildTimeEntries, loading: false, error: null };
 }

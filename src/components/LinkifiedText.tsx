@@ -1,8 +1,9 @@
 // Matches both https://... URLs and bare domain links like samm.bio/path
 const URL_REGEX = /(https?:\/\/[^\s<)}\]]+|(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s<)}\]]*)?)/g;
 
-// Bare domains must have a known TLD-like suffix to avoid false positives on things like "w/timestamp"
-const BARE_DOMAIN_REGEX = /^(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/|$)/;
+// Non-global versions for testing individual parts (avoids lastIndex mutation)
+const URL_TEST = /^(?:https?:\/\/[^\s<)}\]]+|(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/[^\s<)}\]]*)?)$/;
+const BARE_DOMAIN_TEST = /^(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:\/|$)/;
 
 interface LinkifiedTextProps {
   text: string;
@@ -15,8 +16,7 @@ export function LinkifiedText({ text, className }: LinkifiedTextProps) {
   return (
     <p className={className}>
       {parts.map((part, i) => {
-        URL_REGEX.lastIndex = 0;
-        if (URL_REGEX.test(part) && (part.startsWith('http') || BARE_DOMAIN_REGEX.test(part))) {
+        if (URL_TEST.test(part) && (part.startsWith('http') || BARE_DOMAIN_TEST.test(part))) {
           const href = part.startsWith('http') ? part : `https://${part}`;
           return (
             <a
