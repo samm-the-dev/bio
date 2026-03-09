@@ -64,7 +64,7 @@ export function BlogPostPage() {
           {post.relatedProjects.map((project, i) => (
             <span key={project.slug}>
               {i > 0 && ', '}
-              <Link to="/projects" className="font-medium text-primary hover:text-primary-hover">
+              <Link to={`/projects#${project.slug}`} className="font-medium text-primary hover:text-primary-hover">
                 {project.name}
               </Link>
             </span>
