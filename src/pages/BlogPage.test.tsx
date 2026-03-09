@@ -65,29 +65,29 @@ vi.mock('@/hooks/useLetterboxdFeed', () => ({
 
 describe('BlogPage', () => {
   it('renders the Blog heading', () => {
-    renderWithRouter(<BlogPage />);
+    renderWithRouter(<BlogPage />, { route: '/blog' });
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Blog');
   });
 
   it('renders post cards on Blog tab', () => {
-    renderWithRouter(<BlogPage />);
+    renderWithRouter(<BlogPage />, { route: '/blog' });
     expect(screen.getByRole('link', { name: /Test Post/ })).toBeInTheDocument();
     expect(screen.getByText('Test Post')).toBeInTheDocument();
   });
 
   it('renders post date with dateTime attribute', () => {
-    renderWithRouter(<BlogPage />);
-    const time = screen.getByRole('time');
+    renderWithRouter(<BlogPage />, { route: '/blog' });
+    const time = document.querySelector('time[dateTime]');
     expect(time).toHaveAttribute('dateTime', '2026-01-15T12:00:00.000Z');
   });
 
   it('renders tags', () => {
-    renderWithRouter(<BlogPage />);
+    renderWithRouter(<BlogPage />, { route: '/blog' });
     expect(screen.getByText('meta')).toBeInTheDocument();
   });
 
   it('renders all four tab buttons', () => {
-    renderWithRouter(<BlogPage />);
+    renderWithRouter(<BlogPage />, { route: '/blog' });
     expect(screen.getByRole('button', { name: 'All' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Blog' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Bluesky' })).toBeInTheDocument();
@@ -95,7 +95,7 @@ describe('BlogPage', () => {
   });
 
   it('marks active tab with aria-pressed', () => {
-    renderWithRouter(<BlogPage />);
+    renderWithRouter(<BlogPage />, { route: '/blog' });
     expect(screen.getByRole('button', { name: 'Blog' })).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByRole('button', { name: 'Bluesky' })).toHaveAttribute(
       'aria-pressed',
@@ -104,29 +104,31 @@ describe('BlogPage', () => {
   });
 
   it('shows only blog posts on Blog tab by default', () => {
-    renderWithRouter(<BlogPage />);
+    renderWithRouter(<BlogPage />, { route: '/blog' });
     expect(screen.getByText('Test Post')).toBeInTheDocument();
     expect(screen.queryByText('Hello from Bluesky')).not.toBeInTheDocument();
     expect(screen.queryByText('Test Film')).not.toBeInTheDocument();
   });
 
-  it('shows Bluesky posts when switching to Bluesky tab', () => {
-    renderWithRouter(<BlogPage />);
-    fireEvent.click(screen.getByRole('button', { name: 'Bluesky' }));
+  it('shows Bluesky posts at /blog/bluesky', () => {
+    renderWithRouter(<BlogPage />, { route: '/blog/bluesky' });
+    expect(screen.getByRole('button', { name: 'Bluesky' })).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByText('Hello from Bluesky')).toBeInTheDocument();
     expect(screen.queryByText('Test Post')).not.toBeInTheDocument();
   });
 
-  it('shows Letterboxd entries when switching to Letterboxd tab', () => {
-    renderWithRouter(<BlogPage />);
-    fireEvent.click(screen.getByRole('button', { name: 'Letterboxd' }));
+  it('shows Letterboxd entries at /blog/letterboxd', () => {
+    renderWithRouter(<BlogPage />, { route: '/blog/letterboxd' });
+    expect(screen.getByRole('button', { name: 'Letterboxd' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    );
     expect(screen.getByText('Test Film')).toBeInTheDocument();
     expect(screen.queryByText('Test Post')).not.toBeInTheDocument();
   });
 
-  it('shows all items sorted by date on All tab', () => {
-    renderWithRouter(<BlogPage />);
-    fireEvent.click(screen.getByRole('button', { name: 'All' }));
+  it('shows all items sorted by date at /blog/all', () => {
+    renderWithRouter(<BlogPage />, { route: '/blog/all' });
     expect(screen.getByText('Test Post')).toBeInTheDocument();
     expect(screen.getByText('Hello from Bluesky')).toBeInTheDocument();
     expect(screen.getByText('Test Film')).toBeInTheDocument();
@@ -139,5 +141,28 @@ describe('BlogPage', () => {
     for (let i = 1; i < dates.length; i++) {
       expect(dates[i]!).toBeLessThanOrEqual(dates[i - 1]!);
     }
+  });
+
+  it('sets document title per tab route', () => {
+    renderWithRouter(<BlogPage />, { route: '/blog' });
+    expect(document.title).toBe('Blog - Sam Marsh');
+
+    renderWithRouter(<BlogPage />, { route: '/blog/bluesky' });
+    expect(document.title).toBe('Bluesky - Sam Marsh');
+
+    renderWithRouter(<BlogPage />, { route: '/blog/letterboxd' });
+    expect(document.title).toBe('Letterboxd - Sam Marsh');
+
+    renderWithRouter(<BlogPage />, { route: '/blog/all' });
+    expect(document.title).toBe('All Posts - Sam Marsh');
+  });
+
+  it('navigates between tabs via click', () => {
+    renderWithRouter(<BlogPage />, { route: '/blog' });
+    expect(screen.getByText('Test Post')).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Bluesky' }));
+    expect(screen.getByText('Hello from Bluesky')).toBeInTheDocument();
+    expect(screen.queryByText('Test Post')).not.toBeInTheDocument();
   });
 });

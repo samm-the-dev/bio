@@ -1,3 +1,4 @@
 .toolbox
 dist
 node_modules
+src/data/letterboxd.ts

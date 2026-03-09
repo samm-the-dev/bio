@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { PageHeader } from '@/components/PageHeader';
 import { FeedCard } from '@/components/FeedCard';
 import { BlueskyCard } from '@/components/BlueskyCard';
@@ -13,12 +14,20 @@ import { BlueskyIcon } from '@/components/icons';
 
 type Tab = 'all' | 'blog' | 'bluesky' | 'letterboxd';
 
-const tabs: { key: Tab; label: string }[] = [
-  { key: 'blog', label: 'Blog' },
-  { key: 'bluesky', label: 'Bluesky' },
-  { key: 'letterboxd', label: 'Letterboxd' },
-  { key: 'all', label: 'All' },
+const tabs: { key: Tab; label: string; path: string }[] = [
+  { key: 'blog', label: 'Blog', path: '/blog' },
+  { key: 'bluesky', label: 'Bluesky', path: '/blog/bluesky' },
+  { key: 'letterboxd', label: 'Letterboxd', path: '/blog/letterboxd' },
+  { key: 'all', label: 'All', path: '/blog/all' },
 ];
+
+function tabFromPath(pathname: string): Tab {
+  const normalized = pathname.replace(/\/$/, '') || '/blog';
+  for (const tab of tabs) {
+    if (tab.path === normalized) return tab.key;
+  }
+  return 'blog';
+}
 
 function BlogPostCard({ post }: { post: (typeof posts)[number] }) {
   return (
@@ -56,9 +65,18 @@ type FeedItem =
       data: ReturnType<typeof useLetterboxdFeed>['entries'][number];
     };
 
+const tabTitles: Record<Tab, string> = {
+  blog: 'Blog',
+  bluesky: 'Bluesky',
+  letterboxd: 'Letterboxd',
+  all: 'All Posts',
+};
+
 export function BlogPage() {
-  useDocumentTitle('Blog');
-  const [activeTab, setActiveTab] = useState<Tab>('blog');
+  const location = useLocation();
+  const navigate = useNavigate();
+  const activeTab = tabFromPath(location.pathname);
+  useDocumentTitle(tabTitles[activeTab]);
   const needsFeeds = activeTab === 'bluesky' || activeTab === 'all';
   // Letterboxd data is build-time, so entries are available immediately
   const { entries: lbEntries, loading: lbLoading, error: lbError } = useLetterboxdFeed();
@@ -116,7 +134,7 @@ export function BlogPage() {
             <button
               type="button"
               key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
+              onClick={() => navigate(tab.path)}
               aria-pressed={activeTab === tab.key}
               className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                 activeTab === tab.key
