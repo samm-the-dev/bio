@@ -1,8 +1,8 @@
 ---
 title: Automated Accessibility Auditing with Playwright and axe-core
 slug: automated-accessibility-auditing-with-playwright-and-axe-core
-excerpt: ''
-publishedAt:
+excerpt: "Adding accessibility tests to CI \u2014 what it caught and how I made it deterministic."
+publishedAt: 2026-03-09T05:41:06-05:00
 tags:
   - meta
   - code
