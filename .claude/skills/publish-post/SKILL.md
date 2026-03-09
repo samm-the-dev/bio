@@ -73,3 +73,4 @@ Report the post is ready. Remind the user to commit and push to deploy.
 
 - **CI**: Blog post PRs run the full CI pipeline (lint, test, build). The `paths-ignore` in `ci.yml` only skips `docs/` changes.
 - **Copilot review**: Runs on all PRs (GitHub rulesets don't support path-based conditions for `copilot_code_review`). It's fast for content-only changes — just let it run.
+- **Authors**: Valid values are `sam` and `claude`. Use `sam` for the human author (not `samm`). Add `claude` when the post was co-authored with Claude.
