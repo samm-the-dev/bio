@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { X } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { X, Link } from 'lucide-react';
 import { RichText } from './RichText';
 import { ProjectLinks } from './ProjectCard';
 import type { Project } from '@/lib/queries';
@@ -13,6 +13,15 @@ interface ProjectDialogProps {
 export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
   const trapRef = useFocusTrap<HTMLDivElement>();
   const backdropRef = useRef<HTMLDivElement>(null);
+  const [copied, setCopied] = useState(false);
+
+  function handleShare() {
+    const url = `${window.location.origin}/projects#${project.slug}`;
+    void navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
 
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -63,13 +72,26 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
       <div className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-4 text-card-foreground">
         <div className="flex items-center justify-between gap-4">
           <h2 className="text-lg font-semibold">{project.name}</h2>
-          <button
-            onClick={onClose}
-            aria-label="Close dialog"
-            className="shrink-0 rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-          >
-            <X className="h-4 w-4" />
-          </button>
+          <div className="flex shrink-0 items-center gap-1">
+            <button
+              onClick={handleShare}
+              aria-label="Copy link to project"
+              className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              {copied ? (
+                <span className="px-1 text-xs text-green-500">Copied!</span>
+              ) : (
+                <Link className="h-4 w-4" />
+              )}
+            </button>
+            <button
+              onClick={onClose}
+              aria-label="Close dialog"
+              className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
         </div>
         <div className="mt-2">
           <ProjectLinks project={project} />
