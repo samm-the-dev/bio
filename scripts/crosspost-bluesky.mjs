@@ -19,6 +19,8 @@ const TAG_HASHTAGS = {
   code: ['#BuildInPublic', '#WebDev'],
   improv: ['#Improv', '#ImprovComedy'],
   ttrpg: ['#TTRPG', '#GameDesign'],
+  adhd: ['#ADHD', '#ADHDlife'],
+  'mental-health': ['#MentalHealth'],
 };
 
 function getHashtags(post) {
