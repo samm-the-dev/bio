@@ -66,6 +66,16 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
     }
   }, []);
 
+  const resetPanel = useCallback(() => {
+    touchStart.current = null;
+    const panel = panelRef.current;
+    if (panel) {
+      panel.style.transition = 'transform 200ms ease-out, opacity 200ms ease-out';
+      panel.style.transform = '';
+      panel.style.opacity = '';
+    }
+  }, []);
+
   const onTouchEnd = useCallback(() => {
     const panel = panelRef.current;
     const dy = translateY.current;
@@ -82,12 +92,10 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
         panel.style.opacity = '0';
       }
       setTimeout(onClose, 200);
-    } else if (panel) {
-      panel.style.transition = 'transform 200ms ease-out, opacity 200ms ease-out';
-      panel.style.transform = '';
-      panel.style.opacity = '';
+    } else {
+      resetPanel();
     }
-  }, [onClose]);
+  }, [onClose, resetPanel]);
 
   async function handleDownload() {
     try {
@@ -135,6 +143,7 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
+        onTouchCancel={resetPanel}
       >
         <button
           onClick={onClose}
@@ -146,23 +155,35 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
         <div className="overflow-auto">
           <img src={gif.src} alt={gif.alt} className="w-full" />
         </div>
-        <div className="flex items-center justify-end gap-2 px-3 py-2">
-          <button
-            onClick={handleDownload}
-            className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-          >
-            <Download className="h-3.5 w-3.5" />
-            Download
-          </button>
-          {canShare && (
+        <div className="px-3 py-2">
+          <div className="flex flex-wrap gap-1">
+            {gif.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-border px-2 py-0.5 text-[10px] text-muted-foreground"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="mt-1.5 flex items-center justify-end gap-2">
             <button
-              onClick={handleShare}
+              onClick={handleDownload}
               className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
-              <Share2 className="h-3.5 w-3.5" />
-              Share
+              <Download className="h-3.5 w-3.5" />
+              Download
             </button>
-          )}
+            {canShare && (
+              <button
+                onClick={handleShare}
+                className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              >
+                <Share2 className="h-3.5 w-3.5" />
+                Share
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

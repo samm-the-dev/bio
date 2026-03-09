@@ -58,6 +58,12 @@ describe('ProjectsPage', () => {
     expect(sourceLink.getAttribute('href')).toMatch(/^https:\/\/github\.com\//);
   });
 
+  it('links to /projects/gifs from View all GIFs button', () => {
+    renderWithRouter(<ProjectsPage />);
+    const link = screen.getByRole('link', { name: /view all gifs/i });
+    expect(link).toHaveAttribute('href', '/projects/gifs');
+  });
+
   it('renders GIF carousel images', () => {
     renderWithRouter(<ProjectsPage />);
     const gifImages = screen.getAllByRole('img');
