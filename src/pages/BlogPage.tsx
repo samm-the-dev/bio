@@ -80,6 +80,11 @@ export function BlogPage() {
   const filteredItems =
     activeTab === 'all' ? allItems : allItems.filter((i) => i.type === activeTab);
 
+  const isTabLoading =
+    (activeTab === 'bluesky' && bskyLoading) ||
+    (activeTab === 'letterboxd' && lbLoading) ||
+    (activeTab === 'all' && (bskyLoading || lbLoading));
+
   return (
     <div className="mx-auto max-w-2xl">
       <PageHeader title="Blog" />
@@ -88,8 +93,10 @@ export function BlogPage() {
       <div className="mb-6 flex gap-1 rounded-lg border border-border bg-muted p-1">
         {tabs.map((tab) => (
           <button
+            type="button"
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
+            aria-pressed={activeTab === tab.key}
             className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
               activeTab === tab.key
                 ? 'bg-card text-foreground shadow-sm'
@@ -138,7 +145,7 @@ export function BlogPage() {
         <p className="mb-4 text-center text-xs text-muted-foreground">Loading feeds…</p>
       )}
 
-      {filteredItems.length === 0 && !bskyLoading && !lbLoading ? (
+      {filteredItems.length === 0 && !isTabLoading ? (
         <p className="text-center text-muted-foreground">
           {activeTab === 'blog' && 'No posts yet. Check back soon!'}
           {activeTab === 'bluesky' && !bskyError && 'No Bluesky posts found.'}

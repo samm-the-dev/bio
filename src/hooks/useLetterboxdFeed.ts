@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { LetterboxdEntry } from '@/lib/queries';
+import { letterboxdEntries as buildTimeEntries } from '@/data/letterboxd';
 
 const LETTERBOXD_RSS_URL = 'https://letterboxd.com/samm_loves_film/rss/';
 const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
@@ -49,7 +50,7 @@ function parseRssXml(xml: string): LetterboxdEntry[] {
 }
 
 export function useLetterboxdFeed(enabled = true) {
-  const [entries, setEntries] = useState<LetterboxdEntry[]>([]);
+  const [entries, setEntries] = useState<LetterboxdEntry[]>(buildTimeEntries);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [fetched, setFetched] = useState(false);
@@ -73,7 +74,10 @@ export function useLetterboxdFeed(enabled = true) {
         setFetched(true);
       } catch (err) {
         if (!cancelled) {
-          setError(err instanceof Error ? err.message : 'Failed to load Letterboxd feed');
+          // Live fetch failed — keep build-time entries, only set error if we have nothing
+          if (buildTimeEntries.length === 0) {
+            setError(err instanceof Error ? err.message : 'Failed to load Letterboxd feed');
+          }
         }
       } finally {
         if (!cancelled) setLoading(false);
