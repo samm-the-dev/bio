@@ -13,7 +13,8 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
   const trapRef = useFocusTrap<HTMLDivElement>();
   const panelRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
-  const swipe = useSwipeToDismiss(panelRef, onClose);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const swipe = useSwipeToDismiss(panelRef, onClose, { checkScrollLimits: true, scrollRef });
   const canShare = typeof navigator.share === 'function';
   const ext = gif.src.split('.').pop() || 'gif';
 
@@ -105,7 +106,7 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
         >
           <X className="h-4 w-4" />
         </button>
-        <div className="overflow-auto">
+        <div ref={scrollRef} className="overflow-auto">
           <img src={gif.src} alt={gif.alt} className="w-full" />
         </div>
         <div className="px-3 py-2">

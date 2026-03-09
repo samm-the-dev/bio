@@ -3,8 +3,13 @@ import { useRef, useCallback, type RefObject } from 'react';
 const SWIPE_THRESHOLD = 80;
 
 interface UseSwipeToDismissOptions {
-  /** Only dismiss when the panel is scrolled to a limit in the swipe direction. */
+  /** Only dismiss when at a scroll limit in the swipe direction. */
   checkScrollLimits?: boolean;
+  /**
+   * The element to check scroll limits on. Defaults to panelRef when omitted.
+   * Use this when the scrollable element is a child of the panel (e.g. an inner overflow-auto div).
+   */
+  scrollRef?: RefObject<HTMLDivElement | null>;
 }
 
 export function useSwipeToDismiss(
@@ -12,7 +17,7 @@ export function useSwipeToDismiss(
   onClose: () => void,
   options: UseSwipeToDismissOptions = {},
 ) {
-  const { checkScrollLimits = false } = options;
+  const { checkScrollLimits = false, scrollRef } = options;
   const touchStart = useRef<{ y: number; time: number } | null>(null);
   const translateY = useRef(0);
 
@@ -42,10 +47,13 @@ export function useSwipeToDismiss(
       const panel = panelRef.current;
       const dy = e.touches[0]!.clientY - touchStart.current.y;
 
-      if (checkScrollLimits && panel) {
-        const atTop = panel.scrollTop === 0;
-        const atBottom = panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 1;
-        if (!((dy > 0 && atTop) || (dy < 0 && atBottom))) return;
+      if (checkScrollLimits) {
+        const scroller = (scrollRef ?? panelRef).current;
+        if (scroller) {
+          const atTop = scroller.scrollTop === 0;
+          const atBottom = scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 1;
+          if (!((dy > 0 && atTop) || (dy < 0 && atBottom))) return;
+        }
       }
 
       translateY.current = dy;
@@ -54,7 +62,7 @@ export function useSwipeToDismiss(
         panel.style.opacity = `${Math.max(0.2, 1 - Math.abs(dy) / 400)}`;
       }
     },
-    [panelRef, checkScrollLimits],
+    [panelRef, scrollRef, checkScrollLimits],
   );
 
   const onTouchEnd = useCallback(() => {
