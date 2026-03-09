@@ -203,7 +203,8 @@ const KBD_TESTS = [
     test: async (page) => {
       const card = page.locator('.group button[type="button"]').first();
       await card.focus();
-      const beforeTag = await page.evaluate(() => document.activeElement?.tagName.toLowerCase());
+      // Mark the trigger so we can verify exact element identity after close
+      await card.evaluate((el) => el.setAttribute('data-focus-test', 'trigger'));
       try {
         await card.click();
         await page.locator('[role="dialog"]').waitFor({ timeout: 5000 });
@@ -212,9 +213,15 @@ const KBD_TESTS = [
       }
       await page.keyboard.press('Escape');
       await page.waitForTimeout(200);
-      const afterTag = await page.evaluate(() => document.activeElement?.tagName.toLowerCase());
-      if (afterTag !== beforeTag) {
-        return [`Focus not restored to trigger after dialog close (expected ${beforeTag}, got ${afterTag})`];
+      const restoredToTrigger = await page.evaluate(
+        () => document.activeElement?.getAttribute('data-focus-test') === 'trigger'
+      );
+      if (!restoredToTrigger) {
+        const focused = await page.evaluate(() => {
+          const el = document.activeElement;
+          return el ? el.tagName.toLowerCase() : 'body';
+        });
+        return [`Focus not restored to exact trigger element (focused: ${focused})`];
       }
       return [];
     },

@@ -27,9 +27,13 @@ export function BlogPostPage() {
           {post.draft && '[Draft] '}
           {post.title}
         </h1>
-        <time className="text-sm text-muted-foreground" dateTime={post.publishedAt}>
-          {formatDate(post.publishedAt)}
-        </time>
+        {post.draft ? (
+          <span className="text-sm text-muted-foreground">Unpublished draft</span>
+        ) : (
+          <time className="text-sm text-muted-foreground" dateTime={post.publishedAt}>
+            {formatDate(post.publishedAt)}
+          </time>
+        )}
         {post.tags && post.tags.length > 0 && (
           <p className="mt-1 text-xs text-muted-foreground">{post.tags.join(' \u00B7 ')}</p>
         )}

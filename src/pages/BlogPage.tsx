@@ -46,9 +46,11 @@ function BlogPostCard({ post }: { post: (typeof posts)[number] }) {
         </div>
         <h2 className="mt-2 font-semibold text-card-foreground">{post.title}</h2>
         <p className="mt-2 text-sm text-muted-foreground">{post.excerpt}</p>
-        <time className="mt-2 block text-xs text-muted-foreground" dateTime={post.publishedAt}>
-          {formatDate(post.publishedAt)}
-        </time>
+        {!post.draft && (
+          <time className="mt-2 block text-xs text-muted-foreground" dateTime={post.publishedAt}>
+            {formatDate(post.publishedAt)}
+          </time>
+        )}
         {post.tags && post.tags.length > 0 && (
           <p className="mt-2 text-xs text-muted-foreground">{post.tags.join(' · ')}</p>
         )}
