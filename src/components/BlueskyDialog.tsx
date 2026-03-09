@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { X, ExternalLink } from 'lucide-react';
 import type { BlueskyPost } from '@/hooks/useBlueskyFeed';
 import { formatDate } from '@/lib/formatDate';
@@ -6,6 +6,7 @@ import { LinkifiedText } from '@/components/LinkifiedText';
 import { ImageLightbox } from '@/components/ImageLightbox';
 import { HlsVideo } from '@/components/HlsVideo';
 import { BlueskyIcon } from '@/components/icons';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 interface BlueskyDialogProps {
   post: BlueskyPost;
@@ -24,8 +25,7 @@ function isGifEmbed(uri: string): boolean {
 }
 
 export function BlueskyDialog({ post, onClose }: BlueskyDialogProps) {
-  const backdropRef = useRef<HTMLDivElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
+  const trapRef = useFocusTrap<HTMLDivElement>();
   const [lightbox, setLightbox] = useState<{
     images: { src: string; alt: string }[];
     index: number;
@@ -40,7 +40,6 @@ export function BlueskyDialog({ post, onClose }: BlueskyDialogProps) {
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    panelRef.current?.focus();
     return () => {
       document.body.style.overflow = prev;
     };
@@ -57,20 +56,17 @@ export function BlueskyDialog({ post, onClose }: BlueskyDialogProps) {
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions -- keyboard close handled via useEffect
     <div
-      ref={backdropRef}
+      ref={trapRef}
       role="dialog"
       aria-modal="true"
       aria-label="Bluesky post"
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+      tabIndex={-1}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 outline-none"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div
-        ref={panelRef}
-        tabIndex={-1}
-        className="relative max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card text-card-foreground outline-none"
-      >
+      <div className="relative max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card text-card-foreground">
         <button
           onClick={onClose}
           aria-label="Close dialog"

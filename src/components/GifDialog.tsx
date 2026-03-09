@@ -1,6 +1,7 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { X, Download, Share2 } from 'lucide-react';
 import type { Gif } from '@/lib/queries';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 interface GifDialogProps {
   gif: Gif;
@@ -10,7 +11,9 @@ interface GifDialogProps {
 const SWIPE_THRESHOLD = 80;
 
 export function GifDialog({ gif, onClose }: GifDialogProps) {
+  const trapRef = useFocusTrap<HTMLDivElement>();
   const panelRef = useRef<HTMLDivElement>(null);
+  const backdropRef = useRef<HTMLDivElement>(null);
   const touchStart = useRef<{ y: number; time: number } | null>(null);
   const translateY = useRef(0);
   const canShare = typeof navigator.share === 'function';
@@ -19,7 +22,6 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    panelRef.current?.focus();
     return () => {
       document.body.style.overflow = prev;
     };
@@ -34,7 +36,6 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
   }, [onClose]);
 
   // Close on scroll-wheel over the backdrop (not the panel)
-  const backdropRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const backdrop = backdropRef.current;
     if (!backdrop) return;
@@ -127,19 +128,22 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions -- keyboard close handled via useEffect keydown listener
     <div
-      ref={backdropRef}
+      ref={(el) => {
+        trapRef.current = el;
+        backdropRef.current = el;
+      }}
       role="dialog"
       aria-modal="true"
       aria-label={gif.alt}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+      tabIndex={-1}
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 outline-none"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
     >
       <div
         ref={panelRef}
-        tabIndex={-1}
-        className="relative flex max-h-[85vh] w-full max-w-lg flex-col overflow-hidden rounded-lg border border-border bg-card text-card-foreground outline-none"
+        className="relative flex max-h-[85vh] w-full max-w-lg flex-col overflow-hidden rounded-lg border border-border bg-card text-card-foreground"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
