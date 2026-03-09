@@ -21,12 +21,13 @@ const tabs: { key: Tab; label: string; path: string }[] = [
   { key: 'all', label: 'All', path: '/blog/all' },
 ];
 
-const pathToTab: Record<string, Tab> = {
-  '/blog': 'blog',
-  '/blog/bluesky': 'bluesky',
-  '/blog/letterboxd': 'letterboxd',
-  '/blog/all': 'all',
-};
+function tabFromPath(pathname: string): Tab {
+  const normalized = pathname.replace(/\/$/, '') || '/blog';
+  for (const tab of tabs) {
+    if (tab.path === normalized) return tab.key;
+  }
+  return 'blog';
+}
 
 function BlogPostCard({ post }: { post: (typeof posts)[number] }) {
   return (
@@ -74,7 +75,7 @@ const tabTitles: Record<Tab, string> = {
 export function BlogPage() {
   const location = useLocation();
   const navigate = useNavigate();
-  const activeTab: Tab = pathToTab[location.pathname] ?? 'blog';
+  const activeTab = tabFromPath(location.pathname);
   useDocumentTitle(tabTitles[activeTab]);
   const needsFeeds = activeTab === 'bluesky' || activeTab === 'all';
   // Letterboxd data is build-time, so entries are available immediately
@@ -133,7 +134,7 @@ export function BlogPage() {
             <button
               type="button"
               key={tab.key}
-              onClick={() => navigate(tab.path, { replace: true })}
+              onClick={() => navigate(tab.path)}
               aria-pressed={activeTab === tab.key}
               className={`flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
                 activeTab === tab.key
