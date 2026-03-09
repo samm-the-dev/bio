@@ -95,7 +95,7 @@ for (const route of staticRoutes) {
   writePage(route.path, buildOgBlock({
     title: route.title,
     description: route.description,
-    url: `${siteUrl}/${route.path}`,
+    url: `${siteUrl}/${route.path}/`,
   }));
 }
 
@@ -115,7 +115,7 @@ for (const file of postFiles) {
   writePage(`blog/${data.slug}`, buildOgBlock({
     title: data.title,
     description: data.excerpt,
-    url: `${siteUrl}/blog/${data.slug}`,
+    url: `${siteUrl}/blog/${data.slug}/`,
     type: 'article',
   }));
 }
