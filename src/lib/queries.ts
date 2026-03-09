@@ -72,5 +72,5 @@ export interface LetterboxdEntry {
   filmTitle: string;
   filmYear: string | null;
   rating: string | null;
-  isReview: boolean;
+  isRewatch: boolean;
 }

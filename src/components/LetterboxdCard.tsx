@@ -38,7 +38,7 @@ export function LetterboxdCard({ entry }: LetterboxdCardProps) {
       </h2>
       <div className="mt-1 flex items-center gap-2">
         {entry.rating && <StarRating rating={entry.rating} />}
-        {entry.isReview && <span className="text-xs text-muted-foreground">reviewed</span>}
+        {entry.isRewatch && <span className="text-xs text-muted-foreground">rewatch</span>}
       </div>
       <time className="mt-1 block text-xs text-muted-foreground" dateTime={entry.publishedAt}>
         {formatDate(entry.publishedAt)}

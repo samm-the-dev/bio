@@ -68,7 +68,7 @@ export function BlogPage() {
       items.push({ type: 'letterboxd', publishedAt: entry.publishedAt, data: entry });
     }
 
-    return items.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+    return items.sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
   }, [bskyPosts, lbEntries]);
 
   const filteredItems =

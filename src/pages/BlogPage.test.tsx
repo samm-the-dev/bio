@@ -17,6 +17,14 @@ vi.mock('@/data/posts', () => ({
   ],
 }));
 
+vi.mock('@/hooks/useBlueskyFeed', () => ({
+  useBlueskyFeed: () => ({ posts: [], loading: false, error: null }),
+}));
+
+vi.mock('@/hooks/useLetterboxdFeed', () => ({
+  useLetterboxdFeed: () => ({ entries: [], loading: false, error: null }),
+}));
+
 describe('BlogPage', () => {
   it('renders the Blog heading', () => {
     renderWithRouter(<BlogPage />);
@@ -38,5 +46,13 @@ describe('BlogPage', () => {
   it('renders tags', () => {
     renderWithRouter(<BlogPage />);
     expect(screen.getByText('meta')).toBeInTheDocument();
+  });
+
+  it('renders tab buttons', () => {
+    renderWithRouter(<BlogPage />);
+    expect(screen.getByRole('button', { name: 'All' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Blog' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Bluesky' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Letterboxd' })).toBeInTheDocument();
   });
 });

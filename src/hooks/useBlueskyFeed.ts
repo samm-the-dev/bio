@@ -23,6 +23,9 @@ export function useBlueskyFeed(limit = 25) {
   useEffect(() => {
     let cancelled = false;
 
+    setLoading(true);
+    setError(null);
+
     async function fetchFeed() {
       try {
         // Resolve handle to DID
@@ -65,10 +68,11 @@ export function useBlueskyFeed(limit = 25) {
               }
             }
 
+            const createdAt = (record.createdAt as string) || '';
             return {
               uri: post.uri as string,
               text: (record.text as string) || '',
-              publishedAt: (record.createdAt as string) || '',
+              publishedAt: createdAt,
               url: `https://bsky.app/profile/${handle}/post/${rkey}`,
               likeCount: (post.likeCount as number) || 0,
               repostCount: (post.repostCount as number) || 0,
@@ -76,7 +80,8 @@ export function useBlueskyFeed(limit = 25) {
               hasImages: images.length > 0,
               images,
             };
-          });
+          })
+          .filter((p: BlueskyPost) => p.publishedAt && !isNaN(Date.parse(p.publishedAt)));
 
         setPosts(parsed);
       } catch (err) {

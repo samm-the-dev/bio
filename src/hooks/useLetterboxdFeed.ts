@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import type { LetterboxdEntry } from '@/lib/queries';
 
 const LETTERBOXD_RSS_URL = 'https://letterboxd.com/samm_loves_film/rss/';
-const CORS_PROXY = 'https://corsproxy.io/?url=';
+const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
 
 function parseRssXml(xml: string): LetterboxdEntry[] {
   const entries: LetterboxdEntry[] = [];
@@ -29,19 +29,20 @@ function parseRssXml(xml: string): LetterboxdEntry[] {
     const filmTitle = getCdata('letterboxd:filmTitle') || get('letterboxd:filmTitle') || '';
     const filmYear = get('letterboxd:filmYear') || null;
     const memberRating = get('letterboxd:memberRating') || null;
-    const isReview = itemXml.includes('<letterboxd:rewatch>');
+    const isRewatch = itemXml.includes('<letterboxd:rewatch>');
 
-    if (filmTitle) {
-      entries.push({
-        title,
-        link,
-        publishedAt: pubDate ? new Date(pubDate).toISOString() : '',
-        filmTitle,
-        filmYear,
-        rating: memberRating,
-        isReview,
-      });
-    }
+    const parsedDate = pubDate ? new Date(pubDate) : null;
+    if (!filmTitle || !parsedDate || isNaN(parsedDate.getTime())) continue;
+
+    entries.push({
+      title,
+      link,
+      publishedAt: parsedDate.toISOString(),
+      filmTitle,
+      filmYear,
+      rating: memberRating,
+      isRewatch,
+    });
   }
 
   return entries;
@@ -54,6 +55,9 @@ export function useLetterboxdFeed() {
 
   useEffect(() => {
     let cancelled = false;
+
+    setLoading(true);
+    setError(null);
 
     async function fetchFeed() {
       try {
