@@ -5,8 +5,8 @@ import { BlueskyCard } from '@/components/BlueskyCard';
 import { LetterboxdCard } from '@/components/LetterboxdCard';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { useBlueskyFeed } from '@/hooks/useBlueskyFeed';
+import { useLetterboxdFeed } from '@/hooks/useLetterboxdFeed';
 import { posts } from '@/data/posts';
-import { letterboxdEntries } from '@/data/letterboxd';
 import { formatDate } from '@/lib/formatDate';
 
 type Tab = 'all' | 'blog' | 'bluesky' | 'letterboxd';
@@ -43,12 +43,17 @@ type FeedItem =
       publishedAt: string;
       data: ReturnType<typeof useBlueskyFeed>['posts'][number];
     }
-  | { type: 'letterboxd'; publishedAt: string; data: (typeof letterboxdEntries)[number] };
+  | {
+      type: 'letterboxd';
+      publishedAt: string;
+      data: ReturnType<typeof useLetterboxdFeed>['entries'][number];
+    };
 
 export function BlogPage() {
   useDocumentTitle('Blog');
   const [activeTab, setActiveTab] = useState<Tab>('all');
   const { posts: bskyPosts, loading: bskyLoading, error: bskyError } = useBlueskyFeed();
+  const { entries: lbEntries, loading: lbLoading, error: lbError } = useLetterboxdFeed();
 
   const allItems = useMemo(() => {
     const items: FeedItem[] = [];
@@ -59,12 +64,12 @@ export function BlogPage() {
     for (const post of bskyPosts) {
       items.push({ type: 'bluesky', publishedAt: post.publishedAt, data: post });
     }
-    for (const entry of letterboxdEntries) {
+    for (const entry of lbEntries) {
       items.push({ type: 'letterboxd', publishedAt: entry.publishedAt, data: entry });
     }
 
     return items.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
-  }, [bskyPosts]);
+  }, [bskyPosts, lbEntries]);
 
   const filteredItems =
     activeTab === 'all' ? allItems : allItems.filter((i) => i.type === activeTab);
@@ -107,16 +112,31 @@ export function BlogPage() {
           </a>
         </p>
       )}
-      {activeTab === 'all' && bskyLoading && (
-        <p className="mb-4 text-center text-xs text-muted-foreground">Loading Bluesky posts…</p>
+      {activeTab === 'letterboxd' && lbLoading && (
+        <p className="text-center text-sm text-muted-foreground">Loading Letterboxd activity…</p>
+      )}
+      {activeTab === 'letterboxd' && lbError && (
+        <p className="text-center text-sm text-muted-foreground">
+          Couldn't load Letterboxd feed.{' '}
+          <a
+            href="https://letterboxd.com/samm_loves_film/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-foreground"
+          >
+            View on Letterboxd →
+          </a>
+        </p>
+      )}
+      {activeTab === 'all' && (bskyLoading || lbLoading) && (
+        <p className="mb-4 text-center text-xs text-muted-foreground">Loading feeds…</p>
       )}
 
-      {filteredItems.length === 0 && !bskyLoading ? (
+      {filteredItems.length === 0 && !bskyLoading && !lbLoading ? (
         <p className="text-center text-muted-foreground">
           {activeTab === 'blog' && 'No posts yet. Check back soon!'}
           {activeTab === 'bluesky' && !bskyError && 'No Bluesky posts found.'}
-          {activeTab === 'letterboxd' &&
-            'No Letterboxd activity yet. Check back after the next build.'}
+          {activeTab === 'letterboxd' && !lbError && 'No Letterboxd activity found.'}
           {activeTab === 'all' && 'Nothing here yet. Check back soon!'}
         </p>
       ) : (
