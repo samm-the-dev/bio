@@ -7,10 +7,14 @@
  * Blog posts come from markdown files in content/posts/.
  */
 import { writeFileSync, mkdirSync, readdirSync, readFileSync, existsSync } from 'fs';
+import { execSync } from 'child_process';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import { createHighlighter } from 'shiki';
 import yaml from 'js-yaml';
+
+const includeDrafts = process.argv.includes('--drafts');
+const localOnly = process.argv.includes('--local');
 
 function escapeXml(str) {
   return str
@@ -118,7 +122,6 @@ const posts = postFiles
   .map((file) => {
     const raw = readFileSync(`${postsDir}/${file}`, 'utf-8');
     const { data, content } = matter(raw);
-    const includeDrafts = process.argv.includes('--drafts');
     if (!data.publishedAt && !includeDrafts) return null;
 
     // Resolve relatedProjects slugs to { name, slug } objects
@@ -177,7 +180,9 @@ function parseLbDescription(html) {
 }
 
 let letterboxdEntries = [];
-try {
+if (localOnly) {
+  console.log('Skipping Letterboxd fetch (--local).');
+} else try {
   const lbRes = await fetch('https://letterboxd.com/samm_loves_film/rss/');
   if (lbRes.ok) {
     const xml = await lbRes.text();
@@ -258,12 +263,14 @@ writeFileSync(
   `${HEADER}import type { Show } from '@/lib/queries';\n\nexport const shows: Show[] = ${JSON.stringify(shows, null, 2)};\n`,
 );
 
-// Only overwrite letterboxd data when we have entries (preserve last-known-good on fetch failure)
-if (letterboxdEntries.length > 0 || !existsSync('src/data/letterboxd.ts')) {
+// Only overwrite letterboxd data when we fetched entries (preserve last-known-good otherwise)
+if (!localOnly && (letterboxdEntries.length > 0 || !existsSync('src/data/letterboxd.ts'))) {
   writeFileSync(
     'src/data/letterboxd.ts',
     `${HEADER}import type { LetterboxdEntry } from '@/lib/queries';\n\nexport const letterboxdEntries: LetterboxdEntry[] = ${JSON.stringify(letterboxdEntries, null, 2)};\n`,
   );
+  // Format so committed output matches CI refresh workflow (letterboxd.ts is tracked)
+  execSync('npx prettier --write src/data/letterboxd.ts', { stdio: 'ignore' });
 }
 
 writeFileSync(

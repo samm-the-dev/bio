@@ -63,7 +63,7 @@ console.log(`Found ${newPosts.length} new post(s) to cross-post.`);
 if (dryRun) {
   for (const post of newPosts) {
     const hashtags = getHashtags(post);
-    const hashtagLine = hashtags.length > 0 ? `\n${hashtags.join(' ')}` : '';
+    const hashtagLine = hashtags.length > 0 ? `\n\n${hashtags.join(' ')}` : '';
     console.log(`[DRY RUN] Would post:\n---\nNew blog post: ${SITE_URL}/blog/${post.slug}${hashtagLine}\n---`);
   }
   process.exit(0);
@@ -76,7 +76,7 @@ await agent.login({ identifier: handle, password });
 for (const post of newPosts) {
   const postUrl = `${SITE_URL}/blog/${post.slug}`;
   const hashtags = getHashtags(post);
-  const hashtagLine = hashtags.length > 0 ? `\n${hashtags.join(' ')}` : '';
+  const hashtagLine = hashtags.length > 0 ? `\n\n${hashtags.join(' ')}` : '';
   const text = `New blog post: ${postUrl}${hashtagLine}`;
 
   // Build rich text to detect link facets
