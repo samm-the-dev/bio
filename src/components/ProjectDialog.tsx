@@ -14,6 +14,8 @@ interface ProjectDialogProps {
 export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
   const trapRef = useFocusTrap<HTMLDivElement>();
   const backdropRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const touchStartY = useRef<number>(0);
 
   async function handleShare() {
     const url = new URL(window.location.href);
@@ -67,7 +69,21 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-4 text-card-foreground">
+      <div
+        ref={panelRef}
+        className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-4 text-card-foreground"
+        onTouchStart={(e) => {
+          touchStartY.current = e.touches[0].clientY;
+        }}
+        onTouchEnd={(e) => {
+          const panel = panelRef.current;
+          if (!panel) return;
+          const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+          const atTop = panel.scrollTop === 0;
+          const atBottom = panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 1;
+          if ((deltaY > 60 && atTop) || (deltaY < -60 && atBottom)) onClose();
+        }}
+      >
         <div className="flex items-center justify-between gap-4">
           <h2 className="text-lg font-semibold">{project.name}</h2>
           <div className="flex shrink-0 items-center gap-1">
