@@ -182,59 +182,61 @@ function parseLbDescription(html) {
 let letterboxdEntries = [];
 if (localOnly) {
   console.log('Skipping Letterboxd fetch (--local).');
-} else try {
-  const lbRes = await fetch('https://letterboxd.com/samm_loves_film/rss/');
-  if (lbRes.ok) {
-    const xml = await lbRes.text();
-    const itemRegex = /<item>([\s\S]*?)<\/item>/g;
-    let lbMatch;
-    while ((lbMatch = itemRegex.exec(xml)) !== null) {
-      const itemXml = lbMatch[1];
-      const get = (tag) => {
-        const m = itemXml.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`));
-        return m ? m[1].trim() : null;
-      };
-      const getCdata = (tag) => {
-        const m = itemXml.match(
-          new RegExp(`<${tag}>\\s*<!\\[CDATA\\[([\\s\\S]*?)\\]\\]>\\s*</${tag}>`),
+} else {
+  try {
+    const lbRes = await fetch('https://letterboxd.com/samm_loves_film/rss/');
+    if (lbRes.ok) {
+      const xml = await lbRes.text();
+      const itemRegex = /<item>([\s\S]*?)<\/item>/g;
+      let lbMatch;
+      while ((lbMatch = itemRegex.exec(xml)) !== null) {
+        const itemXml = lbMatch[1];
+        const get = (tag) => {
+          const m = itemXml.match(new RegExp(`<${tag}>([\\s\\S]*?)</${tag}>`));
+          return m ? m[1].trim() : null;
+        };
+        const getCdata = (tag) => {
+          const m = itemXml.match(
+            new RegExp(`<${tag}>\\s*<!\\[CDATA\\[([\\s\\S]*?)\\]\\]>\\s*</${tag}>`),
+          );
+          return m ? m[1].trim() : null;
+        };
+
+        const title = getCdata('title') || get('title') || '';
+        const link = get('link') || get('guid') || '';
+        const pubDate = get('pubDate') || '';
+        const filmTitle = decodeHtmlEntities(
+          getCdata('letterboxd:filmTitle') || get('letterboxd:filmTitle') || '',
         );
-        return m ? m[1].trim() : null;
-      };
+        const filmYear = get('letterboxd:filmYear') || null;
+        const memberRating = get('letterboxd:memberRating') || null;
+        const rewatchVal = get('letterboxd:rewatch');
+        const isRewatch = rewatchVal === 'Yes';
+        const likeVal = get('letterboxd:memberLike');
+        const isLiked = likeVal === 'Yes';
+        const description = getCdata('description') || get('description') || '';
+        const { posterUrl, reviewHtml } = parseLbDescription(description);
 
-      const title = getCdata('title') || get('title') || '';
-      const link = get('link') || get('guid') || '';
-      const pubDate = get('pubDate') || '';
-      const filmTitle = decodeHtmlEntities(
-        getCdata('letterboxd:filmTitle') || get('letterboxd:filmTitle') || '',
-      );
-      const filmYear = get('letterboxd:filmYear') || null;
-      const memberRating = get('letterboxd:memberRating') || null;
-      const rewatchVal = get('letterboxd:rewatch');
-      const isRewatch = rewatchVal === 'Yes';
-      const likeVal = get('letterboxd:memberLike');
-      const isLiked = likeVal === 'Yes';
-      const description = getCdata('description') || get('description') || '';
-      const { posterUrl, reviewHtml } = parseLbDescription(description);
+        const parsedDate = pubDate ? new Date(pubDate) : null;
+        if (!filmTitle || !parsedDate || isNaN(parsedDate.getTime())) continue;
 
-      const parsedDate = pubDate ? new Date(pubDate) : null;
-      if (!filmTitle || !parsedDate || isNaN(parsedDate.getTime())) continue;
-
-      letterboxdEntries.push({
-        title: decodeHtmlEntities(title),
-        link,
-        publishedAt: parsedDate.toISOString(),
-        filmTitle,
-        filmYear,
-        rating: memberRating,
-        isRewatch,
-        isLiked,
-        posterUrl,
-        reviewHtml,
-      });
+        letterboxdEntries.push({
+          title: decodeHtmlEntities(title),
+          link,
+          publishedAt: parsedDate.toISOString(),
+          filmTitle,
+          filmYear,
+          rating: memberRating,
+          isRewatch,
+          isLiked,
+          posterUrl,
+          reviewHtml,
+        });
+      }
     }
+  } catch (err) {
+    console.warn('Letterboxd RSS fetch failed (build-time cache will be empty):', err instanceof Error ? err.message : String(err));
   }
-} catch (err) {
-  console.warn('Letterboxd RSS fetch failed (build-time cache will be empty):', err instanceof Error ? err.message : String(err));
 }
 console.log(`Fetched ${letterboxdEntries.length} Letterboxd entries.`);
 
@@ -270,7 +272,7 @@ if (!localOnly && (letterboxdEntries.length > 0 || !existsSync('src/data/letterb
     `${HEADER}import type { LetterboxdEntry } from '@/lib/queries';\n\nexport const letterboxdEntries: LetterboxdEntry[] = ${JSON.stringify(letterboxdEntries, null, 2)};\n`,
   );
   // Format so committed output matches CI refresh workflow (letterboxd.ts is tracked)
-  execSync('npx prettier --write src/data/letterboxd.ts', { stdio: 'ignore' });
+  execSync('npx prettier --write src/data/letterboxd.ts', { stdio: 'inherit' });
 }
 
 writeFileSync(

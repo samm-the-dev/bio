@@ -31,7 +31,7 @@ The audit script uses Playwright to spin up a Vite dev server, visit every route
 - **2 themes** (light and dark)
 - **2 viewports** (desktop 1280px, mobile 375px)
 
-That's 40 audits per run. It takes about 30 seconds locally.
+That's 40 audits per run. With keyboard tests (described below), the full suite takes about two and a half minutes locally and in CI.
 
 ```typescript
 const ROUTES = [
