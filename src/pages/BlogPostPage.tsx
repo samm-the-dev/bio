@@ -40,9 +40,9 @@ export function BlogPostPage() {
         dangerouslySetInnerHTML={{ __html: post.body }}
       />
 
-      {post.authors.includes('claude') && (
+      {post.authors?.includes('claude') && (
         <p className="mt-8 text-sm text-muted-foreground">
-          {post.authors.includes('sam') ? 'Co-authored' : 'Written'} with{' '}
+          {post.authors?.includes('sam') ? 'Co-authored' : 'Written'} with{' '}
           <a
             href="https://claude.ai"
             className="text-primary hover:text-primary-hover"
