@@ -28,7 +28,7 @@ export function ProjectsPage() {
   useEffect(() => {
     const slug = location.hash.slice(1);
     if (!slug) return;
-    document.getElementById(slug)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.getElementById(slug)?.scrollIntoView?.({ behavior: 'smooth', block: 'center' });
   }, [location.hash]);
 
   function openProject(project: Project) {
