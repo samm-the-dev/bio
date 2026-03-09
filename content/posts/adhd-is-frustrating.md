@@ -7,7 +7,7 @@ tags:
   - personal
   - mental-health
 authors:
-  - samm
+  - sam
   - claude
 publishedAt: 2026-03-09T22:28:29+00:00
 relatedProjects:
