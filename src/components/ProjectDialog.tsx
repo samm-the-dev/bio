@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { X, Link } from 'lucide-react';
 import { RichText } from './RichText';
 import { ProjectLinks } from './ProjectCard';
 import type { Project } from '@/lib/queries';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { shareUrl } from '@/lib/share';
 
 interface ProjectDialogProps {
   project: Project;
@@ -13,27 +14,12 @@ interface ProjectDialogProps {
 export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
   const trapRef = useFocusTrap<HTMLDivElement>();
   const backdropRef = useRef<HTMLDivElement>(null);
-  const [copied, setCopied] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   async function handleShare() {
     const url = new URL(window.location.href);
     url.hash = project.slug;
-    try {
-      await navigator.clipboard.writeText(url.toString());
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      setCopied(true);
-      timeoutRef.current = setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // clipboard unavailable (non-HTTPS or permission denied)
-    }
+    await shareUrl(url.toString(), project.name);
   }
-
-  useEffect(() => {
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, []);
 
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -86,15 +72,11 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
           <h2 className="text-lg font-semibold">{project.name}</h2>
           <div className="flex shrink-0 items-center gap-1">
             <button
-              onClick={handleShare}
-              aria-label="Copy link to project"
+              onClick={() => void handleShare()}
+              aria-label="Share link to project"
               className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
-              {copied ? (
-                <span className="px-1 text-xs text-green-500">Copied!</span>
-              ) : (
-                <Link className="h-4 w-4" />
-              )}
+              <Link className="h-4 w-4" />
             </button>
             <button
               onClick={onClose}

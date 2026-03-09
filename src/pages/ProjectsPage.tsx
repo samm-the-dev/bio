@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { LayoutGrid } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
@@ -23,6 +24,12 @@ export function ProjectsPage() {
   const navigate = useNavigate();
 
   const activeProject = projects.find((p) => p.slug === location.hash.slice(1)) ?? null;
+
+  useEffect(() => {
+    const slug = location.hash.slice(1);
+    if (!slug) return;
+    document.getElementById(slug)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, [location.hash]);
 
   function openProject(project: Project) {
     navigate({ hash: project.slug }, { replace: true });
@@ -73,7 +80,12 @@ export function ProjectsPage() {
             {!section.description && <div className="mb-3" />}
             <div className="grid gap-4 sm:grid-cols-2">
               {items.map((project) => (
-                <ProjectCard key={project.slug} project={project} onSeeMore={openProject} />
+                <ProjectCard
+                  key={project.slug}
+                  id={project.slug}
+                  project={project}
+                  onSeeMore={openProject}
+                />
               ))}
             </div>
           </section>
