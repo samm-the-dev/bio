@@ -64,3 +64,13 @@ export interface BlogPost {
   tags: string[] | null;
   relatedProjects: { name: string; slug: string }[] | null;
 }
+
+export interface LetterboxdEntry {
+  title: string;
+  link: string;
+  publishedAt: string;
+  filmTitle: string;
+  filmYear: string | null;
+  rating: string | null;
+  isReview: boolean;
+}
