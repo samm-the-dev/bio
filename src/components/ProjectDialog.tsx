@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { X, Link } from 'lucide-react';
+import { X, Share2 } from 'lucide-react';
 import { RichText } from './RichText';
 import { ProjectLinks } from './ProjectCard';
 import type { Project } from '@/lib/queries';
@@ -76,7 +76,7 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
               aria-label="Share link to project"
               className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
-              <Link className="h-4 w-4" />
+              <Share2 className="h-4 w-4" />
             </button>
             <button
               onClick={onClose}
