@@ -1,7 +1,7 @@
 ---
 title: ADHD is Frustrating
 slug: adhd-is-frustrating
-excerpt: "Some days I want to work and my brain just isn't having it."
+excerpt: "Some days I want to work, but my brain just isn't having it."
 tags:
   - adhd
   - personal
