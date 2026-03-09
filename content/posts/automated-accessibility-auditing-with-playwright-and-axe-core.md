@@ -115,6 +115,30 @@ The audit runs as a GitHub Actions step after the build:
 
 The JSON report is uploaded as an artifact on every run (even failures), so you can inspect the full axe output. The step fails the build if any violations are found.
 
+### Caching Playwright browsers
+
+The `npx playwright install --with-deps chromium` step downloads both the browser binary and its OS-level dependencies (system libraries via `apt`). The browser download is the slow part -- around 30-40 seconds. The OS deps are fast but can't be easily cached since they're installed system-wide.
+
+Splitting the install into separate steps lets you cache the browser binary with `actions/cache`, keyed on the Playwright version:
+
+```yaml
+- name: Cache Playwright browsers
+  id: pw-cache
+  uses: actions/cache@v4
+  with:
+    path: ~/.cache/ms-playwright
+    key: playwright-${{ steps.pw-version.outputs.version }}-chromium
+
+- name: Install Playwright browsers
+  if: steps.pw-cache.outputs.cache-hit != 'true'
+  run: npx playwright install chromium
+
+- name: Install Playwright OS deps
+  run: npx playwright install-deps chromium
+```
+
+On cache hit, the browser download is skipped entirely. The cache key includes the Playwright version so it auto-invalidates when you upgrade.
+
 ## What it caught
 
 The first run found color contrast violations across several pages. All were cases where I'd used Tailwind opacity modifiers (like `text-muted-foreground/70`) that dropped the contrast ratio below the WCAG 4.5:1 threshold. Some only failed in light mode, some only in dark mode -- exactly the kind of thing that's hard to catch manually when you mostly develop in one theme.
