@@ -95,7 +95,7 @@ export function BlueskyCard({ post }: BlueskyCardProps) {
                 />
               </div>
             ))}
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-card/60 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-card/80 to-transparent" />
           </div>
         )}
 
@@ -175,7 +175,7 @@ export function BlueskyCard({ post }: BlueskyCardProps) {
                         />
                       </div>
                     ))}
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-card/60 to-transparent" />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-card/80 to-transparent" />
                   </div>
                 )}
 

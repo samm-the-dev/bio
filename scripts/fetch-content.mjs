@@ -142,8 +142,8 @@ const posts = postFiles
 // --- Letterboxd RSS ---
 function decodeHtmlEntities(str) {
   return str
-    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, code) => String.fromCharCode(parseInt(code, 16)))
+    .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, code) => String.fromCodePoint(parseInt(code, 16)))
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
@@ -163,9 +163,10 @@ function parseLbDescription(html) {
     .replace(/<p>\s*Watched on\s[\s\S]*?<\/p>/gi, '')
     .replace(/<p>\s*Rewatched on\s[\s\S]*?<\/p>/gi, '')
     .trim();
-  // Allow only safe HTML tags
+  // Allow only safe HTML tags and strip all attributes
   const safeHtml = cleaned
     .replace(/<(?!\/?(?:p|blockquote|em|strong|br)\b)[^>]+>/g, '')
+    .replace(/<(p|blockquote|em|strong|br)\s+[^>]*>/gi, '<$1>')
     .trim();
   return { posterUrl, reviewHtml: safeHtml || null };
 }
@@ -223,7 +224,7 @@ try {
     }
   }
 } catch (err) {
-  console.warn('Letterboxd RSS fetch failed (build-time cache will be empty):', err.message);
+  console.warn('Letterboxd RSS fetch failed (build-time cache will be empty):', err instanceof Error ? err.message : String(err));
 }
 console.log(`Fetched ${letterboxdEntries.length} Letterboxd entries.`);
 

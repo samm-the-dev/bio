@@ -45,10 +45,15 @@ export function useBlueskyFeed(enabled = true, fetchUntil: number | null = null)
   const [posts, setPosts] = useState<BlueskyPost[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [fetched, setFetched] = useState(false);
+  const [fetchedUntil, setFetchedUntil] = useState<number | null | undefined>(undefined);
 
   useEffect(() => {
-    if (!enabled || fetched) return;
+    if (!enabled) return;
+    // Skip if we already fetched with sufficient coverage
+    if (fetchedUntil !== undefined) {
+      if (fetchUntil === null) return; // no target needed, already fetched
+      if (fetchedUntil !== null && fetchedUntil <= fetchUntil) return; // already covered
+    }
 
     let cancelled = false;
 
@@ -290,7 +295,7 @@ export function useBlueskyFeed(enabled = true, fetchUntil: number | null = null)
         const threaded = parsed.filter((p) => !threadChildUris.has(p.uri));
 
         setPosts(threaded);
-        setFetched(true);
+        setFetchedUntil(fetchUntil);
       } catch (err) {
         if (!cancelled) {
           setError(err instanceof Error ? err.message : 'Failed to load Bluesky feed');
@@ -304,7 +309,7 @@ export function useBlueskyFeed(enabled = true, fetchUntil: number | null = null)
     return () => {
       cancelled = true;
     };
-  }, [enabled, fetched, fetchUntil]);
+  }, [enabled, fetchedUntil, fetchUntil]);
 
   return { posts, loading, error };
 }

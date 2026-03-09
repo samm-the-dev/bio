@@ -22,20 +22,35 @@ export function HlsVideo({ src, poster, className, ariaLabel }: HlsVideoProps) {
 
     // Lazy-load hls.js for Chrome/Firefox
     let hls: import('hls.js').default | null = null;
-    import('hls.js').then((mod) => {
-      const Hls = mod.default;
-      if (!Hls.isSupported()) {
-        // Last resort: try direct playback (shows poster if it fails)
-        video.src = src;
-        return;
-      }
-      hls = new Hls({ enableWorker: false });
-      hls.loadSource(src);
-      hls.attachMedia(video);
-    });
+    let cancelled = false;
+
+    import('hls.js')
+      .then((mod) => {
+        if (cancelled) return;
+        const Hls = mod.default;
+        if (!Hls.isSupported()) {
+          video.src = src;
+          return;
+        }
+        hls = new Hls({ enableWorker: false });
+        if (cancelled) {
+          hls.destroy();
+          hls = null;
+          return;
+        }
+        hls.loadSource(src);
+        hls.attachMedia(video);
+      })
+      .catch(() => {
+        if (!cancelled) video.src = src;
+      });
 
     return () => {
-      hls?.destroy();
+      cancelled = true;
+      if (hls) {
+        hls.destroy();
+        hls = null;
+      }
     };
   }, [src]);
 

@@ -128,7 +128,7 @@ export function BlueskyDialog({ post, onClose }: BlueskyDialogProps) {
 
         {/* Images flush to bottom */}
         {post.hasImages && (
-          <div className="flex gap-px overflow-hidden">
+          <div className="relative flex gap-px overflow-hidden">
             {post.images.map((img, i) => (
               <button
                 type="button"
@@ -146,6 +146,7 @@ export function BlueskyDialog({ post, onClose }: BlueskyDialogProps) {
                 />
               </button>
             ))}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-card/80 to-transparent" />
           </div>
         )}
 
@@ -223,7 +224,7 @@ export function BlueskyDialog({ post, onClose }: BlueskyDialogProps) {
                 )}
 
                 {reply.hasImages && (
-                  <div className="flex gap-px overflow-hidden">
+                  <div className="relative flex gap-px overflow-hidden">
                     {reply.images.map((img, i) => (
                       <button
                         type="button"
@@ -241,6 +242,7 @@ export function BlueskyDialog({ post, onClose }: BlueskyDialogProps) {
                         />
                       </button>
                     ))}
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-card/80 to-transparent" />
                   </div>
                 )}
 
