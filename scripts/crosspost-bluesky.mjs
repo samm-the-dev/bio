@@ -17,10 +17,15 @@ const TRACKING_FILE = '.crossposted.json';
 // Tag-to-hashtag mapping for Bluesky posts
 const TAG_HASHTAGS = {
   code: ['#BuildInPublic', '#WebDev'],
-  'claude-code': ['#ClaudeCode'],
   improv: ['#Improv', '#ImprovComedy'],
   ttrpg: ['#TTRPG', '#GameDesign'],
 };
+
+function getHashtags(post) {
+  const tags = [...new Set((post.tags || []).flatMap((tag) => TAG_HASHTAGS[tag] || []))];
+  if ((post.authors || []).includes('claude')) tags.push('#ClaudeCode');
+  return tags;
+}
 const handle = process.env.BLUESKY_HANDLE;
 const password = process.env.BLUESKY_APP_PASSWORD;
 const dryRun = process.env.DRY_RUN === '1';
@@ -57,9 +62,7 @@ console.log(`Found ${newPosts.length} new post(s) to cross-post.`);
 
 if (dryRun) {
   for (const post of newPosts) {
-    const hashtags = [
-      ...new Set((post.tags || []).flatMap((tag) => TAG_HASHTAGS[tag] || [])),
-    ];
+    const hashtags = getHashtags(post);
     const hashtagLine = hashtags.length > 0 ? `\n${hashtags.join(' ')}` : '';
     console.log(`[DRY RUN] Would post:\n---\nNew blog post: ${SITE_URL}/blog/${post.slug}${hashtagLine}\n---`);
   }
@@ -72,9 +75,7 @@ await agent.login({ identifier: handle, password });
 
 for (const post of newPosts) {
   const postUrl = `${SITE_URL}/blog/${post.slug}`;
-  const hashtags = [
-    ...new Set((post.tags || []).flatMap((tag) => TAG_HASHTAGS[tag] || [])),
-  ];
+  const hashtags = getHashtags(post);
   const hashtagLine = hashtags.length > 0 ? `\n${hashtags.join(' ')}` : '';
   const text = `New blog post: ${postUrl}${hashtagLine}`;
 

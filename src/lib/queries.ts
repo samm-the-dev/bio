@@ -61,7 +61,9 @@ export interface BlogPost {
   excerpt: string;
   body: string;
   publishedAt: string;
+  draft: boolean;
   tags: string[] | null;
+  authors: ('sam' | 'claude')[];
   relatedProjects: { name: string; slug: string }[] | null;
 }
 

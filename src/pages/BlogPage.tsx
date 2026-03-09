@@ -38,6 +38,11 @@ function BlogPostCard({ post }: { post: (typeof posts)[number] }) {
           <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground">
             Blog
           </span>
+          {post.draft && (
+            <span className="rounded bg-yellow-100 px-1.5 py-0.5 text-xs font-medium text-yellow-800 dark:bg-yellow-500/20 dark:text-yellow-400">
+              Draft
+            </span>
+          )}
         </div>
         <h2 className="mt-2 font-semibold text-card-foreground">{post.title}</h2>
         <p className="mt-2 text-sm text-muted-foreground">{post.excerpt}</p>
