@@ -12,10 +12,10 @@ import { formatDate } from '@/lib/formatDate';
 type Tab = 'all' | 'blog' | 'bluesky' | 'letterboxd';
 
 const tabs: { key: Tab; label: string }[] = [
-  { key: 'all', label: 'All' },
   { key: 'blog', label: 'Blog' },
   { key: 'bluesky', label: 'Bluesky' },
   { key: 'letterboxd', label: 'Letterboxd' },
+  { key: 'all', label: 'All' },
 ];
 
 function BlogPostCard({ post }: { post: (typeof posts)[number] }) {
@@ -51,9 +51,15 @@ type FeedItem =
 
 export function BlogPage() {
   useDocumentTitle('Blog');
-  const [activeTab, setActiveTab] = useState<Tab>('all');
-  const { posts: bskyPosts, loading: bskyLoading, error: bskyError } = useBlueskyFeed();
-  const { entries: lbEntries, loading: lbLoading, error: lbError } = useLetterboxdFeed();
+  const [activeTab, setActiveTab] = useState<Tab>('blog');
+  const needsFeeds = activeTab === 'bluesky' || activeTab === 'all';
+  const needsLetterboxd = activeTab === 'letterboxd' || activeTab === 'all';
+  const { posts: bskyPosts, loading: bskyLoading, error: bskyError } = useBlueskyFeed(needsFeeds);
+  const {
+    entries: lbEntries,
+    loading: lbLoading,
+    error: lbError,
+  } = useLetterboxdFeed(needsLetterboxd);
 
   const allItems = useMemo(() => {
     const items: FeedItem[] = [];

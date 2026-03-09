@@ -48,12 +48,15 @@ function parseRssXml(xml: string): LetterboxdEntry[] {
   return entries;
 }
 
-export function useLetterboxdFeed() {
+export function useLetterboxdFeed(enabled = true) {
   const [entries, setEntries] = useState<LetterboxdEntry[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fetched, setFetched] = useState(false);
 
   useEffect(() => {
+    if (!enabled || fetched) return;
+
     let cancelled = false;
 
     setLoading(true);
@@ -67,6 +70,7 @@ export function useLetterboxdFeed() {
 
         if (cancelled) return;
         setEntries(parseRssXml(xml));
+        setFetched(true);
       } catch (err) {
         if (!cancelled) {
           setError(err instanceof Error ? err.message : 'Failed to load Letterboxd feed');
@@ -80,7 +84,7 @@ export function useLetterboxdFeed() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [enabled, fetched]);
 
   return { entries, loading, error };
 }

@@ -15,12 +15,15 @@ export interface BlueskyPost {
 const BSKY_PUBLIC_API = 'https://public.api.bsky.app/xrpc';
 const HANDLE = 'samm-the-human.online';
 
-export function useBlueskyFeed(limit = 25) {
+export function useBlueskyFeed(enabled = true, limit = 25) {
   const [posts, setPosts] = useState<BlueskyPost[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fetched, setFetched] = useState(false);
 
   useEffect(() => {
+    if (!enabled || fetched) return;
+
     let cancelled = false;
 
     setLoading(true);
@@ -84,6 +87,7 @@ export function useBlueskyFeed(limit = 25) {
           .filter((p: BlueskyPost) => p.publishedAt && !isNaN(Date.parse(p.publishedAt)));
 
         setPosts(parsed);
+        setFetched(true);
       } catch (err) {
         if (!cancelled) {
           setError(err instanceof Error ? err.message : 'Failed to load Bluesky feed');
@@ -97,7 +101,7 @@ export function useBlueskyFeed(limit = 25) {
     return () => {
       cancelled = true;
     };
-  }, [limit]);
+  }, [enabled, fetched, limit]);
 
   return { posts, loading, error };
 }
