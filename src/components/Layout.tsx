@@ -1,9 +1,9 @@
 import { Outlet, Link, NavLink } from 'react-router-dom';
 import { Moon, Share2, Sun } from 'lucide-react';
-import { toast } from 'sonner';
 import { useTheme } from '@/hooks/useTheme';
 import { cn } from '@/lib/utils';
 import { settings } from '@/data/settings';
+import { shareUrl } from '@/lib/share';
 
 const navItems = [
   { to: '/', label: 'Home', hideOnMobile: true },
@@ -12,26 +12,6 @@ const navItems = [
   { to: '/blog', label: 'Blog' },
   { to: '/shows', label: 'Shows' },
 ];
-
-async function handleShare() {
-  const url = window.location.href;
-
-  if (navigator.share) {
-    try {
-      await navigator.share({ title: settings.name, url });
-      return;
-    } catch (error: unknown) {
-      if (error instanceof DOMException && error.name === 'AbortError') return;
-    }
-  }
-
-  try {
-    await navigator.clipboard.writeText(url);
-    toast.success('Link copied!');
-  } catch {
-    toast.error('Could not copy link');
-  }
-}
 
 export function Layout() {
   const { theme, toggleTheme } = useTheme();
@@ -84,7 +64,7 @@ export function Layout() {
 
           <div className="flex items-center gap-1">
             <button
-              onClick={() => void handleShare()}
+              onClick={() => void shareUrl(window.location.href, settings.name)}
               className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               aria-label="Share this page"
             >

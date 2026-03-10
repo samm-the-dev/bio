@@ -65,6 +65,26 @@ Once confirmed:
 2. Set `publishedAt` to the system's local time with UTC offset: `powershell -c "Get-Date -Format 'yyyy-MM-ddTHH:mm:ssK'"`
 3. Read back the final frontmatter to confirm it looks right
 
+### Generate Social Drafts
+
+After applying changes, generate copy-pasteable drafts for social platforms and print them to the console. Do not post automatically — the user pastes these manually.
+
+**LinkedIn** — professional tone, 2-4 sentences, end with relevant hashtags from `TAG_HASHTAGS` in `scripts/crosspost-bluesky.mjs` plus any platform-appropriate ones (e.g. `#BuildInPublic`). Link to the post.
+
+**Facebook** — casual/personal tone, 1-3 sentences, no hashtags. Feels like something you'd say to friends, not an audience. Link to the post.
+
+Print them clearly labeled:
+
+```
+--- LinkedIn ---
+[draft]
+
+--- Facebook ---
+[draft]
+```
+
+Ask the user if they'd like to adjust either before wrapping up.
+
 ### Done
 
 Report the post is ready. Remind the user to commit and push to deploy.

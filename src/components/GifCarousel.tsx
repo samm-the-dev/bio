@@ -87,13 +87,14 @@ export function GifCarousel({ gifs }: { gifs: Gif[] }) {
             key={`${gif.slug}-${i}`}
             type="button"
             onClick={() => modal.open(gif)}
-            className="gif-card flex-none cursor-pointer overflow-hidden rounded-lg border border-border bg-card transition-transform hover:scale-[1.02]"
+            className="gif-card h-48 flex-none cursor-pointer overflow-hidden rounded-lg border border-border bg-card transition-transform hover:scale-[1.02] sm:h-56"
+            style={{ aspectRatio: `${gif.width}/${gif.height}` }}
           >
             <img
               src={gif.src}
               alt={gif.alt}
               loading="lazy"
-              className="h-48 w-auto object-cover sm:h-56"
+              className="h-full w-full object-cover"
             />
           </button>
         ))}

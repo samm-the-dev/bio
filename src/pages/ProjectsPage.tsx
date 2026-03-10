@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { LayoutGrid } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { ProjectCard } from '@/components/ProjectCard';
@@ -6,7 +7,6 @@ import { ProjectDialog } from '@/components/ProjectDialog';
 import { GifCarousel } from '@/components/GifCarousel';
 import { RichText } from '@/components/RichText';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
-import { useModalState } from '@/hooks/useModalState';
 import { projects, projectSections } from '@/data/projects';
 import { gifs } from '@/data/gifs';
 import type { Project } from '@/lib/queries';
@@ -20,7 +20,24 @@ for (const p of projects) {
 
 export function ProjectsPage() {
   useDocumentTitle('Projects');
-  const modal = useModalState<Project>();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const activeProject = projects.find((p) => p.slug === location.hash.slice(1)) ?? null;
+
+  useEffect(() => {
+    const slug = location.hash.slice(1);
+    if (!slug) return;
+    document.getElementById(slug)?.scrollIntoView?.({ behavior: 'smooth', block: 'center' });
+  }, [location.hash]);
+
+  function openProject(project: Project) {
+    navigate({ hash: project.slug }, { replace: true });
+  }
+
+  function closeProject() {
+    navigate({ hash: '' }, { replace: true });
+  }
 
   return (
     <div className="mx-auto max-w-2xl">
@@ -63,14 +80,19 @@ export function ProjectsPage() {
             {!section.description && <div className="mb-3" />}
             <div className="grid gap-4 sm:grid-cols-2">
               {items.map((project) => (
-                <ProjectCard key={project.slug} project={project} onSeeMore={modal.open} />
+                <ProjectCard
+                  key={project.slug}
+                  id={project.slug}
+                  project={project}
+                  onSeeMore={openProject}
+                />
               ))}
             </div>
           </section>
         );
       })}
 
-      {modal.item && <ProjectDialog project={modal.item} onClose={modal.close} />}
+      {activeProject && <ProjectDialog project={activeProject} onClose={closeProject} />}
     </div>
   );
 }

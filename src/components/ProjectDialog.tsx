@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react';
-import { X } from 'lucide-react';
+import { X, Share2 } from 'lucide-react';
 import { RichText } from './RichText';
 import { ProjectLinks } from './ProjectCard';
 import type { Project } from '@/lib/queries';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { shareUrl } from '@/lib/share';
+import { useSwipeToDismiss } from '@/hooks/useSwipeToDismiss';
 
 interface ProjectDialogProps {
   project: Project;
@@ -13,6 +15,14 @@ interface ProjectDialogProps {
 export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
   const trapRef = useFocusTrap<HTMLDivElement>();
   const backdropRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const swipe = useSwipeToDismiss(panelRef, onClose, { checkScrollLimits: true });
+
+  async function handleShare() {
+    const url = new URL(window.location.href);
+    url.hash = project.slug;
+    await shareUrl(url.toString(), project.name);
+  }
 
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -60,16 +70,32 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-4 text-card-foreground">
+      <div
+        ref={panelRef}
+        className="max-h-[85vh] w-full max-w-lg overflow-y-auto rounded-lg border border-border bg-card p-4 text-card-foreground"
+        onTouchStart={swipe.onTouchStart}
+        onTouchMove={swipe.onTouchMove}
+        onTouchEnd={swipe.onTouchEnd}
+        onTouchCancel={swipe.onTouchCancel}
+      >
         <div className="flex items-center justify-between gap-4">
           <h2 className="text-lg font-semibold">{project.name}</h2>
-          <button
-            onClick={onClose}
-            aria-label="Close dialog"
-            className="shrink-0 rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-          >
-            <X className="h-4 w-4" />
-          </button>
+          <div className="flex shrink-0 items-center gap-1">
+            <button
+              onClick={() => void handleShare()}
+              aria-label="Share link to project"
+              className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              <Share2 className="h-4 w-4" />
+            </button>
+            <button
+              onClick={onClose}
+              aria-label="Close dialog"
+              className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
         </div>
         <div className="mt-2">
           <ProjectLinks project={project} />

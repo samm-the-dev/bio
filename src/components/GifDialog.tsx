@@ -1,21 +1,20 @@
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef } from 'react';
 import { X, Download, Share2 } from 'lucide-react';
 import type { Gif } from '@/lib/queries';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { useSwipeToDismiss } from '@/hooks/useSwipeToDismiss';
 
 interface GifDialogProps {
   gif: Gif;
   onClose: () => void;
 }
 
-const SWIPE_THRESHOLD = 80;
-
 export function GifDialog({ gif, onClose }: GifDialogProps) {
   const trapRef = useFocusTrap<HTMLDivElement>();
   const panelRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
-  const touchStart = useRef<{ y: number; time: number } | null>(null);
-  const translateY = useRef(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const swipe = useSwipeToDismiss(panelRef, onClose, { checkScrollLimits: true, scrollRef });
   const canShare = typeof navigator.share === 'function';
   const ext = gif.src.split('.').pop() || 'gif';
 
@@ -48,55 +47,6 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
     backdrop.addEventListener('wheel', onWheel, { passive: false });
     return () => backdrop.removeEventListener('wheel', onWheel);
   }, [onClose]);
-
-  const onTouchStart = useCallback((e: React.TouchEvent) => {
-    touchStart.current = { y: e.touches[0]!.clientY, time: Date.now() };
-    translateY.current = 0;
-    const panel = panelRef.current;
-    if (panel) panel.style.transition = 'none';
-  }, []);
-
-  const onTouchMove = useCallback((e: React.TouchEvent) => {
-    if (!touchStart.current) return;
-    const dy = e.touches[0]!.clientY - touchStart.current.y;
-    translateY.current = dy;
-    const panel = panelRef.current;
-    if (panel) {
-      panel.style.transform = `translateY(${dy}px)`;
-      panel.style.opacity = `${Math.max(0.2, 1 - Math.abs(dy) / 400)}`;
-    }
-  }, []);
-
-  const resetPanel = useCallback(() => {
-    touchStart.current = null;
-    const panel = panelRef.current;
-    if (panel) {
-      panel.style.transition = 'transform 200ms ease-out, opacity 200ms ease-out';
-      panel.style.transform = '';
-      panel.style.opacity = '';
-    }
-  }, []);
-
-  const onTouchEnd = useCallback(() => {
-    const panel = panelRef.current;
-    const dy = translateY.current;
-    const absDy = Math.abs(dy);
-    const elapsed = touchStart.current ? Date.now() - touchStart.current.time : 1000;
-    const velocity = absDy / Math.max(elapsed, 1);
-    touchStart.current = null;
-
-    if (absDy > SWIPE_THRESHOLD || velocity > 0.5) {
-      const direction = dy > 0 ? '100vh' : '-100vh';
-      if (panel) {
-        panel.style.transition = 'transform 200ms ease-out, opacity 200ms ease-out';
-        panel.style.transform = `translateY(${direction})`;
-        panel.style.opacity = '0';
-      }
-      setTimeout(onClose, 200);
-    } else {
-      resetPanel();
-    }
-  }, [onClose, resetPanel]);
 
   async function handleDownload() {
     try {
@@ -144,10 +94,10 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
       <div
         ref={panelRef}
         className="relative flex max-h-[85vh] w-full max-w-lg flex-col overflow-hidden rounded-lg border border-border bg-card text-card-foreground"
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-        onTouchCancel={resetPanel}
+        onTouchStart={swipe.onTouchStart}
+        onTouchMove={swipe.onTouchMove}
+        onTouchEnd={swipe.onTouchEnd}
+        onTouchCancel={swipe.onTouchCancel}
       >
         <button
           onClick={onClose}
@@ -156,7 +106,7 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
         >
           <X className="h-4 w-4" />
         </button>
-        <div className="overflow-auto">
+        <div ref={scrollRef} className="overflow-auto">
           <img src={gif.src} alt={gif.alt} className="w-full" />
         </div>
         <div className="px-3 py-2">

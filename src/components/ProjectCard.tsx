@@ -42,6 +42,7 @@ export function ProjectLinks({ project }: { project: Project }) {
 interface ProjectCardProps {
   project: Project;
   onSeeMore: (project: Project) => void;
+  id?: string;
 }
 
 function stripHtml(html: string): string {
@@ -49,10 +50,11 @@ function stripHtml(html: string): string {
   return doc.body.textContent ?? '';
 }
 
-export function ProjectCard({ project, onSeeMore }: ProjectCardProps) {
+export function ProjectCard({ project, onSeeMore, id }: ProjectCardProps) {
   return (
     <button
       type="button"
+      id={id}
       data-testid="project-card"
       aria-label={project.name}
       onClick={() => onSeeMore(project)}
