@@ -37,6 +37,11 @@ export function BlogPostPage() {
         {post.tags && post.tags.length > 0 && (
           <p className="mt-1 text-xs text-muted-foreground">{post.tags.join(' \u00B7 ')}</p>
         )}
+        {post.excerpt && (
+          <blockquote className="mt-4 border-l-2 border-border pl-4 text-sm italic text-muted-foreground">
+            {post.excerpt}
+          </blockquote>
+        )}
       </header>
 
       <div
@@ -64,7 +69,10 @@ export function BlogPostPage() {
           {post.relatedProjects.map((project, i) => (
             <span key={project.slug}>
               {i > 0 && ', '}
-              <Link to={`/projects#${project.slug}`} className="font-medium text-primary hover:text-primary-hover">
+              <Link
+                to={`/projects#${project.slug}`}
+                className="font-medium text-primary hover:text-primary-hover"
+              >
                 {project.name}
               </Link>
             </span>

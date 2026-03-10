@@ -15,7 +15,7 @@ export function AboutPage() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <PageHeader title="About Me" />
+      <PageHeader title="About Me" backTo={{ label: 'Home', path: '/' }} />
 
       <div className="space-y-10">
         {sections.map(({ title, content }) => (

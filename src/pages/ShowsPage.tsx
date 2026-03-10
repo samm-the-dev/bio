@@ -89,7 +89,7 @@ export function ShowsPage() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <PageHeader title="Upcoming Shows" />
+      <PageHeader title="Upcoming Shows" backTo={{ label: 'Home', path: '/' }} />
 
       {upcoming.length > 0 ? (
         <div className="space-y-4">

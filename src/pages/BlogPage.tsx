@@ -1,6 +1,8 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { PageHeader } from '@/components/PageHeader';
+import { SearchInput } from '@/components/SearchInput';
+import { TagFilter } from '@/components/TagFilter';
 import { FeedCard } from '@/components/FeedCard';
 import { BlueskyCard } from '@/components/BlueskyCard';
 import { LetterboxdCard } from '@/components/LetterboxdCard';
@@ -9,8 +11,12 @@ import { useBlueskyFeed } from '@/hooks/useBlueskyFeed';
 import { useLetterboxdFeed } from '@/hooks/useLetterboxdFeed';
 import { posts } from '@/data/posts';
 import { formatDate } from '@/lib/formatDate';
+import { collectTags, filterTagged } from '@/lib/tagged';
 import { Film, PenLine } from 'lucide-react';
 import { BlueskyIcon } from '@/components/icons';
+
+const getBlogTags = (p: (typeof posts)[number]) => p.tags;
+const blogTags = collectTags(posts, getBlogTags);
 
 type Tab = 'all' | 'blog' | 'bluesky' | 'letterboxd';
 
@@ -84,6 +90,8 @@ export function BlogPage() {
   const navigate = useNavigate();
   const activeTab = tabFromPath(location.pathname);
   useDocumentTitle(tabTitles[activeTab]);
+  const [blogSearch, setBlogSearch] = useState('');
+  const [blogTag, setBlogTag] = useState<string | null>(null);
   const needsFeeds = activeTab === 'bluesky' || activeTab === 'all';
   // Letterboxd data is build-time, so entries are available immediately
   const { entries: lbEntries, loading: lbLoading, error: lbError } = useLetterboxdFeed();
@@ -102,10 +110,16 @@ export function BlogPage() {
     error: bskyError,
   } = useBlueskyFeed(needsFeeds, bskyFetchUntil);
 
+  const filteredPosts = useMemo(
+    () => filterTagged(posts, blogTag, blogSearch, (p) => `${p.title} ${p.excerpt}`, getBlogTags),
+    [blogTag, blogSearch],
+  );
+
   const allItems = useMemo(() => {
     const items: FeedItem[] = [];
 
-    for (const post of posts) {
+    const blogItems = activeTab === 'blog' ? filteredPosts : posts;
+    for (const post of blogItems) {
       items.push({ type: 'blog', publishedAt: post.publishedAt, data: post });
     }
     for (const post of bskyPosts) {
@@ -116,7 +130,7 @@ export function BlogPage() {
     }
 
     return items.sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
-  }, [bskyPosts, lbEntries]);
+  }, [activeTab, filteredPosts, bskyPosts, lbEntries]);
 
   const filteredItems =
     activeTab === 'all' ? allItems : allItems.filter((i) => i.type === activeTab);
@@ -128,7 +142,7 @@ export function BlogPage() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <PageHeader title="Blog" />
+      <PageHeader title="Blog" backTo={{ label: 'Home', path: '/' }} />
 
       {/* Tabs */}
       <div className="mb-6 flex gap-1 rounded-lg border border-border bg-muted p-1">
@@ -159,6 +173,14 @@ export function BlogPage() {
           );
         })}
       </div>
+
+      {/* Blog search & tag filter (blog tab only) */}
+      {activeTab === 'blog' && (
+        <div className="mb-6 space-y-3">
+          <SearchInput value={blogSearch} onChange={setBlogSearch} placeholder="Search posts..." />
+          <TagFilter tags={blogTags} activeTag={blogTag} onTagChange={setBlogTag} />
+        </div>
+      )}
 
       {/* Feed errors */}
       {activeTab === 'bluesky' && bskyError && (
@@ -193,7 +215,10 @@ export function BlogPage() {
       !(activeTab === 'bluesky' && bskyError) &&
       !(activeTab === 'letterboxd' && lbError) ? (
         <p className="text-center text-muted-foreground">
-          {activeTab === 'blog' && 'No posts yet. Check back soon!'}
+          {activeTab === 'blog' &&
+            (blogSearch || blogTag
+              ? 'No posts match your search.'
+              : 'No posts yet. Check back soon!')}
           {activeTab === 'bluesky' && 'No Bluesky posts found.'}
           {activeTab === 'letterboxd' && 'No Letterboxd activity found.'}
           {activeTab === 'all' && 'Nothing here yet. Check back soon!'}

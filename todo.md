@@ -15,7 +15,7 @@
 - [ ] Test cross-posting with a real blog post
 - [ ] Add LinkedIn cross-posting integration
 - [ ] Share-to-Bluesky button on blog post pages
-- [ ] Tag/category filtering on blog list
+- [x] Tag/category filtering on blog list
 - [ ] Blog card image generator (for social previews)
 
 ## Quality
@@ -26,5 +26,7 @@
 
 - [x] GIF section (curated favorites, Klipy integration, or skip — TBD)
 - [ ] Generate better GIF alt text (currently just filenames)
+- [ ] Improve GIF tagging with AI assistance (batch-suggest tags from visual content)
+- [ ] Smarter GIF loading to prevent stuttering (pause off-screen GIFs, consider video format)
 - [ ] Stats page (Letterboxd, GitHub, "terminally online" meter)
 - [ ] Analytics (Plausible/Fathom vs. none — TBD)
