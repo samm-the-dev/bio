@@ -11,9 +11,9 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, descriptor, centered = true, backTo }: PageHeaderProps) {
   return (
-    <div className={cn('mb-8', centered && 'text-center')}>
-      {backTo && (
-        <div className={cn('mb-2', centered && 'flex items-center justify-between')}>
+    <div className="mb-8">
+      <div className={cn('mb-2', centered && backTo && 'flex items-center justify-between')}>
+        {backTo && (
           <Link
             to={backTo.path}
             className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
@@ -21,11 +21,15 @@ export function PageHeader({ title, descriptor, centered = true, backTo }: PageH
             <ArrowLeft className="h-3.5 w-3.5" />
             {backTo.label}
           </Link>
-          {centered && <div className="w-[72px]" />}
-        </div>
+        )}
+        <h1 className={cn('text-3xl font-bold', centered && 'text-center')}>{title}</h1>
+        {centered && backTo && <div className="w-[72px]" />}
+      </div>
+      {descriptor && (
+        <p className={cn('text-lg text-muted-foreground', centered && 'text-center')}>
+          {descriptor}
+        </p>
       )}
-      <h1 className="mb-2 text-3xl font-bold">{title}</h1>
-      {descriptor && <p className="text-lg text-muted-foreground">{descriptor}</p>}
       <hr className={cn('mt-4 border-border', centered ? 'mx-auto max-w-xs' : 'max-w-xs')} />
     </div>
   );

@@ -60,7 +60,12 @@ export function ProjectsPage() {
 
       <div className="mb-6 space-y-3">
         <SearchInput value={search} onChange={setSearch} placeholder="Search projects..." />
-        <TagFilter tags={techTags} activeTag={activeTech} onTagChange={setActiveTech} />
+        <TagFilter
+          tags={techTags}
+          activeTag={activeTech}
+          onTagChange={setActiveTech}
+          visibleCount={3}
+        />
       </div>
 
       {isFiltering ? (

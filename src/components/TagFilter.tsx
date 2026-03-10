@@ -36,6 +36,7 @@ export function TagFilter({ tags, activeTag, onTagChange, visibleCount = 4 }: Ta
       {tags.length > visibleCount && (
         <button
           type="button"
+          aria-expanded={expanded}
           onClick={() => setExpanded(!expanded)}
           className="inline-flex items-center gap-1 rounded-full border border-border px-2.5 py-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
         >

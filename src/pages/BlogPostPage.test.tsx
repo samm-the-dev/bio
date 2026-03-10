@@ -14,6 +14,15 @@ vi.mock('@/data/posts', () => ({
       tags: ['meta'],
       relatedProjects: [],
     },
+    {
+      title: 'No Excerpt Post',
+      slug: 'no-excerpt',
+      excerpt: '',
+      publishedAt: '2026-01-16T12:00:00.000Z',
+      body: '<p>Body only</p>',
+      tags: null,
+      relatedProjects: [],
+    },
   ],
 }));
 
@@ -49,5 +58,16 @@ describe('BlogPostPage', () => {
     renderPostPage('nonexistent');
     expect(screen.queryByRole('heading', { level: 1 })).not.toBeInTheDocument();
     expect(screen.getByText('Blog list')).toBeInTheDocument();
+  });
+
+  it('renders excerpt as blockquote epigraph when present', () => {
+    renderPostPage('test-post');
+    const blockquote = screen.getByRole('blockquote');
+    expect(blockquote).toHaveTextContent('A test excerpt.');
+  });
+
+  it('does not render blockquote when excerpt is empty', () => {
+    renderPostPage('no-excerpt');
+    expect(screen.queryByRole('blockquote')).not.toBeInTheDocument();
   });
 });

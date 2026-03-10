@@ -178,7 +178,12 @@ export function BlogPage() {
       {activeTab === 'blog' && (
         <div className="mb-6 space-y-3">
           <SearchInput value={blogSearch} onChange={setBlogSearch} placeholder="Search posts..." />
-          <TagFilter tags={blogTags} activeTag={blogTag} onTagChange={setBlogTag} />
+          <TagFilter
+            tags={blogTags}
+            activeTag={blogTag}
+            onTagChange={setBlogTag}
+            visibleCount={3}
+          />
         </div>
       )}
 

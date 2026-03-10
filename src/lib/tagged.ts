@@ -6,8 +6,6 @@ export interface Tagged {
 
 type TagAccessor<T> = (item: T) => string[] | null;
 
-const defaultGetTags: TagAccessor<Tagged> = (item) => item.tags;
-
 /** Collect unique tags sorted by frequency (descending). */
 export function collectTags<T>(items: T[], getTags: TagAccessor<T>): string[] {
   const counts = new Map<string, number>();

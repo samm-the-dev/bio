@@ -83,7 +83,7 @@ describe('BlogPage', () => {
 
   it('renders tags', () => {
     renderWithRouter(<BlogPage />, { route: '/blog' });
-    expect(screen.getByText('meta')).toBeInTheDocument();
+    expect(screen.getAllByText('meta').length).toBeGreaterThanOrEqual(1);
   });
 
   it('renders all four tab buttons', () => {
@@ -164,5 +164,26 @@ describe('BlogPage', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Bluesky' }));
     expect(screen.getByText('Hello from Bluesky')).toBeInTheDocument();
     expect(screen.queryByText('Test Post')).not.toBeInTheDocument();
+  });
+
+  it('filters blog posts by search query', () => {
+    renderWithRouter(<BlogPage />, { route: '/blog' });
+    const searchInput = screen.getByRole('searchbox');
+    fireEvent.change(searchInput, { target: { value: 'nonexistent' } });
+    expect(screen.queryByText('Test Post')).not.toBeInTheDocument();
+    expect(screen.getByText('No posts match your search.')).toBeInTheDocument();
+  });
+
+  it('filters blog posts by tag', () => {
+    renderWithRouter(<BlogPage />, { route: '/blog' });
+    fireEvent.click(screen.getByRole('button', { name: 'meta' }));
+    expect(screen.getByText('Test Post')).toBeInTheDocument();
+  });
+
+  it('shows empty message when search and tag yield no results', () => {
+    renderWithRouter(<BlogPage />, { route: '/blog' });
+    const searchInput = screen.getByRole('searchbox');
+    fireEvent.change(searchInput, { target: { value: 'zzz' } });
+    expect(screen.getByText('No posts match your search.')).toBeInTheDocument();
   });
 });
