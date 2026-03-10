@@ -1,6 +1,7 @@
 import { useRef, useCallback, type RefObject } from 'react';
 
 const SWIPE_THRESHOLD = 80;
+const TRANSITION_MS = 200;
 
 interface UseSwipeToDismissOptions {
   /** Only dismiss when at a scroll limit in the swipe direction. */
@@ -25,7 +26,7 @@ export function useSwipeToDismiss(
     touchStart.current = null;
     const panel = panelRef.current;
     if (panel) {
-      panel.style.transition = 'transform 200ms ease-out, opacity 200ms ease-out';
+      panel.style.transition = `transform ${TRANSITION_MS}ms ease-out, opacity ${TRANSITION_MS}ms ease-out`;
       panel.style.transform = '';
       panel.style.opacity = '';
     }
@@ -76,11 +77,11 @@ export function useSwipeToDismiss(
     if (absDy > SWIPE_THRESHOLD || velocity > 0.5) {
       const direction = dy > 0 ? '100vh' : '-100vh';
       if (panel) {
-        panel.style.transition = 'transform 200ms ease-out, opacity 200ms ease-out';
+        panel.style.transition = `transform ${TRANSITION_MS}ms ease-out, opacity ${TRANSITION_MS}ms ease-out`;
         panel.style.transform = `translateY(${direction})`;
         panel.style.opacity = '0';
       }
-      setTimeout(onClose, 200);
+      setTimeout(onClose, TRANSITION_MS);
     } else {
       resetPanel();
     }
