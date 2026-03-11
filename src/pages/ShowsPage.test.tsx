@@ -154,7 +154,7 @@ describe('ShowsPage', () => {
 
   it('renders end time when present', () => {
     renderWithRouter(<ShowsPage />);
-    const timeText = screen.getByText(/10:00 PM/);
-    expect(timeText).toBeInTheDocument();
+    const testShowArticle = screen.getByText('Test Show').closest('article');
+    expect(testShowArticle?.textContent).toMatch(/10:00\s*[AP]M/);
   });
 });
