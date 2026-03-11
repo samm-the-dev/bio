@@ -100,7 +100,7 @@ export function ShowsPage() {
             >
               <div className="flex items-center gap-2">
                 <h2 className="font-semibold text-card-foreground">{show.title}</h2>
-                <span className="shrink-0 rounded-full bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
+                <span className="shrink-0 rounded-full border border-border px-2 py-0.5 text-xs font-medium text-muted-foreground">
                   {daysUntil(show.datetime)}
                 </span>
               </div>
