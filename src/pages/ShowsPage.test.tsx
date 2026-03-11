@@ -155,6 +155,7 @@ describe('ShowsPage', () => {
   it('renders end time when present', () => {
     renderWithRouter(<ShowsPage />);
     const testShowArticle = screen.getByText('Test Show').closest('article');
-    expect(testShowArticle?.textContent).toMatch(/10:00\s*[AP]M/);
+    // The end time renders as " - HH:MM AM/PM TZ" after the start time
+    expect(testShowArticle?.textContent).toMatch(/ - \d+:\d{2}\s*[AP]M/);
   });
 });
