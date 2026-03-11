@@ -104,17 +104,17 @@ export function ShowsPage() {
               <h2 className="pr-20 font-semibold text-card-foreground">{show.title}</h2>
               <p className="mt-1 text-sm text-muted-foreground">
                 {formatShowDate(show.datetime)}
-                <span className="hidden md:inline">
+                <span className="hidden sm:inline">
                   {' · '}
                   {formatShowTime(show.datetime)}
                   {show.endDatetime && ` - ${formatShowTime(show.endDatetime)}`}
                 </span>
               </p>
-              <p className="text-sm text-muted-foreground md:hidden">
+              <p className="text-sm text-muted-foreground sm:hidden">
                 {formatShowTime(show.datetime)}
                 {show.endDatetime && ` - ${formatShowTime(show.endDatetime)}`}
               </p>
-              <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+              <div className="mt-1 flex flex-col items-start gap-y-1 text-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3">
                 {isAndroid ? (
                   <a
                     href={googleCalendarUrl(show)}
@@ -162,7 +162,7 @@ export function ShowsPage() {
                     className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
                   >
                     <ExternalLink className="h-3.5 w-3.5 shrink-0" />
-                    Website
+                    Venue Website
                   </a>
                 )}
               </div>
