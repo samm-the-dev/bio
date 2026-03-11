@@ -6,9 +6,25 @@ import type { Show } from '@/lib/queries';
 
 const TZ = 'America/Chicago';
 
+/**
+ * Parse a naive CT datetime string (YYYY-MM-DDTHH:MM) as the correct UTC instant.
+ * Datetime strings without a timezone offset are ambiguous — this resolves them
+ * as America/Chicago local time regardless of the host machine's timezone.
+ */
+function parseCTDatetime(datetime: string): Date {
+  const datePart = datetime.slice(0, 10);
+  const timePart = datetime.length > 10 ? datetime.slice(11) : '00:00';
+  // Probe noon UTC to find the CT offset for this date (noon avoids DST-edge ambiguity)
+  const noonUTC = new Date(`${datePart}T12:00:00Z`);
+  const ctNoon = new Date(noonUTC.toLocaleString('sv', { timeZone: TZ }).replace(' ', 'T') + 'Z');
+  const offsetMs = noonUTC.getTime() - ctNoon.getTime();
+  return new Date(new Date(`${datePart}T${timePart}:00Z`).getTime() + offsetMs);
+}
+
 function formatShowDate(datetime: string): string {
-  return new Date(datetime).toLocaleDateString('en-US', {
-    timeZone: TZ,
+  // Date portion is the CT calendar date — parse as UTC midnight (date-only ISO = UTC, unambiguous)
+  return new Date(datetime.slice(0, 10)).toLocaleDateString('en-US', {
+    timeZone: 'UTC',
     weekday: 'long',
     month: 'long',
     day: 'numeric',
@@ -17,7 +33,7 @@ function formatShowDate(datetime: string): string {
 }
 
 function formatShowTime(datetime: string): string {
-  return new Date(datetime).toLocaleTimeString('en-US', {
+  return parseCTDatetime(datetime).toLocaleTimeString('en-US', {
     timeZone: TZ,
     hour: 'numeric',
     minute: '2-digit',
@@ -26,11 +42,10 @@ function formatShowTime(datetime: string): string {
 }
 
 function daysUntil(datetime: string): string {
-  // Compare calendar dates in CT so "Today" is correct for DFW audiences
   const todayCT = new Date().toLocaleDateString('en-CA', { timeZone: TZ }); // YYYY-MM-DD
-  const showCT = new Date(datetime).toLocaleDateString('en-CA', { timeZone: TZ });
+  const showDate = datetime.slice(0, 10); // YYYY-MM-DD — the CT calendar date by definition
   const diff = Math.round(
-    (new Date(showCT).getTime() - new Date(todayCT).getTime()) / (1000 * 60 * 60 * 24),
+    (new Date(showDate).getTime() - new Date(todayCT).getTime()) / (1000 * 60 * 60 * 24),
   );
   if (diff === 0) return 'Today';
   if (diff === 1) return 'Tomorrow';
@@ -88,7 +103,7 @@ export function ShowsPage() {
 
   const now = new Date();
   const upcoming = shows
-    .filter((s) => new Date(s.datetime) >= now)
+    .filter((s) => parseCTDatetime(s.datetime) >= now)
     .sort((a, b) => a.datetime.localeCompare(b.datetime));
 
   return (

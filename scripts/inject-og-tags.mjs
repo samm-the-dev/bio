@@ -70,8 +70,9 @@ const nextShow = (showsData.shows ?? [])
   .sort((a, b) => a.datetime.localeCompare(b.datetime))[0];
 
 function formatShowOgDate(datetime) {
-  return new Date(datetime).toLocaleDateString('en-US', {
-    timeZone: 'America/Chicago', weekday: 'long', month: 'long', day: 'numeric',
+  // Date portion is the CT calendar date — parse as UTC midnight (date-only ISO = UTC, unambiguous)
+  return new Date(datetime.slice(0, 10)).toLocaleDateString('en-US', {
+    timeZone: 'UTC', weekday: 'long', month: 'long', day: 'numeric',
   });
 }
 
