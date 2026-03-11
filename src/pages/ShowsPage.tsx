@@ -21,6 +21,7 @@ function formatShowTime(datetime: string): string {
     timeZone: TZ,
     hour: 'numeric',
     minute: '2-digit',
+    timeZoneName: 'short',
   });
 }
 
