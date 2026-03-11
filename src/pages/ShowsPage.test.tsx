@@ -62,17 +62,19 @@ describe('ShowsPage', () => {
     expect(articles[1]).toHaveTextContent('Later Show');
   });
 
-  it('renders venue as link when venueUrl exists', () => {
+  it('renders venue name as map link and venueUrl as separate Venue Website link', () => {
     renderWithRouter(<ShowsPage />);
     const venueLink = screen.getByText('Test Venue');
     expect(venueLink.tagName).toBe('A');
-    expect(venueLink).toHaveAttribute('href', 'https://example.com');
+    expect(venueLink).toHaveAttribute('href', 'https://maps.app.goo.gl/abc123');
+    const venueWebsiteLink = screen.getByText('Venue Website');
+    expect(venueWebsiteLink).toHaveAttribute('href', 'https://example.com');
   });
 
-  it('renders venue as plain text when no venueUrl', () => {
+  it('renders venue as map link when address exists but no mapsUrl', () => {
     renderWithRouter(<ShowsPage />);
     const venue = screen.getByText('Another Venue');
-    expect(venue.tagName).toBe('SPAN');
+    expect(venue.tagName).toBe('A');
   });
 
   it('renders map link using cached mapsUrl when available', () => {
