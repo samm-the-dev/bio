@@ -35,7 +35,7 @@ export function ProjectsPage() {
 
   const filtered = useMemo(
     () => filterTagged(projects, activeTech, search, (p) => p.name, getProjectTags),
-    [activeTech, search, projects, getProjectTags],
+    [activeTech, search],
   );
 
   const featuredGifs = useMemo(() => gifs.filter((g) => g.featured), []);

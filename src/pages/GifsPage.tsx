@@ -79,7 +79,7 @@ export function GifsPage() {
 
   const filtered = useMemo(
     () => filterTagged(shuffled, activeTag, search, (g) => g.alt, getGifTags),
-    [shuffled, search, activeTag, getGifTags],
+    [shuffled, search, activeTag],
   );
 
   const visible = filtered.slice(0, visibleCount);

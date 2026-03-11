@@ -112,7 +112,7 @@ export function BlogPage() {
 
   const filteredPosts = useMemo(
     () => filterTagged(posts, blogTag, blogSearch, (p) => `${p.title} ${p.excerpt}`, getBlogTags),
-    [blogTag, blogSearch, posts, getBlogTags],
+    [blogTag, blogSearch],
   );
 
   const allItems = useMemo(() => {
