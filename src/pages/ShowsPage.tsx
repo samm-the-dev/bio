@@ -98,14 +98,16 @@ export function ShowsPage() {
               key={`${show.datetime}-${show.title}`}
               className="rounded-lg border border-border bg-card p-4"
             >
-              <h2 className="font-semibold text-card-foreground">{show.title}</h2>
+              <div className="flex items-center gap-2">
+                <h2 className="font-semibold text-card-foreground">{show.title}</h2>
+                <span className="shrink-0 rounded-full bg-muted px-2 py-0.5 text-xs font-medium text-muted-foreground">
+                  {daysUntil(show.datetime)}
+                </span>
+              </div>
               <p className="mt-1 text-sm text-muted-foreground">{formatShowDate(show.datetime)}</p>
               <p className="text-sm text-muted-foreground">
                 {formatShowTime(show.datetime)}
                 {show.endDatetime && ` - ${formatShowTime(show.endDatetime)}`}
-              </p>
-              <p className="text-sm font-medium text-muted-foreground">
-                {daysUntil(show.datetime)}
               </p>
               <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
                 {isAndroid ? (
