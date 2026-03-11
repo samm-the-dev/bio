@@ -29,7 +29,7 @@ projects:
       I have a big refactor planned for this, and some ideas for turning it into a coordinator for various specific task/habit apps.
       Let me know if you're using it and/or interested in testing the larger ecosystem of apps I have in mind.
     tech: [PWA, React 19, TypeScript, Vite, Tailwind CSS, Google Drive API, GCP Cloud Functions]
-    link: https://ohm.samm-the.dev/
+    link: https://apps.samm-the.dev/ohm
     repo: https://github.com/samm-the-dev/ohm
 
   - name: Build-a-Jam
