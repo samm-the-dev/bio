@@ -8,6 +8,11 @@ on:
     branches: ['main']
     paths-ignore: ['.crossposted.json']
 
+  # Rebuild daily so OG meta descriptions (e.g. "next show") stay current
+  # without requiring a code push after each show passes.
+  schedule:
+    - cron: '0 6 * * *'
+
   workflow_dispatch:
 
 permissions:
