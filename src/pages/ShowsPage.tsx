@@ -96,16 +96,21 @@ export function ShowsPage() {
           {upcoming.map((show) => (
             <article
               key={`${show.datetime}-${show.title}`}
-              className="rounded-lg border border-border bg-card p-4"
+              className="relative rounded-lg border border-border bg-card p-4"
             >
-              <div className="flex items-center gap-2">
-                <h2 className="font-semibold text-card-foreground">{show.title}</h2>
-                <span className="shrink-0 rounded-full border border-border px-2 py-0.5 text-xs font-medium text-muted-foreground">
-                  {daysUntil(show.datetime)}
+              <span className="absolute right-4 top-4 rounded-full border border-border px-2 py-0.5 text-xs font-medium text-muted-foreground">
+                {daysUntil(show.datetime)}
+              </span>
+              <h2 className="pr-20 font-semibold text-card-foreground">{show.title}</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {formatShowDate(show.datetime)}
+                <span className="hidden md:inline">
+                  {' · '}
+                  {formatShowTime(show.datetime)}
+                  {show.endDatetime && ` - ${formatShowTime(show.endDatetime)}`}
                 </span>
-              </div>
-              <p className="mt-1 text-sm text-muted-foreground">{formatShowDate(show.datetime)}</p>
-              <p className="text-sm text-muted-foreground">
+              </p>
+              <p className="text-sm text-muted-foreground md:hidden">
                 {formatShowTime(show.datetime)}
                 {show.endDatetime && ` - ${formatShowTime(show.endDatetime)}`}
               </p>
