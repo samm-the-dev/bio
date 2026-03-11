@@ -1,5 +1,6 @@
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { SCREENS } from '@/lib/screens';
 
 interface TagFilterProps {
   tags: string[];
@@ -7,18 +8,18 @@ interface TagFilterProps {
   onTagChange: (tag: string | null) => void;
 }
 
-function getStepCount(containerW: number, total: number): number {
-  if (containerW < 320) return Math.min(1, total);
-  if (containerW < 480) return Math.min(2, total);
-  if (containerW < 640) return Math.min(3, total);
-  if (containerW < 800) return Math.min(5, total);
+function getStepCount(total: number): number {
+  const w = window.innerWidth;
+  if (w < SCREENS.sm) return Math.min(3, total);
+  if (w < SCREENS.lg) return Math.min(6, total);
   return total;
 }
 
 export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
   const [expanded, setExpanded] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(tags.length);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [visibleCount, setVisibleCount] = useState(() =>
+    expanded ? tags.length : getStepCount(tags.length),
+  );
 
   useLayoutEffect(() => {
     if (expanded) {
@@ -26,15 +27,16 @@ export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
       return;
     }
 
-    const calc = () => {
-      if (!containerRef.current) return;
-      setVisibleCount(getStepCount(containerRef.current.offsetWidth, tags.length));
-    };
-
+    const calc = () => setVisibleCount(getStepCount(tags.length));
     calc();
-    const ro = new ResizeObserver(calc);
-    if (containerRef.current) ro.observe(containerRef.current);
-    return () => ro.disconnect();
+
+    // Fire exactly when CSS breakpoints change — same thresholds as tailwind.config.ts
+    const queries = [
+      window.matchMedia(`(min-width: ${SCREENS.sm}px)`),
+      window.matchMedia(`(min-width: ${SCREENS.lg}px)`),
+    ];
+    queries.forEach((q) => q.addEventListener('change', calc));
+    return () => queries.forEach((q) => q.removeEventListener('change', calc));
   }, [tags.length, expanded]);
 
   if (tags.length === 0) return null;
@@ -42,7 +44,7 @@ export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
   const hiddenCount = expanded ? 0 : tags.length - visibleCount;
 
   return (
-    <div ref={containerRef} className="flex flex-wrap items-center gap-1.5">
+    <div className="flex flex-wrap items-center gap-1.5">
       {tags.map((tag, i) => (
         <button
           key={tag}
