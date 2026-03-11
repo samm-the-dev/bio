@@ -9,14 +9,15 @@ venues:
     address: "2320 Los Rios Blvd, Suite 105, Plano, TX 75074"
 
 shows:
-  - title: "Goofs & Goblins: The Great Modron March"
-    venue: pocket-sandwich
-    datetime: "2026-03-10T20:00"
-    endDatetime: "2026-03-10T22:00"
-    note: "Doors at 7 PM. $12 / $10 students."
 
   - title: "ACT Extreme Improv Challenge FINALS"
     venue: cafe-bohemia
     datetime: "2026-03-14T20:00"
     endDatetime: "2026-03-14T22:00"
     note: "Pay what you can (suggested $10). Arrive by 7:30 for a good seat."
+    
+  - title: "Goofs & Goblins"
+    venue: pocket-sandwich
+    datetime: "2026-04-21T20:00"
+    endDatetime: "2026-04-21T22:00"
+    note: "Doors at 7 PM. $12 / $10 students and military (with ID)."
