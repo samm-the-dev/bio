@@ -15,6 +15,13 @@ function getVisibilityClass(i: number): string {
   return 'hidden lg:inline-flex';
 }
 
+// Hide the More button once all tags are CSS-visible at the current breakpoint
+function getMoreButtonHideClass(total: number): string {
+  if (total <= 5) return 'sm:hidden';
+  if (total <= 7) return 'md:hidden';
+  return 'lg:hidden';
+}
+
 export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
   const [expanded, setExpanded] = useState(false);
 
@@ -44,7 +51,7 @@ export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
           type="button"
           aria-expanded={expanded}
           onClick={() => setExpanded((e) => !e)}
-          className="inline-flex shrink-0 items-center gap-1 rounded-full border border-border px-2.5 py-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
+          className={`inline-flex shrink-0 items-center gap-1 rounded-full border border-border px-2.5 py-1 text-xs text-muted-foreground transition-colors hover:text-foreground${!expanded ? ` ${getMoreButtonHideClass(tags.length)}` : ''}`}
         >
           {expanded ? (
             <>
