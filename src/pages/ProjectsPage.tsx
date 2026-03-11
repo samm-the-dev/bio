@@ -54,9 +54,31 @@ export function ProjectsPage() {
     navigate({ hash: '' }, { replace: true });
   }
 
+  const gifsSection = projectSections.find((s) => s.key === 'gifs');
+  const projectOnlySections = projectSections.filter((s) => s.key !== 'gifs');
+
   return (
     <div className="mx-auto max-w-2xl">
       <PageHeader title="Projects" backTo={{ label: 'Home', path: '/' }} />
+
+      {gifsSection && gifs.length > 0 && (
+        <section className="mb-10">
+          <h2 className="mb-1 text-xl font-semibold">{gifsSection.label}</h2>
+          {gifsSection.description && (
+            <div className="mb-4 text-sm text-muted-foreground">
+              <RichText html={gifsSection.description} />
+            </div>
+          )}
+          <GifCarousel gifs={gifs.filter((g) => g.featured)} />
+          <Link
+            to="/projects/gifs"
+            className="mt-4 flex w-full items-center justify-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          >
+            <LayoutGrid className="h-4 w-4" />
+            View all GIFs
+          </Link>
+        </section>
+      )}
 
       <div className="mb-6 space-y-3">
         <SearchInput value={search} onChange={setSearch} placeholder="Search projects..." />
@@ -81,29 +103,7 @@ export function ProjectsPage() {
           </p>
         )
       ) : (
-        projectSections.map((section, i) => {
-          if (section.key === 'gifs') {
-            if (gifs.length === 0) return null;
-            return (
-              <section key={section.key} className={i > 0 ? 'mt-10' : undefined}>
-                <h2 className="mb-1 text-xl font-semibold">{section.label}</h2>
-                {section.description && (
-                  <div className="mb-4 text-sm text-muted-foreground">
-                    <RichText html={section.description} />
-                  </div>
-                )}
-                <GifCarousel gifs={gifs.filter((g) => g.featured)} />
-                <Link
-                  to="/projects/gifs"
-                  className="mt-4 flex w-full items-center justify-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                >
-                  <LayoutGrid className="h-4 w-4" />
-                  View all GIFs
-                </Link>
-              </section>
-            );
-          }
-
+        projectOnlySections.map((section, i) => {
           const items = projectsByCategory.get(section.key) ?? [];
           if (items.length === 0) return null;
 
