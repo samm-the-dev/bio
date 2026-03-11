@@ -38,6 +38,8 @@ export function ProjectsPage() {
     [activeTech, search, projects, getProjectTags],
   );
 
+  const featuredGifs = useMemo(() => gifs.filter((g) => g.featured), []);
+
   const activeProject = projects.find((p) => p.slug === location.hash.slice(1)) ?? null;
 
   useEffect(() => {
@@ -69,7 +71,7 @@ export function ProjectsPage() {
               <RichText html={gifsSection.description} />
             </div>
           )}
-          <GifCarousel gifs={gifs.filter((g) => g.featured)} />
+          <GifCarousel gifs={featuredGifs} />
           <Link
             to="/projects/gifs"
             className="mt-4 flex w-full items-center justify-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
