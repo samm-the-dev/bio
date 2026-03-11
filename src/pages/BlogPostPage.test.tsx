@@ -61,13 +61,14 @@ describe('BlogPostPage', () => {
   });
 
   it('renders excerpt as blockquote epigraph when present', () => {
-    renderPostPage('test-post');
-    const blockquote = screen.getByRole('blockquote');
+    const { container } = renderPostPage('test-post');
+    const blockquote = container.querySelector('blockquote');
+    expect(blockquote).toBeInTheDocument();
     expect(blockquote).toHaveTextContent('A test excerpt.');
   });
 
   it('does not render blockquote when excerpt is empty', () => {
-    renderPostPage('no-excerpt');
-    expect(screen.queryByRole('blockquote')).not.toBeInTheDocument();
+    const { container } = renderPostPage('no-excerpt');
+    expect(container.querySelector('blockquote')).not.toBeInTheDocument();
   });
 });
