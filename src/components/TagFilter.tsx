@@ -1,6 +1,5 @@
-import { useLayoutEffect, useState } from 'react';
+import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { SCREENS } from '@/lib/screens';
 
 interface TagFilterProps {
   tags: string[];
@@ -8,41 +7,20 @@ interface TagFilterProps {
   onTagChange: (tag: string | null) => void;
 }
 
-function getStepCount(total: number): number {
-  const w = window.innerWidth;
-  if (w < SCREENS.sm) return Math.min(3, total);
-  if (w < SCREENS.md) return Math.min(5, total);
-  if (w < SCREENS.lg) return Math.min(7, total);
-  return total;
+// Matches SCREENS in src/lib/screens.ts — visible tier per breakpoint: mobile=3, sm=5, md=7, lg+=all
+function getVisibilityClass(i: number): string {
+  if (i < 3) return '';
+  if (i < 5) return 'hidden sm:inline-flex';
+  if (i < 7) return 'hidden md:inline-flex';
+  return 'hidden lg:inline-flex';
 }
 
 export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
   const [expanded, setExpanded] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(() =>
-    expanded ? tags.length : getStepCount(tags.length),
-  );
-
-  useLayoutEffect(() => {
-    if (expanded) {
-      setVisibleCount(tags.length);
-      return;
-    }
-
-    const calc = () => setVisibleCount(getStepCount(tags.length));
-    calc();
-
-    // Fire exactly when CSS breakpoints change — same thresholds as tailwind.config.ts
-    const queries = [
-      window.matchMedia(`(min-width: ${SCREENS.sm}px)`),
-      window.matchMedia(`(min-width: ${SCREENS.lg}px)`),
-    ];
-    queries.forEach((q) => q.addEventListener('change', calc));
-    return () => queries.forEach((q) => q.removeEventListener('change', calc));
-  }, [tags.length, expanded]);
 
   if (tags.length === 0) return null;
 
-  const hiddenCount = expanded ? 0 : tags.length - visibleCount;
+  const hasHidden = tags.length > 3;
 
   return (
     <div className="flex flex-wrap items-center gap-1.5">
@@ -50,19 +28,18 @@ export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
         <button
           key={tag}
           type="button"
-          hidden={!expanded && i >= visibleCount}
           aria-pressed={activeTag === tag}
           onClick={() => onTagChange(activeTag === tag ? null : tag)}
           className={`shrink-0 rounded-full border px-2.5 py-1 text-xs transition-colors ${
             activeTag === tag
               ? 'border-foreground bg-foreground text-background'
               : 'border-border bg-card text-muted-foreground hover:text-foreground'
-          }`}
+          } ${expanded ? '' : getVisibilityClass(i)}`}
         >
           {tag}
         </button>
       ))}
-      {(hiddenCount > 0 || expanded) && (
+      {(hasHidden || expanded) && (
         <button
           type="button"
           aria-expanded={expanded}
@@ -75,7 +52,7 @@ export function TagFilter({ tags, activeTag, onTagChange }: TagFilterProps) {
             </>
           ) : (
             <>
-              +{hiddenCount} more <ChevronDown className="h-3 w-3" />
+              More <ChevronDown className="h-3 w-3" />
             </>
           )}
         </button>
