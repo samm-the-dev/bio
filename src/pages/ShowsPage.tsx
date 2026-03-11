@@ -96,25 +96,21 @@ export function ShowsPage() {
           {upcoming.map((show) => (
             <article
               key={`${show.datetime}-${show.title}`}
-              className="relative rounded-lg border border-border bg-card p-4"
+              className="rounded-lg border border-border bg-card p-4"
             >
-              <span className="absolute right-4 top-4 rounded-full border border-border px-2 py-0.5 text-xs font-medium text-muted-foreground">
+              <p className="mb-1 text-xs font-medium text-muted-foreground">
                 {daysUntil(show.datetime)}
-              </span>
-              <h2 className="pr-20 font-semibold text-card-foreground">{show.title}</h2>
+              </p>
+              <h2 className="font-semibold text-card-foreground">{show.title}</h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                {formatShowDate(show.datetime)}
-                <span className="hidden sm:inline">
-                  {' · '}
+                <span className="whitespace-nowrap">{formatShowDate(show.datetime)}</span>
+                {', '}
+                <span className="whitespace-nowrap">
                   {formatShowTime(show.datetime)}
                   {show.endDatetime && ` - ${formatShowTime(show.endDatetime)}`}
                 </span>
               </p>
-              <p className="text-sm text-muted-foreground sm:hidden">
-                {formatShowTime(show.datetime)}
-                {show.endDatetime && ` - ${formatShowTime(show.endDatetime)}`}
-              </p>
-              <div className="mt-1 flex flex-col items-start gap-y-1 text-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3">
+              <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
                 {isAndroid ? (
                   <a
                     href={googleCalendarUrl(show)}
