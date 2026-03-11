@@ -9,7 +9,7 @@ export function SearchInput({ value, onChange, placeholder, label }: SearchInput
   return (
     <input
       type="search"
-      aria-label={label ?? placeholder}
+      aria-label={label ?? placeholder ?? 'Search'}
       placeholder={placeholder}
       value={value}
       onChange={(e) => onChange(e.target.value)}

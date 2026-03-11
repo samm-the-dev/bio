@@ -62,14 +62,16 @@ const gifSection = projectsData.sections?.find((s) => s.key === 'gifs');
 
 const showsData = yaml.load(readFileSync('content/shows.yaml', 'utf-8'));
 const venues = showsData.venues ?? {};
-const now = new Date();
+// All shows are in DFW (America/Chicago). Compare datetimes as CT strings so
+// the "next show" selection is stable regardless of the build machine's timezone.
+const nowCT = new Date().toLocaleString('sv', { timeZone: 'America/Chicago' }).replace(' ', 'T').slice(0, 16);
 const nextShow = (showsData.shows ?? [])
-  .filter((s) => new Date(s.datetime) >= now)
+  .filter((s) => s.datetime >= nowCT)
   .sort((a, b) => a.datetime.localeCompare(b.datetime))[0];
 
 function formatShowOgDate(datetime) {
   return new Date(datetime).toLocaleDateString('en-US', {
-    weekday: 'long', month: 'long', day: 'numeric',
+    timeZone: 'America/Chicago', weekday: 'long', month: 'long', day: 'numeric',
   });
 }
 

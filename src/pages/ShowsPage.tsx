@@ -4,9 +4,11 @@ import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { shows } from '@/data/shows';
 import type { Show } from '@/lib/queries';
 
+const TZ = 'America/Chicago';
+
 function formatShowDate(datetime: string): string {
-  const date = new Date(datetime);
-  return date.toLocaleDateString('en-US', {
+  return new Date(datetime).toLocaleDateString('en-US', {
+    timeZone: TZ,
     weekday: 'long',
     month: 'long',
     day: 'numeric',
@@ -15,19 +17,20 @@ function formatShowDate(datetime: string): string {
 }
 
 function formatShowTime(datetime: string): string {
-  const date = new Date(datetime);
-  return date.toLocaleTimeString('en-US', {
+  return new Date(datetime).toLocaleTimeString('en-US', {
+    timeZone: TZ,
     hour: 'numeric',
     minute: '2-digit',
   });
 }
 
 function daysUntil(datetime: string): string {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const show = new Date(datetime);
-  show.setHours(0, 0, 0, 0);
-  const diff = Math.round((show.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+  // Compare calendar dates in CT so "Today" is correct for DFW audiences
+  const todayCT = new Date().toLocaleDateString('en-CA', { timeZone: TZ }); // YYYY-MM-DD
+  const showCT = new Date(datetime).toLocaleDateString('en-CA', { timeZone: TZ });
+  const diff = Math.round(
+    (new Date(showCT).getTime() - new Date(todayCT).getTime()) / (1000 * 60 * 60 * 24),
+  );
   if (diff === 0) return 'Today';
   if (diff === 1) return 'Tomorrow';
   return `In ${diff} days`;
