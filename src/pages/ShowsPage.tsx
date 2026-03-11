@@ -108,33 +108,6 @@ export function ShowsPage() {
                 {daysUntil(show.datetime)}
               </p>
               <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-                {show.venueUrl ? (
-                  <a
-                    href={show.venueUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
-                  >
-                    <ExternalLink className="h-3.5 w-3.5 shrink-0" />
-                    {show.venue}
-                  </a>
-                ) : (
-                  <span className="text-muted-foreground">{show.venue}</span>
-                )}
-                {(show.mapsUrl || show.address) && (
-                  <a
-                    href={
-                      show.mapsUrl ??
-                      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(showLocation(show))}`
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
-                  >
-                    <MapPin className="h-3.5 w-3.5 shrink-0" />
-                    Map
-                  </a>
-                )}
                 {isAndroid ? (
                   <a
                     href={googleCalendarUrl(show)}
@@ -153,6 +126,36 @@ export function ShowsPage() {
                   >
                     <CalendarPlus className="h-3.5 w-3.5 shrink-0" />
                     Add to calendar
+                  </a>
+                )}
+                {show.mapsUrl || show.address ? (
+                  <a
+                    href={
+                      show.mapsUrl ??
+                      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(showLocation(show))}`
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                  >
+                    <MapPin className="h-3.5 w-3.5 shrink-0" />
+                    {show.venue}
+                  </a>
+                ) : (
+                  <span className="inline-flex items-center gap-1 text-muted-foreground">
+                    <MapPin className="h-3.5 w-3.5 shrink-0" />
+                    {show.venue}
+                  </span>
+                )}
+                {show.venueUrl && (
+                  <a
+                    href={show.venueUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+                    Website
                   </a>
                 )}
               </div>
