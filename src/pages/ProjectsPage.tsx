@@ -35,7 +35,7 @@ export function ProjectsPage() {
 
   const filtered = useMemo(
     () => filterTagged(projects, activeTech, search, (p) => p.name, getProjectTags),
-    [activeTech, search],
+    [activeTech, search, projects, getProjectTags],
   );
 
   const activeProject = projects.find((p) => p.slug === location.hash.slice(1)) ?? null;
@@ -60,12 +60,7 @@ export function ProjectsPage() {
 
       <div className="mb-6 space-y-3">
         <SearchInput value={search} onChange={setSearch} placeholder="Search projects..." />
-        <TagFilter
-          tags={techTags}
-          activeTag={activeTech}
-          onTagChange={setActiveTech}
-          visibleCount={3}
-        />
+        <TagFilter tags={techTags} activeTag={activeTech} onTagChange={setActiveTech} />
       </div>
 
       {isFiltering ? (

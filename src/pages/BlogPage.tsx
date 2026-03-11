@@ -112,7 +112,7 @@ export function BlogPage() {
 
   const filteredPosts = useMemo(
     () => filterTagged(posts, blogTag, blogSearch, (p) => `${p.title} ${p.excerpt}`, getBlogTags),
-    [blogTag, blogSearch],
+    [blogTag, blogSearch, posts, getBlogTags],
   );
 
   const allItems = useMemo(() => {
@@ -178,12 +178,7 @@ export function BlogPage() {
       {activeTab === 'blog' && (
         <div className="mb-6 space-y-3">
           <SearchInput value={blogSearch} onChange={setBlogSearch} placeholder="Search posts..." />
-          <TagFilter
-            tags={blogTags}
-            activeTag={blogTag}
-            onTagChange={setBlogTag}
-            visibleCount={3}
-          />
+          <TagFilter tags={blogTags} activeTag={blogTag} onTagChange={setBlogTag} />
         </div>
       )}
 
