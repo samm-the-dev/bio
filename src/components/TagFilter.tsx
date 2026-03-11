@@ -11,7 +11,8 @@ interface TagFilterProps {
 function getStepCount(total: number): number {
   const w = window.innerWidth;
   if (w < SCREENS.sm) return Math.min(3, total);
-  if (w < SCREENS.lg) return Math.min(6, total);
+  if (w < SCREENS.md) return Math.min(5, total);
+  if (w < SCREENS.lg) return Math.min(7, total);
   return total;
 }
 
