@@ -22,20 +22,39 @@ export function BlogPostPage() {
         All posts
       </Link>
 
-      <header className="mb-8">
+      <header className="mb-4">
         <h1 className="mb-2 text-3xl font-bold">
           {post.draft && '[Draft] '}
           {post.title}
         </h1>
-        {post.draft ? (
-          <span className="text-sm text-muted-foreground">Unpublished draft</span>
-        ) : (
-          <time className="text-sm text-muted-foreground" dateTime={post.publishedAt}>
-            {formatDate(post.publishedAt)}
-          </time>
-        )}
+        <p className="text-sm text-muted-foreground">
+          {post.draft ? (
+            'Unpublished draft'
+          ) : (
+            <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+          )}
+          {post.authors?.includes('claude') && (
+            <>
+              {' \u00B7 '}
+              {post.authors?.includes('sam') ? 'Co-authored' : 'Written'} with{' '}
+              <a
+                href="https://claude.ai"
+                className="text-primary hover:text-primary-hover"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Claude
+              </a>
+            </>
+          )}
+        </p>
         {post.tags && post.tags.length > 0 && (
           <p className="mt-1 text-xs text-muted-foreground">{post.tags.join(' \u00B7 ')}</p>
+        )}
+        {post.excerpt && (
+          <blockquote className="mt-4 border-l-2 border-border pl-4 text-sm italic text-muted-foreground">
+            {post.excerpt}
+          </blockquote>
         )}
       </header>
 
@@ -44,27 +63,16 @@ export function BlogPostPage() {
         dangerouslySetInnerHTML={{ __html: post.body }}
       />
 
-      {post.authors?.includes('claude') && (
-        <p className="mt-8 text-sm text-muted-foreground">
-          {post.authors?.includes('sam') ? 'Co-authored' : 'Written'} with{' '}
-          <a
-            href="https://claude.ai"
-            className="text-primary hover:text-primary-hover"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Claude
-          </a>
-        </p>
-      )}
-
       {post.relatedProjects && post.relatedProjects.length > 0 && (
         <aside className="mt-8 rounded-lg border border-border bg-card p-4 text-sm">
           Related {post.relatedProjects.length === 1 ? 'project' : 'projects'}:{' '}
           {post.relatedProjects.map((project, i) => (
             <span key={project.slug}>
               {i > 0 && ', '}
-              <Link to={`/projects#${project.slug}`} className="font-medium text-primary hover:text-primary-hover">
+              <Link
+                to={`/projects#${project.slug}`}
+                className="font-medium text-primary hover:text-primary-hover"
+              >
                 {project.name}
               </Link>
             </span>

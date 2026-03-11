@@ -81,7 +81,7 @@ export function Layout() {
         </div>
       </header>
 
-      <main id="main-content" className="min-w-0 flex-1 px-6 py-8 sm:px-12 lg:px-24">
+      <main id="main-content" className="min-w-0 flex-1 px-6 py-8 sm:px-12 md:px-16 lg:px-24">
         <Outlet />
       </main>
 

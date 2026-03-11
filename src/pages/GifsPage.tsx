@@ -1,10 +1,12 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, ChevronDown, ChevronUp } from 'lucide-react';
+import { PageHeader } from '@/components/PageHeader';
+import { SearchInput } from '@/components/SearchInput';
+import { TagFilter } from '@/components/TagFilter';
 import { GifDialog } from '@/components/GifDialog';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { useModalState } from '@/hooks/useModalState';
 import { gifs } from '@/data/gifs';
+import { collectTags, filterTagged } from '@/lib/tagged';
 import type { Gif } from '@/lib/queries';
 
 const BATCH_SIZE = 40;
@@ -20,6 +22,9 @@ function shuffle<T>(arr: T[]): T[] {
   }
   return copy;
 }
+
+const getGifTags = (g: Gif) => g.tags;
+const gifTags = collectTags(gifs, getGifTags);
 
 /**
  * Always shows the animated GIF when near the viewport.
@@ -68,34 +73,14 @@ export function GifsPage() {
   const [search, setSearch] = useState('');
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
-  const [tagsExpanded, setTagsExpanded] = useState(false);
   const sentinelRef = useRef<HTMLDivElement>(null);
 
   const shuffled = useMemo(() => shuffle(gifs), []);
 
-  const allTags = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const g of gifs) {
-      for (const t of g.tags) {
-        counts.set(t, (counts.get(t) || 0) + 1);
-      }
-    }
-    return [...counts.entries()].sort((a, b) => b[1] - a[1]).map(([tag]) => tag);
-  }, []);
-
-  const filtered = useMemo(() => {
-    let result = shuffled;
-    if (activeTag) {
-      result = result.filter((g) => g.tags.includes(activeTag));
-    }
-    if (search.trim()) {
-      const q = search.toLowerCase();
-      result = result.filter(
-        (g) => g.alt.toLowerCase().includes(q) || g.tags.some((t) => t.toLowerCase().includes(q)),
-      );
-    }
-    return result;
-  }, [shuffled, search, activeTag]);
+  const filtered = useMemo(
+    () => filterTagged(shuffled, activeTag, search, (g) => g.alt, getGifTags),
+    [shuffled, search, activeTag],
+  );
 
   const visible = filtered.slice(0, visibleCount);
   const hasMore = visibleCount < filtered.length;
@@ -118,69 +103,26 @@ export function GifsPage() {
 
   return (
     <div className="mx-auto max-w-4xl">
-      <div className="mb-8 text-center">
-        <div className="mb-2 flex items-center justify-between">
-          <Link
-            to="/projects"
-            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" />
-            Projects
-          </Link>
-          <h1 className="mb-0 text-3xl font-bold">GIFs</h1>
-          <div className="w-[72px]" />
-        </div>
-        <hr className="mx-auto mt-4 max-w-xs border-border" />
-      </div>
+      <PageHeader title="GIFs" backTo={{ label: 'Projects', path: '/projects' }} />
 
-      <input
-        type="search"
-        aria-label="Search GIFs by name or tag"
-        placeholder="Search by name or tag..."
-        value={search}
-        onChange={(e) => {
-          setSearch(e.target.value);
-          setVisibleCount(BATCH_SIZE);
-        }}
-        className="mb-4 w-full rounded-md border border-border bg-card px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:border-foreground/30 focus:outline-none"
-      />
-
-      <div className="mb-6 flex flex-wrap items-center gap-1.5">
-        {(tagsExpanded ? allTags : allTags.slice(0, 4)).map((tag) => (
-          <button
-            key={tag}
-            type="button"
-            aria-pressed={activeTag === tag}
-            onClick={() => {
-              setActiveTag(activeTag === tag ? null : tag);
-              setVisibleCount(BATCH_SIZE);
-            }}
-            className={`rounded-full border px-2.5 py-1 text-xs transition-colors ${
-              activeTag === tag
-                ? 'border-foreground bg-foreground text-background'
-                : 'border-border bg-card text-muted-foreground hover:text-foreground'
-            }`}
-          >
-            {tag}
-          </button>
-        ))}
-        {allTags.length > 4 && (
-          <button
-            type="button"
-            onClick={() => setTagsExpanded(!tagsExpanded)}
-            className="inline-flex items-center gap-1 rounded-full border border-border px-2.5 py-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
-          >
-            {tagsExpanded ? (
-              <>
-                Less <ChevronUp className="h-3 w-3" />
-              </>
-            ) : (
-              <>
-                +{allTags.length - 4} more <ChevronDown className="h-3 w-3" />
-              </>
-            )}
-          </button>
-        )}
+      <div className="mb-6 space-y-3">
+        <SearchInput
+          value={search}
+          onChange={(v) => {
+            setSearch(v);
+            setVisibleCount(BATCH_SIZE);
+          }}
+          placeholder="Search by name or tag..."
+          label="Search GIFs by name or tag"
+        />
+        <TagFilter
+          tags={gifTags}
+          activeTag={activeTag}
+          onTagChange={(tag) => {
+            setActiveTag(tag);
+            setVisibleCount(BATCH_SIZE);
+          }}
+        />
       </div>
 
       <div className="columns-1 gap-4 sm:columns-2">

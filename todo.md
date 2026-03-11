@@ -15,16 +15,30 @@
 - [ ] Test cross-posting with a real blog post
 - [ ] Add LinkedIn cross-posting integration
 - [ ] Share-to-Bluesky button on blog post pages
-- [ ] Tag/category filtering on blog list
+- [x] Tag/category filtering on blog list
 - [ ] Blog card image generator (for social previews)
+
+## Domain Architecture
+
+- [ ] Review [domain-architecture-addendum.md](../domain-architecture-addendum.md) (samm.bio as hub, /dev route, samm-the.dev redirect, apps subdomain)
+
+## Toolbox Migrations
+
+- [ ] Migrate `src/lib/share.ts` to use `.toolbox/lib/share.ts` (wrap with sonner toasts)
 
 ## Quality
 
 - [ ] Add axe-core accessibility audit to CI (catch WCAG issues before review)
 
+## Content
+
+- [ ] Re-check project tech tags (now surfaced in tag filter — worth auditing for accuracy/consistency)
+
 ## Future Features
 
 - [x] GIF section (curated favorites, Klipy integration, or skip — TBD)
 - [ ] Generate better GIF alt text (currently just filenames)
+- [ ] Improve GIF tagging with AI assistance (batch-suggest tags from visual content)
+- [ ] Smarter GIF loading to prevent stuttering (pause off-screen GIFs, consider video format)
 - [ ] Stats page (Letterboxd, GitHub, "terminally online" meter)
 - [ ] Analytics (Plausible/Fathom vs. none — TBD)

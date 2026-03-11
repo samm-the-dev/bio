@@ -60,6 +60,26 @@ const settings = yaml.load(readFileSync('content/settings.yaml', 'utf-8'));
 const projectsData = yaml.load(readFileSync('content/projects.yaml', 'utf-8'));
 const gifSection = projectsData.sections?.find((s) => s.key === 'gifs');
 
+const showsData = yaml.load(readFileSync('content/shows.yaml', 'utf-8'));
+const venues = showsData.venues ?? {};
+// All shows are in DFW (America/Chicago). Compare datetimes as CT strings so
+// the "next show" selection is stable regardless of the build machine's timezone.
+const nowCT = new Date().toLocaleString('sv', { timeZone: 'America/Chicago' }).replace(' ', 'T').slice(0, 16);
+const nextShow = (showsData.shows ?? [])
+  .filter((s) => s.datetime >= nowCT)
+  .sort((a, b) => a.datetime.localeCompare(b.datetime))[0];
+
+function formatShowOgDate(datetime) {
+  // Date portion is the CT calendar date — parse as UTC midnight (date-only ISO = UTC, unambiguous)
+  return new Date(datetime.slice(0, 10)).toLocaleDateString('en-US', {
+    timeZone: 'UTC', weekday: 'long', month: 'long', day: 'numeric',
+  });
+}
+
+const showsDescription = nextShow
+  ? `Next up: ${nextShow.title} at ${venues[nextShow.venue]?.name ?? nextShow.venue}, ${formatShowOgDate(nextShow.datetime)}.`
+  : stripMarkdown(settings.showsTeaser);
+
 // --- Static routes ---
 
 const staticRoutes = [
@@ -102,7 +122,7 @@ const staticRoutes = [
   {
     path: 'shows',
     title: 'Shows',
-    description: stripMarkdown(settings.showsTeaser),
+    description: showsDescription,
   },
 ];
 

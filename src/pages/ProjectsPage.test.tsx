@@ -96,4 +96,27 @@ describe('ProjectsPage', () => {
     // Carousel duplicates items for seamless looping
     expect(gifImages.length).toBe(featuredCount * 2);
   });
+
+  it('filters projects by search query', () => {
+    renderWithRouter(<ProjectsPage />);
+    const searchInput = screen.getByRole('searchbox');
+    fireEvent.change(searchInput, { target: { value: 'Test App' } });
+    const cards = screen.getAllByTestId('project-card');
+    expect(cards).toHaveLength(1);
+  });
+
+  it('shows empty message when search yields no results', () => {
+    renderWithRouter(<ProjectsPage />);
+    const searchInput = screen.getByRole('searchbox');
+    fireEvent.change(searchInput, { target: { value: 'nonexistent' } });
+    expect(screen.queryAllByTestId('project-card')).toHaveLength(0);
+    expect(screen.getByText('No projects match your search.')).toBeInTheDocument();
+  });
+
+  it('filters projects by tech tag', () => {
+    renderWithRouter(<ProjectsPage />);
+    fireEvent.click(screen.getByRole('button', { name: 'React' }));
+    const cards = screen.getAllByTestId('project-card');
+    expect(cards).toHaveLength(1);
+  });
 });

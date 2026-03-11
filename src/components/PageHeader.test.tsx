@@ -13,13 +13,13 @@ describe('PageHeader', () => {
     expect(screen.getByText('A descriptor')).toBeInTheDocument();
   });
 
-  it('centers by default', () => {
-    const { container } = render(<PageHeader title="Title" />);
-    expect(container.firstChild).toHaveClass('text-center');
+  it('centers title by default', () => {
+    render(<PageHeader title="Title" />);
+    expect(screen.getByRole('heading', { level: 1 })).toHaveClass('text-center');
   });
 
   it('supports left alignment', () => {
-    const { container } = render(<PageHeader title="Title" centered={false} />);
-    expect(container.firstChild).not.toHaveClass('text-center');
+    render(<PageHeader title="Title" centered={false} />);
+    expect(screen.getByRole('heading', { level: 1 })).not.toHaveClass('text-center');
   });
 });

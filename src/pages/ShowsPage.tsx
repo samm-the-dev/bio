@@ -4,9 +4,27 @@ import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { shows } from '@/data/shows';
 import type { Show } from '@/lib/queries';
 
+const TZ = 'America/Chicago';
+
+/**
+ * Parse a naive CT datetime string (YYYY-MM-DDTHH:MM) as the correct UTC instant.
+ * Datetime strings without a timezone offset are ambiguous — this resolves them
+ * as America/Chicago local time regardless of the host machine's timezone.
+ */
+function parseCTDatetime(datetime: string): Date {
+  const datePart = datetime.slice(0, 10);
+  const timePart = datetime.length > 10 ? datetime.slice(11) : '00:00';
+  // Probe noon UTC to find the CT offset for this date (noon avoids DST-edge ambiguity)
+  const noonUTC = new Date(`${datePart}T12:00:00Z`);
+  const ctNoon = new Date(noonUTC.toLocaleString('sv', { timeZone: TZ }).replace(' ', 'T') + 'Z');
+  const offsetMs = noonUTC.getTime() - ctNoon.getTime();
+  return new Date(new Date(`${datePart}T${timePart}:00Z`).getTime() + offsetMs);
+}
+
 function formatShowDate(datetime: string): string {
-  const date = new Date(datetime);
-  return date.toLocaleDateString('en-US', {
+  // Date portion is the CT calendar date — parse as UTC midnight (date-only ISO = UTC, unambiguous)
+  return new Date(datetime.slice(0, 10)).toLocaleDateString('en-US', {
+    timeZone: 'UTC',
     weekday: 'long',
     month: 'long',
     day: 'numeric',
@@ -15,19 +33,20 @@ function formatShowDate(datetime: string): string {
 }
 
 function formatShowTime(datetime: string): string {
-  const date = new Date(datetime);
-  return date.toLocaleTimeString('en-US', {
+  return parseCTDatetime(datetime).toLocaleTimeString('en-US', {
+    timeZone: TZ,
     hour: 'numeric',
     minute: '2-digit',
+    timeZoneName: 'short',
   });
 }
 
 function daysUntil(datetime: string): string {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const show = new Date(datetime);
-  show.setHours(0, 0, 0, 0);
-  const diff = Math.round((show.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+  const todayCT = new Date().toLocaleDateString('en-CA', { timeZone: TZ }); // YYYY-MM-DD
+  const showDate = datetime.slice(0, 10); // YYYY-MM-DD — the CT calendar date by definition
+  const diff = Math.round(
+    (new Date(showDate).getTime() - new Date(todayCT).getTime()) / (1000 * 60 * 60 * 24),
+  );
   if (diff === 0) return 'Today';
   if (diff === 1) return 'Tomorrow';
   return `In ${diff} days`;
@@ -84,12 +103,12 @@ export function ShowsPage() {
 
   const now = new Date();
   const upcoming = shows
-    .filter((s) => new Date(s.datetime) >= now)
+    .filter((s) => parseCTDatetime(s.datetime) >= now)
     .sort((a, b) => a.datetime.localeCompare(b.datetime));
 
   return (
     <div className="mx-auto max-w-2xl">
-      <PageHeader title="Upcoming Shows" />
+      <PageHeader title="Upcoming Shows" backTo={{ label: 'Home', path: '/' }} />
 
       {upcoming.length > 0 ? (
         <div className="space-y-4">
@@ -98,43 +117,19 @@ export function ShowsPage() {
               key={`${show.datetime}-${show.title}`}
               className="rounded-lg border border-border bg-card p-4"
             >
-              <h2 className="font-semibold text-card-foreground">{show.title}</h2>
-              <p className="mt-1 text-sm text-muted-foreground">{formatShowDate(show.datetime)}</p>
-              <p className="text-sm text-muted-foreground">
-                {formatShowTime(show.datetime)}
-                {show.endDatetime && ` - ${formatShowTime(show.endDatetime)}`}
-              </p>
-              <p className="text-sm font-medium text-muted-foreground">
+              <p className="mb-1 text-xs font-medium text-muted-foreground">
                 {daysUntil(show.datetime)}
               </p>
+              <h2 className="font-semibold text-card-foreground">{show.title}</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                <span className="whitespace-nowrap">{formatShowDate(show.datetime)}</span>
+                {', '}
+                <span className="whitespace-nowrap">
+                  {formatShowTime(show.datetime)}
+                  {show.endDatetime && ` - ${formatShowTime(show.endDatetime)}`}
+                </span>
+              </p>
               <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-                {show.venueUrl ? (
-                  <a
-                    href={show.venueUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
-                  >
-                    <ExternalLink className="h-3.5 w-3.5 shrink-0" />
-                    {show.venue}
-                  </a>
-                ) : (
-                  <span className="text-muted-foreground">{show.venue}</span>
-                )}
-                {(show.mapsUrl || show.address) && (
-                  <a
-                    href={
-                      show.mapsUrl ??
-                      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(showLocation(show))}`
-                    }
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
-                  >
-                    <MapPin className="h-3.5 w-3.5 shrink-0" />
-                    Map
-                  </a>
-                )}
                 {isAndroid ? (
                   <a
                     href={googleCalendarUrl(show)}
@@ -153,6 +148,36 @@ export function ShowsPage() {
                   >
                     <CalendarPlus className="h-3.5 w-3.5 shrink-0" />
                     Add to calendar
+                  </a>
+                )}
+                {show.mapsUrl || show.address ? (
+                  <a
+                    href={
+                      show.mapsUrl ??
+                      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(showLocation(show))}`
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                  >
+                    <MapPin className="h-3.5 w-3.5 shrink-0" />
+                    {show.venue}
+                  </a>
+                ) : (
+                  <span className="inline-flex items-center gap-1 text-muted-foreground">
+                    <MapPin className="h-3.5 w-3.5 shrink-0" />
+                    {show.venue}
+                  </span>
+                )}
+                {show.venueUrl && (
+                  <a
+                    href={show.venueUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+                    Venue Website
                   </a>
                 )}
               </div>

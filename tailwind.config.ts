@@ -1,4 +1,8 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from 'tailwindcss';
+import animate from 'tailwindcss-animate';
+import typography from '@tailwindcss/typography';
+import { SCREENS } from './src/lib/screens';
+
 export default {
   // Class-based dark mode: toggle "dark" class on <html>
   // CSS variables in index.css define per-theme colors
@@ -6,6 +10,7 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens: Object.fromEntries(Object.entries(SCREENS).map(([k, v]) => [k, `${v}px`])),
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -52,5 +57,5 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
-};
+  plugins: [animate, typography],
+} satisfies Config;
