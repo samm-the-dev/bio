@@ -11,7 +11,7 @@ on:
   # Rebuild daily so OG meta descriptions (e.g. "next show") stay current
   # without requiring a code push after each show passes.
   schedule:
-    - cron: '0 8 * * *'
+    - cron: '0 6 * * *'
 
   workflow_dispatch:
 
