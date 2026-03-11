@@ -60,6 +60,23 @@ const settings = yaml.load(readFileSync('content/settings.yaml', 'utf-8'));
 const projectsData = yaml.load(readFileSync('content/projects.yaml', 'utf-8'));
 const gifSection = projectsData.sections?.find((s) => s.key === 'gifs');
 
+const showsData = yaml.load(readFileSync('content/shows.yaml', 'utf-8'));
+const venues = showsData.venues ?? {};
+const now = new Date();
+const nextShow = (showsData.shows ?? [])
+  .filter((s) => new Date(s.datetime) >= now)
+  .sort((a, b) => a.datetime.localeCompare(b.datetime))[0];
+
+function formatShowOgDate(datetime) {
+  return new Date(datetime).toLocaleDateString('en-US', {
+    weekday: 'long', month: 'long', day: 'numeric',
+  });
+}
+
+const showsDescription = nextShow
+  ? `Next up: ${nextShow.title} at ${venues[nextShow.venue]?.name ?? nextShow.venue}, ${formatShowOgDate(nextShow.datetime)}.`
+  : stripMarkdown(settings.showsTeaser);
+
 // --- Static routes ---
 
 const staticRoutes = [
@@ -102,7 +119,7 @@ const staticRoutes = [
   {
     path: 'shows',
     title: 'Shows',
-    description: stripMarkdown(settings.showsTeaser),
+    description: showsDescription,
   },
 ];
 
