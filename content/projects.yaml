@@ -79,7 +79,11 @@ projects:
     slug: toolbox
     category: code
     description: |
-      A library of templates and tools for enhancing my AI-assisted project development, distributed to my projects via Git submodule.
+      A shared library of templates, utilities, and AI context files for my projects, distributed via Git submodule.
+
+      Includes Google Drive sync libraries, GCP auth infrastructure, a reusable Claude Code GitHub Actions workflow
+      (on-demand @claude mentions, adversarial auto-review, and Copilot response modes),
+      and a share utility with Web Share API and clipboard fallback.
     tech: [Claude AI, Google OAuth, GCP Cloud Functions, React, Vite, TypeScript, GitHub Actions]
     link: null
     repo: https://github.com/samm-the-dev/toolbox

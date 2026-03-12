@@ -15,7 +15,11 @@ const slug = title
   .replace(/[^a-z0-9]+/g, '-')
   .replace(/^-|-$/g, '');
 
-const path = `content/posts/${slug}.md`;
+const now = new Date();
+const pad = (n) => String(n).padStart(2, '0');
+const datePrefix = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
+
+const path = `content/posts/${datePrefix}-${slug}.md`;
 if (existsSync(path)) {
   console.error(`Post already exists: ${path}`);
   process.exit(1);

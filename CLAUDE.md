@@ -21,6 +21,15 @@ shows with calendar + map links).
 All content in `content/` is hand-authored — AI assists with design/build
 only, and may help summarize or draft blog posts.
 
+### Blog Co-Authorship Convention
+
+Posts where `authors` includes both `sam` and `claude` use this formatting convention:
+
+- **Blockquote paragraphs** = Claude-generated technical summary (from PR history)
+- **_Italic paragraphs_** = Sam's hand-written reflection and context
+
+The intro and closing are always Sam's voice (plain prose, no special formatting).
+
 ### Content Voice
 
 - Conversational and authentic — avoid excessive formality, let personality show
