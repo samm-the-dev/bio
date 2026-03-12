@@ -23,7 +23,7 @@ only, and may help summarize or draft blog posts.
 
 ### Blog Co-Authorship Convention
 
-Co-authored posts (`authors: [sam, claude]`) use this formatting convention:
+Posts where `authors` includes both `sam` and `claude` use this formatting convention:
 
 - **Blockquote paragraphs** = Claude-generated technical summary (from PR history)
 - **_Italic paragraphs_** = Sam's hand-written reflection and context

@@ -17,7 +17,7 @@ const slug = title
 
 const now = new Date();
 const pad = (n) => String(n).padStart(2, '0');
-const datePrefix = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}`;
+const datePrefix = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;
 
 const path = `content/posts/${datePrefix}-${slug}.md`;
 if (existsSync(path)) {
