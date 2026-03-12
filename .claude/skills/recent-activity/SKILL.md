@@ -1,6 +1,6 @@
 ---
 name: recent-activity
-description: Summarize recent GitHub activity across all repos (merged PRs, commits). Use when the user wants to review what they've shipped lately or draft a blog post about recent work.
+description: Summarize recent GitHub activity across all repos (merged PRs). Use when the user wants to review what they've shipped lately or draft a blog post about recent work.
 disable-model-invocation: true
 allowed-tools:
   - Bash(gh search prs *)
