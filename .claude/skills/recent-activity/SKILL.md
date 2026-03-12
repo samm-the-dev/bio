@@ -31,12 +31,17 @@ Parse `$ARGUMENTS` to set a since date. Default to 7 days ago if empty.
 Use `gh search prs` to find merged PRs authored by the user across all repos:
 
 ```bash
-gh search prs --author @me --state merged --sort updated --limit 50 \
-  --json title,url,mergedAt,repository,body,number \
-  | jq '[.[] | select(.mergedAt >= "SINCE_DATE")]'
+gh search prs --author @me --merged --sort updated --limit 50 \
+  --merged-at ">=SINCE_DATE" \
+  --json title,url,closedAt,repository,body,number
 ```
 
-Replace `SINCE_DATE` with the ISO date string (e.g. `2026-03-05T00:00:00Z`).
+Replace `SINCE_DATE` with the ISO date (e.g. `2026-03-05`).
+
+Note: `gh search prs` doesn't support `--state merged` (use `--merged` flag)
+and doesn't expose a `mergedAt` JSON field (use `closedAt` instead, which
+equals merge time for merged PRs). The `--merged-at` flag handles date
+filtering server-side so no `jq` post-filter is needed.
 
 If no results, tell the user and stop.
 
@@ -76,6 +81,7 @@ Ask the user:
 > Would you like to draft a blog post from this? Or just use this as a summary?
 
 If they want a draft, hand off to the blog post drafting flow:
+
 - Suggest a title and slug
 - Draft the post in the user's voice (conversational, specific, honest about
   work-in-progress — see content voice guidelines in CLAUDE.md)
