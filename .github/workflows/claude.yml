@@ -1,78 +1,29 @@
-name: Claude
+# On-demand @claude mentions, adversarial PR review, and Copilot response.
+# Powered by the shared reusable workflow in toolbox.
+
+name: Claude Code
 
 on:
+  # On-demand: @claude mentions
   issue_comment:
-    types: [created]
+    types: [created, edited]
   pull_request_review_comment:
-    types: [created]
+    types: [created, edited]
   issues:
     types: [opened, assigned]
+
+  # Adversarial review: non-draft PR open/update
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+  # Copilot response: when Copilot submits a review
   pull_request_review:
     types: [submitted]
-  pull_request:
-    types: [opened, synchronize, ready_for_review]
 
 jobs:
-  # Respond to @claude mentions in issues, PRs, and review comments
-  claude-on-demand:
-    if: |
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude') && github.actor != 'copilot-pull-request-reviewer[bot]') ||
-      (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || github.event.action == 'assigned'))
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      issues: write
-    steps:
-      - uses: anthropics/claude-code-action@beta
-        with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-
-  # Adversarial review on every non-draft PR open/update
-  adversarial-review:
-    if: github.event_name == 'pull_request' && github.event.pull_request.draft == false
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - uses: anthropics/claude-code-action@beta
-        with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          direct_prompt: |
-            Review this pull request adversarially — your job is to catch problems before they ship.
-
-            Focus on:
-            - Bugs, logic errors, and edge cases the author may have missed
-            - Security issues (XSS, injection, exposed secrets, insecure deps)
-            - Performance regressions
-            - Broken or missing tests
-            - API or interface changes that could break callers
-            - Anything that looks underspecified or rushed
-
-            Be direct and specific. If a section looks fine, say so briefly. Post a full GitHub
-            review with an approve or request-changes verdict.
-
-  # Assess Copilot's review and add Claude's take
-  respond-to-copilot:
-    if: |
-      github.event_name == 'pull_request_review' &&
-      github.actor == 'copilot-pull-request-reviewer[bot]'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
-    steps:
-      - uses: anthropics/claude-code-action@beta
-        with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          direct_prompt: |
-            Copilot has just submitted a review on this PR. Read its comments carefully, then:
-
-            1. Assess each point — agree, push back, or add nuance where useful
-            2. Flag anything significant that Copilot missed
-            3. Keep it concise — no need to restate what Copilot already said well
-
-            Post your assessment as a review comment.
+  claude:
+    uses: samm-the-dev/toolbox/.github/workflows/claude.yml@main
+    with:
+      mode: "all"
+    secrets:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
