@@ -12,7 +12,7 @@
 
 ## Blog & Cross-Posting
 
-- [ ] Test cross-posting with a real blog post
+- [x] Test cross-posting with a real blog post
 - [ ] Add LinkedIn cross-posting integration
 - [ ] Share-to-Bluesky button on blog post pages
 - [x] Tag/category filtering on blog list
