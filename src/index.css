@@ -128,6 +128,9 @@
   .prose > p {
     color: hsl(var(--foreground));
   }
+  .prose > p strong {
+    text-decoration: underline;
+  }
   .prose blockquote {
     font-style: normal;
   }
