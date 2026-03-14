@@ -141,6 +141,7 @@ const posts = postFiles
       draft,
       tags: data.tags || null,
       authors: data.authors || ['sam'],
+      replyTo: data.replyTo || null,
       relatedProjects: relatedProjects.length > 0 ? relatedProjects : null,
     };
   })

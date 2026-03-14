@@ -12,6 +12,9 @@ export function BlogPostPage() {
 
   if (!post) return <Navigate to="/blog" replace />;
 
+  const parentPost = post.replyTo ? posts.find((p) => p.slug === post.replyTo) : null;
+  const followUps = posts.filter((p) => p.replyTo === post.slug);
+
   return (
     <article className="mx-auto max-w-2xl">
       <Link
@@ -21,6 +24,15 @@ export function BlogPostPage() {
         <ArrowLeft className="h-4 w-4" />
         All posts
       </Link>
+
+      {parentPost && (
+        <p className="mb-4 text-sm text-muted-foreground">
+          Follow-up to{' '}
+          <Link to={`/blog/${parentPost.slug}`} className="text-primary hover:text-primary-hover">
+            {parentPost.title}
+          </Link>
+        </p>
+      )}
 
       <header className="mb-4">
         <h1 className="mb-2 text-3xl font-bold">
@@ -36,7 +48,7 @@ export function BlogPostPage() {
           {post.authors?.includes('claude') && (
             <>
               {' \u00B7 '}
-              {post.authors?.includes('sam') ? 'Co-authored' : 'Written'} with{' '}
+              {post.authors?.includes('sam') ? 'Co-authored with' : 'Written by'}{' '}
               <a
                 href="https://claude.ai"
                 className="text-primary hover:text-primary-hover"
@@ -74,6 +86,22 @@ export function BlogPostPage() {
                 className="font-medium text-primary hover:text-primary-hover"
               >
                 {project.name}
+              </Link>
+            </span>
+          ))}
+        </aside>
+      )}
+      {followUps.length > 0 && (
+        <aside className="mt-8 rounded-lg border border-border bg-card p-4 text-sm">
+          Follow-up {followUps.length === 1 ? 'post' : 'posts'}:{' '}
+          {followUps.map((followUp, i) => (
+            <span key={followUp.slug}>
+              {i > 0 && ', '}
+              <Link
+                to={`/blog/${followUp.slug}`}
+                className="font-medium text-primary hover:text-primary-hover"
+              >
+                {followUp.title}
               </Link>
             </span>
           ))}

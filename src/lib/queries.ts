@@ -64,6 +64,7 @@ export interface BlogPost {
   draft: boolean;
   tags: string[] | null;
   authors: ('sam' | 'claude')[];
+  replyTo: string | null;
   relatedProjects: { name: string; slug: string }[] | null;
 }
 
