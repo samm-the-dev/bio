@@ -1,7 +1,26 @@
-[
-  "hello-world",
-  "automated-accessibility-auditing-with-playwright-and-axe-core",
-  "adhd-is-frustrating",
-  "two-weeks-of-shipping",
-  "does-ai-really-use-that-much-energy"
-]
+{
+  "hello-world": {
+    "uri": null,
+    "cid": null
+  },
+  "automated-accessibility-auditing-with-playwright-and-axe-core": {
+    "uri": null,
+    "cid": null
+  },
+  "adhd-is-frustrating": {
+    "uri": null,
+    "cid": null
+  },
+  "two-weeks-of-shipping": {
+    "uri": null,
+    "cid": null
+  },
+  "does-ai-really-use-that-much-energy": {
+    "uri": "at://did:plc:b6qlc4j47d2iyj46tl6igiuu/app.bsky.feed.post/3mgyn6f3hzy2b",
+    "cid": "bafyreigxvrfk32qhzbpvckstewtxzykcl46kozqvhkomi2c6s5tnpj2js4"
+  },
+  "where-does-the-water-go": {
+    "uri": "at://did:plc:b6qlc4j47d2iyj46tl6igiuu/app.bsky.feed.post/3mgytuk4hqb2m",
+    "cid": "bafyreiazlklvvbw4p6gc25y4pj7fnimtm5x5rgjmz45cojz3p3ejufv76y"
+  }
+}
