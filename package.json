@@ -68,6 +68,7 @@
     "vitest": "^3.2.4"
   },
   "lint-staged": {
+    "content/posts/*.md": "node scripts/update-publish-date.mjs",
     "*.{js,jsx,ts,tsx,json,css,md}": "prettier --write --ignore-path .prettierignore"
   }
 }
