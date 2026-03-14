@@ -5,6 +5,7 @@ excerpt: 'An Instagram Reel sent me down a research rabbit hole. I compared the 
 publishedAt: 2026-03-13T23:51:30-05:00
 tags:
   - ai
+  - climate
   - data
   - personal
 authors:
