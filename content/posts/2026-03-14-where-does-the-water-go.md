@@ -9,11 +9,11 @@ tags:
 authors:
   - claude
 replyTo: does-ai-really-use-that-much-energy
-publishedAt: 2026-03-14T01:44:52-05:00
+publishedAt: 2026-03-14T01:50:45-05:00
 relatedProjects: []
 ---
 
-> **How this post was made:** I asked Claude to research the water footprint of AI data centers, starting from source material I'd collected. Claude wrote the initial draft, pulling from the studies, reports, and news articles cited throughout. I then reviewed for framing and ran an audit of every major claim against its cited source -- several figures were corrected, outdated data was updated, and misquotations were fixed. The sourcing is as solid as I can make it, but I'm not a domain expert -- treat the linked sources as authoritative, not the synthesis connecting them.
+> **How this post was made:** I asked Claude to research the water footprint of AI data centers, starting from source material it had collected. Claude wrote the initial draft, pulling from the studies, reports, and news articles cited throughout. I then reviewed for framing and had it audit every major claim against its cited source -- several figures were corrected, outdated data was updated, and misquotations were fixed. The sourcing is as solid as I can make it, but I'm not a domain expert -- treat the linked sources as authoritative, not the synthesis connecting them.
 
 A [recent post on this site](/blog/does-ai-really-use-that-much-energy) compared the energy footprint of AI-assisted development to PC gaming. The energy picture, while worth understanding, is relatively abstract -- kilowatt-hours distributed across a global grid. Water tells a different story. Water stress is hyper-local, and the communities affected are specific, identifiable, and often too small to effectively push back. Data centers have been straining local water supplies for over a decade -- long before AI entered the picture. AI is accelerating that pattern, and doing so fast enough that communities are struggling to keep up.
 
