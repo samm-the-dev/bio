@@ -124,6 +124,13 @@
   .prose h3 {
     font-size: 1.17em;
   }
+  /* Top-level paragraphs (author's writing) — foreground, not muted */
+  .prose > p {
+    color: hsl(var(--foreground));
+  }
+  .prose > p strong {
+    text-decoration: underline;
+  }
   .prose blockquote {
     font-style: normal;
   }
