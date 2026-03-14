@@ -17,6 +17,7 @@
 - [ ] Share-to-Bluesky button on blog post pages
 - [x] Tag/category filtering on blog list
 - [ ] Blog card image generator (for social previews)
+- [ ] Add pre-commit hook to update `publishedAt` in blog posts to current timestamp
 
 ## Domain Architecture
 

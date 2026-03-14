@@ -1,8 +1,8 @@
 ---
 title: 'Does AI Really Use That Much Energy?'
 slug: does-ai-really-use-that-much-energy
-excerpt: 'An Instagram Reel sent me down a research rabbit hole. I compared the energy footprint of 25 days of heavy AI-assisted development against 14 years of PC gaming.'
-publishedAt: 2026-03-13T23:20:08-05:00
+excerpt: 'An Instagram Reel sent me down a research rabbit hole. I compared the energy footprint of 25 days of heavy AI-assisted development against ~3 years of PC gaming.'
+publishedAt: 2026-03-13T23:51:30-05:00
 tags:
   - ai
   - data
@@ -23,13 +23,13 @@ The following is some personal context and data, plus what Claude found in its b
 _For most of my life I was what I would call a casual gamer. I never played too competitively, but I have engaged in multi-hour gaming sessions many, many times._
 _Recently I've all but dropped PC gaming, and have instead engaged more in in-person creative pursuits like improv, and more recently code project work with Claude Code._
 
-_Here are the specs for my current PC, which I've had for a couple of years now, plus Claude and Steam numbers:_
+_Here are the specs for my current PC, which I've had for about three years now, plus Claude and Steam numbers:_
 
-> **PC specs:** Intel i7-12700KF, RTX 3070 Ti, 32GB DDR5. Under gaming load, this system draws roughly 310W from the wall (GPU averaging ~220W, CPU ~60W, the rest fans/RAM/storage), plus about 40W for the monitor -- approximately **0.35 kWh per hour of gaming**.
+> **PC specs:** Intel i7-12700KF, RTX 3070 Ti, 32GB DDR5. Under gaming load, this system draws roughly 310W from the wall (GPU averaging ~220W, CPU ~60W, the rest fans/RAM/storage), plus about 80W for two monitors -- approximately **0.39 kWh per hour of gaming** (estimated from published TDP specs, not directly measured).
 >
 > **Claude Code usage** was measured via [ccusage](https://github.com/ryoppippi/ccusage), which parses local session files for token counts. From January 31 to March 13, 2026 -- 25 active days -- 1.89 billion tokens were processed, 652 commits produced across 15 repos, with a theoretical API-equivalent cost of $1,238 (covered by a Max subscription).
 >
-> **Steam library data** came from Steam's local `localconfig.vdf` file, which tracks playtime in minutes and last-played Unix timestamps. Total: **5,500 hours across 311 games over ~14 years**.
+> **Steam library data** came from Steam's local `localconfig.vdf` file, which tracks playtime in minutes and last-played Unix timestamps. Scoped to this rig: **~4,225 hours across 112 games** last played since March 2023. Steam doesn't track per-machine playtime, so these are lifetime hours for games active on this rig -- an upper bound.
 
 ## How Much Energy Does Claude Code Actually Use?
 
@@ -39,18 +39,18 @@ _Here are the specs for my current PC, which I've had for a couple of years now,
 >
 > **~6.9 kWh total.** For 25 days of heavy, multi-hour-per-day AI-assisted development.
 >
-> But that's only Anthropic's inference compute. The full picture includes the local PC running during development and CI infrastructure triggered by the work. Based on commit timestamps, active sessions averaged roughly 8 hours per day. During dev work (IDE, Vite dev server, browser), this PC draws ~150W with the GPU idle -- about half the gaming load.
+> But that's only Anthropic's inference compute. The full picture includes the local PC running during development and CI infrastructure triggered by the work. Based on commit timestamps, active sessions averaged roughly 8 hours per day. During dev work (IDE, Vite dev server, browser), this PC draws ~230W with the GPU idle (including two monitors) -- about 60% of the gaming load.
 >
 > | Component                              | Energy      | Where      |
 > | -------------------------------------- | ----------- | ---------- |
 > | AI inference (Anthropic servers)       | ~6.9 kWh    | Datacenter |
 > | GitHub Actions CI (1,133 runs)         | ~0.3 kWh    | Datacenter |
-> | Local dev PC (25 days x ~8 hrs x 150W) | ~30 kWh     | My desk    |
-> | **Total AI-assisted dev footprint**    | **~37 kWh** |            |
+> | Local dev PC (25 days x ~8 hrs x 230W) | ~46 kWh     | My desk    |
+> | **Total AI-assisted dev footprint**    | **~53 kWh** |            |
 >
-> The datacenter energy -- the part that's actually AI-specific -- was ~7.2 kWh. The local PC draw is energy you'd spend doing any screen-based work; it's lower than gaming because the GPU sits idle during development.
+> The datacenter energy -- the part that's actually AI-specific -- was ~7.2 kWh. The local PC draw is energy you'd spend doing any screen-based work; it's lower than gaming because the GPU sits idle during development, though the two monitors still account for a third of the draw.
 
-_I've been engaging in heavy, sometimes unhealthy usage of Claude Code for these personal projects. I'll also be the first to admit I'm probably not very efficient about it, so the idea that 8 hours of AI-assisted development uses about the same energy as 4 hours of gaming is a little surprising, but I still want to improve my efficiency._
+_I've been engaging in heavy, sometimes unhealthy usage of Claude Code for these personal projects. I'll also be the first to admit I'm probably not very efficient about it, so the idea that 8 hours of AI-assisted development uses about the same energy as 5 hours of gaming is a little surprising, but I still want to improve my efficiency._
 
 > It's worth noting that AI-assisted development will likely get even more efficient relative to gaming over time:
 >
@@ -58,37 +58,37 @@ _I've been engaging in heavy, sometimes unhealthy usage of Claude Code for these
 > - **Model inference is getting cheaper** -- energy per query has been dropping as models are optimized. Training costs are the ceiling; inference keeps shrinking.
 > - **Gaming hardware isn't getting more efficient in absolute terms** -- GPU TDPs have actually climbed generation over generation (RTX 4090 is 450W vs the 3070 Ti's 290W). Perf-per-watt improves, but wall draw doesn't.
 
-## 5,500 Hours of Steam Gaming
+## ~4,225 Hours of Steam Gaming
 
 _I had a great time playing most if not all of these games. Many of them helped me connect to others in one way or another, albeit in a limited online fashion. I don't regret spending these hours, but the energy consumption comparison is interesting._
 
 | Game             | Hours     | Energy (kWh) | Context                   |
 | ---------------- | --------- | ------------ | ------------------------- |
-| Valheim          | 703       | ~246         | ~7x total AI-assisted dev |
-| Elden Ring       | 633       | ~222         | 6x total AI-assisted dev  |
-| Astroneer        | 371       | ~130         |                           |
-| Rocket League    | 295       | ~103         |                           |
-| Skyrim           | 277       | ~97          |                           |
-| Helldivers 2     | 216       | ~76          |                           |
-| Marvel Rivals    | 188       | ~66          |                           |
-| Dark Souls III   | 151       | ~53          |                           |
-| Starbound        | 142       | ~50          |                           |
-| Dark Souls II    | 137       | ~48          |                           |
-| **Top 10 total** | **3,113** | **~1,090**   | 57% of all gaming hours   |
+| Valheim          | 703       | ~274         | ~5x total AI-assisted dev |
+| Elden Ring       | 633       | ~247         | ~5x total AI-assisted dev |
+| Astroneer        | 371       | ~145         |                           |
+| Rocket League    | 295       | ~115         |                           |
+| Skyrim           | 277       | ~108         |                           |
+| Helldivers 2     | 216       | ~84          |                           |
+| Marvel Rivals    | 188       | ~73          |                           |
+| Dark Souls III   | 151       | ~59          |                           |
+| Dark Souls II    | 137       | ~53          |                           |
+| Disco Elysium    | 85        | ~33          |                           |
+| **Top 10 total** | **3,056** | **~1,192**   | 72% of all gaming hours   |
 
-> At 0.35 kWh/hr, lifetime gaming has consumed approximately **1,925 kWh** -- the top 10 games alone account for over half of that.
+> At 0.39 kWh/hr, gaming on this rig has consumed approximately **1,648 kWh** -- the top 10 games alone account for nearly three quarters of that.
 
 ## The Comparison
 
 |                                         | Energy     |
 | --------------------------------------- | ---------- |
-| Lifetime PC gaming (5,500 hrs)          | ~1,925 kWh |
-| AI-assisted dev, holistic (25 days)     | ~37 kWh    |
+| PC gaming on this rig (~4,225 hrs)      | ~1,648 kWh |
+| AI-assisted dev, holistic (25 days)     | ~53 kWh    |
 | ...of which datacenter (inference + CI) | ~7.2 kWh   |
-| ...of which local PC                    | ~30 kWh    |
-| **Ratio (holistic)**                    | **52:1**   |
+| ...of which local PC                    | ~46 kWh    |
+| **Ratio (holistic)**                    | **31:1**   |
 
-> The entire AI-assisted dev period consumed about **106 hours' worth of gaming energy** on this rig. The datacenter portion alone was just ~7.2 kWh -- equivalent to about 20 hours of gaming. Valheim alone consumed roughly 7 times more energy than all AI-assisted development combined.
+> The entire AI-assisted dev period consumed about **136 hours' worth of gaming energy** on this rig. The datacenter portion alone was just ~7.2 kWh -- equivalent to about 18 hours of gaming. Valheim alone consumed roughly 5 times more energy than all AI-assisted development combined.
 
 ## The Drop-Off
 
