@@ -52,7 +52,9 @@ if (Array.isArray(tracking)) {
     migrated[slug] = { uri: null, cid: null };
   }
   tracking = migrated;
-  writeFileSync(TRACKING_FILE, JSON.stringify(tracking, null, 2) + '\n');
+  if (!dryRun) {
+    writeFileSync(TRACKING_FILE, JSON.stringify(tracking, null, 2) + '\n');
+  }
   console.log('Migrated tracking file from array to object format.');
 }
 
@@ -111,7 +113,7 @@ async function resolveParent(slug) {
 
   if (match) {
     const resolved = { uri: match.post.uri, cid: match.post.cid };
-    if (slug in tracking) tracking[slug] = resolved;
+    tracking[slug] = resolved;
     console.log(`Resolved parent: ${resolved.uri}`);
     return resolved;
   }
