@@ -32,8 +32,8 @@ function stripMarkdown(md) {
     .trim();
 }
 
-function buildOgBlock({ title, description, url, type = 'website' }) {
-  return [
+function buildOgBlock({ title, description, url, type = 'website', image, imageWidth, imageHeight, video, videoWidth, videoHeight }) {
+  const lines = [
     `<title>${escapeHtml(title)} - Sam Marsh</title>`,
     `<meta property="og:title" content="${escapeAttr(title)}" />`,
     `<meta property="og:description" content="${escapeAttr(description)}" />`,
@@ -41,7 +41,19 @@ function buildOgBlock({ title, description, url, type = 'website' }) {
     `<meta property="og:type" content="${type}" />`,
     `<meta property="og:site_name" content="Sam Marsh" />`,
     `<meta name="description" content="${escapeAttr(description)}" />`,
-  ].join('\n    ');
+  ];
+  if (image) {
+    lines.push(`<meta property="og:image" content="${escapeAttr(image)}" />`);
+    if (imageWidth) lines.push(`<meta property="og:image:width" content="${imageWidth}" />`);
+    if (imageHeight) lines.push(`<meta property="og:image:height" content="${imageHeight}" />`);
+  }
+  if (video) {
+    lines.push(`<meta property="og:video" content="${escapeAttr(video)}" />`);
+    lines.push(`<meta property="og:video:type" content="video/mp4" />`);
+    if (videoWidth) lines.push(`<meta property="og:video:width" content="${videoWidth}" />`);
+    if (videoHeight) lines.push(`<meta property="og:video:height" content="${videoHeight}" />`);
+  }
+  return lines.join('\n    ');
 }
 
 function writePage(path, ogBlock) {
@@ -156,3 +168,27 @@ for (const file of postFiles) {
 }
 
 console.log(`Generated OG pages for ${postCount} blog post(s).`);
+
+// --- GIF tag pages ---
+
+const COLLAGE_TAGS = [
+  { tag: 'Cloudward Ho', slug: 'cloudward-ho' },
+  { tag: 'Game Changer', slug: 'game-changer' },
+  { tag: 'One Piece', slug: 'one-piece' },
+];
+
+for (const { tag, slug } of COLLAGE_TAGS) {
+  writePage(`projects/gifs/tag/${slug}`, buildOgBlock({
+    title: `${tag} GIFs`,
+    description: `A collection of ${tag} GIFs.`,
+    url: `${siteUrl}/projects/gifs/tag/${slug}/`,
+    image: `${siteUrl}/og-collages/${slug}.jpg`,
+    imageWidth: 1200,
+    imageHeight: 630,
+    video: `${siteUrl}/og-videos/${slug}.mp4`,
+    videoWidth: 1200,
+    videoHeight: 630,
+  }));
+}
+
+console.log(`Generated OG pages for ${COLLAGE_TAGS.length} GIF tag(s).`);

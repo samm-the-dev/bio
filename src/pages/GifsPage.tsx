@@ -1,4 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { PageHeader } from '@/components/PageHeader';
 import { SearchInput } from '@/components/SearchInput';
 import { TagFilter } from '@/components/TagFilter';
@@ -25,6 +26,15 @@ function shuffle<T>(arr: T[]): T[] {
 
 const getGifTags = (g: Gif) => g.tags;
 const gifTags = collectTags(gifs, getGifTags);
+const tagSlugMap = new Map(
+  gifTags.map((t) => [
+    t
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, ''),
+    t,
+  ]),
+);
 
 /**
  * Always shows the animated GIF when near the viewport.
@@ -68,10 +78,12 @@ function LazyGifCard({ gif, onClick }: { gif: Gif; onClick: () => void }) {
 }
 
 export function GifsPage() {
-  useDocumentTitle('GIFs');
+  const { tagSlug } = useParams<{ tagSlug?: string }>();
+  const initialTag = tagSlug ? (tagSlugMap.get(tagSlug) ?? null) : null;
+  useDocumentTitle(initialTag ? `${initialTag} GIFs` : 'GIFs');
   const modal = useModalState<Gif>();
   const [search, setSearch] = useState('');
-  const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [activeTag, setActiveTag] = useState<string | null>(initialTag);
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
   const sentinelRef = useRef<HTMLDivElement>(null);
 
