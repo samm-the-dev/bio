@@ -8,7 +8,7 @@
  *
  * Usage:
  *   npm run gen-videos
- *   npm run gen-videos -- --tag "One Piece"
+ *   npm run gen-videos -- --tag "One Piece (Netflix)"
  */
 import { readFileSync, mkdirSync } from 'fs';
 import { spawn } from 'child_process';
