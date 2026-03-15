@@ -8,7 +8,7 @@
  *
  * Usage:
  *   npm run gen-videos
- *   npm run gen-videos -- --tag "One Piece"
+ *   npm run gen-videos -- --tag "One Piece (Netflix)"
  */
 import { readFileSync, mkdirSync } from 'fs';
 import { spawn } from 'child_process';
@@ -37,8 +37,8 @@ const VIDEO_TAGS = [
     ],
   },
   {
-    tag: 'One Piece',
-    slug: 'one-piece',
+    tag: 'One Piece (Netflix)',
+    slug: 'one-piece-netflix',
     rows: [
       ['ep01-ill-be-the-hero', 'ep02-where-are-my-freaks'],
       ['ep04-didnt-plan-for-that', 'ep06-whos-hungry', 'ep08-feel-what-you-need-to-feel'],

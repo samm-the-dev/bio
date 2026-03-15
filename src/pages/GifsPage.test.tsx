@@ -1,11 +1,16 @@
-import { screen } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import { Route, Routes, MemoryRouter } from 'react-router-dom';
+import { Route, Routes, MemoryRouter, useLocation } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import { mockGifs } from '@/test/mock-data';
 import { GifsPage } from './GifsPage';
 
 vi.mock('@/data/gifs', () => ({ gifs: mockGifs }));
+
+function LocationProbe() {
+  const location = useLocation();
+  return <div data-testid="location-path">{location.pathname}</div>;
+}
 
 function renderGifsRoute(route: string) {
   return render(
@@ -14,6 +19,7 @@ function renderGifsRoute(route: string) {
         <Route path="/projects/gifs" element={<GifsPage key="all" />} />
         <Route path="/projects/gifs/tag/:tagSlug" element={<GifsPage key="tag" />} />
       </Routes>
+      <LocationProbe />
     </MemoryRouter>,
   );
 }
@@ -31,16 +37,21 @@ describe('GifsPage', () => {
 
   it('shows tag filter buttons', () => {
     renderGifsRoute('/projects/gifs');
-    // Mock data has tags: Dropout, Game Changer, Movies & TV
     expect(screen.getByRole('button', { name: 'Game Changer' })).toBeInTheDocument();
   });
 
-  it('pre-selects tag from URL param on tag route', () => {
+  it('updates URL when a tag is selected', () => {
+    renderGifsRoute('/projects/gifs');
+    fireEvent.click(screen.getByRole('button', { name: 'Game Changer' }));
+    expect(screen.getByTestId('location-path')).toHaveTextContent(
+      '/projects/gifs/tag/game-changer',
+    );
+  });
+
+  it('returns URL to base when tag is deselected', () => {
     renderGifsRoute('/projects/gifs/tag/game-changer');
-    // When tag is pre-selected, heading includes the tag name
-    const heading = screen.getByRole('heading', { level: 1 });
-    // If tagSlugMap resolves, heading is "Game Changer GIFs"; otherwise "GIFs"
-    // Either way the page should render without errors
-    expect(heading).toBeInTheDocument();
+    // Click the active tag to deselect it
+    fireEvent.click(screen.getByRole('button', { name: 'Game Changer' }));
+    expect(screen.getByTestId('location-path')).toHaveTextContent('/projects/gifs');
   });
 });
