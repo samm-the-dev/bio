@@ -3,6 +3,37 @@ import react from '@vitejs/plugin-react';
 import mkcert from 'vite-plugin-mkcert';
 import { exec } from 'child_process';
 import path from 'path';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
+
+function gifInfo(): Plugin {
+  return {
+    name: 'gif-info',
+    apply: 'serve',
+    configureServer(server) {
+      server.middlewares.use('/__gif-info', async (req, res) => {
+        const sharp = require('sharp');
+        const url = new URL(req.url!, 'http://localhost');
+        const src = url.searchParams.get('src');
+        if (!src) {
+          res.statusCode = 400;
+          res.end('missing src');
+          return;
+        }
+        const localPath = path.join(__dirname, 'public', src);
+        try {
+          const meta = await sharp(localPath, { animated: true }).metadata();
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({ frameCount: meta.pages ?? 1 }));
+        } catch {
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({ frameCount: 1 }));
+        }
+      });
+    },
+  };
+}
 
 function contentHmr(): Plugin {
   return {
@@ -27,7 +58,7 @@ function contentHmr(): Plugin {
 
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
-  plugins: [react(), mkcert(), contentHmr()],
+  plugins: [react(), mkcert(), contentHmr(), gifInfo()],
   base: command === 'build' ? '/' : '/',
   resolve: {
     alias: {
