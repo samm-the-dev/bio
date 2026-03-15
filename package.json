@@ -19,8 +19,6 @@
     "audit:a11y": "node scripts/audit-a11y.mjs",
     "new-post": "node scripts/new-post.mjs",
     "sync-gifs": "node scripts/sync-gifs.mjs",
-    "gen-collages": "node scripts/generate-gif-collages.mjs",
-    "pick-frames": "node scripts/pick-subtitle-frames.mjs",
     "gen-videos": "node scripts/generate-og-videos.mjs"
   },
   "dependencies": {
@@ -65,7 +63,6 @@
     "sharp": "^0.34.5",
     "shiki": "^4.0.1",
     "tailwindcss": "^3.4.19",
-    "tesseract.js": "^7.0.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",
