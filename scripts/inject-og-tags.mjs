@@ -174,7 +174,7 @@ console.log(`Generated OG pages for ${postCount} blog post(s).`);
 const COLLAGE_TAGS = [
   { tag: 'Cloudward Ho', slug: 'cloudward-ho' },
   { tag: 'Game Changer', slug: 'game-changer' },
-  { tag: 'One Piece', slug: 'one-piece' },
+  { tag: 'One Piece (Netflix)', slug: 'one-piece-netflix' },
 ];
 
 for (const { tag, slug } of COLLAGE_TAGS) {

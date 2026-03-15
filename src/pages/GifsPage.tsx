@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { PageHeader } from '@/components/PageHeader';
 import { SearchInput } from '@/components/SearchInput';
 import { TagFilter } from '@/components/TagFilter';
@@ -26,15 +26,14 @@ function shuffle<T>(arr: T[]): T[] {
 
 const getGifTags = (g: Gif) => g.tags;
 const gifTags = collectTags(gifs, getGifTags);
-const tagSlugMap = new Map(
-  gifTags.map((t) => [
-    t
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-|-$/g, ''),
-    t,
-  ]),
-);
+function toSlug(tag: string) {
+  return tag
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+const tagSlugMap = new Map(gifTags.map((t) => [toSlug(t), t]));
 
 /**
  * Always shows the animated GIF when near the viewport.
@@ -79,11 +78,27 @@ function LazyGifCard({ gif, onClick }: { gif: Gif; onClick: () => void }) {
 
 export function GifsPage() {
   const { tagSlug } = useParams<{ tagSlug?: string }>();
-  const initialTag = tagSlug ? (tagSlugMap.get(tagSlug) ?? null) : null;
-  useDocumentTitle(initialTag ? `${initialTag} GIFs` : 'GIFs');
+  const urlTag = tagSlug ? (tagSlugMap.get(tagSlug) ?? null) : null;
+  useDocumentTitle(urlTag ? `${urlTag} GIFs` : 'GIFs');
+  const navigate = useNavigate();
   const modal = useModalState<Gif>();
   const [search, setSearch] = useState('');
-  const [activeTag, setActiveTag] = useState<string | null>(initialTag);
+  const [activeTag, setActiveTag] = useState<string | null>(urlTag);
+
+  // Sync activeTag when URL param changes (navigating between tag routes)
+  useEffect(() => {
+    setActiveTag(urlTag);
+  }, [urlTag]);
+
+  // Update URL when tag filter is toggled
+  const handleTagChange = (tag: string | null) => {
+    setActiveTag(tag);
+    if (tag) {
+      navigate(`/projects/gifs/tag/${toSlug(tag)}`, { replace: true });
+    } else {
+      navigate('/projects/gifs', { replace: true });
+    }
+  };
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
   const sentinelRef = useRef<HTMLDivElement>(null);
 
@@ -131,7 +146,7 @@ export function GifsPage() {
           tags={gifTags}
           activeTag={activeTag}
           onTagChange={(tag) => {
-            setActiveTag(tag);
+            handleTagChange(tag);
             setVisibleCount(BATCH_SIZE);
           }}
         />
