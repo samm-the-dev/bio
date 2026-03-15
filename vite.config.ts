@@ -16,12 +16,12 @@ function gifInfo(): Plugin {
         const sharp = require('sharp');
         const url = new URL(req.url!, 'http://localhost');
         const src = url.searchParams.get('src');
-        if (!src) {
+        if (!src || src.includes('..')) {
           res.statusCode = 400;
-          res.end('missing src');
+          res.end('invalid src');
           return;
         }
-        const localPath = path.join(__dirname, 'public', src);
+        const localPath = path.join(__dirname, 'public', src.replace(/^\/+/, ''));
         try {
           const meta = await sharp(localPath, { animated: true }).metadata();
           res.setHeader('Content-Type', 'application/json');
