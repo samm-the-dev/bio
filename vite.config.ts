@@ -16,7 +16,7 @@ function gifInfo(): Plugin {
         const sharp = require('sharp');
         const url = new URL(req.url!, 'http://localhost');
         const src = url.searchParams.get('src');
-        if (!src || src.includes('..')) {
+        if (!src || src.includes('..') || path.isAbsolute(src)) {
           res.statusCode = 400;
           res.end('invalid src');
           return;
