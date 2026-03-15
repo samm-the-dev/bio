@@ -60,6 +60,7 @@ interface TileProps {
 function CollageTile({ tile, onFrame, onRemove, onMove, focusMode }: TileProps) {
   const w = tileW(tile.gif);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- ImageDecoder is Chrome-only, no types
   const decoderRef = useRef<any>(null);
   const frameCountRef = useRef(1);
   const [frameCount, setFrameCount] = useState(1);
@@ -82,7 +83,6 @@ function CollageTile({ tile, onFrame, onRemove, onMove, focusMode }: TileProps) 
   // Load decoder when gif changes
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
     const initialFrame = tile.frameIndex;
 
     (async () => {
@@ -92,6 +92,7 @@ function CollageTile({ tile, onFrame, onRemove, onMove, focusMode }: TileProps) 
       ]);
       if (cancelled) return;
       const type = tile.gif.src.endsWith('.gif') ? 'image/gif' : 'image/webp';
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Chrome-only API
       const dec = new (window as any).ImageDecoder({ data: arrayBuf, type });
       await dec.completed;
       if (cancelled) return;
