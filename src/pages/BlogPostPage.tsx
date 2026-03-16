@@ -1,3 +1,4 @@
+import type { MouseEvent, KeyboardEvent } from 'react';
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
@@ -32,7 +33,7 @@ export function BlogPostPage() {
   }, []);
 
   const handleProseClick = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
+    (e: MouseEvent<HTMLDivElement>) => {
       const img = (e.target as HTMLElement).closest('img');
       if (img) {
         e.preventDefault();
@@ -43,7 +44,7 @@ export function BlogPostPage() {
   );
 
   const handleProseKeyDown = useCallback(
-    (e: React.KeyboardEvent<HTMLDivElement>) => {
+    (e: KeyboardEvent<HTMLDivElement>) => {
       if (e.key !== 'Enter' && e.key !== ' ') return;
       const img = (e.target as HTMLElement).closest('img');
       if (img) {

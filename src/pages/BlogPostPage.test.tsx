@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { describe, it, expect, vi } from 'vitest';
 import { BlogPostPage } from './BlogPostPage';
@@ -10,7 +10,7 @@ vi.mock('@/data/posts', () => ({
       slug: 'test-post',
       excerpt: 'A test excerpt.',
       publishedAt: '2026-01-15T12:00:00.000Z',
-      body: '<p>Hello world</p>',
+      body: '<p>Hello world</p><p><img src="/blog/test.png" alt="Test image" /></p>',
       tags: ['meta'],
       relatedProjects: [],
     },
@@ -70,5 +70,26 @@ describe('BlogPostPage', () => {
   it('does not render blockquote when excerpt is empty', () => {
     const { container } = renderPostPage('no-excerpt');
     expect(container.querySelector('blockquote')).not.toBeInTheDocument();
+  });
+
+  it('makes blog images keyboard-accessible', () => {
+    const { container } = renderPostPage('test-post');
+    const img = container.querySelector('.blog-prose img') as HTMLImageElement;
+    expect(img).toHaveAttribute('tabindex', '0');
+    expect(img).toHaveAttribute('role', 'button');
+  });
+
+  it('opens lightbox on image click', () => {
+    const { container } = renderPostPage('test-post');
+    const img = container.querySelector('.blog-prose img') as HTMLImageElement;
+    fireEvent.click(img);
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+  });
+
+  it('opens lightbox on Enter key', () => {
+    const { container } = renderPostPage('test-post');
+    const img = container.querySelector('.blog-prose img') as HTMLImageElement;
+    fireEvent.keyDown(img, { key: 'Enter' });
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 });
