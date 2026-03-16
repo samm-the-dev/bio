@@ -81,6 +81,7 @@ const projectSections = (projectsFile.sections || []).map((s) => ({
 const projects = (projectsFile.projects || []).map((p) => ({
   ...p,
   description: renderMarkdown(p.description),
+  descUpdated: p.descUpdated || null,
 }));
 
 // --- GIFs ---

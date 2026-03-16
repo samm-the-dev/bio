@@ -29,6 +29,7 @@ export interface Project {
   slug: string;
   category: 'web-app' | 'code' | 'ttrpg';
   description: string;
+  descUpdated: string | null;
   tech: string[] | null;
   link: string | null;
   repo: string | null;

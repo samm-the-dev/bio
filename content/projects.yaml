@@ -4,10 +4,7 @@ sections:
     metaDescription: "All the GIFs I've made from various movies and shows."
     description: |
       For a while I was obsessively making GIFs, mostly from [Dropout](https://www.dropout.tv/) shows, but also from movies and other shows I love.
-      I've since slowed down quite a bit, but I'm generally open to requests.
-
-      The vast majority of what I've made is also uploaded to [Tenor](https://tenor.com/users/smarshian) and [Klipy](https://klipy.com/profile/sammthehuman/uploads).
-      The tagging is better there, hah.
+      I've since slowed down quite a bit, but I'm generally open to requests as long as you include a rough timestamp and dialogue sample or action description.
   - key: web-app
     label: Web Apps
     description: ""
@@ -22,12 +19,18 @@ projects:
   - name: Ohm
     slug: ohm
     category: web-app
+    descUpdated: "2026-03-16"
     description: |
       A [personal kanban](https://personalkanban.com/learn/personal-kanban/) app developed using ADHD research.
-      It features optional Google Drive integration for storage/backup, as well as restore points and export/import functionality.
 
       I have some ideas for turning this into a coordinator for various specific task/habit apps.
       Let me know if you're using it and/or interested in testing the larger ecosystem of apps I have in mind.
+
+      > PWA with offline support built on React 19 and Vite.
+      >
+      > - dnd-kit for drag-and-drop card management
+      > - localStorage with optional Google Drive sync via GCP Cloud Functions
+      > - ADHD-informed UX: energy capacity limits, 14-day aging indicators, completion rewards, and a welcome-back summary after time away
     tech: [PWA, React 19, TypeScript, Vite, Tailwind CSS, Google Drive API, GCP Cloud Functions]
     link: https://apps.samm-the.dev/ohm
     repo: https://github.com/samm-the-dev/ohm
@@ -35,11 +38,15 @@ projects:
   - name: Build-a-Jam
     slug: build-a-jam
     category: web-app
+    descUpdated: "2026-03-16"
     description: |
       A tool for selecting improv warm-ups and exercises based on tags like 'connection', 'structure', 'heightening', and more.
 
-      It features exercises from multiple sources (credited on the site), a session queue with timers, and fields for notes.
-      It also allows saving favorite exercises and sessions, session history, hiding exercises, and copying exercises.
+      > PWA built with React 19, shadcn/ui, and dnd-kit.
+      >
+      > - ~300+ exercises scraped from learnimprov.com and improwiki.com
+      > - Session queue with configurable timers and post-session notes
+      > - Favorites, session history, and custom exercise creation
     tech: [PWA, React 19, TypeScript, Vite, Tailwind CSS]
     link: https://build-a-jam.app/
     repo: https://github.com/samm-the-dev/build-a-jam
@@ -47,30 +54,63 @@ projects:
   - name: The Enchiridion
     slug: the-enchiridion
     category: web-app
+    descUpdated: "2026-03-16"
     description: |
-      An Adventure Time catalog with a multi-theme system (8 character themes).
+      An Adventure Time catalog and episode guide.
 
       AT is one of my favorite things on the planet, and for a while now I've wanted to build a proper episode guide.
       This project is meant to replace the fandom wiki (which is messy and rife with ads),
       and improve on it with transcript searching and other features.
 
       Stay tuned...
+
+      > React 19 SPA with 8 character-themed color schemes via CSS variables.
+      >
+      > - Full-text transcript search (powered by the Adventure Time Transcripts pipeline)
+      > - Structured episode metadata and guide
+      > - Automated a11y auditing via Playwright and axe-core
     tech: [React 19, TypeScript, Vite, Tailwind CSS, Playwright, axe-core]
     link: null
     repo: https://github.com/samm-the-dev/the-enchiridion
 
+  - name: Clip Forge
+    slug: clip-forge
+    category: code
+    descUpdated: "2026-03-16"
+    description: |
+      I'm a big reaction GIF guy.
+      I used to have moments in online/text conversations where I'd want to react with a specific moment from a show,
+      but I'd either be unable to find a GIF of it or what I would find would be low quality.
+
+      Now I make my own, and I've refined my process over the last year or two into an AI-assisted partially automated pipeline.
+      Check out my [GIFs](/gifs) page to see everything I've made.
+
+      > Python CLI pipeline for extracting movie/show moments into subtitle-burned animated WebPs.
+      >
+      > - Parses clip notes, extracts and caches subtitles via FFmpeg
+      > - Fuzzy-searches dialogue to find timestamps, rough-cuts with configurable padding
+      > - Imports into DaVinci Resolve via scripting API with subtitle tracks and WebP render settings preconfigured
+      > - OBS WebSocket integration for interactive capture from streaming services
+    tech: [Python, FFmpeg, DaVinci Resolve Scripting API]
+    link: null
+    repo: https://github.com/samm-the-dev/clip-forge
+
   - name: Adventure Time Transcripts
     slug: adventure-time-transcripts
     category: code
+    descUpdated: "2026-03-16"
     description: |
-      A speaker diarization pipeline which generates voice profiles from audio samples,
-      then uses them in conjunction with Claude Vision to validate and generate transcripts.
-
       This was based on a repository of transcripts that I believe was scraped from the fan wiki.
       I wanted to fill out the catalog of transcripts, get them into a consistent format, and use them for The Enchiridion.
 
       This is easily the most technically complex solo project I've done, and I'm still working on it.
       Once it's done, I plan to make it generic for use with any show.
+
+      > Speaker diarization pipeline using whisperX with GPU acceleration, ECAPA-TDNN voice embeddings, and Claude Vision API for speaker identification.
+      >
+      > - Processes 315 episodes across main series, Distant Lands, and Fionna and Cake
+      > - Fills gaps from SRT/SDH subtitles and Blu-ray PGS bitmap OCR via Tesseract
+      > - Runs in Docker with optional CUDA support
     tech: [Python, Claude Vision API, ffmpeg, Docker, CUDA]
     link: null
     repo: https://github.com/samm-the-dev/adventuretime-transcripts
@@ -78,12 +118,17 @@ projects:
   - name: Toolbox
     slug: toolbox
     category: code
+    descUpdated: "2026-03-16"
     description: |
-      A shared library of templates, utilities, and AI context files for my projects, distributed via Git submodule.
+      A repository of tooling that's generally useful across three or more of my projects.
 
-      Includes Google Drive sync libraries, GCP auth infrastructure, a reusable Claude Code GitHub Actions workflow
-      (on-demand @claude mentions, adversarial auto-review, and Copilot response modes),
-      and a share utility with Web Share API and clipboard fallback.
+      > Git submodule (`.toolbox/`) shared across all projects.
+      >
+      > - Cross-tool AI context files (AGENTS.md, CLAUDE.md) and Copilot instructions
+      > - Claude Code hooks: guardrails, session lifecycle, desktop notifications
+      > - Reusable GitHub Actions workflow for Claude Code (on-demand review, adversarial auto-review, Copilot response)
+      > - Google Drive sync libraries and GCP OAuth helpers
+      > - Share utility with Web Share API and clipboard fallback
     tech: [Claude AI, Google OAuth, GCP Cloud Functions, React, Vite, TypeScript, GitHub Actions]
     link: null
     repo: https://github.com/samm-the-dev/toolbox
@@ -91,6 +136,7 @@ projects:
   - name: "Cartifex"
     slug: cartifex
     category: ttrpg
+    descUpdated: "2026-03-16"
     description: |
       A Pathfinder 2e character builder.
       [Pathbuilder](https://pathbuilder2e.com/) is the gold standard, but I think I can improve the UX a bit, particularly the data sync.
@@ -102,9 +148,10 @@ projects:
   - name: "PF2e Lite"
     slug: pf2e-lite
     category: ttrpg
+    descUpdated: "2026-03-16"
     description: |
       With this project I'm trying to pare down and simplify Pathfinder 2e, as well as rework downtime and exploration.
-      At the moment I'm picturing it as a browser extension that modifies [Archives of Nethys](https://2e.aonprd.com/) 
+      At the moment I'm picturing it as a browser extension that modifies [Archives of Nethys](https://2e.aonprd.com/)
       and a character builder, but I'm still in early design.
     tech: null
     link: null
@@ -113,6 +160,7 @@ projects:
   - name: "Aether RPG"
     slug: aether-rpg
     category: ttrpg
+    descUpdated: "2026-03-16"
     description: |
       This is a TTRPG project where I'm trying to design both lore and mechanics from scratch, borrowing from PF2e mechanics along the way.
       Right now I just have some lore ideas sketched out, and it'll share some mechanics with my PF2e Lite project.

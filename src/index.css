@@ -131,6 +131,31 @@
   .prose > p strong {
     text-decoration: underline;
   }
+  /* Blog images: clipped preview with fade, click to expand in lightbox */
+  .blog-prose p:has(> img) {
+    position: relative;
+    max-height: 20rem;
+    overflow: hidden;
+    border-radius: 0.375rem;
+  }
+  .blog-prose p:has(> img)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4rem;
+    background: linear-gradient(to bottom, transparent, hsl(var(--background)));
+    pointer-events: none;
+  }
+  .blog-prose img {
+    width: 100%;
+    cursor: zoom-in;
+    transition: opacity 0.15s;
+  }
+  .blog-prose img:hover {
+    opacity: 0.85;
+  }
   .prose blockquote {
     font-style: normal;
   }
@@ -164,5 +189,43 @@
   .prose ul,
   .prose ol {
     padding-left: 2em;
+  }
+  /* Tighter spacing in project dialog descriptions */
+  .project-desc p {
+    margin-top: 0.5rem;
+  }
+  .project-desc > p:first-child {
+    margin-top: 0;
+  }
+  .project-desc blockquote {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  .project-desc blockquote::before {
+    content: 'Technical details';
+    display: block;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: hsl(var(--muted-foreground));
+    margin-bottom: 0.25rem;
+  }
+  .project-desc blockquote p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .project-desc blockquote ul,
+  .project-desc blockquote ol {
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+    padding-left: 1.25em;
+  }
+  .project-desc blockquote li {
+    margin-top: 0.125rem;
+    margin-bottom: 0.125rem;
+    color: hsl(var(--muted-foreground));
   }
 }

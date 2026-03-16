@@ -15,6 +15,16 @@ vi.mock('@/data/projects', () => ({
   projectSections: mockProjectSections,
 }));
 vi.mock('@/data/gifs', () => ({ gifs: mockGifs }));
+vi.mock('@/data/posts', () => ({
+  posts: [
+    {
+      title: 'Test App Blog Post',
+      slug: 'test-app-post',
+      publishedAt: '2026-01-15T12:00:00.000Z',
+      relatedProjects: [{ name: 'Test App', slug: 'test-app' }],
+    },
+  ],
+}));
 
 describe('ProjectsPage', () => {
   it('renders the main heading', () => {
@@ -60,6 +70,17 @@ describe('ProjectsPage', () => {
     renderWithRouter(<ProjectsPage />, { route: '/projects#test-app' });
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByRole('dialog')).toHaveAccessibleName('Test App');
+  });
+
+  it('shows description updated date in dialog when set', () => {
+    renderWithRouter(<ProjectsPage />, { route: '/projects#test-app' });
+    expect(screen.getByText(/Description updated March 2026/)).toBeInTheDocument();
+  });
+
+  it('shows related blog posts in dialog', () => {
+    renderWithRouter(<ProjectsPage />, { route: '/projects#test-app' });
+    expect(screen.getByText('Test App Blog Post')).toBeInTheDocument();
+    expect(screen.getByText(/Related post/)).toBeInTheDocument();
   });
 
   it('closes dialog and clears hash on close button click', () => {

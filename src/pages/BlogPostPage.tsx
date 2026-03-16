@@ -1,14 +1,59 @@
+import type { MouseEvent, KeyboardEvent } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { ImageLightbox } from '@/components/ImageLightbox';
 import { posts } from '@/data/posts';
 import { formatDate } from '@/lib/formatDate';
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = posts.find((p) => p.slug === slug);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   useDocumentTitle(post?.title);
+
+  const proseRef = useRef<HTMLDivElement>(null);
+
+  // Make blog images keyboard-accessible for lightbox
+  useEffect(() => {
+    const container = proseRef.current;
+    if (!container) return;
+    container.querySelectorAll('img').forEach((img) => {
+      img.tabIndex = 0;
+      img.role = 'button';
+      img.ariaLabel = (img.alt || 'Image') + ' (click to expand)';
+    });
+  }, [post?.slug]);
+
+  // Delegate clicks/keyboard on images inside the prose container to open lightbox
+  const openLightbox = useCallback((el: HTMLImageElement) => {
+    setLightbox({ src: el.src, alt: el.alt || '' });
+  }, []);
+
+  const handleProseClick = useCallback(
+    (e: MouseEvent<HTMLDivElement>) => {
+      const img = (e.target as HTMLElement).closest('img');
+      if (img) {
+        e.preventDefault();
+        openLightbox(img);
+      }
+    },
+    [openLightbox],
+  );
+
+  const handleProseKeyDown = useCallback(
+    (e: KeyboardEvent<HTMLDivElement>) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const img = (e.target as HTMLElement).closest('img');
+      if (img) {
+        e.preventDefault();
+        openLightbox(img);
+      }
+    },
+    [openLightbox],
+  );
 
   if (!post) return <Navigate to="/blog" replace />;
 
@@ -70,10 +115,16 @@ export function BlogPostPage() {
         )}
       </header>
 
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions -- delegates to child img elements enhanced with role="button" */}
       <div
-        className="prose max-w-none dark:prose-invert prose-headings:mb-2 prose-headings:mt-6 prose-headings:font-semibold prose-headings:text-foreground prose-p:my-3 prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary-hover prose-blockquote:my-3 prose-blockquote:border-border prose-blockquote:text-muted-foreground prose-strong:text-foreground prose-code:text-foreground prose-pre:my-3 prose-ol:my-2 prose-ul:my-2 prose-li:my-0 prose-li:text-muted-foreground prose-hr:my-4"
+        ref={proseRef}
+        className="blog-prose prose max-w-none dark:prose-invert prose-headings:mb-2 prose-headings:mt-6 prose-headings:font-semibold prose-headings:text-foreground prose-p:my-3 prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary-hover prose-blockquote:my-3 prose-blockquote:border-border prose-blockquote:text-muted-foreground prose-strong:text-foreground prose-code:text-foreground prose-pre:my-3 prose-ol:my-2 prose-ul:my-2 prose-li:my-0 prose-li:text-muted-foreground prose-hr:my-4"
+        onClick={handleProseClick}
+        onKeyDown={handleProseKeyDown}
         dangerouslySetInnerHTML={{ __html: post.body }}
       />
+
+      {lightbox && <ImageLightbox images={[lightbox]} onClose={() => setLightbox(null)} />}
 
       {post.relatedProjects && post.relatedProjects.length > 0 && (
         <aside className="mt-8 rounded-lg border border-border bg-card p-4 text-sm">
