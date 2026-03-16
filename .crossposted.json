@@ -22,5 +22,9 @@
   "where-does-the-water-go": {
     "uri": "at://did:plc:b6qlc4j47d2iyj46tl6igiuu/app.bsky.feed.post/3mgytuk4hqb2m",
     "cid": "bafyreiazlklvvbw4p6gc25y4pj7fnimtm5x5rgjmz45cojz3p3ejufv76y"
+  },
+  "building-clip-forge": {
+    "uri": "at://did:plc:b6qlc4j47d2iyj46tl6igiuu/app.bsky.feed.post/3mh7btt3mdr2e",
+    "cid": "bafyreicv3f2yiigoop6dc437osqqyg5uswfneyhiqghnykpn7pn3re6pr4"
   }
 }
