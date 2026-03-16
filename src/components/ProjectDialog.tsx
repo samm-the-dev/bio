@@ -1,7 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { X, Share2 } from 'lucide-react';
 import { ProjectLinks } from './ProjectCard';
 import type { Project } from '@/lib/queries';
+import { posts } from '@/data/posts';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { shareUrl } from '@/lib/share';
 import { useSwipeToDismiss } from '@/hooks/useSwipeToDismiss';
@@ -12,6 +14,10 @@ interface ProjectDialogProps {
 }
 
 export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
+  const relatedPosts = useMemo(
+    () => posts.filter((p) => p.relatedProjects?.some((rp) => rp.slug === project.slug)),
+    [project.slug],
+  );
   const trapRef = useFocusTrap<HTMLDivElement>();
   const backdropRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -105,6 +111,23 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
         />
         {project.tech && project.tech.length > 0 && (
           <p className="mt-4 text-xs text-muted-foreground">{project.tech.join(' \u00B7 ')}</p>
+        )}
+        {relatedPosts.length > 0 && (
+          <p className="mt-4 text-xs text-muted-foreground">
+            Related {relatedPosts.length === 1 ? 'post' : 'posts'}:{' '}
+            {relatedPosts.map((rp, i) => (
+              <span key={rp.slug}>
+                {i > 0 && ', '}
+                <Link
+                  to={`/blog/${rp.slug}`}
+                  className="font-medium text-primary hover:text-primary-hover"
+                  onClick={onClose}
+                >
+                  {rp.title}
+                </Link>
+              </span>
+            ))}
+          </p>
         )}
         {project.descUpdated && (
           <p className="mt-2 text-xs text-muted-foreground/60">

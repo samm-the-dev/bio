@@ -1,7 +1,7 @@
 ---
 title: 'Making Reaction GIFs with Claude'
 slug: building-clip-forge
-publishedAt: 2026-03-16T14:33:48-05:00
+publishedAt: 2026-03-16T14:44:40-05:00
 excerpt: 'Building an AI-assisted CLI pipeline to make movie/show reaction GIFs. Subtitle extraction, FFmpeg cutting, DaVinci Resolve via scripting API, and more.'
 tags:
   - code
@@ -26,8 +26,11 @@ That worked well enough for a bit, but I wanted to make it better. I eventually 
 
 I continued to refine my process and developed some decent editing skills, including some nicer effects for moving subtitles and graphic overlays. I got to be pretty fast with this workflow, but I knew there was potential to make it even faster.
 
-Now, with Claude, I can just take a screenshot of my rough notes in Google Keep and pipe that through to a DaVinci Resolve timeline where I still hand-edit the clips and set up subtitle styling.
-It's not _perfect_, but it's even faster than before, and it's easy enough to revise the rough clip cuts with Claude. Once I'm done editing I have Claude run the export via DaVinci Resolve API and it produces an animated WebP file for each clip with subtitles burned in. I then sync the new files to this site.
+Now, with Claude, I can just take a screenshot of my rough notes in Google Keep and pipe that through to a DaVinci Resolve timeline where I still hand-edit the clips and set up subtitle styling. Here's what those notes look like:
+
+![Clip notes in Google Keep](/blog/clip-forge-keep-notes.png)
+
+It's not _perfect_, but it's even faster than before, and it's easy enough to revise the rough clip cuts with Claude. Once I'm done editing, I have Claude run the export via DaVinci Resolve API and it produces an animated WebP file for each clip with subtitles burned in. I then sync the new files to this site.
 
 Take a look at all the GIFs I've made [here](/projects/gifs).
 

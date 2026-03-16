@@ -1,14 +1,26 @@
+import { useState, useCallback } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+import { ImageLightbox } from '@/components/ImageLightbox';
 import { posts } from '@/data/posts';
 import { formatDate } from '@/lib/formatDate';
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = posts.find((p) => p.slug === slug);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
   useDocumentTitle(post?.title);
+
+  // Delegate clicks on images inside the prose container to open lightbox
+  const handleProseClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const img = (e.target as HTMLElement).closest('img');
+    if (img) {
+      e.preventDefault();
+      setLightbox({ src: img.src, alt: img.alt || '' });
+    }
+  }, []);
 
   if (!post) return <Navigate to="/blog" replace />;
 
@@ -70,10 +82,14 @@ export function BlogPostPage() {
         )}
       </header>
 
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- keyboard handled by lightbox */}
       <div
-        className="prose max-w-none dark:prose-invert prose-headings:mb-2 prose-headings:mt-6 prose-headings:font-semibold prose-headings:text-foreground prose-p:my-3 prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary-hover prose-blockquote:my-3 prose-blockquote:border-border prose-blockquote:text-muted-foreground prose-strong:text-foreground prose-code:text-foreground prose-pre:my-3 prose-ol:my-2 prose-ul:my-2 prose-li:my-0 prose-li:text-muted-foreground prose-hr:my-4"
+        className="blog-prose prose max-w-none dark:prose-invert prose-headings:mb-2 prose-headings:mt-6 prose-headings:font-semibold prose-headings:text-foreground prose-p:my-3 prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary-hover prose-blockquote:my-3 prose-blockquote:border-border prose-blockquote:text-muted-foreground prose-strong:text-foreground prose-code:text-foreground prose-pre:my-3 prose-ol:my-2 prose-ul:my-2 prose-li:my-0 prose-li:text-muted-foreground prose-hr:my-4"
+        onClick={handleProseClick}
         dangerouslySetInnerHTML={{ __html: post.body }}
       />
+
+      {lightbox && <ImageLightbox images={[lightbox]} onClose={() => setLightbox(null)} />}
 
       {post.relatedProjects && post.relatedProjects.length > 0 && (
         <aside className="mt-8 rounded-lg border border-border bg-card p-4 text-sm">
