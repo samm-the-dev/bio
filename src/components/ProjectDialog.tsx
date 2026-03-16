@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { X, Share2 } from 'lucide-react';
-import { RichText } from './RichText';
 import { ProjectLinks } from './ProjectCard';
 import type { Project } from '@/lib/queries';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
@@ -100,11 +99,21 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
         <div className="mt-2">
           <ProjectLinks project={project} />
         </div>
-        <div className="mt-3 text-sm">
-          <RichText html={project.description} />
-        </div>
+        <div
+          className="project-desc prose prose-sm mt-3 dark:prose-invert"
+          dangerouslySetInnerHTML={{ __html: project.description }}
+        />
         {project.tech && project.tech.length > 0 && (
           <p className="mt-4 text-xs text-muted-foreground">{project.tech.join(' \u00B7 ')}</p>
+        )}
+        {project.descUpdated && (
+          <p className="mt-2 text-xs text-muted-foreground/60">
+            Description updated{' '}
+            {new Date(project.descUpdated + 'T00:00:00').toLocaleDateString('en-US', {
+              month: 'long',
+              year: 'numeric',
+            })}
+          </p>
         )}
       </div>
     </div>

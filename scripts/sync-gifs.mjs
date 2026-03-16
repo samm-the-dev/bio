@@ -31,6 +31,8 @@ const TARGET = 'public/gifs';
 const FEATURED_DIR = join(TARGET, 'featured');
 /** Episode-like folder names to skip when deriving tags. */
 const EP_PATTERN = /^(ep\s*\d+|\d+(\.\d+)?)$/i;
+/** Season folder pattern — matched folders are stripped from tags but prefixed to slugs. */
+const SEASON_PATTERN = /^(?:s|season)\s*(\d+)$/i;
 
 /** Rename folder names to preferred display names. */
 const TAG_RENAMES = new Map([
@@ -60,16 +62,24 @@ function collectFiles(dir) {
 }
 
 /**
- * Derive tags from the path between the source folder and the file.
- * Always includes the source folder (e.g. "Dropout") plus any
- * non-episode subfolder names (e.g. "Gamechanger").
+ * Derive tags and an optional season slug prefix from the folder path.
+ * Takes the source folder (e.g. "Dropout") plus the first non-episode,
+ * non-season subfolder as a tag. Season folders (S1, S2, Season 2, etc.)
+ * are stripped from tags but returned as a slug prefix like "s2-".
  */
-function deriveTags(srcPath, srcDir, sourceFolder) {
+function deriveTagsAndSeason(srcPath, srcDir, sourceFolder) {
   const rel = relative(srcDir, srcPath);
   const parts = rel.split(sep).slice(0, -1); // drop filename
-  const subTags = parts.filter((p) => !EP_PATTERN.test(p));
-  const raw = [sourceFolder, ...subTags];
-  return raw.map((t) => TAG_RENAMES.get(t) || t);
+  const firstTag = parts.find((p) => !EP_PATTERN.test(p) && !SEASON_PATTERN.test(p));
+  const raw = firstTag ? [sourceFolder, firstTag] : [sourceFolder];
+  const tags = raw.map((t) => TAG_RENAMES.get(t) || t);
+
+  const seasonFolder = parts.find((p) => SEASON_PATTERN.test(p));
+  const seasonPrefix = seasonFolder
+    ? `s${seasonFolder.match(SEASON_PATTERN)[1]}-`
+    : '';
+
+  return { tags, seasonPrefix };
 }
 
 // Build set of featured filenames from the featured subfolder
@@ -108,17 +118,17 @@ for (const folder of SOURCES) {
     seenFiles.set(file, srcPath);
     copyFileSync(srcPath, join(TARGET, file));
 
-    // Deduplicate slugs
-    let slug = slugify(file);
+    const src = `/gifs/${file}`;
+    const { tags, seasonPrefix } = deriveTagsAndSeason(srcPath, srcDir, folder);
+
+    // Deduplicate slugs (season prefix keeps S1/S2 episodes distinct)
+    let slug = seasonPrefix + slugify(file);
     if (seenSlugs.has(slug)) {
       let i = 2;
       while (seenSlugs.has(`${slug}-${i}`)) i++;
       slug = `${slug}-${i}`;
     }
     seenSlugs.add(slug);
-
-    const src = `/gifs/${file}`;
-    const tags = deriveTags(srcPath, srcDir, folder);
 
     // Read dimensions via ImageMagick
     let width = 0;

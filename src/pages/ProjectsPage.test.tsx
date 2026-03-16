@@ -62,6 +62,11 @@ describe('ProjectsPage', () => {
     expect(screen.getByRole('dialog')).toHaveAccessibleName('Test App');
   });
 
+  it('shows description updated date in dialog when set', () => {
+    renderWithRouter(<ProjectsPage />, { route: '/projects#test-app' });
+    expect(screen.getByText(/Description updated March 2026/)).toBeInTheDocument();
+  });
+
   it('closes dialog and clears hash on close button click', () => {
     renderWithRouter(
       <>

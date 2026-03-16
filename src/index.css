@@ -165,4 +165,31 @@
   .prose ol {
     padding-left: 2em;
   }
+  /* Tighter spacing in project dialog descriptions */
+  .project-desc p {
+    margin-top: 0.5rem;
+  }
+  .project-desc > p:first-child {
+    margin-top: 0;
+  }
+  .project-desc blockquote {
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+  .project-desc blockquote p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .project-desc blockquote ul,
+  .project-desc blockquote ol {
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+    padding-left: 1.25em;
+  }
+  .project-desc blockquote li {
+    margin-top: 0.125rem;
+    margin-bottom: 0.125rem;
+  }
 }
