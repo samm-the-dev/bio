@@ -1,7 +1,7 @@
 ---
 title: 'Making Reaction GIFs with Claude'
 slug: building-clip-forge
-publishedAt: 2026-03-16T14:27:29-05:00
+publishedAt: 2026-03-16T14:33:48-05:00
 excerpt: 'Building an AI-assisted CLI pipeline to make movie/show reaction GIFs. Subtitle extraction, FFmpeg cutting, DaVinci Resolve via scripting API, and more.'
 tags:
   - code
@@ -15,14 +15,14 @@ relatedProjects:
 ---
 
 I'm a big reaction GIF guy.
-I used to have moments in online/text conversations where I'd want to react with a specific moment for a show,
+I used to have moments in online/text conversations where I'd want to react with a specific moment from a show,
 but I'd either be unable to find a GIF of it or what I would find would be low quality.
 
 Now I make my own, and I've automated about as much as I can in my workflow.
 
 I started making GIFs a couple of years back with a much more manual process. I used a desktop app that would record frames from a window and had limited editing and subtitling capability.
 
-That worked well enough for a bit, but I wanted to make it better. I eventually discovered [ezgif](https://ezgif.com/), which works quite well, and started capturing video with [OBS](https://obsproject.com/) and editing with [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve).
+That worked well enough for a bit, but I wanted to make it better. I eventually discovered [ezgif](https://ezgif.com/video-to-gif/), which works quite well, and started capturing video with [OBS](https://obsproject.com/) and editing with [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve).
 
 I continued to refine my process and developed some decent editing skills, including some nicer effects for moving subtitles and graphic overlays. I got to be pretty fast with this workflow, but I knew there was potential to make it even faster.
 
