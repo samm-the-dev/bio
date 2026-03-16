@@ -133,6 +133,7 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
           <p className="mt-2 text-xs text-muted-foreground/60">
             Description updated{' '}
             {new Date(project.descUpdated + 'T12:00:00Z').toLocaleDateString('en-US', {
+              timeZone: 'UTC',
               month: 'long',
               year: 'numeric',
             })}

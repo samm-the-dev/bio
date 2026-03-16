@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
@@ -13,14 +13,46 @@ export function BlogPostPage() {
 
   useDocumentTitle(post?.title);
 
-  // Delegate clicks on images inside the prose container to open lightbox
-  const handleProseClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const img = (e.target as HTMLElement).closest('img');
-    if (img) {
-      e.preventDefault();
-      setLightbox({ src: img.src, alt: img.alt || '' });
-    }
+  const proseRef = useRef<HTMLDivElement>(null);
+
+  // Make blog images keyboard-accessible for lightbox
+  useEffect(() => {
+    const container = proseRef.current;
+    if (!container) return;
+    container.querySelectorAll('img').forEach((img) => {
+      img.tabIndex = 0;
+      img.role = 'button';
+      img.ariaLabel = (img.alt || 'Image') + ' (click to expand)';
+    });
+  }, [post?.slug]);
+
+  // Delegate clicks/keyboard on images inside the prose container to open lightbox
+  const openLightbox = useCallback((el: HTMLImageElement) => {
+    setLightbox({ src: el.src, alt: el.alt || '' });
   }, []);
+
+  const handleProseClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const img = (e.target as HTMLElement).closest('img');
+      if (img) {
+        e.preventDefault();
+        openLightbox(img);
+      }
+    },
+    [openLightbox],
+  );
+
+  const handleProseKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const img = (e.target as HTMLElement).closest('img');
+      if (img) {
+        e.preventDefault();
+        openLightbox(img);
+      }
+    },
+    [openLightbox],
+  );
 
   if (!post) return <Navigate to="/blog" replace />;
 
@@ -82,10 +114,11 @@ export function BlogPostPage() {
         )}
       </header>
 
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions -- keyboard handled by lightbox */}
       <div
+        ref={proseRef}
         className="blog-prose prose max-w-none dark:prose-invert prose-headings:mb-2 prose-headings:mt-6 prose-headings:font-semibold prose-headings:text-foreground prose-p:my-3 prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary-hover prose-blockquote:my-3 prose-blockquote:border-border prose-blockquote:text-muted-foreground prose-strong:text-foreground prose-code:text-foreground prose-pre:my-3 prose-ol:my-2 prose-ul:my-2 prose-li:my-0 prose-li:text-muted-foreground prose-hr:my-4"
         onClick={handleProseClick}
+        onKeyDown={handleProseKeyDown}
         dangerouslySetInnerHTML={{ __html: post.body }}
       />
 
