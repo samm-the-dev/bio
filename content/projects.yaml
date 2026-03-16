@@ -106,7 +106,7 @@ projects:
       This is easily the most technically complex solo project I've done, and I'm still working on it.
       Once it's done, I plan to make it generic for use with any show.
 
-      > Speaker diarization pipeline using whisperX with GPU acceleration, ECAPA-TDNN voice embeddings, and OpenAI Vision API for speaker identification.
+      > Speaker diarization pipeline using whisperX with GPU acceleration, ECAPA-TDNN voice embeddings, and Claude Vision API for speaker identification.
       >
       > - Processes 315 episodes across main series, Distant Lands, and Fionna and Cake
       > - Fills gaps from SRT/SDH subtitles and Blu-ray PGS bitmap OCR via Tesseract

@@ -132,7 +132,7 @@ export function ProjectDialog({ project, onClose }: ProjectDialogProps) {
         {project.descUpdated && (
           <p className="mt-2 text-xs text-muted-foreground/60">
             Description updated{' '}
-            {new Date(project.descUpdated + 'T00:00:00').toLocaleDateString('en-US', {
+            {new Date(project.descUpdated + 'T12:00:00Z').toLocaleDateString('en-US', {
               month: 'long',
               year: 'numeric',
             })}

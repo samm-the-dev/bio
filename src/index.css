@@ -131,12 +131,25 @@
   .prose > p strong {
     text-decoration: underline;
   }
-  /* Blog images: clipped preview, click to expand */
-  .blog-prose img {
+  /* Blog images: clipped preview with fade, click to expand in lightbox */
+  .blog-prose p:has(> img) {
+    position: relative;
     max-height: 20rem;
-    object-fit: cover;
-    object-position: top;
+    overflow: hidden;
     border-radius: 0.375rem;
+  }
+  .blog-prose p:has(> img)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4rem;
+    background: linear-gradient(to bottom, transparent, hsl(var(--background)));
+    pointer-events: none;
+  }
+  .blog-prose img {
+    width: 100%;
     cursor: zoom-in;
     transition: opacity 0.15s;
   }
