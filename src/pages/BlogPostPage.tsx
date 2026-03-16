@@ -114,6 +114,7 @@ export function BlogPostPage() {
         )}
       </header>
 
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions -- delegates to child img elements enhanced with role="button" */}
       <div
         ref={proseRef}
         className="blog-prose prose max-w-none dark:prose-invert prose-headings:mb-2 prose-headings:mt-6 prose-headings:font-semibold prose-headings:text-foreground prose-p:my-3 prose-p:text-muted-foreground prose-a:text-primary hover:prose-a:text-primary-hover prose-blockquote:my-3 prose-blockquote:border-border prose-blockquote:text-muted-foreground prose-strong:text-foreground prose-code:text-foreground prose-pre:my-3 prose-ol:my-2 prose-ul:my-2 prose-li:my-0 prose-li:text-muted-foreground prose-hr:my-4"
