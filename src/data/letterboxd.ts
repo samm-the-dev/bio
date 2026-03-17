@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Project Hail Mary, 2026 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/project-hail-mary/',
+    publishedAt: '2026-03-17T02:48:59.000Z',
+    filmTitle: 'Project Hail Mary',
+    filmYear: '2026',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/6/1/1/2/8/8/611288-project-hail-mary-0-600-0-900-crop.jpg?v=1febfbff54',
+    reviewHtml:
+      '<p>Andy Weir writes love letters to tenacity and connection with idiosyncratic panache, and I just adore it.</p>',
+  },
+  {
     title: 'Hoppers, 2026 - ★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/hoppers/',
     publishedAt: '2026-03-07T04:48:48.000Z',
@@ -642,18 +656,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/0/7/9/4/3/3/1079433-rabbit-trap-2025-0-600-0-900-crop.jpg?v=c828b3532d',
     reviewHtml: null,
-  },
-  {
-    title: 'Highest 2 Lowest, 2025 - ★',
-    link: 'https://letterboxd.com/samm_loves_film/film/highest-2-lowest/',
-    publishedAt: '2025-11-23T01:46:51.000Z',
-    filmTitle: 'Highest 2 Lowest',
-    filmYear: '2025',
-    rating: '1.0',
-    isRewatch: false,
-    isLiked: false,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/1/2/5/0/3/1/1125031-highest-2-lowest-0-600-0-900-crop.jpg?v=4bac6efe11',
-    reviewHtml: '<p>boring, toothless movie by and about rich people</p>',
   },
 ];
