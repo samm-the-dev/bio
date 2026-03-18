@@ -12,7 +12,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isRewatch: false,
     isLiked: true,
     posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/6/1/1/2/8/8/611288-project-hail-mary-0-600-0-900-crop.jpg?v=1febfbff54',
+      'https://a.ltrbxd.com/resized/film-poster/6/1/1/2/8/8/611288-project-hail-mary-0-600-0-900-crop.jpg?v=ac31b6ec03',
     reviewHtml:
       '<p>Andy Weir writes love letters to tenacity and connection with idiosyncratic panache, and I just adore it.</p>',
   },
