@@ -31,7 +31,7 @@ function SectionHeading({ id, label }: { id: string; label: string }) {
       {label}
       <button
         onClick={() => shareUrl(`${window.location.origin}/projects#${id}`, label)}
-        className="ml-2 inline-flex align-middle text-muted-foreground opacity-0 transition-opacity hover:text-foreground group-hover:opacity-100"
+        className="ml-2 inline-flex align-middle text-muted-foreground transition-opacity hover:text-foreground sm:opacity-0 sm:group-hover:opacity-100"
         aria-label={`Copy link to ${label}`}
       >
         <LinkIcon className="h-4 w-4" />
