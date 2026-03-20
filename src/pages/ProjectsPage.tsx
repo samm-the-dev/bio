@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { LayoutGrid } from 'lucide-react';
+import { LayoutGrid, Link as LinkIcon } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { SearchInput } from '@/components/SearchInput';
 import { TagFilter } from '@/components/TagFilter';
@@ -12,6 +12,7 @@ import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { projects, projectSections } from '@/data/projects';
 import { gifs } from '@/data/gifs';
 import { collectTags, filterTagged } from '@/lib/tagged';
+import { shareUrl } from '@/lib/share';
 import type { Project } from '@/lib/queries';
 
 const projectsByCategory = new Map<string, Project[]>();
@@ -23,6 +24,21 @@ for (const p of projects) {
 
 const getProjectTags = (p: Project) => p.tech;
 const techTags = collectTags(projects, getProjectTags);
+
+function SectionHeading({ id, label }: { id: string; label: string }) {
+  return (
+    <h2 className="group mb-1 text-xl font-semibold">
+      {label}
+      <button
+        onClick={() => shareUrl(`${window.location.origin}/projects#${id}`, label)}
+        className="ml-2 inline-flex align-middle text-muted-foreground transition-opacity hover:text-foreground sm:opacity-0 sm:group-hover:opacity-100"
+        aria-label={`Copy link to ${label}`}
+      >
+        <LinkIcon className="h-4 w-4" />
+      </button>
+    </h2>
+  );
+}
 
 export function ProjectsPage() {
   useDocumentTitle('Projects');
@@ -64,8 +80,8 @@ export function ProjectsPage() {
       <PageHeader title="Projects" backTo={{ label: 'Home', path: '/' }} />
 
       {gifsSection && gifs.length > 0 && (
-        <section className="mb-10">
-          <h2 className="mb-1 text-xl font-semibold">{gifsSection.label}</h2>
+        <section id="gifs" className="mb-10">
+          <SectionHeading id="gifs" label={gifsSection.label} />
           {gifsSection.description && (
             <div className="mb-4 text-sm text-muted-foreground">
               <RichText html={gifsSection.description} />
@@ -110,8 +126,8 @@ export function ProjectsPage() {
           if (items.length === 0) return null;
 
           return (
-            <section key={section.key} className={i > 0 ? 'mt-10' : undefined}>
-              <h2 className="mb-1 text-xl font-semibold">{section.label}</h2>
+            <section key={section.key} id={section.key} className={i > 0 ? 'mt-10' : undefined}>
+              <SectionHeading id={section.key} label={section.label} />
               {section.description && (
                 <div className="mb-4 text-sm text-muted-foreground">
                   <RichText html={section.description} />
