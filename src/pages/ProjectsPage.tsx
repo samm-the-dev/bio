@@ -64,7 +64,7 @@ export function ProjectsPage() {
       <PageHeader title="Projects" backTo={{ label: 'Home', path: '/' }} />
 
       {gifsSection && gifs.length > 0 && (
-        <section className="mb-10">
+        <section id="gifs" className="mb-10">
           <h2 className="mb-1 text-xl font-semibold">{gifsSection.label}</h2>
           {gifsSection.description && (
             <div className="mb-4 text-sm text-muted-foreground">
@@ -110,7 +110,7 @@ export function ProjectsPage() {
           if (items.length === 0) return null;
 
           return (
-            <section key={section.key} className={i > 0 ? 'mt-10' : undefined}>
+            <section key={section.key} id={section.key} className={i > 0 ? 'mt-10' : undefined}>
               <h2 className="mb-1 text-xl font-semibold">{section.label}</h2>
               {section.description && (
                 <div className="mb-4 text-sm text-muted-foreground">
