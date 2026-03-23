@@ -115,6 +115,9 @@ describe('ShowsPage', () => {
     expect(ics).toContain('DTSTART;TZID=America/Chicago:');
     expect(ics).toContain('DTEND;TZID=America/Chicago:');
     expect(ics).toContain('LOCATION:Test Venue, 123 Main St, Dallas, TX 75001');
+    expect(ics).toContain(
+      'DESCRIPTION:Doors at 7 PM.\\nTickets: https://tickets.example.com/test-show',
+    );
   });
 
   it('renders Google Calendar links on Android', () => {
@@ -136,12 +139,15 @@ describe('ShowsPage', () => {
         expect(link).not.toHaveAttribute('download');
       }
 
-      // Verify location is included in Google Calendar URL
+      // Verify location and details are included in Google Calendar URL
       const testShowArticle = screen.getByText('Test Show').closest('article');
       const testShowCalLink = testShowArticle?.querySelector('a[href*="calendar.google.com"]');
       const href = testShowCalLink?.getAttribute('href') ?? '';
-      expect(href).toContain('location=');
-      expect(href).toContain('details=');
+      const params = new URL(href).searchParams;
+      expect(params.get('location')).toBe('Test Venue, 123 Main St, Dallas, TX 75001');
+      const details = params.get('details') ?? '';
+      expect(details).toContain('Doors at 7 PM.');
+      expect(details).toContain('Tickets: https://tickets.example.com/test-show');
     } finally {
       Object.defineProperty(navigator, 'userAgent', {
         value: original,
