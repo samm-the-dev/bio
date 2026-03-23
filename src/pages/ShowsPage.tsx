@@ -84,7 +84,7 @@ function icsFoldLine(line: string): string {
 function icsUrl(show: Show): string {
   const descParts = [
     show.note ? icsEscapeText(show.note) : '',
-    show.ticketsUrl ? `Tickets: ${show.ticketsUrl}` : '',
+    show.ticketsUrl ? icsEscapeText(`Tickets: ${show.ticketsUrl}`) : '',
   ].filter(Boolean);
   const description = descParts.length ? `DESCRIPTION:${descParts.join('\\n')}` : '';
   const ics = [
