@@ -114,7 +114,7 @@ describe('ShowsPage', () => {
     expect(ics).toContain('TZID=America/Chicago');
     expect(ics).toContain('DTSTART;TZID=America/Chicago:');
     expect(ics).toContain('DTEND;TZID=America/Chicago:');
-    expect(ics).toContain('LOCATION:Test Venue, 123 Main St, Dallas, TX 75001');
+    expect(ics).toContain('LOCATION:Test Venue\\, 123 Main St\\, Dallas\\, TX 75001');
     expect(ics).toContain(
       'DESCRIPTION:Doors at 7 PM.\\nTickets: https://tickets.example.com/test-show',
     );
