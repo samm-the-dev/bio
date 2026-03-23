@@ -65,6 +65,10 @@ function showLocation(show: Show): string {
 }
 
 function icsUrl(show: Show): string {
+  const descParts = [show.note, show.ticketsUrl ? `Tickets: ${show.ticketsUrl}` : ''].filter(
+    Boolean,
+  );
+  const description = descParts.length ? `DESCRIPTION:${descParts.join('\\n')}` : '';
   const ics = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
@@ -73,9 +77,7 @@ function icsUrl(show: Show): string {
     show.endDatetime ? `DTEND;TZID=America/Chicago:${toIcsTime(show.endDatetime)}` : '',
     `SUMMARY:${show.title}`,
     `LOCATION:${showLocation(show)}`,
-    show.note || show.ticketsUrl
-      ? `DESCRIPTION:${[show.note, show.ticketsUrl ? `Tickets: ${show.ticketsUrl}` : ''].filter(Boolean).join('\\n')}`
-      : '',
+    description,
     'END:VEVENT',
     'END:VCALENDAR',
   ]
