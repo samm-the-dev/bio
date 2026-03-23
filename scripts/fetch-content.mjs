@@ -112,6 +112,7 @@ const shows = (showsData.shows || []).map((s) => {
     datetime: String(s.datetime),
     endDatetime: s.endDatetime ? String(s.endDatetime) : null,
     note: s.note || null,
+    ticketsUrl: s.ticketsUrl || null,
   };
 });
 

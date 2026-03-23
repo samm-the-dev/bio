@@ -7,6 +7,11 @@ venues:
     name: Cafe Bohemia
     url: https://www.cafebohemia.net/
     address: "2320 Los Rios Blvd, Suite 105, Plano, TX 75074"
+  stomping-ground:
+    name: Stomping Ground Comedy
+    url: https://stompinggroundcomedy.org/
+    address: "1350 Manufacturing St #109, Dallas, TX 75207"
+    mapsUrl: https://maps.app.goo.gl/ZpCHLiCU6vnAtSvD8
 
 shows:
 
@@ -16,6 +21,12 @@ shows:
     endDatetime: "2026-03-14T22:00"
     note: "Pay what you can (suggested $10). Arrive by 7:30 for a good seat."
     
+  - title: "Improv Level 2 Showcase"
+    venue: stomping-ground
+    datetime: "2026-04-25T16:30"
+    endDatetime: "2026-04-25T17:30"
+    ticketsUrl: https://stompinggroundcomedy.org/calendar/student-showcase-nans-level-two-and-shenelles-level-three-improv/
+
   - title: "Goofs & Goblins"
     venue: pocket-sandwich
     datetime: "2026-04-21T20:00"

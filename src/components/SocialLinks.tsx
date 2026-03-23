@@ -1,5 +1,5 @@
 import type { JSX } from 'react';
-import { Film, Instagram, Github, type LucideIcon } from 'lucide-react';
+import { Film, Instagram, Github, Coffee, type LucideIcon } from 'lucide-react';
 import { BlueskyIcon, LinkedInIcon, DiscordIcon } from '@/components/icons';
 
 type IconComponent = LucideIcon | ((props: { className?: string }) => JSX.Element);
@@ -11,6 +11,7 @@ const iconMap: Record<string, IconComponent> = {
   GitHub: Github,
   LinkedIn: LinkedInIcon,
   Discord: DiscordIcon,
+  'Ko-fi': Coffee,
 };
 
 interface SocialLinksProps {

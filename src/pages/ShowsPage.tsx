@@ -1,4 +1,4 @@
-import { CalendarPlus, ExternalLink, MapPin } from 'lucide-react';
+import { CalendarPlus, ExternalLink, MapPin, Ticket } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { shows } from '@/data/shows';
@@ -178,6 +178,17 @@ export function ShowsPage() {
                   >
                     <ExternalLink className="h-3.5 w-3.5 shrink-0" />
                     Venue Website
+                  </a>
+                )}
+                {show.ticketsUrl && (
+                  <a
+                    href={show.ticketsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                  >
+                    <Ticket className="h-3.5 w-3.5 shrink-0" />
+                    Tickets
                   </a>
                 )}
               </div>
