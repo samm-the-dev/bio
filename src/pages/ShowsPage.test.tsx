@@ -14,6 +14,7 @@ vi.mock('@/data/shows', () => ({
       datetime: '2099-12-01T19:00',
       endDatetime: null,
       note: null,
+      ticketsUrl: null,
     },
     {
       title: 'Test Show',
@@ -24,6 +25,7 @@ vi.mock('@/data/shows', () => ({
       datetime: '2099-06-15T20:00',
       endDatetime: '2099-06-15T22:00',
       note: 'Doors at 7 PM.',
+      ticketsUrl: 'https://tickets.example.com/test-show',
     },
     {
       title: 'Past Show',
@@ -34,6 +36,7 @@ vi.mock('@/data/shows', () => ({
       datetime: '2020-01-01T20:00',
       endDatetime: null,
       note: null,
+      ticketsUrl: null,
     },
   ],
 }));
@@ -150,6 +153,22 @@ describe('ShowsPage', () => {
   it('renders note when present', () => {
     renderWithRouter(<ShowsPage />);
     expect(screen.getByText('Doors at 7 PM.')).toBeInTheDocument();
+  });
+
+  it('renders tickets link when ticketsUrl is present', () => {
+    renderWithRouter(<ShowsPage />);
+    const testShowArticle = screen.getByText('Test Show').closest('article');
+    const ticketsLink = testShowArticle?.querySelector(
+      'a[href="https://tickets.example.com/test-show"]',
+    );
+    expect(ticketsLink).toBeInTheDocument();
+    expect(ticketsLink).toHaveTextContent('Tickets');
+  });
+
+  it('does not render tickets link when ticketsUrl is absent', () => {
+    renderWithRouter(<ShowsPage />);
+    const laterShowArticle = screen.getByText('Later Show').closest('article');
+    expect(laterShowArticle?.querySelector('a[href*="tickets"]')).not.toBeInTheDocument();
   });
 
   it('renders end time when present', () => {
