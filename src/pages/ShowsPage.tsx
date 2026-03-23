@@ -1,4 +1,4 @@
-import { CalendarPlus, ExternalLink, MapPin } from 'lucide-react';
+import { CalendarPlus, ExternalLink, MapPin, Ticket } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { shows } from '@/data/shows';
@@ -64,20 +64,43 @@ function showLocation(show: Show): string {
   return show.address ? `${show.venue}, ${show.address}` : show.venue;
 }
 
+// RFC 5545: escape backslashes, semicolons, and commas in text values
+function icsEscapeText(value: string): string {
+  return value.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,');
+}
+
+// RFC 5545: fold lines exceeding 75 octets using CRLF + space
+function icsFoldLine(line: string): string {
+  if (line.length <= 75) return line;
+  const chunks = [line.slice(0, 75)];
+  let pos = 75;
+  while (pos < line.length) {
+    chunks.push(line.slice(pos, pos + 74));
+    pos += 74;
+  }
+  return chunks.join('\r\n ');
+}
+
 function icsUrl(show: Show): string {
+  const descParts = [
+    show.note ? icsEscapeText(show.note) : '',
+    show.ticketsUrl ? icsEscapeText(`Tickets: ${show.ticketsUrl}`) : '',
+  ].filter(Boolean);
+  const description = descParts.length ? `DESCRIPTION:${descParts.join('\\n')}` : '';
   const ics = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
     'BEGIN:VEVENT',
     `DTSTART;TZID=America/Chicago:${toIcsTime(show.datetime)}`,
     show.endDatetime ? `DTEND;TZID=America/Chicago:${toIcsTime(show.endDatetime)}` : '',
-    `SUMMARY:${show.title}`,
-    `LOCATION:${showLocation(show)}`,
-    show.note ? `DESCRIPTION:${show.note}` : '',
+    `SUMMARY:${icsEscapeText(show.title)}`,
+    `LOCATION:${icsEscapeText(showLocation(show))}`,
+    description,
     'END:VEVENT',
     'END:VCALENDAR',
   ]
     .filter(Boolean)
+    .map(icsFoldLine)
     .join('\r\n');
   return `data:text/calendar;charset=utf-8,${encodeURIComponent(ics)}`;
 }
@@ -93,7 +116,10 @@ function googleCalendarUrl(show: Show): string {
     ctz: 'America/Chicago',
     location: showLocation(show),
   });
-  if (show.note) params.set('details', show.note);
+  const details = [show.note, show.ticketsUrl ? `Tickets: ${show.ticketsUrl}` : '']
+    .filter(Boolean)
+    .join('\n');
+  if (details) params.set('details', details);
   return `https://calendar.google.com/calendar/render?${params}`;
 }
 
@@ -168,6 +194,17 @@ export function ShowsPage() {
                     <MapPin className="h-3.5 w-3.5 shrink-0" />
                     {show.venue}
                   </span>
+                )}
+                {show.ticketsUrl && (
+                  <a
+                    href={show.ticketsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                  >
+                    <Ticket className="h-3.5 w-3.5 shrink-0" />
+                    Tickets
+                  </a>
                 )}
                 {show.venueUrl && (
                   <a

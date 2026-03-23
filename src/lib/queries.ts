@@ -54,6 +54,7 @@ export interface Show {
   datetime: string;
   endDatetime: string | null;
   note: string | null;
+  ticketsUrl: string | null;
 }
 
 export interface BlogPost {
