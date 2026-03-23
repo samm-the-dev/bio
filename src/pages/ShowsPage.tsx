@@ -73,7 +73,9 @@ function icsUrl(show: Show): string {
     show.endDatetime ? `DTEND;TZID=America/Chicago:${toIcsTime(show.endDatetime)}` : '',
     `SUMMARY:${show.title}`,
     `LOCATION:${showLocation(show)}`,
-    show.note ? `DESCRIPTION:${show.note}` : '',
+    show.note || show.ticketsUrl
+      ? `DESCRIPTION:${[show.note, show.ticketsUrl ? `Tickets: ${show.ticketsUrl}` : ''].filter(Boolean).join('\\n')}`
+      : '',
     'END:VEVENT',
     'END:VCALENDAR',
   ]
@@ -93,7 +95,10 @@ function googleCalendarUrl(show: Show): string {
     ctz: 'America/Chicago',
     location: showLocation(show),
   });
-  if (show.note) params.set('details', show.note);
+  const details = [show.note, show.ticketsUrl ? `Tickets: ${show.ticketsUrl}` : '']
+    .filter(Boolean)
+    .join('\n');
+  if (details) params.set('details', details);
   return `https://calendar.google.com/calendar/render?${params}`;
 }
 
