@@ -93,7 +93,7 @@ function googleCalendarUrl(show: Show): string {
     text: show.title,
     dates,
     ctz: 'America/Chicago',
-    location: showLocation(show),
+    location: show.venue,
   });
   const details = [show.note, show.ticketsUrl ? `Tickets: ${show.ticketsUrl}` : '']
     .filter(Boolean)
