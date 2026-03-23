@@ -73,7 +73,9 @@ function icsUrl(show: Show): string {
     show.endDatetime ? `DTEND;TZID=America/Chicago:${toIcsTime(show.endDatetime)}` : '',
     `SUMMARY:${show.title}`,
     `LOCATION:${showLocation(show)}`,
-    show.note ? `DESCRIPTION:${show.note}` : '',
+    show.note || show.ticketsUrl
+      ? `DESCRIPTION:${[show.note, show.ticketsUrl ? `Tickets: ${show.ticketsUrl}` : ''].filter(Boolean).join('\\n')}`
+      : '',
     'END:VEVENT',
     'END:VCALENDAR',
   ]
@@ -93,7 +95,10 @@ function googleCalendarUrl(show: Show): string {
     ctz: 'America/Chicago',
     location: showLocation(show),
   });
-  if (show.note) params.set('details', show.note);
+  const details = [show.note, show.ticketsUrl ? `Tickets: ${show.ticketsUrl}` : '']
+    .filter(Boolean)
+    .join('\n');
+  if (details) params.set('details', details);
   return `https://calendar.google.com/calendar/render?${params}`;
 }
 
@@ -169,17 +174,6 @@ export function ShowsPage() {
                     {show.venue}
                   </span>
                 )}
-                {show.venueUrl && (
-                  <a
-                    href={show.venueUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
-                  >
-                    <ExternalLink className="h-3.5 w-3.5 shrink-0" />
-                    Venue Website
-                  </a>
-                )}
                 {show.ticketsUrl && (
                   <a
                     href={show.ticketsUrl}
@@ -189,6 +183,17 @@ export function ShowsPage() {
                   >
                     <Ticket className="h-3.5 w-3.5 shrink-0" />
                     Tickets
+                  </a>
+                )}
+                {show.venueUrl && (
+                  <a
+                    href={show.venueUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5 shrink-0" />
+                    Venue Website
                   </a>
                 )}
               </div>
