@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Simon Sez, 1999',
+    link: 'https://letterboxd.com/samm_loves_film/film/simon-sez/',
+    publishedAt: '2026-03-24T01:40:47.000Z',
+    filmTitle: 'Simon Sez',
+    filmYear: '1999',
+    rating: null,
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/3/0/4/8/5/30485-simon-sez-0-600-0-900-crop.jpg?v=c416e5430e',
+    reviewHtml: null,
+  },
+  {
     title: 'Project Hail Mary, 2026 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/project-hail-mary/',
     publishedAt: '2026-03-17T02:48:59.000Z',
@@ -642,19 +655,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/7/2/9/1/1/3/729113-wake-up-dead-man-0-600-0-900-crop.jpg?v=85f3366617',
-    reviewHtml: null,
-  },
-  {
-    title: 'Rabbit Trap, 2025 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/rabbit-trap-2025/',
-    publishedAt: '2025-11-23T15:00:35.000Z',
-    filmTitle: 'Rabbit Trap',
-    filmYear: '2025',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/0/7/9/4/3/3/1079433-rabbit-trap-2025-0-600-0-900-crop.jpg?v=c828b3532d',
     reviewHtml: null,
   },
 ];
