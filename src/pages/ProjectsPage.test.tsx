@@ -140,4 +140,23 @@ describe('ProjectsPage', () => {
     const cards = screen.getAllByTestId('project-card');
     expect(cards).toHaveLength(1);
   });
+
+  it('shows Ko-fi donate link when not filtering', () => {
+    renderWithRouter(<ProjectsPage />);
+    const link = screen.getByRole('link', { name: /donate/i });
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute('href', 'https://ko-fi.com/sammthedev');
+  });
+
+  it('hides Ko-fi donate link when search is active', () => {
+    renderWithRouter(<ProjectsPage />);
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'Test App' } });
+    expect(screen.queryByRole('link', { name: /donate/i })).not.toBeInTheDocument();
+  });
+
+  it('hides Ko-fi donate link when tech filter is active', () => {
+    renderWithRouter(<ProjectsPage />);
+    fireEvent.click(screen.getByRole('button', { name: 'React' }));
+    expect(screen.queryByRole('link', { name: /donate/i })).not.toBeInTheDocument();
+  });
 });

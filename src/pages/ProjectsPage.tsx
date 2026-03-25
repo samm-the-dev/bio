@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { LayoutGrid, Link as LinkIcon } from 'lucide-react';
+import { Heart, LayoutGrid, Link as LinkIcon } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { SearchInput } from '@/components/SearchInput';
 import { TagFilter } from '@/components/TagFilter';
@@ -25,17 +25,27 @@ for (const p of projects) {
 const getProjectTags = (p: Project) => p.tech;
 const techTags = collectTags(projects, getProjectTags);
 
-function SectionHeading({ id, label }: { id: string; label: string }) {
+function SectionHeading({
+  id,
+  label,
+  showLink = true,
+}: {
+  id: string;
+  label: string;
+  showLink?: boolean;
+}) {
   return (
     <h2 className="group mb-1 text-xl font-semibold">
       {label}
-      <button
-        onClick={() => shareUrl(`${window.location.origin}/projects#${id}`, label)}
-        className="ml-2 inline-flex align-middle text-muted-foreground transition-opacity hover:text-foreground sm:opacity-0 sm:group-hover:opacity-100"
-        aria-label={`Copy link to ${label}`}
-      >
-        <LinkIcon className="h-4 w-4" />
-      </button>
+      {showLink && (
+        <button
+          onClick={() => shareUrl(`${window.location.origin}/projects#${id}`, label)}
+          className="ml-2 inline-flex align-middle text-muted-foreground transition-opacity hover:text-foreground sm:opacity-0 sm:group-hover:opacity-100"
+          aria-label={`Copy link to ${label}`}
+        >
+          <LinkIcon className="h-4 w-4" />
+        </button>
+      )}
     </h2>
   );
 }
@@ -147,6 +157,25 @@ export function ProjectsPage() {
             </section>
           );
         })
+      )}
+
+      {!isFiltering && (
+        <section id="donate" className="mt-10">
+          <SectionHeading id="donate" label="Donation Link" showLink={false} />
+          <div className="mb-4 text-sm text-muted-foreground">
+            If my work brings you any joy and you want to help fund my movie obsession or improv
+            road trips, feel free to donate.
+          </div>
+          <a
+            href="https://ko-fi.com/sammthedev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center gap-2 rounded-md border border-border bg-card px-4 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          >
+            <Heart className="h-4 w-4" />
+            Donate
+          </a>
+        </section>
       )}
 
       {activeProject && <ProjectDialog project={activeProject} onClose={closeProject} />}
