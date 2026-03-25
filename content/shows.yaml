@@ -15,10 +15,10 @@ venues:
 
 shows:
 
-  - title: "Mash 'em Ups"
+  - title: "The ACT: Mash 'em Ups"
     venue: cafe-bohemia
     datetime: "2026-04-18T20:00"
-    endDatetime: "2026-04-18T23:00"
+    endDatetime: "2026-04-18T22:00"
     note: "Pay what you can (suggested $10). Arrive by 7:30 for a good seat."
 
   - title: "Student Showcase: Nan's Level Two and Shenelle's Level Three Improv"
@@ -28,7 +28,7 @@ shows:
     ticketsUrl: https://events.humanitix.com/student-showcase-nan-s-level-two-and-shenelle-s-level-three-improv
     note: "Rated M for Mature. Ticket prices are $10 (plus fees) in advance and $14 at the door."
 
-  - title: "Goofs & Goblins"
+  - title: "The ACT: Goofs & Goblins"
     venue: pocket-sandwich
     datetime: "2026-04-21T20:00"
     endDatetime: "2026-04-21T22:00"
