@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { LayoutGrid, Link as LinkIcon } from 'lucide-react';
+import { Heart, LayoutGrid, Link as LinkIcon } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { SearchInput } from '@/components/SearchInput';
 import { TagFilter } from '@/components/TagFilter';
@@ -147,6 +147,21 @@ export function ProjectsPage() {
             </section>
           );
         })
+      )}
+
+      {!isFiltering && (
+        <a
+          href="https://ko-fi.com/sammthedev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-10 flex w-full items-center justify-center gap-2 rounded-md border border-border bg-card px-4 py-3 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+        >
+          <Heart className="h-4 w-4 shrink-0" />
+          <span>
+            If my work brings you any joy and you want to help fund my movie obsession or improv
+            road trips, Ko-fi is right here.
+          </span>
+        </a>
       )}
 
       {activeProject && <ProjectDialog project={activeProject} onClose={closeProject} />}
