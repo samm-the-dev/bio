@@ -151,7 +151,7 @@ export function ProjectsPage() {
 
       {!isFiltering && (
         <section id="donate" className="mt-10">
-          <SectionHeading id="donate" label="Donation Link" />
+          <h2 className="mb-1 text-xl font-semibold">Donation Link</h2>
           <div className="mb-4 text-sm text-muted-foreground">
             If my work brings you any joy and you want to help fund my movie obsession or improv
             road trips, feel free to donate.
