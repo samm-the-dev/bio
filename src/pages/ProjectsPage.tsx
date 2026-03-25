@@ -25,17 +25,27 @@ for (const p of projects) {
 const getProjectTags = (p: Project) => p.tech;
 const techTags = collectTags(projects, getProjectTags);
 
-function SectionHeading({ id, label }: { id: string; label: string }) {
+function SectionHeading({
+  id,
+  label,
+  showLink = true,
+}: {
+  id: string;
+  label: string;
+  showLink?: boolean;
+}) {
   return (
     <h2 className="group mb-1 text-xl font-semibold">
       {label}
-      <button
-        onClick={() => shareUrl(`${window.location.origin}/projects#${id}`, label)}
-        className="ml-2 inline-flex align-middle text-muted-foreground transition-opacity hover:text-foreground sm:opacity-0 sm:group-hover:opacity-100"
-        aria-label={`Copy link to ${label}`}
-      >
-        <LinkIcon className="h-4 w-4" />
-      </button>
+      {showLink && (
+        <button
+          onClick={() => shareUrl(`${window.location.origin}/projects#${id}`, label)}
+          className="ml-2 inline-flex align-middle text-muted-foreground transition-opacity hover:text-foreground sm:opacity-0 sm:group-hover:opacity-100"
+          aria-label={`Copy link to ${label}`}
+        >
+          <LinkIcon className="h-4 w-4" />
+        </button>
+      )}
     </h2>
   );
 }
@@ -151,7 +161,7 @@ export function ProjectsPage() {
 
       {!isFiltering && (
         <section id="donate" className="mt-10">
-          <h2 className="mb-1 text-xl font-semibold">Donation Link</h2>
+          <SectionHeading id="donate" label="Donation Link" showLink={false} />
           <div className="mb-4 text-sm text-muted-foreground">
             If my work brings you any joy and you want to help fund my movie obsession or improv
             road trips, feel free to donate.
