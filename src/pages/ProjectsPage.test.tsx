@@ -141,22 +141,22 @@ describe('ProjectsPage', () => {
     expect(cards).toHaveLength(1);
   });
 
-  it('shows Ko-fi link when not filtering', () => {
+  it('shows Ko-fi donate link when not filtering', () => {
     renderWithRouter(<ProjectsPage />);
-    const link = screen.getByRole('link', { name: /ko-fi/i });
+    const link = screen.getByRole('link', { name: /donate/i });
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('href', 'https://ko-fi.com/sammthedev');
   });
 
-  it('hides Ko-fi link when search is active', () => {
+  it('hides Ko-fi donate link when search is active', () => {
     renderWithRouter(<ProjectsPage />);
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'Test App' } });
-    expect(screen.queryByRole('link', { name: /ko-fi/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /donate/i })).not.toBeInTheDocument();
   });
 
-  it('hides Ko-fi link when tech filter is active', () => {
+  it('hides Ko-fi donate link when tech filter is active', () => {
     renderWithRouter(<ProjectsPage />);
     fireEvent.click(screen.getByRole('button', { name: 'React' }));
-    expect(screen.queryByRole('link', { name: /ko-fi/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /donate/i })).not.toBeInTheDocument();
   });
 });
