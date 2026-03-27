@@ -4,6 +4,9 @@
 - slug: a-good-hex
   alt: "a good hex"
   src: "/gifs/a good hex.gif"
+  srcMp4: "/gifs/mp4/a good hex.mp4"
+  srcWebp: "/gifs/webp/a good hex.webp"
+  srcGif: "/gifs/a good hex.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -11,6 +14,9 @@
 - slug: a-nice-pair-of-shades
   alt: "a nice pair of shades"
   src: "/gifs/a nice pair of shades.gif"
+  srcMp4: "/gifs/mp4/a nice pair of shades.mp4"
+  srcWebp: "/gifs/webp/a nice pair of shades.webp"
+  srcGif: "/gifs/a nice pair of shades.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Adventuring Academy"]
@@ -18,6 +24,9 @@
 - slug: about-outta-stuff-to-say
   alt: "about outta stuff to say"
   src: "/gifs/about outta stuff to say.gif"
+  srcMp4: "/gifs/mp4/about outta stuff to say.mp4"
+  srcWebp: "/gifs/webp/about outta stuff to say.webp"
+  srcGif: "/gifs/about outta stuff to say.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -25,6 +34,9 @@
 - slug: against-the-rules
   alt: "against the rules"
   src: "/gifs/against the rules.gif"
+  srcMp4: "/gifs/mp4/against the rules.mp4"
+  srcWebp: "/gifs/webp/against the rules.webp"
+  srcGif: "/gifs/against the rules.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -32,6 +44,9 @@
 - slug: ain-t-gonna-apologize
   alt: "ain't gonna apologize"
   src: "/gifs/ain't gonna apologize.gif"
+  srcMp4: "/gifs/mp4/ain't gonna apologize.mp4"
+  srcWebp: "/gifs/webp/ain't gonna apologize.webp"
+  srcGif: "/gifs/ain't gonna apologize.gif"
   width: 480
   height: 270
   tags: ["Dropout"]
@@ -39,6 +54,9 @@
 - slug: air-hump
   alt: "air hump"
   src: "/gifs/air hump.gif"
+  srcMp4: "/gifs/mp4/air hump.mp4"
+  srcWebp: "/gifs/webp/air hump.webp"
+  srcGif: "/gifs/air hump.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -46,6 +64,9 @@
 - slug: are-you-making-fun-of-me
   alt: "are you making fun of me"
   src: "/gifs/are you making fun of me.webp"
+  srcMp4: "/gifs/mp4/are you making fun of me.mp4"
+  srcWebp: "/gifs/are you making fun of me.webp"
+  srcGif: "/gifs/gif/are you making fun of me.gif"
   width: 512
   height: 360
   tags: ["Dropout", "Cloudward Ho"]
@@ -54,6 +75,9 @@
 - slug: ass-creamed-cream-ass
   alt: "ass creamed cream ass"
   src: "/gifs/ass creamed cream ass.gif"
+  srcMp4: "/gifs/mp4/ass creamed cream ass.mp4"
+  srcWebp: "/gifs/webp/ass creamed cream ass.webp"
+  srcGif: "/gifs/ass creamed cream ass.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -61,6 +85,9 @@
 - slug: attracting-forces
   alt: "attracting forces"
   src: "/gifs/attracting forces.gif"
+  srcMp4: "/gifs/mp4/attracting forces.mp4"
+  srcWebp: "/gifs/webp/attracting forces.webp"
+  srcGif: "/gifs/attracting forces.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -68,6 +95,9 @@
 - slug: auf-wiedersehen-baby
   alt: "auf wiedersehen, baby"
   src: "/gifs/auf wiedersehen, baby.gif"
+  srcMp4: "/gifs/mp4/auf wiedersehen, baby.mp4"
+  srcWebp: "/gifs/webp/auf wiedersehen, baby.webp"
+  srcGif: "/gifs/auf wiedersehen, baby.gif"
   width: 640
   height: 265
   tags: ["Movies & TV"]
@@ -75,6 +105,9 @@
 - slug: beacoup-spookoo
   alt: "beacoup spookoo"
   src: "/gifs/beacoup spookoo.gif"
+  srcMp4: "/gifs/mp4/beacoup spookoo.mp4"
+  srcWebp: "/gifs/webp/beacoup spookoo.webp"
+  srcGif: "/gifs/beacoup spookoo.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -83,6 +116,9 @@
 - slug: beatin-myself
   alt: "beatin myself"
   src: "/gifs/beatin myself.gif"
+  srcMp4: "/gifs/mp4/beatin myself.mp4"
+  srcWebp: "/gifs/webp/beatin myself.webp"
+  srcGif: "/gifs/beatin myself.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -90,6 +126,9 @@
 - slug: beautiful-majestic-bam
   alt: "beautiful majestic bam"
   src: "/gifs/beautiful majestic bam.gif"
+  srcMp4: "/gifs/mp4/beautiful majestic bam.mp4"
+  srcWebp: "/gifs/webp/beautiful majestic bam.webp"
+  srcGif: "/gifs/beautiful majestic bam.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Fantasy High"]
@@ -97,6 +136,9 @@
 - slug: believe-in-yourselves
   alt: "believe in yourselves"
   src: "/gifs/believe in yourselves.gif"
+  srcMp4: "/gifs/mp4/believe in yourselves.mp4"
+  srcWebp: "/gifs/webp/believe in yourselves.webp"
+  srcGif: "/gifs/believe in yourselves.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -104,6 +146,9 @@
 - slug: blood-heart
   alt: "blood heart"
   src: "/gifs/blood heart.gif"
+  srcMp4: "/gifs/mp4/blood heart.mp4"
+  srcWebp: "/gifs/webp/blood heart.webp"
+  srcGif: "/gifs/blood heart.gif"
   width: 480
   height: 270
   tags: ["Movies & TV"]
@@ -111,6 +156,9 @@
 - slug: blood-heart-2
   alt: "blood heart"
   src: "/gifs/blood heart.webp"
+  srcMp4: "/gifs/mp4/blood heart.mp4"
+  srcWebp: "/gifs/blood heart.webp"
+  srcGif: "/gifs/gif/blood heart.gif"
   width: 640
   height: 360
   tags: ["Movies & TV"]
@@ -119,6 +167,9 @@
 - slug: brain-beats-brawn
   alt: "brain beats brawn"
   src: "/gifs/brain beats brawn.webp"
+  srcMp4: "/gifs/mp4/brain beats brawn.mp4"
+  srcWebp: "/gifs/brain beats brawn.webp"
+  srcGif: "/gifs/gif/brain beats brawn.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Superman"]
@@ -126,6 +177,9 @@
 - slug: but-im-in-fact-a-large-fat-man
   alt: "but im in fact a large fat man"
   src: "/gifs/but im in fact a large fat man.gif"
+  srcMp4: "/gifs/mp4/but im in fact a large fat man.mp4"
+  srcWebp: "/gifs/webp/but im in fact a large fat man.webp"
+  srcGif: "/gifs/but im in fact a large fat man.gif"
   width: 480
   height: 270
   tags: ["Game Grumps"]
@@ -133,6 +187,9 @@
 - slug: call-me-right-now-please
   alt: "CALL ME RIGHT NOW PLEASE"
   src: "/gifs/CALL ME RIGHT NOW PLEASE.webp"
+  srcMp4: "/gifs/mp4/CALL ME RIGHT NOW PLEASE.mp4"
+  srcWebp: "/gifs/CALL ME RIGHT NOW PLEASE.webp"
+  srcGif: "/gifs/gif/CALL ME RIGHT NOW PLEASE.gif"
   width: 640
   height: 360
   tags: ["Movies & TV"]
@@ -140,6 +197,9 @@
 - slug: cat-20
   alt: "cat 20"
   src: "/gifs/cat 20.gif"
+  srcMp4: "/gifs/mp4/cat 20.mp4"
+  srcWebp: "/gifs/webp/cat 20.webp"
+  srcGif: "/gifs/cat 20.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -147,6 +207,9 @@
 - slug: character-growth
   alt: "character growth"
   src: "/gifs/character growth.webp"
+  srcMp4: "/gifs/mp4/character growth.mp4"
+  srcWebp: "/gifs/character growth.webp"
+  srcGif: "/gifs/gif/character growth.gif"
   width: 768
   height: 432
   tags: ["Dropout", "Cloudward Ho"]
@@ -154,6 +217,9 @@
 - slug: chunky-ep
   alt: "chunky ep"
   src: "/gifs/chunky ep.gif"
+  srcMp4: "/gifs/mp4/chunky ep.mp4"
+  srcWebp: "/gifs/webp/chunky ep.webp"
+  srcGif: "/gifs/chunky ep.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -162,6 +228,9 @@
 - slug: cigarette-in-the-eye-of-fate
   alt: "cigarette in the eye of fate"
   src: "/gifs/cigarette in the eye of fate.gif"
+  srcMp4: "/gifs/mp4/cigarette in the eye of fate.mp4"
+  srcWebp: "/gifs/webp/cigarette in the eye of fate.webp"
+  srcGif: "/gifs/cigarette in the eye of fate.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -169,6 +238,9 @@
 - slug: come-to-me-angry-demons
   alt: "come to me angry demons"
   src: "/gifs/come to me angry demons.gif"
+  srcMp4: "/gifs/mp4/come to me angry demons.mp4"
+  srcWebp: "/gifs/webp/come to me angry demons.webp"
+  srcGif: "/gifs/come to me angry demons.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -176,6 +248,9 @@
 - slug: concerning
   alt: "concerning"
   src: "/gifs/concerning.gif"
+  srcMp4: "/gifs/mp4/concerning.mp4"
+  srcWebp: "/gifs/webp/concerning.webp"
+  srcGif: "/gifs/concerning.gif"
   width: 320
   height: 320
   tags: ["Dropout", "Neverafter"]
@@ -183,6 +258,9 @@
 - slug: cruel-physics-of-love
   alt: "cruel physics of love"
   src: "/gifs/cruel physics of love.gif"
+  srcMp4: "/gifs/mp4/cruel physics of love.mp4"
+  srcWebp: "/gifs/webp/cruel physics of love.webp"
+  srcGif: "/gifs/cruel physics of love.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -190,6 +268,9 @@
 - slug: daaang
   alt: "DAAANG"
   src: "/gifs/DAAANG.gif"
+  srcMp4: "/gifs/mp4/DAAANG.mp4"
+  srcWebp: "/gifs/webp/DAAANG.webp"
+  srcGif: "/gifs/DAAANG.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Never Stop Blowing Up"]
@@ -198,6 +279,9 @@
 - slug: dandadan-bail
   alt: "dandadan bail"
   src: "/gifs/dandadan bail.webp"
+  srcMp4: "/gifs/mp4/dandadan bail.mp4"
+  srcWebp: "/gifs/dandadan bail.webp"
+  srcGif: "/gifs/gif/dandadan bail.gif"
   width: 640
   height: 360
   tags: ["Movies & TV"]
@@ -205,6 +289,9 @@
 - slug: demi-dancing
   alt: "demi dancing"
   src: "/gifs/demi dancing.gif"
+  srcMp4: "/gifs/mp4/demi dancing.mp4"
+  srcWebp: "/gifs/webp/demi dancing.webp"
+  srcGif: "/gifs/demi dancing.gif"
   width: 480
   height: 270
   tags: ["Dropout"]
@@ -212,6 +299,9 @@
 - slug: demon-cat
   alt: "demon cat"
   src: "/gifs/demon cat.webp"
+  srcMp4: "/gifs/mp4/demon cat.mp4"
+  srcWebp: "/gifs/demon cat.webp"
+  srcGif: "/gifs/gif/demon cat.gif"
   width: 512
   height: 214
   tags: ["Movies & TV"]
@@ -220,6 +310,9 @@
 - slug: don-t-drink-water
   alt: "don't drink water"
   src: "/gifs/don't drink water.gif"
+  srcMp4: "/gifs/mp4/don't drink water.mp4"
+  srcWebp: "/gifs/webp/don't drink water.webp"
+  srcGif: "/gifs/don't drink water.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Neverafter"]
@@ -227,6 +320,9 @@
 - slug: easy-greasy-baby
   alt: "easy greasy baby"
   src: "/gifs/easy greasy baby.webp"
+  srcMp4: "/gifs/mp4/easy greasy baby.mp4"
+  srcWebp: "/gifs/easy greasy baby.webp"
+  srcGif: "/gifs/gif/easy greasy baby.gif"
   width: 1280
   height: 720
   tags: ["Movies & TV", "Adventure Time"]
@@ -235,6 +331,9 @@
 - slug: eat-me
   alt: "eat me"
   src: "/gifs/eat me.gif"
+  srcMp4: "/gifs/mp4/eat me.mp4"
+  srcWebp: "/gifs/webp/eat me.webp"
+  srcGif: "/gifs/eat me.gif"
   width: 640
   height: 360
   tags: ["Movies & TV"]
@@ -242,6 +341,9 @@
 - slug: emily-ally-celebrate
   alt: "emily ally celebrate"
   src: "/gifs/emily ally celebrate.gif"
+  srcMp4: "/gifs/mp4/emily ally celebrate.mp4"
+  srcWebp: "/gifs/webp/emily ally celebrate.webp"
+  srcGif: "/gifs/emily ally celebrate.gif"
   width: 450
   height: 450
   tags: ["Dropout", "Cloudward Ho"]
@@ -249,6 +351,9 @@
 - slug: emotional-support
   alt: "emotional support"
   src: "/gifs/emotional support.webp"
+  srcMp4: "/gifs/mp4/emotional support.mp4"
+  srcWebp: "/gifs/emotional support.webp"
+  srcGif: "/gifs/gif/emotional support.gif"
   width: 640
   height: 360
   tags: ["Dropout", "Cloudward Ho"]
@@ -256,6 +361,9 @@
 - slug: everyone-relax
   alt: "Everyone RELAX"
   src: "/gifs/Everyone RELAX.gif"
+  srcMp4: "/gifs/mp4/Everyone RELAX.mp4"
+  srcWebp: "/gifs/webp/Everyone RELAX.webp"
+  srcGif: "/gifs/Everyone RELAX.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Neverafter"]
@@ -263,6 +371,9 @@
 - slug: excited-for-the-attention
   alt: "excited for the attention"
   src: "/gifs/excited for the attention.gif"
+  srcMp4: "/gifs/mp4/excited for the attention.mp4"
+  srcWebp: "/gifs/webp/excited for the attention.webp"
+  srcGif: "/gifs/excited for the attention.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -270,6 +381,9 @@
 - slug: explain
   alt: "explain"
   src: "/gifs/explain.webp"
+  srcMp4: "/gifs/mp4/explain.mp4"
+  srcWebp: "/gifs/explain.webp"
+  srcGif: "/gifs/gif/explain.gif"
   width: 640
   height: 360
   tags: ["Movies & TV"]
@@ -278,6 +392,9 @@
 - slug: fant4stic-look-extended
   alt: "fant4stic look extended"
   src: "/gifs/fant4stic look extended.gif"
+  srcMp4: "/gifs/mp4/fant4stic look extended.mp4"
+  srcWebp: "/gifs/webp/fant4stic look extended.webp"
+  srcGif: "/gifs/fant4stic look extended.gif"
   width: 480
   height: 201
   tags: ["Movies & TV"]
@@ -286,6 +403,9 @@
 - slug: find-the-jokes-again
   alt: "find the jokes again"
   src: "/gifs/find the jokes again.gif"
+  srcMp4: "/gifs/mp4/find the jokes again.mp4"
+  srcWebp: "/gifs/webp/find the jokes again.webp"
+  srcGif: "/gifs/find the jokes again.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -293,6 +413,9 @@
 - slug: finn-fail-self-skip
   alt: "finn fail self skip"
   src: "/gifs/finn fail self skip.gif"
+  srcMp4: "/gifs/mp4/finn fail self skip.mp4"
+  srcWebp: "/gifs/webp/finn fail self skip.webp"
+  srcGif: "/gifs/finn fail self skip.gif"
   width: 1277
   height: 719
   tags: ["Movies & TV", "Adventure Time"]
@@ -300,6 +423,9 @@
 - slug: first-off-rude
   alt: "first off rude"
   src: "/gifs/first off rude.gif"
+  srcMp4: "/gifs/mp4/first off rude.mp4"
+  srcWebp: "/gifs/webp/first off rude.webp"
+  srcGif: "/gifs/first off rude.gif"
   width: 320
   height: 320
   tags: ["Dropout", "Neverafter"]
@@ -307,6 +433,9 @@
 - slug: flow-state
   alt: "flow state"
   src: "/gifs/flow state.gif"
+  srcMp4: "/gifs/mp4/flow state.mp4"
+  srcWebp: "/gifs/webp/flow state.webp"
+  srcGif: "/gifs/flow state.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -315,6 +444,9 @@
 - slug: fuck-em
   alt: "fuck em"
   src: "/gifs/fuck em.gif"
+  srcMp4: "/gifs/mp4/fuck em.mp4"
+  srcWebp: "/gifs/webp/fuck em.webp"
+  srcGif: "/gifs/fuck em.gif"
   width: 480
   height: 480
   tags: ["Movies & TV"]
@@ -323,6 +455,9 @@
 - slug: fuck-that-s-true
   alt: "fuck that's true"
   src: "/gifs/fuck that's true.webp"
+  srcMp4: "/gifs/mp4/fuck that's true.mp4"
+  srcWebp: "/gifs/fuck that's true.webp"
+  srcGif: "/gifs/gif/fuck that's true.gif"
   width: 1024
   height: 540
   tags: ["Movies & TV"]
@@ -331,6 +466,9 @@
 - slug: fuck-you
   alt: "fuck you"
   src: "/gifs/fuck you.gif"
+  srcMp4: "/gifs/mp4/fuck you.mp4"
+  srcWebp: "/gifs/webp/fuck you.webp"
+  srcGif: "/gifs/fuck you.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Game Changer"]
@@ -338,6 +476,9 @@
 - slug: fuck-you-society
   alt: "fuck you society"
   src: "/gifs/fuck you society.gif"
+  srcMp4: "/gifs/mp4/fuck you society.mp4"
+  srcWebp: "/gifs/webp/fuck you society.webp"
+  srcGif: "/gifs/fuck you society.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -345,6 +486,9 @@
 - slug: fuck-you-up
   alt: "fuck you up"
   src: "/gifs/fuck you up.gif"
+  srcMp4: "/gifs/mp4/fuck you up.mp4"
+  srcWebp: "/gifs/webp/fuck you up.webp"
+  srcGif: "/gifs/fuck you up.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -352,6 +496,9 @@
 - slug: full-of-beans
   alt: "full of beans"
   src: "/gifs/full of beans.webp"
+  srcMp4: "/gifs/mp4/full of beans.mp4"
+  srcWebp: "/gifs/full of beans.webp"
+  srcGif: "/gifs/gif/full of beans.gif"
   width: 432
   height: 432
   tags: ["Dropout", "Cloudward Ho"]
@@ -360,6 +507,9 @@
 - slug: funnytoday-old
   alt: "funnytoday old"
   src: "/gifs/funnytoday old.gif"
+  srcMp4: "/gifs/mp4/funnytoday old.mp4"
+  srcWebp: "/gifs/webp/funnytoday old.webp"
+  srcGif: "/gifs/funnytoday old.gif"
   width: 641
   height: 361
   tags: ["Dropout", "Never Stop Blowing Up"]
@@ -367,6 +517,9 @@
 - slug: geet-it-offa-dere
   alt: "geet it offa dere"
   src: "/gifs/geet it offa dere.webp"
+  srcMp4: "/gifs/mp4/geet it offa dere.mp4"
+  srcWebp: "/gifs/geet it offa dere.webp"
+  srcGif: "/gifs/gif/geet it offa dere.gif"
   width: 640
   height: 360
   tags: ["Dropout"]
@@ -374,6 +527,9 @@
 - slug: get-ready-sob
   alt: "get ready sob"
   src: "/gifs/get ready sob.gif"
+  srcMp4: "/gifs/mp4/get ready sob.mp4"
+  srcWebp: "/gifs/webp/get ready sob.webp"
+  srcGif: "/gifs/get ready sob.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Gachiakuta"]
@@ -381,6 +537,9 @@
 - slug: gilear-affirmations
   alt: "gilear affirmations"
   src: "/gifs/gilear affirmations.gif"
+  srcMp4: "/gifs/mp4/gilear affirmations.mp4"
+  srcWebp: "/gifs/webp/gilear affirmations.webp"
+  srcGif: "/gifs/gilear affirmations.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Fantasy High"]
@@ -388,6 +547,9 @@
 - slug: gilear-affirmations-alt
   alt: "gilear affirmations alt"
   src: "/gifs/gilear affirmations alt.gif"
+  srcMp4: "/gifs/mp4/gilear affirmations alt.mp4"
+  srcWebp: "/gifs/webp/gilear affirmations alt.webp"
+  srcGif: "/gifs/gilear affirmations alt.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Fantasy High"]
@@ -395,6 +557,9 @@
 - slug: gimme-that
   alt: "Gimme that"
   src: "/gifs/Gimme that.gif"
+  srcMp4: "/gifs/mp4/Gimme that.mp4"
+  srcWebp: "/gifs/webp/Gimme that.webp"
+  srcGif: "/gifs/Gimme that.gif"
   width: 338
   height: 338
   tags: ["Dropout", "Starstruck"]
@@ -402,6 +567,9 @@
 - slug: give-me-liberty-or-a-bran-muffin
   alt: "give me liberty or a bran muffin"
   src: "/gifs/give me liberty or a bran muffin.gif"
+  srcMp4: "/gifs/mp4/give me liberty or a bran muffin.mp4"
+  srcWebp: "/gifs/webp/give me liberty or a bran muffin.webp"
+  srcGif: "/gifs/give me liberty or a bran muffin.gif"
   width: 320
   height: 240
   tags: ["Movies & TV"]
@@ -409,6 +577,9 @@
 - slug: go-fuck-yourselves
   alt: "go fuck yourselves"
   src: "/gifs/go fuck yourselves.gif"
+  srcMp4: "/gifs/mp4/go fuck yourselves.mp4"
+  srcWebp: "/gifs/webp/go fuck yourselves.webp"
+  srcGif: "/gifs/go fuck yourselves.gif"
   width: 480
   height: 270
   tags: ["Movies & TV"]
@@ -417,6 +588,9 @@
 - slug: godspeed-spider-man
   alt: "Godspeed Spider-Man"
   src: "/gifs/Godspeed Spider-Man.gif"
+  srcMp4: "/gifs/mp4/Godspeed Spider-Man.mp4"
+  srcWebp: "/gifs/webp/Godspeed Spider-Man.webp"
+  srcGif: "/gifs/Godspeed Spider-Man.gif"
   width: 480
   height: 259
   tags: ["Movies & TV"]
@@ -425,6 +599,9 @@
 - slug: gonnaleavethis-old
   alt: "gonnaleavethis old"
   src: "/gifs/gonnaleavethis old.gif"
+  srcMp4: "/gifs/mp4/gonnaleavethis old.mp4"
+  srcWebp: "/gifs/webp/gonnaleavethis old.webp"
+  srcGif: "/gifs/gonnaleavethis old.gif"
   width: 641
   height: 361
   tags: ["Dropout", "Never Stop Blowing Up"]
@@ -432,6 +609,9 @@
 - slug: good-time-sis
   alt: "good time sis"
   src: "/gifs/good time sis.gif"
+  srcMp4: "/gifs/mp4/good time sis.mp4"
+  srcWebp: "/gifs/webp/good time sis.webp"
+  srcGif: "/gifs/good time sis.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -439,6 +619,9 @@
 - slug: grab-me
   alt: "grab me"
   src: "/gifs/grab me.webp"
+  srcMp4: "/gifs/mp4/grab me.mp4"
+  srcWebp: "/gifs/grab me.webp"
+  srcGif: "/gifs/gif/grab me.gif"
   width: 640
   height: 360
   tags: ["Dropout", "Cloudward Ho"]
@@ -446,6 +629,9 @@
 - slug: greasy-little-hands
   alt: "greasy little hands"
   src: "/gifs/greasy little hands.gif"
+  srcMp4: "/gifs/mp4/greasy little hands.mp4"
+  srcWebp: "/gifs/webp/greasy little hands.webp"
+  srcGif: "/gifs/greasy little hands.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -453,6 +639,9 @@
 - slug: guardians-2-warp
   alt: "guardians 2 warp"
   src: "/gifs/guardians 2 warp.webp"
+  srcMp4: "/gifs/mp4/guardians 2 warp.mp4"
+  srcWebp: "/gifs/guardians 2 warp.webp"
+  srcGif: "/gifs/gif/guardians 2 warp.gif"
   width: 512
   height: 270
   tags: ["Movies & TV"]
@@ -460,6 +649,9 @@
 - slug: ha-ha-no
   alt: "ha ha no"
   src: "/gifs/ha ha no.gif"
+  srcMp4: "/gifs/mp4/ha ha no.mp4"
+  srcWebp: "/gifs/webp/ha ha no.webp"
+  srcGif: "/gifs/ha ha no.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -467,6 +659,9 @@
 - slug: handling-it
   alt: "handling it"
   src: "/gifs/handling it.gif"
+  srcMp4: "/gifs/mp4/handling it.mp4"
+  srcWebp: "/gifs/webp/handling it.webp"
+  srcGif: "/gifs/handling it.gif"
   width: 600
   height: 338
   tags: ["Dropout"]
@@ -474,6 +669,9 @@
 - slug: hate-that-for-you
   alt: "hate that for you"
   src: "/gifs/hate that for you.gif"
+  srcMp4: "/gifs/mp4/hate that for you.mp4"
+  srcWebp: "/gifs/webp/hate that for you.webp"
+  srcGif: "/gifs/hate that for you.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -481,6 +679,9 @@
 - slug: havin-fun-chillin-out
   alt: "havin fun chillin out"
   src: "/gifs/havin fun chillin out.gif"
+  srcMp4: "/gifs/mp4/havin fun chillin out.mp4"
+  srcWebp: "/gifs/webp/havin fun chillin out.webp"
+  srcGif: "/gifs/havin fun chillin out.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -489,6 +690,9 @@
 - slug: hollywood-is-fake
   alt: "hollywood is fake"
   src: "/gifs/hollywood is fake.gif"
+  srcMp4: "/gifs/mp4/hollywood is fake.mp4"
+  srcWebp: "/gifs/webp/hollywood is fake.webp"
+  srcGif: "/gifs/hollywood is fake.gif"
   width: 480
   height: 201
   tags: ["Movies & TV"]
@@ -497,6 +701,9 @@
 - slug: horticulture-baby
   alt: "horticulture baby"
   src: "/gifs/horticulture baby.webp"
+  srcMp4: "/gifs/mp4/horticulture baby.mp4"
+  srcWebp: "/gifs/horticulture baby.webp"
+  srcGif: "/gifs/gif/horticulture baby.gif"
   width: 1200
   height: 600
   tags: ["Movies & TV", "Ted Lasso"]
@@ -504,6 +711,9 @@
 - slug: i-am-a-rowdy
   alt: "I am a rowdy"
   src: "/gifs/I am a rowdy.gif"
+  srcMp4: "/gifs/mp4/I am a rowdy.mp4"
+  srcWebp: "/gifs/webp/I am a rowdy.webp"
+  srcGif: "/gifs/I am a rowdy.gif"
   width: 338
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -512,6 +722,9 @@
 - slug: i-am-obscene
   alt: "i_am_obscene"
   src: "/gifs/i_am_obscene.webp"
+  srcMp4: "/gifs/mp4/i_am_obscene.mp4"
+  srcWebp: "/gifs/i_am_obscene.webp"
+  srcGif: "/gifs/gif/i_am_obscene.gif"
   width: 640
   height: 342
   tags: ["Movies & TV", "Frankenstein"]
@@ -519,6 +732,9 @@
 - slug: i-am-sorry
   alt: "i_am_sorry"
   src: "/gifs/i_am_sorry.webp"
+  srcMp4: "/gifs/mp4/i_am_sorry.mp4"
+  srcWebp: "/gifs/i_am_sorry.webp"
+  srcGif: "/gifs/gif/i_am_sorry.gif"
   width: 640
   height: 342
   tags: ["Movies & TV", "Frankenstein"]
@@ -526,6 +742,9 @@
 - slug: i-can-imagine-everything
   alt: "I CAN IMAGINE EVERYTHING"
   src: "/gifs/I CAN IMAGINE EVERYTHING.webp"
+  srcMp4: "/gifs/mp4/I CAN IMAGINE EVERYTHING.mp4"
+  srcWebp: "/gifs/I CAN IMAGINE EVERYTHING.webp"
+  srcGif: "/gifs/gif/I CAN IMAGINE EVERYTHING.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Adventure Time"]
@@ -533,6 +752,9 @@
 - slug: i-don-t-care
   alt: "I don't care"
   src: "/gifs/I don't care.webp"
+  srcMp4: "/gifs/mp4/I don't care.mp4"
+  srcWebp: "/gifs/I don't care.webp"
+  srcGif: "/gifs/gif/I don't care.gif"
   width: 640
   height: 360
   tags: ["Movies & TV"]
@@ -540,6 +762,9 @@
 - slug: i-don-t-understand-your-joke
   alt: "I don't understand your joke"
   src: "/gifs/I don't understand your joke.gif"
+  srcMp4: "/gifs/mp4/I don't understand your joke.mp4"
+  srcWebp: "/gifs/webp/I don't understand your joke.webp"
+  srcGif: "/gifs/I don't understand your joke.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Neverafter"]
@@ -547,6 +772,9 @@
 - slug: i-feel-really-bad
   alt: "I feel really bad"
   src: "/gifs/I feel really bad.webp"
+  srcMp4: "/gifs/mp4/I feel really bad.mp4"
+  srcWebp: "/gifs/I feel really bad.webp"
+  srcGif: "/gifs/gif/I feel really bad.gif"
   width: 720
   height: 720
   tags: ["Dropout", "Cloudward Ho"]
@@ -554,6 +782,9 @@
 - slug: i-guess-sort-of-how
   alt: "I guess sort of how"
   src: "/gifs/I guess sort of how.gif"
+  srcMp4: "/gifs/mp4/I guess sort of how.mp4"
+  srcWebp: "/gifs/webp/I guess sort of how.webp"
+  srcGif: "/gifs/I guess sort of how.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Neverafter"]
@@ -561,6 +792,9 @@
 - slug: i-have-become-rowdy
   alt: "I have become rowdy"
   src: "/gifs/I have become rowdy.gif"
+  srcMp4: "/gifs/mp4/I have become rowdy.mp4"
+  srcWebp: "/gifs/webp/I have become rowdy.webp"
+  srcGif: "/gifs/I have become rowdy.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -569,6 +803,9 @@
 - slug: i-live-again
   alt: "I live again"
   src: "/gifs/I live again.gif"
+  srcMp4: "/gifs/mp4/I live again.mp4"
+  srcWebp: "/gifs/webp/I live again.webp"
+  srcGif: "/gifs/I live again.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -576,6 +813,9 @@
 - slug: i-love-hangin-with-the-boys
   alt: "I love hangin with the boys"
   src: "/gifs/I love hangin with the boys.gif"
+  srcMp4: "/gifs/mp4/I love hangin with the boys.mp4"
+  srcWebp: "/gifs/webp/I love hangin with the boys.webp"
+  srcGif: "/gifs/I love hangin with the boys.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Adventuring Academy"]
@@ -583,6 +823,9 @@
 - slug: i-m-a-different-guy
   alt: "I’m a different guy"
   src: "/gifs/I’m a different guy.gif"
+  srcMp4: "/gifs/mp4/I’m a different guy.mp4"
+  srcWebp: "/gifs/webp/I’m a different guy.webp"
+  srcGif: "/gifs/I’m a different guy.gif"
   width: 338
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -590,6 +833,9 @@
 - slug: i-m-a-little-lonely
   alt: "I'm a little lonely"
   src: "/gifs/I'm a little lonely.gif"
+  srcMp4: "/gifs/mp4/I'm a little lonely.mp4"
+  srcWebp: "/gifs/webp/I'm a little lonely.webp"
+  srcGif: "/gifs/I'm a little lonely.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Adventuring Academy"]
@@ -597,6 +843,9 @@
 - slug: i-m-a-nice-guy
   alt: "I'M A NICE GUY!"
   src: "/gifs/I'M A NICE GUY!.gif"
+  srcMp4: "/gifs/mp4/I'M A NICE GUY!.mp4"
+  srcWebp: "/gifs/webp/I'M A NICE GUY!.webp"
+  srcGif: "/gifs/I'M A NICE GUY!.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -604,6 +853,9 @@
 - slug: i-m-horny
   alt: "I’M horny"
   src: "/gifs/I’M horny.gif"
+  srcMp4: "/gifs/mp4/I’M horny.mp4"
+  srcWebp: "/gifs/webp/I’M horny.webp"
+  srcGif: "/gifs/I’M horny.gif"
   width: 338
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -611,6 +863,9 @@
 - slug: i-m-just-gay-i-don-t-know
   alt: "I’m just gay, I don’t know"
   src: "/gifs/I’m just gay, I don’t know.gif"
+  srcMp4: "/gifs/mp4/I’m just gay, I don’t know.mp4"
+  srcWebp: "/gifs/webp/I’m just gay, I don’t know.webp"
+  srcGif: "/gifs/I’m just gay, I don’t know.gif"
   width: 480
   height: 270
   tags: ["Dropout"]
@@ -618,6 +873,9 @@
 - slug: i-m-looking-to-make-community-intentionally
   alt: "I'M LOOKING TO MAKE COMMUNITY INTENTIONALLY"
   src: "/gifs/I'M LOOKING TO MAKE COMMUNITY INTENTIONALLY.gif"
+  srcMp4: "/gifs/mp4/I'M LOOKING TO MAKE COMMUNITY INTENTIONALLY.mp4"
+  srcWebp: "/gifs/webp/I'M LOOKING TO MAKE COMMUNITY INTENTIONALLY.webp"
+  srcGif: "/gifs/I'M LOOKING TO MAKE COMMUNITY INTENTIONALLY.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Adventuring Academy"]
@@ -625,6 +883,9 @@
 - slug: i-m-right-and-about-to-lose-it
   alt: "I'm right and about to lose it"
   src: "/gifs/I'm right and about to lose it.gif"
+  srcMp4: "/gifs/mp4/I'm right and about to lose it.mp4"
+  srcWebp: "/gifs/webp/I'm right and about to lose it.webp"
+  srcGif: "/gifs/I'm right and about to lose it.gif"
   width: 480
   height: 270
   tags: ["Dropout"]
@@ -632,6 +893,9 @@
 - slug: i-may-have-been-eavespeeping
   alt: "I may have been eavespeeping"
   src: "/gifs/I may have been eavespeeping.gif"
+  srcMp4: "/gifs/mp4/I may have been eavespeeping.mp4"
+  srcWebp: "/gifs/webp/I may have been eavespeeping.webp"
+  srcGif: "/gifs/I may have been eavespeeping.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Neverafter"]
@@ -640,6 +904,9 @@
 - slug: i-might-tho
   alt: "I might tho"
   src: "/gifs/I might tho.gif"
+  srcMp4: "/gifs/mp4/I might tho.mp4"
+  srcWebp: "/gifs/webp/I might tho.webp"
+  srcGif: "/gifs/I might tho.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -647,6 +914,9 @@
 - slug: i-need-boundaries
   alt: "I need boundaries"
   src: "/gifs/I need boundaries.gif"
+  srcMp4: "/gifs/mp4/I need boundaries.mp4"
+  srcWebp: "/gifs/webp/I need boundaries.webp"
+  srcGif: "/gifs/I need boundaries.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -654,6 +924,9 @@
 - slug: i-will-never-die
   alt: "I WILL NEVER DIE"
   src: "/gifs/I WILL NEVER DIE.gif"
+  srcMp4: "/gifs/mp4/I WILL NEVER DIE.mp4"
+  srcWebp: "/gifs/webp/I WILL NEVER DIE.webp"
+  srcGif: "/gifs/I WILL NEVER DIE.gif"
   width: 446
   height: 251
   tags: ["Dropout", "Fantasy High"]
@@ -661,6 +934,9 @@
 - slug: i-will-not-do-that
   alt: "I will not do that"
   src: "/gifs/I will not do that.gif"
+  srcMp4: "/gifs/mp4/I will not do that.mp4"
+  srcWebp: "/gifs/webp/I will not do that.webp"
+  srcGif: "/gifs/I will not do that.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -668,6 +944,9 @@
 - slug: ice-skate-uphill
   alt: "ice skate uphill"
   src: "/gifs/ice skate uphill.gif"
+  srcMp4: "/gifs/mp4/ice skate uphill.mp4"
+  srcWebp: "/gifs/webp/ice skate uphill.webp"
+  srcGif: "/gifs/ice skate uphill.gif"
   width: 639
   height: 267
   tags: ["Movies & TV"]
@@ -676,6 +955,9 @@
 - slug: iceberg-here-i-come
   alt: "iceberg here I come"
   src: "/gifs/iceberg here I come.webp"
+  srcMp4: "/gifs/mp4/iceberg here I come.mp4"
+  srcWebp: "/gifs/iceberg here I come.webp"
+  srcGif: "/gifs/gif/iceberg here I come.gif"
   width: 768
   height: 432
   tags: ["Dropout", "Cloudward Ho"]
@@ -683,6 +965,9 @@
 - slug: idk-what-that-is
   alt: "idk what that is"
   src: "/gifs/idk what that is.webp"
+  srcMp4: "/gifs/mp4/idk what that is.mp4"
+  srcWebp: "/gifs/idk what that is.webp"
+  srcGif: "/gifs/gif/idk what that is.gif"
   width: 960
   height: 720
   tags: ["YouTube"]
@@ -690,6 +975,9 @@
 - slug: incorrect
   alt: "incorrect"
   src: "/gifs/incorrect.webp"
+  srcMp4: "/gifs/mp4/incorrect.mp4"
+  srcWebp: "/gifs/incorrect.webp"
+  srcGif: "/gifs/gif/incorrect.gif"
   width: 1024
   height: 429
   tags: ["Movies & TV"]
@@ -698,6 +986,9 @@
 - slug: irritates
   alt: "irritates"
   src: "/gifs/irritates.webp"
+  srcMp4: "/gifs/mp4/irritates.mp4"
+  srcWebp: "/gifs/irritates.webp"
+  srcGif: "/gifs/gif/irritates.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Superman"]
@@ -705,6 +996,9 @@
 - slug: it-hurts-to-be-alive
   alt: "it hurts to be alive"
   src: "/gifs/it hurts to be alive.gif"
+  srcMp4: "/gifs/mp4/it hurts to be alive.mp4"
+  srcWebp: "/gifs/webp/it hurts to be alive.webp"
+  srcGif: "/gifs/it hurts to be alive.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Very Important People"]
@@ -713,6 +1007,9 @@
 - slug: it-s-all-true
   alt: "it's all true"
   src: "/gifs/it's all true.gif"
+  srcMp4: "/gifs/mp4/it's all true.mp4"
+  srcWebp: "/gifs/webp/it's all true.webp"
+  srcGif: "/gifs/it's all true.gif"
   width: 480
   height: 201
   tags: ["Movies & TV"]
@@ -721,6 +1018,9 @@
 - slug: it-s-fine-you-are-wrong
   alt: "it's fine you are wrong"
   src: "/gifs/it's fine you are wrong.gif"
+  srcMp4: "/gifs/mp4/it's fine you are wrong.mp4"
+  srcWebp: "/gifs/webp/it's fine you are wrong.webp"
+  srcGif: "/gifs/it's fine you are wrong.gif"
   width: 600
   height: 338
   tags: ["Dropout"]
@@ -728,6 +1028,9 @@
 - slug: jake-the-dad-hats
   alt: "jake the dad hats"
   src: "/gifs/jake the dad hats.webp"
+  srcMp4: "/gifs/mp4/jake the dad hats.mp4"
+  srcWebp: "/gifs/jake the dad hats.webp"
+  srcGif: "/gifs/gif/jake the dad hats.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Adventure Time"]
@@ -735,6 +1038,9 @@
 - slug: jokers-clapping
   alt: "jokers clapping"
   src: "/gifs/jokers clapping.gif"
+  srcMp4: "/gifs/mp4/jokers clapping.mp4"
+  srcWebp: "/gifs/webp/jokers clapping.webp"
+  srcGif: "/gifs/jokers clapping.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -742,6 +1048,9 @@
 - slug: jokers-dancing
   alt: "jokers dancing"
   src: "/gifs/jokers dancing.gif"
+  srcMp4: "/gifs/mp4/jokers dancing.mp4"
+  srcWebp: "/gifs/webp/jokers dancing.webp"
+  srcGif: "/gifs/jokers dancing.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -749,6 +1058,9 @@
 - slug: julius-dance
   alt: "julius dance"
   src: "/gifs/julius dance.gif"
+  srcMp4: "/gifs/mp4/julius dance.mp4"
+  srcWebp: "/gifs/webp/julius dance.webp"
+  srcGif: "/gifs/julius dance.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -757,6 +1069,9 @@
 - slug: julius-it-worked
   alt: "julius it worked"
   src: "/gifs/julius it worked.gif"
+  srcMp4: "/gifs/mp4/julius it worked.mp4"
+  srcWebp: "/gifs/webp/julius it worked.webp"
+  srcGif: "/gifs/julius it worked.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -764,6 +1079,9 @@
 - slug: just-a-little-psych-for-ya
   alt: "just a little psych for ya"
   src: "/gifs/just a little psych for ya.gif"
+  srcMp4: "/gifs/mp4/just a little psych for ya.mp4"
+  srcWebp: "/gifs/webp/just a little psych for ya.webp"
+  srcGif: "/gifs/just a little psych for ya.gif"
   width: 480
   height: 270
   tags: ["Dropout"]
@@ -771,6 +1089,9 @@
 - slug: just-being-funny-today
   alt: "just being funny today"
   src: "/gifs/just being funny today.gif"
+  srcMp4: "/gifs/mp4/just being funny today.mp4"
+  srcWebp: "/gifs/webp/just being funny today.webp"
+  srcGif: "/gifs/just being funny today.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Never Stop Blowing Up"]
@@ -779,6 +1100,9 @@
 - slug: katie-collapse
   alt: "katie collapse"
   src: "/gifs/katie collapse.gif"
+  srcMp4: "/gifs/mp4/katie collapse.mp4"
+  srcWebp: "/gifs/webp/katie collapse.webp"
+  srcGif: "/gifs/katie collapse.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -786,6 +1110,9 @@
 - slug: katie-oooahah
   alt: "katie oooahah"
   src: "/gifs/katie oooahah.gif"
+  srcMp4: "/gifs/mp4/katie oooahah.mp4"
+  srcWebp: "/gifs/webp/katie oooahah.webp"
+  srcGif: "/gifs/katie oooahah.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -793,6 +1120,9 @@
 - slug: kong-fall
   alt: "kong fall"
   src: "/gifs/kong fall.gif"
+  srcMp4: "/gifs/mp4/kong fall.mp4"
+  srcWebp: "/gifs/webp/kong fall.webp"
+  srcGif: "/gifs/kong fall.gif"
   width: 641
   height: 267
   tags: ["Movies & TV"]
@@ -800,6 +1130,9 @@
 - slug: left-me-on-my-own
   alt: "left me on my own"
   src: "/gifs/left me on my own.gif"
+  srcMp4: "/gifs/mp4/left me on my own.mp4"
+  srcWebp: "/gifs/webp/left me on my own.webp"
+  srcGif: "/gifs/left me on my own.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -808,6 +1141,9 @@
 - slug: lemongrab-fear
   alt: "lemongrab fear"
   src: "/gifs/lemongrab fear.gif"
+  srcMp4: "/gifs/mp4/lemongrab fear.mp4"
+  srcWebp: "/gifs/webp/lemongrab fear.webp"
+  srcGif: "/gifs/lemongrab fear.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -815,6 +1151,9 @@
 - slug: lex-cup
   alt: "lex cup"
   src: "/gifs/lex cup.gif"
+  srcMp4: "/gifs/mp4/lex cup.mp4"
+  srcWebp: "/gifs/webp/lex cup.webp"
+  srcGif: "/gifs/lex cup.gif"
   width: 480
   height: 253
   tags: ["Movies & TV", "Superman"]
@@ -822,6 +1161,9 @@
 - slug: lex-grin
   alt: "lex grin"
   src: "/gifs/lex grin.webp"
+  srcMp4: "/gifs/mp4/lex grin.mp4"
+  srcWebp: "/gifs/lex grin.webp"
+  srcGif: "/gifs/gif/lex grin.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Superman"]
@@ -829,6 +1171,9 @@
 - slug: lex-rage
   alt: "lex rage"
   src: "/gifs/lex rage.webp"
+  srcMp4: "/gifs/mp4/lex rage.mp4"
+  srcWebp: "/gifs/lex rage.webp"
+  srcGif: "/gifs/gif/lex rage.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Superman"]
@@ -836,6 +1181,9 @@
 - slug: lex-slam
   alt: "lex slam"
   src: "/gifs/lex slam.webp"
+  srcMp4: "/gifs/mp4/lex slam.mp4"
+  srcWebp: "/gifs/lex slam.webp"
+  srcGif: "/gifs/gif/lex slam.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Superman"]
@@ -843,6 +1191,9 @@
 - slug: lex-stare
   alt: "lex stare"
   src: "/gifs/lex stare.webp"
+  srcMp4: "/gifs/mp4/lex stare.mp4"
+  srcWebp: "/gifs/lex stare.webp"
+  srcGif: "/gifs/gif/lex stare.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Superman"]
@@ -851,6 +1202,9 @@
 - slug: lil-kaiju
   alt: "lil kaiju"
   src: "/gifs/lil kaiju.webp"
+  srcMp4: "/gifs/mp4/lil kaiju.mp4"
+  srcWebp: "/gifs/lil kaiju.webp"
+  srcGif: "/gifs/gif/lil kaiju.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Superman"]
@@ -858,6 +1212,9 @@
 - slug: lock-in-tear-it-up
   alt: "lock in tear it up"
   src: "/gifs/lock in tear it up.gif"
+  srcMp4: "/gifs/mp4/lock in tear it up.mp4"
+  srcWebp: "/gifs/webp/lock in tear it up.webp"
+  srcGif: "/gifs/lock in tear it up.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -865,6 +1222,9 @@
 - slug: look-back-explosion
   alt: "look back explosion"
   src: "/gifs/look back explosion.gif"
+  srcMp4: "/gifs/mp4/look back explosion.mp4"
+  srcWebp: "/gifs/webp/look back explosion.webp"
+  srcGif: "/gifs/look back explosion.gif"
   width: 600
   height: 251
   tags: ["Movies & TV"]
@@ -872,6 +1232,9 @@
 - slug: make-like-eggs
   alt: "make like eggs"
   src: "/gifs/make like eggs.webp"
+  srcMp4: "/gifs/mp4/make like eggs.mp4"
+  srcWebp: "/gifs/make like eggs.webp"
+  srcGif: "/gifs/gif/make like eggs.gif"
   width: 750
   height: 375
   tags: ["Movies & TV"]
@@ -880,6 +1243,9 @@
 - slug: marco-smile
   alt: "marco smile"
   src: "/gifs/marco smile.gif"
+  srcMp4: "/gifs/mp4/marco smile.mp4"
+  srcWebp: "/gifs/webp/marco smile.webp"
+  srcGif: "/gifs/marco smile.gif"
   width: 600
   height: 600
   tags: ["Movies & TV"]
@@ -888,6 +1254,9 @@
 - slug: messing-around
   alt: "messing around"
   src: "/gifs/messing around.webp"
+  srcMp4: "/gifs/mp4/messing around.mp4"
+  srcWebp: "/gifs/messing around.webp"
+  srcGif: "/gifs/gif/messing around.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Superman"]
@@ -896,6 +1265,9 @@
 - slug: metaphor
   alt: "metaphor"
   src: "/gifs/metaphor.webp"
+  srcMp4: "/gifs/mp4/metaphor.mp4"
+  srcWebp: "/gifs/metaphor.webp"
+  srcGif: "/gifs/gif/metaphor.gif"
   width: 800
   height: 400
   tags: ["Movies & TV", "Ted Lasso"]
@@ -903,6 +1275,9 @@
 - slug: metaphorical
   alt: "METAPHORICAL"
   src: "/gifs/METAPHORICAL.gif"
+  srcMp4: "/gifs/mp4/METAPHORICAL.mp4"
+  srcWebp: "/gifs/webp/METAPHORICAL.webp"
+  srcGif: "/gifs/METAPHORICAL.gif"
   width: 639
   height: 268
   tags: ["Movies & TV"]
@@ -910,6 +1285,9 @@
 - slug: might-fuck-this-whole-thing-up
   alt: "might fuck this whole thing up"
   src: "/gifs/might fuck this whole thing up.gif"
+  srcMp4: "/gifs/mp4/might fuck this whole thing up.mp4"
+  srcWebp: "/gifs/webp/might fuck this whole thing up.webp"
+  srcGif: "/gifs/might fuck this whole thing up.gif"
   width: 600
   height: 338
   tags: ["Movies & TV"]
@@ -917,6 +1295,9 @@
 - slug: monsters-together
   alt: "monsters_together"
   src: "/gifs/monsters_together.webp"
+  srcMp4: "/gifs/mp4/monsters_together.mp4"
+  srcWebp: "/gifs/monsters_together.webp"
+  srcGif: "/gifs/gif/monsters_together.gif"
   width: 640
   height: 342
   tags: ["Movies & TV", "Frankenstein"]
@@ -924,6 +1305,9 @@
 - slug: movie-stinks
   alt: "movie stinks"
   src: "/gifs/movie stinks.gif"
+  srcMp4: "/gifs/mp4/movie stinks.mp4"
+  srcWebp: "/gifs/webp/movie stinks.webp"
+  srcGif: "/gifs/movie stinks.gif"
   width: 640
   height: 345
   tags: ["Movies & TV"]
@@ -931,6 +1315,9 @@
 - slug: mr-moneybags
   alt: "MR MONEYBAGS"
   src: "/gifs/MR MONEYBAGS.gif"
+  srcMp4: "/gifs/mp4/MR MONEYBAGS.mp4"
+  srcWebp: "/gifs/webp/MR MONEYBAGS.webp"
+  srcGif: "/gifs/MR MONEYBAGS.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -938,6 +1325,9 @@
 - slug: multiculturalism
   alt: "multiculturalism"
   src: "/gifs/multiculturalism.gif"
+  srcMp4: "/gifs/mp4/multiculturalism.mp4"
+  srcWebp: "/gifs/webp/multiculturalism.webp"
+  srcGif: "/gifs/multiculturalism.gif"
   width: 640
   height: 480
   tags: ["Movies & TV"]
@@ -945,6 +1335,9 @@
 - slug: never-stop-blowing-up-old
   alt: "NEVER STOP BLOWING UP old"
   src: "/gifs/NEVER STOP BLOWING UP old.gif"
+  srcMp4: "/gifs/mp4/NEVER STOP BLOWING UP old.mp4"
+  srcWebp: "/gifs/webp/NEVER STOP BLOWING UP old.webp"
+  srcGif: "/gifs/NEVER STOP BLOWING UP old.gif"
   width: 641
   height: 360
   tags: ["Dropout", "Never Stop Blowing Up"]
@@ -952,6 +1345,9 @@
 - slug: nice-to-be-me
   alt: "nice to be me"
   src: "/gifs/nice to be me.gif"
+  srcMp4: "/gifs/mp4/nice to be me.mp4"
+  srcWebp: "/gifs/webp/nice to be me.webp"
+  srcGif: "/gifs/nice to be me.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Adventuring Academy"]
@@ -959,6 +1355,9 @@
 - slug: no-bits
   alt: "no bits"
   src: "/gifs/no bits.gif"
+  srcMp4: "/gifs/mp4/no bits.mp4"
+  srcWebp: "/gifs/webp/no bits.webp"
+  srcGif: "/gifs/no bits.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -966,6 +1365,9 @@
 - slug: no-col-that-s-wrong
   alt: "no col that's wrong"
   src: "/gifs/no col that's wrong.gif"
+  srcMp4: "/gifs/mp4/no col that's wrong.mp4"
+  srcWebp: "/gifs/webp/no col that's wrong.webp"
+  srcGif: "/gifs/no col that's wrong.gif"
   width: 320
   height: 240
   tags: ["Movies & TV"]
@@ -973,6 +1375,9 @@
 - slug: no-offense-but-burn-in-hell
   alt: "no offense but burn in hell"
   src: "/gifs/no offense but burn in hell.webp"
+  srcMp4: "/gifs/mp4/no offense but burn in hell.mp4"
+  srcWebp: "/gifs/no offense but burn in hell.webp"
+  srcGif: "/gifs/gif/no offense but burn in hell.gif"
   width: 640
   height: 360
   tags: ["Movies & TV"]
@@ -980,6 +1385,9 @@
 - slug: no-to-waltz
   alt: "no_to_waltz"
   src: "/gifs/no_to_waltz.webp"
+  srcMp4: "/gifs/mp4/no_to_waltz.mp4"
+  srcWebp: "/gifs/no_to_waltz.webp"
+  srcGif: "/gifs/gif/no_to_waltz.gif"
   width: 640
   height: 342
   tags: ["Movies & TV", "Frankenstein"]
@@ -987,6 +1395,9 @@
 - slug: nodding
   alt: "nodding"
   src: "/gifs/nodding.gif"
+  srcMp4: "/gifs/mp4/nodding.mp4"
+  srcWebp: "/gifs/webp/nodding.webp"
+  srcGif: "/gifs/nodding.gif"
   width: 270
   height: 270
   tags: ["Dropout", "Cloudward Ho"]
@@ -994,6 +1405,9 @@
 - slug: nonono-be-quiet
   alt: "nonono be quiet"
   src: "/gifs/nonono be quiet.gif"
+  srcMp4: "/gifs/mp4/nonono be quiet.mp4"
+  srcWebp: "/gifs/webp/nonono be quiet.webp"
+  srcGif: "/gifs/nonono be quiet.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -1001,6 +1415,9 @@
 - slug: nos-run-1
   alt: "nos_run_1"
   src: "/gifs/nos_run_1.gif"
+  srcMp4: "/gifs/mp4/nos_run_1.mp4"
+  srcWebp: "/gifs/webp/nos_run_1.webp"
+  srcGif: "/gifs/nos_run_1.gif"
   width: 640
   height: 360
   tags: ["Movies & TV"]
@@ -1008,6 +1425,9 @@
 - slug: not-nice
   alt: "not nice"
   src: "/gifs/not nice.webp"
+  srcMp4: "/gifs/mp4/not nice.mp4"
+  srcWebp: "/gifs/not nice.webp"
+  srcGif: "/gifs/gif/not nice.gif"
   width: 640
   height: 360
   tags: ["Dropout", "Cloudward Ho"]
@@ -1015,6 +1435,9 @@
 - slug: nsbu
   alt: "NSBU"
   src: "/gifs/NSBU.gif"
+  srcMp4: "/gifs/mp4/NSBU.mp4"
+  srcWebp: "/gifs/webp/NSBU.webp"
+  srcGif: "/gifs/NSBU.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Never Stop Blowing Up"]
@@ -1023,6 +1446,9 @@
 - slug: objectively-piss
   alt: "objectively piss"
   src: "/gifs/objectively piss.gif"
+  srcMp4: "/gifs/mp4/objectively piss.mp4"
+  srcWebp: "/gifs/webp/objectively piss.webp"
+  srcGif: "/gifs/objectively piss.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -1030,6 +1456,9 @@
 - slug: oh-my-god
   alt: "oh my god"
   src: "/gifs/oh my god.webp"
+  srcMp4: "/gifs/mp4/oh my god.mp4"
+  srcWebp: "/gifs/oh my god.webp"
+  srcGif: "/gifs/gif/oh my god.gif"
   width: 1200
   height: 600
   tags: ["Movies & TV", "Ted Lasso"]
@@ -1037,6 +1466,9 @@
 - slug: okay-so-i-m-gonna-leave-this-interaction
   alt: "okay so I'm gonna leave this interaction"
   src: "/gifs/okay so I'm gonna leave this interaction.gif"
+  srcMp4: "/gifs/mp4/okay so I'm gonna leave this interaction.mp4"
+  srcWebp: "/gifs/webp/okay so I'm gonna leave this interaction.webp"
+  srcGif: "/gifs/okay so I'm gonna leave this interaction.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Never Stop Blowing Up"]
@@ -1044,6 +1476,9 @@
 - slug: on-purpose
   alt: "on purpose"
   src: "/gifs/on purpose.webp"
+  srcMp4: "/gifs/mp4/on purpose.mp4"
+  srcWebp: "/gifs/on purpose.webp"
+  srcGif: "/gifs/gif/on purpose.gif"
   width: 640
   height: 360
   tags: ["Dropout", "Cloudward Ho"]
@@ -1051,6 +1486,9 @@
 - slug: only-a-matter-of-time
   alt: "only a matter of time"
   src: "/gifs/only a matter of time.gif"
+  srcMp4: "/gifs/mp4/only a matter of time.mp4"
+  srcWebp: "/gifs/webp/only a matter of time.webp"
+  srcGif: "/gifs/only a matter of time.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -1058,6 +1496,9 @@
 - slug: only-the-dang-rich
   alt: "only the dang rich"
   src: "/gifs/only the dang rich.gif"
+  srcMp4: "/gifs/mp4/only the dang rich.mp4"
+  srcWebp: "/gifs/webp/only the dang rich.webp"
+  srcGif: "/gifs/only the dang rich.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -1066,6 +1507,9 @@
 - slug: points-for-integrity
   alt: "points for integrity"
   src: "/gifs/points for integrity.gif"
+  srcMp4: "/gifs/mp4/points for integrity.mp4"
+  srcWebp: "/gifs/webp/points for integrity.webp"
+  srcGif: "/gifs/points for integrity.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -1073,6 +1517,9 @@
 - slug: rashab
   alt: "RASHAB"
   src: "/gifs/RASHAB.gif"
+  srcMp4: "/gifs/mp4/RASHAB.mp4"
+  srcWebp: "/gifs/webp/RASHAB.webp"
+  srcGif: "/gifs/RASHAB.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Never Stop Blowing Up"]
@@ -1081,6 +1528,9 @@
 - slug: rashab-old
   alt: "RASHAB old"
   src: "/gifs/RASHAB old.gif"
+  srcMp4: "/gifs/mp4/RASHAB old.mp4"
+  srcWebp: "/gifs/webp/RASHAB old.webp"
+  srcGif: "/gifs/RASHAB old.gif"
   width: 639
   height: 360
   tags: ["Dropout", "Never Stop Blowing Up"]
@@ -1088,6 +1538,9 @@
 - slug: red-guardian-sad
   alt: "red guardian sad"
   src: "/gifs/red guardian sad.gif"
+  srcMp4: "/gifs/mp4/red guardian sad.mp4"
+  srcWebp: "/gifs/webp/red guardian sad.webp"
+  srcGif: "/gifs/red guardian sad.gif"
   width: 600
   height: 250
   tags: ["Movies & TV"]
@@ -1095,6 +1548,9 @@
 - slug: regret
   alt: "REGRET"
   src: "/gifs/REGRET.gif"
+  srcMp4: "/gifs/mp4/REGRET.mp4"
+  srcWebp: "/gifs/webp/REGRET.webp"
+  srcGif: "/gifs/REGRET.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -1102,6 +1558,9 @@
 - slug: ren-street-1
   alt: "ren_street_1"
   src: "/gifs/ren_street_1.gif"
+  srcMp4: "/gifs/mp4/ren_street_1.mp4"
+  srcWebp: "/gifs/webp/ren_street_1.webp"
+  srcGif: "/gifs/ren_street_1.gif"
   width: 640
   height: 360
   tags: ["Movies & TV"]
@@ -1110,6 +1569,9 @@
 - slug: right-on-man
   alt: "right on man"
   src: "/gifs/right on man.webp"
+  srcMp4: "/gifs/mp4/right on man.mp4"
+  srcWebp: "/gifs/right on man.webp"
+  srcGif: "/gifs/gif/right on man.gif"
   width: 700
   height: 350
   tags: ["Movies & TV"]
@@ -1117,6 +1579,9 @@
 - slug: rock-bottoming-cream-ass
   alt: "rock bottoming cream ass"
   src: "/gifs/rock bottoming cream ass.gif"
+  srcMp4: "/gifs/mp4/rock bottoming cream ass.mp4"
+  srcWebp: "/gifs/webp/rock bottoming cream ass.webp"
+  srcGif: "/gifs/rock bottoming cream ass.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -1124,6 +1589,9 @@
 - slug: s1-ep01-ill-be-the-hero
   alt: "ep01_ill_be_the_hero"
   src: "/gifs/ep01_ill_be_the_hero.webp"
+  srcMp4: "/gifs/mp4/ep01_ill_be_the_hero.mp4"
+  srcWebp: "/gifs/ep01_ill_be_the_hero.webp"
+  srcGif: "/gifs/gif/ep01_ill_be_the_hero.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1131,6 +1599,9 @@
 - slug: s1-ep02-its-in-my-head-now
   alt: "ep02_its_in_my_head_now"
   src: "/gifs/ep02_its_in_my_head_now.webp"
+  srcMp4: "/gifs/mp4/ep02_its_in_my_head_now.mp4"
+  srcWebp: "/gifs/ep02_its_in_my_head_now.webp"
+  srcGif: "/gifs/gif/ep02_its_in_my_head_now.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1138,6 +1609,9 @@
 - slug: s1-ep02-ricochet-shot
   alt: "ep02_ricochet_shot"
   src: "/gifs/ep02_ricochet_shot.webp"
+  srcMp4: "/gifs/mp4/ep02_ricochet_shot.mp4"
+  srcWebp: "/gifs/ep02_ricochet_shot.webp"
+  srcGif: "/gifs/gif/ep02_ricochet_shot.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1145,6 +1619,9 @@
 - slug: s1-ep02-shanks-finger-gun
   alt: "ep02_shanks_finger_gun"
   src: "/gifs/ep02_shanks_finger_gun.webp"
+  srcMp4: "/gifs/mp4/ep02_shanks_finger_gun.mp4"
+  srcWebp: "/gifs/ep02_shanks_finger_gun.webp"
+  srcGif: "/gifs/gif/ep02_shanks_finger_gun.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1152,6 +1629,9 @@
 - slug: s1-ep02-where-are-my-freaks
   alt: "ep02_where_are_my_freaks"
   src: "/gifs/ep02_where_are_my_freaks.webp"
+  srcMp4: "/gifs/mp4/ep02_where_are_my_freaks.mp4"
+  srcWebp: "/gifs/ep02_where_are_my_freaks.webp"
+  srcGif: "/gifs/gif/ep02_where_are_my_freaks.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1159,6 +1639,9 @@
 - slug: s1-ep04-didnt-plan-for-that
   alt: "ep04_didnt_plan_for_that"
   src: "/gifs/ep04_didnt_plan_for_that.webp"
+  srcMp4: "/gifs/mp4/ep04_didnt_plan_for_that.mp4"
+  srcWebp: "/gifs/ep04_didnt_plan_for_that.webp"
+  srcGif: "/gifs/gif/ep04_didnt_plan_for_that.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1166,6 +1649,9 @@
 - slug: s1-ep04-done-talking-now-listening
   alt: "ep04_done_talking_now_listening"
   src: "/gifs/ep04_done_talking_now_listening.webp"
+  srcMp4: "/gifs/mp4/ep04_done_talking_now_listening.mp4"
+  srcWebp: "/gifs/ep04_done_talking_now_listening.webp"
+  srcGif: "/gifs/gif/ep04_done_talking_now_listening.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1173,6 +1659,9 @@
 - slug: s1-ep05-alright-you-brat
   alt: "ep05_alright_you_brat"
   src: "/gifs/ep05_alright_you_brat.webp"
+  srcMp4: "/gifs/mp4/ep05_alright_you_brat.mp4"
+  srcWebp: "/gifs/ep05_alright_you_brat.webp"
+  srcGif: "/gifs/gif/ep05_alright_you_brat.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1180,6 +1669,9 @@
 - slug: s1-ep05-reflecting-cannonball
   alt: "ep05_reflecting_cannonball"
   src: "/gifs/ep05_reflecting_cannonball.webp"
+  srcMp4: "/gifs/mp4/ep05_reflecting_cannonball.mp4"
+  srcWebp: "/gifs/ep05_reflecting_cannonball.webp"
+  srcGif: "/gifs/gif/ep05_reflecting_cannonball.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1187,6 +1679,9 @@
 - slug: s1-ep06-whos-hungry
   alt: "ep06_whos_hungry"
   src: "/gifs/ep06_whos_hungry.webp"
+  srcMp4: "/gifs/mp4/ep06_whos_hungry.mp4"
+  srcWebp: "/gifs/ep06_whos_hungry.webp"
+  srcGif: "/gifs/gif/ep06_whos_hungry.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1194,6 +1689,9 @@
 - slug: s1-ep07-of-course-i-will
   alt: "ep07_of_course_i_will"
   src: "/gifs/ep07_of_course_i_will.webp"
+  srcMp4: "/gifs/mp4/ep07_of_course_i_will.mp4"
+  srcWebp: "/gifs/ep07_of_course_i_will.webp"
+  srcGif: "/gifs/gif/ep07_of_course_i_will.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1201,6 +1699,9 @@
 - slug: s1-ep07-of-course-i-will-yelling
   alt: "ep07_of_course_i_will_yelling"
   src: "/gifs/ep07_of_course_i_will_yelling.webp"
+  srcMp4: "/gifs/mp4/ep07_of_course_i_will_yelling.mp4"
+  srcWebp: "/gifs/ep07_of_course_i_will_yelling.webp"
+  srcGif: "/gifs/gif/ep07_of_course_i_will_yelling.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1208,6 +1709,9 @@
 - slug: s1-ep08-feel-what-you-need-to-feel
   alt: "ep08_feel_what_you_need_to_feel"
   src: "/gifs/ep08_feel_what_you_need_to_feel.webp"
+  srcMp4: "/gifs/mp4/ep08_feel_what_you_need_to_feel.mp4"
+  srcWebp: "/gifs/ep08_feel_what_you_need_to_feel.webp"
+  srcGif: "/gifs/gif/ep08_feel_what_you_need_to_feel.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1215,6 +1719,9 @@
 - slug: s1-ep08-fishman-karate
   alt: "ep08_fishman_karate"
   src: "/gifs/ep08_fishman_karate.webp"
+  srcMp4: "/gifs/mp4/ep08_fishman_karate.mp4"
+  srcWebp: "/gifs/ep08_fishman_karate.webp"
+  srcGif: "/gifs/gif/ep08_fishman_karate.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1222,6 +1729,9 @@
 - slug: s1-ep08-give-it-up-not-my-thing
   alt: "ep08_give_it_up_not_my_thing"
   src: "/gifs/ep08_give_it_up_not_my_thing.webp"
+  srcMp4: "/gifs/mp4/ep08_give_it_up_not_my_thing.mp4"
+  srcWebp: "/gifs/ep08_give_it_up_not_my_thing.webp"
+  srcGif: "/gifs/gif/ep08_give_it_up_not_my_thing.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1229,6 +1739,9 @@
 - slug: s1-ep08-gonna-get-outta-here
   alt: "ep08_gonna_get_outta_here"
   src: "/gifs/ep08_gonna_get_outta_here.webp"
+  srcMp4: "/gifs/mp4/ep08_gonna_get_outta_here.mp4"
+  srcWebp: "/gifs/ep08_gonna_get_outta_here.webp"
+  srcGif: "/gifs/gif/ep08_gonna_get_outta_here.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1236,6 +1749,9 @@
 - slug: s1-ep08-missed-hug
   alt: "ep08_missed_hug"
   src: "/gifs/ep08_missed_hug.webp"
+  srcMp4: "/gifs/mp4/ep08_missed_hug.mp4"
+  srcWebp: "/gifs/ep08_missed_hug.webp"
+  srcGif: "/gifs/gif/ep08_missed_hug.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1243,6 +1759,9 @@
 - slug: s1-ep08-nothings-gonna-stand
   alt: "ep08_nothings_gonna_stand"
   src: "/gifs/ep08_nothings_gonna_stand.webp"
+  srcMp4: "/gifs/mp4/ep08_nothings_gonna_stand.mp4"
+  srcWebp: "/gifs/ep08_nothings_gonna_stand.webp"
+  srcGif: "/gifs/gif/ep08_nothings_gonna_stand.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1250,6 +1769,9 @@
 - slug: s1-ep08-we-are-your-crew
   alt: "ep08_we_are_your_crew"
   src: "/gifs/ep08_we_are_your_crew.webp"
+  srcMp4: "/gifs/mp4/ep08_we_are_your_crew.mp4"
+  srcWebp: "/gifs/ep08_we_are_your_crew.webp"
+  srcGif: "/gifs/gif/ep08_we_are_your_crew.gif"
   width: 600
   height: 300
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1257,6 +1779,9 @@
 - slug: s2-ep01-cursed-me-for-the-last
   alt: "ep01_cursed_me_for_the_last"
   src: "/gifs/ep01_cursed_me_for_the_last.webp"
+  srcMp4: "/gifs/mp4/ep01_cursed_me_for_the_last.mp4"
+  srcWebp: "/gifs/ep01_cursed_me_for_the_last.webp"
+  srcGif: "/gifs/gif/ep01_cursed_me_for_the_last.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1264,6 +1789,9 @@
 - slug: s2-ep01-im-dead
   alt: "ep01_im_dead"
   src: "/gifs/ep01_im_dead.webp"
+  srcMp4: "/gifs/mp4/ep01_im_dead.mp4"
+  srcWebp: "/gifs/ep01_im_dead.webp"
+  srcGif: "/gifs/gif/ep01_im_dead.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1271,6 +1799,9 @@
 - slug: s2-ep01-im-not-lost
   alt: "ep01_im_not_lost"
   src: "/gifs/ep01_im_not_lost.webp"
+  srcMp4: "/gifs/mp4/ep01_im_not_lost.mp4"
+  srcWebp: "/gifs/ep01_im_not_lost.webp"
+  srcGif: "/gifs/gif/ep01_im_not_lost.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1278,6 +1809,9 @@
 - slug: s2-ep01-looked-in-the-eyes-of-a-worthy
   alt: "ep01_looked_in_the_eyes_of_a_worthy"
   src: "/gifs/ep01_looked_in_the_eyes_of_a_worthy.webp"
+  srcMp4: "/gifs/mp4/ep01_looked_in_the_eyes_of_a_worthy.mp4"
+  srcWebp: "/gifs/ep01_looked_in_the_eyes_of_a_worthy.webp"
+  srcGif: "/gifs/gif/ep01_looked_in_the_eyes_of_a_worthy.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1285,6 +1819,9 @@
 - slug: s2-ep01-not-again
   alt: "ep01_not_again"
   src: "/gifs/ep01_not_again.webp"
+  srcMp4: "/gifs/mp4/ep01_not_again.mp4"
+  srcWebp: "/gifs/ep01_not_again.webp"
+  srcGif: "/gifs/gif/ep01_not_again.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1292,6 +1829,9 @@
 - slug: s2-ep01-right-whoa
   alt: "ep01_right_whoa"
   src: "/gifs/ep01_right_whoa.webp"
+  srcMp4: "/gifs/mp4/ep01_right_whoa.mp4"
+  srcWebp: "/gifs/ep01_right_whoa.webp"
+  srcGif: "/gifs/gif/ep01_right_whoa.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1299,6 +1839,9 @@
 - slug: s2-ep03-thats-not-gonna-be-a-problem
   alt: "ep03_thats_not_gonna_be_a_problem"
   src: "/gifs/ep03_thats_not_gonna_be_a_problem.webp"
+  srcMp4: "/gifs/mp4/ep03_thats_not_gonna_be_a_problem.mp4"
+  srcWebp: "/gifs/ep03_thats_not_gonna_be_a_problem.webp"
+  srcGif: "/gifs/gif/ep03_thats_not_gonna_be_a_problem.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1306,6 +1849,9 @@
 - slug: s2-ep03-thats-one-way-to-take-care
   alt: "ep03_thats_one_way_to_take_care"
   src: "/gifs/ep03_thats_one_way_to_take_care.webp"
+  srcMp4: "/gifs/mp4/ep03_thats_one_way_to_take_care.mp4"
+  srcWebp: "/gifs/ep03_thats_one_way_to_take_care.webp"
+  srcGif: "/gifs/gif/ep03_thats_one_way_to_take_care.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1313,6 +1859,9 @@
 - slug: s2-ep05-shit-happens
   alt: "ep05_shit_happens"
   src: "/gifs/ep05_shit_happens.webp"
+  srcMp4: "/gifs/mp4/ep05_shit_happens.mp4"
+  srcWebp: "/gifs/ep05_shit_happens.webp"
+  srcGif: "/gifs/gif/ep05_shit_happens.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1320,6 +1869,9 @@
 - slug: s2-ep05-thats-the-reaction
   alt: "ep05_thats_the_reaction"
   src: "/gifs/ep05_thats_the_reaction.webp"
+  srcMp4: "/gifs/mp4/ep05_thats_the_reaction.mp4"
+  srcWebp: "/gifs/ep05_thats_the_reaction.webp"
+  srcGif: "/gifs/gif/ep05_thats_the_reaction.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1327,6 +1879,9 @@
 - slug: s2-ep05-we-will-defeat-our-enemies
   alt: "ep05_we_will_defeat_our_enemies"
   src: "/gifs/ep05_we_will_defeat_our_enemies.webp"
+  srcMp4: "/gifs/mp4/ep05_we_will_defeat_our_enemies.mp4"
+  srcWebp: "/gifs/ep05_we_will_defeat_our_enemies.webp"
+  srcGif: "/gifs/gif/ep05_we_will_defeat_our_enemies.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1334,6 +1889,9 @@
 - slug: s2-ep08-lets-go-be-pirates
   alt: "ep08_lets_go_be_pirates"
   src: "/gifs/ep08_lets_go_be_pirates.webp"
+  srcMp4: "/gifs/mp4/ep08_lets_go_be_pirates.mp4"
+  srcWebp: "/gifs/ep08_lets_go_be_pirates.webp"
+  srcGif: "/gifs/gif/ep08_lets_go_be_pirates.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1341,6 +1899,9 @@
 - slug: s2-ep08-now-watch-me-work
   alt: "ep08_now_watch_me_work"
   src: "/gifs/ep08_now_watch_me_work.webp"
+  srcMp4: "/gifs/mp4/ep08_now_watch_me_work.mp4"
+  srcWebp: "/gifs/ep08_now_watch_me_work.webp"
+  srcGif: "/gifs/gif/ep08_now_watch_me_work.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1348,6 +1909,9 @@
 - slug: s2-ep08-take-this-seriously
   alt: "ep08_take_this_seriously"
   src: "/gifs/ep08_take_this_seriously.webp"
+  srcMp4: "/gifs/mp4/ep08_take_this_seriously.mp4"
+  srcWebp: "/gifs/ep08_take_this_seriously.webp"
+  srcGif: "/gifs/gif/ep08_take_this_seriously.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1355,6 +1919,9 @@
 - slug: s2-gatling-smoke
   alt: "gatling_smoke"
   src: "/gifs/gatling_smoke.webp"
+  srcMp4: "/gifs/mp4/gatling_smoke.mp4"
+  srcWebp: "/gifs/gatling_smoke.webp"
+  srcGif: "/gifs/gif/gatling_smoke.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1362,6 +1929,9 @@
 - slug: s2-waving-flying-out-of-frame
   alt: "waving_flying_out_of_frame"
   src: "/gifs/waving_flying_out_of_frame.webp"
+  srcMp4: "/gifs/mp4/waving_flying_out_of_frame.mp4"
+  srcWebp: "/gifs/waving_flying_out_of_frame.webp"
+  srcGif: "/gifs/gif/waving_flying_out_of_frame.gif"
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
@@ -1369,6 +1939,9 @@
 - slug: sam-react
   alt: "sam react"
   src: "/gifs/sam react.gif"
+  srcMp4: "/gifs/mp4/sam react.mp4"
+  srcWebp: "/gifs/webp/sam react.webp"
+  srcGif: "/gifs/sam react.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -1377,6 +1950,9 @@
 - slug: see-i-m-really-nice
   alt: "See, I’m really nice"
   src: "/gifs/See, I’m really nice.gif"
+  srcMp4: "/gifs/mp4/See, I’m really nice.mp4"
+  srcWebp: "/gifs/webp/See, I’m really nice.webp"
+  srcGif: "/gifs/See, I’m really nice.gif"
   width: 349
   height: 270
   tags: ["Dropout"]
@@ -1384,6 +1960,9 @@
 - slug: shame-on-me
   alt: "shame on me"
   src: "/gifs/shame on me.gif"
+  srcMp4: "/gifs/mp4/shame on me.mp4"
+  srcWebp: "/gifs/webp/shame on me.webp"
+  srcGif: "/gifs/shame on me.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -1391,6 +1970,9 @@
 - slug: shield-bend
   alt: "shield bend"
   src: "/gifs/shield bend.gif"
+  srcMp4: "/gifs/mp4/shield bend.mp4"
+  srcWebp: "/gifs/webp/shield bend.webp"
+  srcGif: "/gifs/shield bend.gif"
   width: 600
   height: 251
   tags: ["Movies & TV"]
@@ -1398,6 +1980,9 @@
 - slug: shit-happens-get-the-whiskey
   alt: "shit happens get the whiskey"
   src: "/gifs/shit happens get the whiskey.gif"
+  srcMp4: "/gifs/mp4/shit happens get the whiskey.mp4"
+  srcWebp: "/gifs/webp/shit happens get the whiskey.webp"
+  srcGif: "/gifs/shit happens get the whiskey.gif"
   width: 480
   height: 201
   tags: ["Movies & TV"]
@@ -1406,6 +1991,9 @@
 - slug: shit-man-that-sucks
   alt: "shit man that sucks"
   src: "/gifs/shit man that sucks.webp"
+  srcMp4: "/gifs/mp4/shit man that sucks.mp4"
+  srcWebp: "/gifs/shit man that sucks.webp"
+  srcGif: "/gifs/gif/shit man that sucks.gif"
   width: 700
   height: 350
   tags: ["Movies & TV"]
@@ -1414,6 +2002,9 @@
 - slug: sick-sick-man
   alt: "sick sick man"
   src: "/gifs/sick sick man.webp"
+  srcMp4: "/gifs/mp4/sick sick man.mp4"
+  srcWebp: "/gifs/sick sick man.webp"
+  srcGif: "/gifs/gif/sick sick man.gif"
   width: 640
   height: 360
   tags: ["Dropout", "Game Changer"]
@@ -1422,6 +2013,9 @@
 - slug: silly-little-snacker
   alt: "silly little snacker"
   src: "/gifs/silly little snacker.webp"
+  srcMp4: "/gifs/mp4/silly little snacker.mp4"
+  srcWebp: "/gifs/silly little snacker.webp"
+  srcGif: "/gifs/gif/silly little snacker.gif"
   width: 640
   height: 360
   tags: ["Dropout", "Adventuring Academy"]
@@ -1429,6 +2023,9 @@
 - slug: sluggin-it-today
   alt: "sluggin it today"
   src: "/gifs/sluggin it today.gif"
+  srcMp4: "/gifs/mp4/sluggin it today.mp4"
+  srcWebp: "/gifs/webp/sluggin it today.webp"
+  srcGif: "/gifs/sluggin it today.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -1437,6 +2034,9 @@
 - slug: smile-no-teeth
   alt: "smile NO TEETH"
   src: "/gifs/smile NO TEETH.gif"
+  srcMp4: "/gifs/mp4/smile NO TEETH.mp4"
+  srcWebp: "/gifs/webp/smile NO TEETH.webp"
+  srcGif: "/gifs/smile NO TEETH.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Gachiakuta"]
@@ -1444,6 +2044,9 @@
 - slug: sneaky-salty-bitch
   alt: "sneaky salty bitch"
   src: "/gifs/sneaky salty bitch.webp"
+  srcMp4: "/gifs/mp4/sneaky salty bitch.mp4"
+  srcWebp: "/gifs/sneaky salty bitch.webp"
+  srcGif: "/gifs/gif/sneaky salty bitch.gif"
   width: 1200
   height: 600
   tags: ["Movies & TV", "Ted Lasso"]
@@ -1451,6 +2054,9 @@
 - slug: so-anway-i-started-blasting
   alt: "so anway I started blasting"
   src: "/gifs/so anway I started blasting.webp"
+  srcMp4: "/gifs/mp4/so anway I started blasting.mp4"
+  srcWebp: "/gifs/so anway I started blasting.webp"
+  srcGif: "/gifs/gif/so anway I started blasting.gif"
   width: 720
   height: 720
   tags: ["Movies & TV"]
@@ -1459,6 +2065,9 @@
 - slug: some-bits
   alt: "some bits"
   src: "/gifs/some bits.gif"
+  srcMp4: "/gifs/mp4/some bits.mp4"
+  srcWebp: "/gifs/webp/some bits.webp"
+  srcGif: "/gifs/some bits.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -1466,6 +2075,9 @@
 - slug: some-bullshit
   alt: "some bullshit"
   src: "/gifs/some bullshit.gif"
+  srcMp4: "/gifs/mp4/some bullshit.mp4"
+  srcWebp: "/gifs/webp/some bullshit.webp"
+  srcGif: "/gifs/some bullshit.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -1473,6 +2085,9 @@
 - slug: stinkin-thinkin
   alt: "stinkin thinkin"
   src: "/gifs/stinkin thinkin.webp"
+  srcMp4: "/gifs/mp4/stinkin thinkin.mp4"
+  srcWebp: "/gifs/stinkin thinkin.webp"
+  srcGif: "/gifs/gif/stinkin thinkin.gif"
   width: 800
   height: 400
   tags: ["Movies & TV", "Ted Lasso"]
@@ -1481,6 +2096,9 @@
 - slug: sunrise
   alt: "sunrise"
   src: "/gifs/sunrise.webp"
+  srcMp4: "/gifs/mp4/sunrise.mp4"
+  srcWebp: "/gifs/sunrise.webp"
+  srcGif: "/gifs/gif/sunrise.gif"
   width: 640
   height: 342
   tags: ["Movies & TV", "Frankenstein"]
@@ -1488,6 +2106,9 @@
 - slug: superman-rising
   alt: "superman rising"
   src: "/gifs/superman rising.gif"
+  srcMp4: "/gifs/mp4/superman rising.mp4"
+  srcWebp: "/gifs/webp/superman rising.webp"
+  srcGif: "/gifs/superman rising.gif"
   width: 480
   height: 253
   tags: ["Movies & TV", "Superman"]
@@ -1495,6 +2116,9 @@
 - slug: superman-stare
   alt: "superman stare"
   src: "/gifs/superman stare.gif"
+  srcMp4: "/gifs/mp4/superman stare.mp4"
+  srcWebp: "/gifs/webp/superman stare.webp"
+  srcGif: "/gifs/superman stare.gif"
   width: 480
   height: 253
   tags: ["Movies & TV", "Superman"]
@@ -1502,6 +2126,9 @@
 - slug: syril-bed-in
   alt: "syril bed in"
   src: "/gifs/syril bed in.gif"
+  srcMp4: "/gifs/mp4/syril bed in.mp4"
+  srcWebp: "/gifs/webp/syril bed in.webp"
+  srcGif: "/gifs/syril bed in.gif"
   width: 600
   height: 251
   tags: ["Movies & TV", "Andor"]
@@ -1509,6 +2136,9 @@
 - slug: syril-bed-out
   alt: "syril bed out"
   src: "/gifs/syril bed out.gif"
+  srcMp4: "/gifs/mp4/syril bed out.mp4"
+  srcWebp: "/gifs/webp/syril bed out.webp"
+  srcGif: "/gifs/syril bed out.gif"
   width: 600
   height: 251
   tags: ["Movies & TV", "Andor"]
@@ -1516,6 +2146,9 @@
 - slug: take-that-bag-off-your-udder
   alt: "take that bag off your udder"
   src: "/gifs/take that bag off your udder.gif"
+  srcMp4: "/gifs/mp4/take that bag off your udder.mp4"
+  srcWebp: "/gifs/webp/take that bag off your udder.webp"
+  srcGif: "/gifs/take that bag off your udder.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -1523,6 +2156,9 @@
 - slug: that-s-me
   alt: "that's me"
   src: "/gifs/that's me.gif"
+  srcMp4: "/gifs/mp4/that's me.mp4"
+  srcWebp: "/gifs/webp/that's me.webp"
+  srcGif: "/gifs/that's me.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -1530,6 +2166,9 @@
 - slug: that-s-true-love
   alt: "that's true love"
   src: "/gifs/that's true love.gif"
+  srcMp4: "/gifs/mp4/that's true love.mp4"
+  srcWebp: "/gifs/webp/that's true love.webp"
+  srcGif: "/gifs/that's true love.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -1537,6 +2176,9 @@
 - slug: that-s-what-s-hot
   alt: "that's what's hot"
   src: "/gifs/that's what's hot.gif"
+  srcMp4: "/gifs/mp4/that's what's hot.mp4"
+  srcWebp: "/gifs/webp/that's what's hot.webp"
+  srcGif: "/gifs/that's what's hot.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Adventuring Academy"]
@@ -1544,6 +2186,9 @@
 - slug: that-sucked
   alt: "that sucked"
   src: "/gifs/that sucked.gif"
+  srcMp4: "/gifs/mp4/that sucked.mp4"
+  srcWebp: "/gifs/webp/that sucked.webp"
+  srcGif: "/gifs/that sucked.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Adventuring Academy"]
@@ -1551,6 +2196,9 @@
 - slug: the-goddamn-internet
   alt: "the goddamn internet"
   src: "/gifs/the goddamn internet.webp"
+  srcMp4: "/gifs/mp4/the goddamn internet.mp4"
+  srcWebp: "/gifs/the goddamn internet.webp"
+  srcGif: "/gifs/gif/the goddamn internet.gif"
   width: 1200
   height: 600
   tags: ["Movies & TV", "Ted Lasso"]
@@ -1558,6 +2206,9 @@
 - slug: the-main-guy
   alt: "the main guy"
   src: "/gifs/the main guy.webp"
+  srcMp4: "/gifs/mp4/the main guy.mp4"
+  srcWebp: "/gifs/the main guy.webp"
+  srcGif: "/gifs/gif/the main guy.gif"
   width: 768
   height: 432
   tags: ["Dropout", "Cloudward Ho"]
@@ -1566,6 +2217,9 @@
 - slug: the-monkey
   alt: "the monkey"
   src: "/gifs/the monkey.webp"
+  srcMp4: "/gifs/mp4/the monkey.mp4"
+  srcWebp: "/gifs/the monkey.webp"
+  srcGif: "/gifs/gif/the monkey.gif"
   width: 700
   height: 350
   tags: ["Movies & TV"]
@@ -1573,6 +2227,9 @@
 - slug: the-real-punk-rock
   alt: "the real punk rock"
   src: "/gifs/the real punk rock.webp"
+  srcMp4: "/gifs/mp4/the real punk rock.mp4"
+  srcWebp: "/gifs/the real punk rock.webp"
+  srcGif: "/gifs/gif/the real punk rock.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Superman"]
@@ -1581,6 +2238,9 @@
 - slug: the-sky-is-black
   alt: "the sky is black"
   src: "/gifs/the sky is black.gif"
+  srcMp4: "/gifs/mp4/the sky is black.mp4"
+  srcWebp: "/gifs/webp/the sky is black.webp"
+  srcGif: "/gifs/the sky is black.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -1588,6 +2248,9 @@
 - slug: the-strength-of-men
   alt: "the strength of men"
   src: "/gifs/the strength of men.gif"
+  srcMp4: "/gifs/mp4/the strength of men.mp4"
+  srcWebp: "/gifs/webp/the strength of men.webp"
+  srcGif: "/gifs/the strength of men.gif"
   width: 480
   height: 201
   tags: ["Movies & TV"]
@@ -1596,6 +2259,9 @@
 - slug: then-perish
   alt: "then perish"
   src: "/gifs/then perish.webp"
+  srcMp4: "/gifs/mp4/then perish.mp4"
+  srcWebp: "/gifs/then perish.webp"
+  srcGif: "/gifs/gif/then perish.gif"
   width: 1280
   height: 720
   tags: ["Movies & TV"]
@@ -1604,6 +2270,9 @@
 - slug: there-was-monsters-on-the-world
   alt: "there was monsters on the world"
   src: "/gifs/there was monsters on the world.gif"
+  srcMp4: "/gifs/mp4/there was monsters on the world.mp4"
+  srcWebp: "/gifs/webp/there was monsters on the world.webp"
+  srcGif: "/gifs/there was monsters on the world.gif"
   width: 480
   height: 270
   tags: ["Movies & TV"]
@@ -1612,6 +2281,9 @@
 - slug: this-guy-s-cursed
   alt: "THIS guy’s cursed"
   src: "/gifs/THIS guy’s cursed.gif"
+  srcMp4: "/gifs/mp4/THIS guy’s cursed.mp4"
+  srcWebp: "/gifs/webp/THIS guy’s cursed.webp"
+  srcGif: "/gifs/THIS guy’s cursed.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -1619,6 +2291,9 @@
 - slug: this-is-freaking-serious
   alt: "this is freaking serious"
   src: "/gifs/this is freaking serious.gif"
+  srcMp4: "/gifs/mp4/this is freaking serious.mp4"
+  srcWebp: "/gifs/webp/this is freaking serious.webp"
+  srcGif: "/gifs/this is freaking serious.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -1627,6 +2302,9 @@
 - slug: this-isn-t-over
   alt: "this isn't over"
   src: "/gifs/this isn't over.gif"
+  srcMp4: "/gifs/mp4/this isn't over.mp4"
+  srcWebp: "/gifs/webp/this isn't over.webp"
+  srcGif: "/gifs/this isn't over.gif"
   width: 480
   height: 360
   tags: ["Movies & TV"]
@@ -1635,6 +2313,9 @@
 - slug: two-way-communication
   alt: "two-way communication"
   src: "/gifs/two-way communication.gif"
+  srcMp4: "/gifs/mp4/two-way communication.mp4"
+  srcWebp: "/gifs/webp/two-way communication.webp"
+  srcGif: "/gifs/two-way communication.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -1642,6 +2323,9 @@
 - slug: unbelievable
   alt: "unbelievable"
   src: "/gifs/unbelievable.webp"
+  srcMp4: "/gifs/mp4/unbelievable.mp4"
+  srcWebp: "/gifs/unbelievable.webp"
+  srcGif: "/gifs/gif/unbelievable.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Superman"]
@@ -1649,6 +2333,9 @@
 - slug: ungentlemanly
   alt: "ungentlemanly"
   src: "/gifs/ungentlemanly.webp"
+  srcMp4: "/gifs/mp4/ungentlemanly.mp4"
+  srcWebp: "/gifs/ungentlemanly.webp"
+  srcGif: "/gifs/gif/ungentlemanly.gif"
   width: 768
   height: 432
   tags: ["Dropout", "Cloudward Ho"]
@@ -1656,6 +2343,9 @@
 - slug: vulnerability
   alt: "vulnerability"
   src: "/gifs/vulnerability.gif"
+  srcMp4: "/gifs/mp4/vulnerability.mp4"
+  srcWebp: "/gifs/webp/vulnerability.webp"
+  srcGif: "/gifs/vulnerability.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -1664,6 +2354,9 @@
 - slug: waow
   alt: "waow"
   src: "/gifs/waow.gif"
+  srcMp4: "/gifs/mp4/waow.mp4"
+  srcWebp: "/gifs/webp/waow.webp"
+  srcGif: "/gifs/waow.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Gachiakuta"]
@@ -1671,6 +2364,9 @@
 - slug: wario-no-shirt-no-panties
   alt: "wario no shirt no panties"
   src: "/gifs/wario no shirt no panties.webp"
+  srcMp4: "/gifs/mp4/wario no shirt no panties.mp4"
+  srcWebp: "/gifs/wario no shirt no panties.webp"
+  srcGif: "/gifs/gif/wario no shirt no panties.gif"
   width: 640
   height: 360
   tags: ["Dropout", "Cloudward Ho"]
@@ -1678,6 +2374,9 @@
 - slug: was-a-boy-now-a-bat
   alt: "was a boy now a bat"
   src: "/gifs/was a boy now a bat.gif"
+  srcMp4: "/gifs/mp4/was a boy now a bat.mp4"
+  srcWebp: "/gifs/webp/was a boy now a bat.webp"
+  srcGif: "/gifs/was a boy now a bat.gif"
   width: 480
   height: 201
   tags: ["YouTube"]
@@ -1685,6 +2384,9 @@
 - slug: we-gotta-go-guys
   alt: "we gotta GO guys"
   src: "/gifs/we gotta GO guys.gif"
+  srcMp4: "/gifs/mp4/we gotta GO guys.mp4"
+  srcWebp: "/gifs/webp/we gotta GO guys.webp"
+  srcGif: "/gifs/we gotta GO guys.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Fantasy High"]
@@ -1692,6 +2394,9 @@
 - slug: we-need-some-freaking-rules
   alt: "we need some freaking RULES"
   src: "/gifs/we need some freaking RULES.gif"
+  srcMp4: "/gifs/mp4/we need some freaking RULES.mp4"
+  srcWebp: "/gifs/webp/we need some freaking RULES.webp"
+  srcGif: "/gifs/we need some freaking RULES.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Never Stop Blowing Up"]
@@ -1700,6 +2405,9 @@
 - slug: we-put-it-all-on-the-line
   alt: "we put it all on the line"
   src: "/gifs/we put it all on the line.gif"
+  srcMp4: "/gifs/mp4/we put it all on the line.mp4"
+  srcWebp: "/gifs/webp/we put it all on the line.webp"
+  srcGif: "/gifs/we put it all on the line.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -1707,6 +2415,9 @@
 - slug: we-re-gonna-get-you-freaky
   alt: "we're gonna get you freaky"
   src: "/gifs/we're gonna get you freaky.gif"
+  srcMp4: "/gifs/mp4/we're gonna get you freaky.mp4"
+  srcWebp: "/gifs/webp/we're gonna get you freaky.webp"
+  srcGif: "/gifs/we're gonna get you freaky.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -1714,6 +2425,9 @@
 - slug: we-really-encourage-shouting-your-emotions
   alt: "we really encourage shouting your emotions"
   src: "/gifs/we really encourage shouting your emotions.gif"
+  srcMp4: "/gifs/mp4/we really encourage shouting your emotions.mp4"
+  srcWebp: "/gifs/webp/we really encourage shouting your emotions.webp"
+  srcGif: "/gifs/we really encourage shouting your emotions.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Titan Takedown"]
@@ -1721,6 +2435,9 @@
 - slug: we-ve-done-what
   alt: "we've done what"
   src: "/gifs/we've done what.gif"
+  srcMp4: "/gifs/mp4/we've done what.mp4"
+  srcWebp: "/gifs/webp/we've done what.webp"
+  srcGif: "/gifs/we've done what.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Neverafter"]
@@ -1728,6 +2445,9 @@
 - slug: weak-mind
   alt: "weak mind"
   src: "/gifs/weak mind.gif"
+  srcMp4: "/gifs/mp4/weak mind.mp4"
+  srcWebp: "/gifs/webp/weak mind.webp"
+  srcGif: "/gifs/weak mind.gif"
   width: 800
   height: 450
   tags: ["Dropout", "Game Changer"]
@@ -1736,6 +2456,9 @@
 - slug: weneedsomerules-old
   alt: "weneedsomeRULES old"
   src: "/gifs/weneedsomeRULES old.gif"
+  srcMp4: "/gifs/mp4/weneedsomeRULES old.mp4"
+  srcWebp: "/gifs/webp/weneedsomeRULES old.webp"
+  srcGif: "/gifs/weneedsomeRULES old.gif"
   width: 641
   height: 361
   tags: ["Dropout", "Never Stop Blowing Up"]
@@ -1743,6 +2466,9 @@
 - slug: what-are-we-gonna-do
   alt: "what are we gonna do"
   src: "/gifs/what are we gonna do.webp"
+  srcMp4: "/gifs/mp4/what are we gonna do.mp4"
+  srcWebp: "/gifs/what are we gonna do.webp"
+  srcGif: "/gifs/gif/what are we gonna do.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Superman"]
@@ -1750,6 +2476,9 @@
 - slug: what-do-you-mean
   alt: "what do you mean"
   src: "/gifs/what do you mean.gif"
+  srcMp4: "/gifs/mp4/what do you mean.mp4"
+  srcWebp: "/gifs/webp/what do you mean.webp"
+  srcGif: "/gifs/what do you mean.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Neverafter"]
@@ -1757,6 +2486,9 @@
 - slug: what-does-it-mean
   alt: "WHAT DOES IT MEAN"
   src: "/gifs/WHAT DOES IT MEAN.gif"
+  srcMp4: "/gifs/mp4/WHAT DOES IT MEAN.mp4"
+  srcWebp: "/gifs/webp/WHAT DOES IT MEAN.webp"
+  srcGif: "/gifs/WHAT DOES IT MEAN.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -1765,6 +2497,9 @@
 - slug: what-i-like-to-think-about
   alt: "what I like to think about"
   src: "/gifs/what I like to think about.webp"
+  srcMp4: "/gifs/mp4/what I like to think about.mp4"
+  srcWebp: "/gifs/what I like to think about.webp"
+  srcGif: "/gifs/gif/what I like to think about.gif"
   width: 640
   height: 360
   tags: ["Dropout", "Cloudward Ho"]
@@ -1772,6 +2507,9 @@
 - slug: what-is-a-human
   alt: "what is a human"
   src: "/gifs/what is a human.gif"
+  srcMp4: "/gifs/mp4/what is a human.mp4"
+  srcWebp: "/gifs/webp/what is a human.webp"
+  srcGif: "/gifs/what is a human.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Game Changer"]
@@ -1779,6 +2517,9 @@
 - slug: what-is-happening
   alt: "what is happening"
   src: "/gifs/what is happening.webp"
+  srcMp4: "/gifs/mp4/what is happening.mp4"
+  srcWebp: "/gifs/what is happening.webp"
+  srcGif: "/gifs/gif/what is happening.gif"
   width: 720
   height: 720
   tags: ["Dropout", "Cloudward Ho"]
@@ -1786,6 +2527,9 @@
 - slug: whatcha-sniffin-on-boy
   alt: "Whatcha sniffin’ on, boy"
   src: "/gifs/Whatcha sniffin’ on, boy.gif"
+  srcMp4: "/gifs/mp4/Whatcha sniffin’ on, boy.mp4"
+  srcWebp: "/gifs/webp/Whatcha sniffin’ on, boy.webp"
+  srcGif: "/gifs/Whatcha sniffin’ on, boy.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Cloudward Ho"]
@@ -1793,6 +2537,9 @@
 - slug: who-s-horny
   alt: "WHO’S horny"
   src: "/gifs/WHO’S horny.gif"
+  srcMp4: "/gifs/mp4/WHO’S horny.mp4"
+  srcWebp: "/gifs/webp/WHO’S horny.webp"
+  srcGif: "/gifs/WHO’S horny.gif"
   width: 338
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -1800,6 +2547,9 @@
 - slug: who-s-horny-i-m-horny
   alt: "WHO’S horny I’M horny"
   src: "/gifs/WHO’S horny I’M horny.gif"
+  srcMp4: "/gifs/mp4/WHO’S horny I’M horny.mp4"
+  srcWebp: "/gifs/webp/WHO’S horny I’M horny.webp"
+  srcGif: "/gifs/WHO’S horny I’M horny.gif"
   width: 338
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -1807,6 +2557,9 @@
 - slug: why-don-t-i-have-a-seat
   alt: "why don't I have a seat"
   src: "/gifs/why don't I have a seat.webp"
+  srcMp4: "/gifs/mp4/why don't I have a seat.mp4"
+  srcWebp: "/gifs/why don't I have a seat.webp"
+  srcGif: "/gifs/gif/why don't I have a seat.gif"
   width: 640
   height: 360
   tags: ["Movies & TV", "Superman"]
@@ -1814,6 +2567,9 @@
 - slug: why-so-angry
   alt: "why so angry"
   src: "/gifs/why so angry.gif"
+  srcMp4: "/gifs/mp4/why so angry.mp4"
+  srcWebp: "/gifs/webp/why so angry.webp"
+  srcGif: "/gifs/why so angry.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Gachiakuta"]
@@ -1821,6 +2577,9 @@
 - slug: wiz-biz
   alt: "wiz biz"
   src: "/gifs/wiz biz.gif"
+  srcMp4: "/gifs/mp4/wiz biz.mp4"
+  srcWebp: "/gifs/webp/wiz biz.webp"
+  srcGif: "/gifs/wiz biz.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -1828,6 +2587,9 @@
 - slug: wizards-only-fools
   alt: "wizards only fools"
   src: "/gifs/wizards only fools.gif"
+  srcMp4: "/gifs/mp4/wizards only fools.mp4"
+  srcWebp: "/gifs/webp/wizards only fools.webp"
+  srcGif: "/gifs/wizards only fools.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -1835,6 +2597,9 @@
 - slug: wizardsonly-old
   alt: "wizardsonly old"
   src: "/gifs/wizardsonly old.gif"
+  srcMp4: "/gifs/mp4/wizardsonly old.mp4"
+  srcWebp: "/gifs/webp/wizardsonly old.webp"
+  srcGif: "/gifs/wizardsonly old.gif"
   width: 639
   height: 360
   tags: ["Movies & TV", "Adventure Time"]
@@ -1842,6 +2607,9 @@
 - slug: woohoo
   alt: "woohoo"
   src: "/gifs/woohoo.webp"
+  srcMp4: "/gifs/mp4/woohoo.mp4"
+  srcWebp: "/gifs/woohoo.webp"
+  srcGif: "/gifs/gif/woohoo.gif"
   width: 800
   height: 400
   tags: ["Movies & TV", "Ted Lasso"]
@@ -1849,6 +2617,9 @@
 - slug: yeahhh
   alt: "YEAHHH"
   src: "/gifs/YEAHHH.gif"
+  srcMp4: "/gifs/mp4/YEAHHH.mp4"
+  srcWebp: "/gifs/webp/YEAHHH.webp"
+  srcGif: "/gifs/YEAHHH.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -1856,6 +2627,9 @@
 - slug: yeahthems
   alt: "yeahthems"
   src: "/gifs/yeahthems.gif"
+  srcMp4: "/gifs/mp4/yeahthems.mp4"
+  srcWebp: "/gifs/webp/yeahthems.webp"
+  srcGif: "/gifs/yeahthems.gif"
   width: 640
   height: 267
   tags: ["Movies & TV"]
@@ -1864,6 +2638,9 @@
 - slug: yes
   alt: "yes"
   src: "/gifs/yes.gif"
+  srcMp4: "/gifs/mp4/yes.mp4"
+  srcWebp: "/gifs/webp/yes.webp"
+  srcGif: "/gifs/yes.gif"
   width: 480
   height: 270
   tags: ["Dropout"]
@@ -1872,6 +2649,9 @@
 - slug: yes-2
   alt: "yes"
   src: "/gifs/yes.webp"
+  srcMp4: "/gifs/mp4/yes.mp4"
+  srcWebp: "/gifs/yes.webp"
+  srcGif: "/gifs/gif/yes.gif"
   width: 800
   height: 400
   tags: ["Movies & TV", "Ted Lasso"]
@@ -1880,6 +2660,9 @@
 - slug: yo-put-that-bag-back-on
   alt: "yo put that bag back on"
   src: "/gifs/yo put that bag back on.gif"
+  srcMp4: "/gifs/mp4/yo put that bag back on.mp4"
+  srcWebp: "/gifs/webp/yo put that bag back on.webp"
+  srcGif: "/gifs/yo put that bag back on.gif"
   width: 600
   height: 338
   tags: ["Movies & TV", "Adventure Time"]
@@ -1887,6 +2670,9 @@
 - slug: you-are-a-rowdy
   alt: "you are a rowdy"
   src: "/gifs/you are a rowdy.gif"
+  srcMp4: "/gifs/mp4/you are a rowdy.mp4"
+  srcWebp: "/gifs/webp/you are a rowdy.webp"
+  srcGif: "/gifs/you are a rowdy.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -1895,6 +2681,9 @@
 - slug: you-never-knew-me
   alt: "you never knew me"
   src: "/gifs/you never knew me.gif"
+  srcMp4: "/gifs/mp4/you never knew me.mp4"
+  srcWebp: "/gifs/webp/you never knew me.webp"
+  srcGif: "/gifs/you never knew me.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Adventuring Academy"]
@@ -1902,6 +2691,9 @@
 - slug: you-re-a-dumb-motherfucker-and-i-m-gonna-kill-you
   alt: "you're a dumb motherfucker and I'm gonna kill you"
   src: "/gifs/you're a dumb motherfucker and I'm gonna kill you.gif"
+  srcMp4: "/gifs/mp4/you're a dumb motherfucker and I'm gonna kill you.mp4"
+  srcWebp: "/gifs/webp/you're a dumb motherfucker and I'm gonna kill you.webp"
+  srcGif: "/gifs/you're a dumb motherfucker and I'm gonna kill you.gif"
   width: 480
   height: 270
   tags: ["Dropout", "Neverafter"]
@@ -1909,6 +2701,9 @@
 - slug: you-re-lying
   alt: "You’re lying"
   src: "/gifs/You’re lying.gif"
+  srcMp4: "/gifs/mp4/You’re lying.mp4"
+  srcWebp: "/gifs/webp/You’re lying.webp"
+  srcGif: "/gifs/You’re lying.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -1916,6 +2711,9 @@
 - slug: you-re-not-supposed-to-say-that
   alt: "you're not supposed to say that"
   src: "/gifs/you're not supposed to say that.gif"
+  srcMp4: "/gifs/mp4/you're not supposed to say that.mp4"
+  srcWebp: "/gifs/webp/you're not supposed to say that.webp"
+  srcGif: "/gifs/you're not supposed to say that.gif"
   width: 338
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -1923,6 +2721,9 @@
 - slug: you-re-welcome
   alt: "you're welcome"
   src: "/gifs/you're welcome.gif"
+  srcMp4: "/gifs/mp4/you're welcome.mp4"
+  srcWebp: "/gifs/webp/you're welcome.webp"
+  srcGif: "/gifs/you're welcome.gif"
   width: 600
   height: 338
   tags: ["Dropout"]
@@ -1930,6 +2731,9 @@
 - slug: you-were-my-brother
   alt: "You were my brother"
   src: "/gifs/You were my brother.gif"
+  srcMp4: "/gifs/mp4/You were my brother.mp4"
+  srcWebp: "/gifs/webp/You were my brother.webp"
+  srcGif: "/gifs/You were my brother.gif"
   width: 600
   height: 338
   tags: ["Dropout", "Cloudward Ho"]
@@ -1937,6 +2741,9 @@
 - slug: your-own-problems
   alt: "your own problems"
   src: "/gifs/your own problems.gif"
+  srcMp4: "/gifs/mp4/your own problems.mp4"
+  srcWebp: "/gifs/webp/your own problems.webp"
+  srcGif: "/gifs/your own problems.gif"
   width: 600
   height: 251
   tags: ["Movies & TV"]
