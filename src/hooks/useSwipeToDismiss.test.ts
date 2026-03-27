@@ -140,6 +140,25 @@ describe('useSwipeToDismiss', () => {
     expect(panel.style.transform).toBe('translateY(20px)');
   });
 
+  it('resets panel when finger returns into dead zone after engaging', () => {
+    Object.defineProperties(panel, {
+      scrollTop: { value: 0, writable: true },
+      scrollHeight: { value: 1000, writable: true },
+    });
+    const ref = { current: panel };
+    const { result } = renderHook(() =>
+      useSwipeToDismiss(ref, onClose, { checkScrollLimits: true }),
+    );
+
+    act(() => result.current.onTouchStart(touch(100)));
+    act(() => result.current.onTouchMove(touch(160))); // dy=60, past dead zone — panel moves
+    expect(panel.style.transform).toBe('translateY(30px)');
+
+    act(() => result.current.onTouchMove(touch(115))); // dy=15, back in dead zone
+    expect(panel.style.transform).toBe('');
+    expect(panel.style.opacity).toBe('');
+  });
+
   it('skips dead zone on non-scrollable panels', () => {
     // scrollHeight equals clientHeight — not scrollable
     const ref = { current: panel };

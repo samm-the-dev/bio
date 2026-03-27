@@ -72,6 +72,10 @@ export function useSwipeToDismiss(
       const absDy = Math.abs(dy);
       if (useDeadZone && absDy < DEAD_ZONE) {
         translateY.current = 0;
+        if (panel) {
+          panel.style.transform = '';
+          panel.style.opacity = '';
+        }
         return;
       }
       // Offset by dead zone so the panel doesn't jump when engaging
