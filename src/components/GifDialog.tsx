@@ -17,13 +17,13 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
   const swipe = useSwipeToDismiss(panelRef, onClose, { checkScrollLimits: true, scrollRef });
   const canShare = typeof navigator.share === 'function';
   const ext = gif.src.split('.').pop() || 'gif';
-  const formatOptions = [
+  const converted = [
     gif.srcMp4 ? { label: 'MP4', src: gif.srcMp4, ext: 'mp4' } : null,
-    gif.srcWebp ? { label: 'WebP', src: gif.srcWebp, ext: 'webp' } : null,
-    gif.srcGif ? { label: 'GIF', src: gif.srcGif, ext: 'gif' } : null,
+    gif.srcWebp && ext !== 'webp' ? { label: 'WebP', src: gif.srcWebp, ext: 'webp' } : null,
+    gif.srcGif && ext !== 'gif' ? { label: 'GIF', src: gif.srcGif, ext: 'gif' } : null,
   ].filter(Boolean) as { label: string; src: string; ext: string }[];
-  const downloadFormats =
-    formatOptions.length > 0 ? formatOptions : [{ label: ext.toUpperCase(), src: gif.src, ext }];
+  const original = { label: ext.toUpperCase(), src: gif.src, ext };
+  const downloadFormats = converted.length > 0 ? [...converted, original] : [original];
 
   useEffect(() => {
     const prev = document.body.style.overflow;
