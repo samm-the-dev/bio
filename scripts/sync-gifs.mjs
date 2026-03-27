@@ -159,7 +159,6 @@ for (const folder of SOURCES) {
       slug,
       alt: stem,
       src,
-      stem,
       ext: extname(file).toLowerCase(),
       width,
       height,
@@ -370,7 +369,7 @@ try {
   execFileSync('gcloud', [
     'storage', 'rsync', TARGET, `${GCS_BUCKET}/gifs/`,
     '--recursive', '--delete-unmatched-destination-objects',
-    '--exclude=featured/**', '--exclude=mp4/**', '--exclude=webp/**', '--exclude=gif/**',
+    '--exclude=featured/.*', '--exclude=mp4/.*', '--exclude=webp/.*', '--exclude=gif/.*',
   ], { stdio: 'inherit', timeout: 300000 });
 
   // Sync converted subdirectories
@@ -385,5 +384,5 @@ try {
 
   console.log('GCS sync complete.');
 } catch {
-  console.warn('GCS sync failed — run manually:\n  gcloud storage rsync public/gifs/ gs://samm-bio-gifs/gifs/ --recursive --exclude="featured/**" --exclude="mp4/**" --exclude="webp/**" --exclude="gif/**"\n  then sync each subdir separately');
+  console.warn('GCS sync failed — run manually:\n  gcloud storage rsync public/gifs/ gs://samm-bio-gifs/gifs/ --recursive --exclude="featured/.*" --exclude="mp4/.*" --exclude="webp/.*" --exclude="gif/.*"\n  then sync each subdir separately');
 }
