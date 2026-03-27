@@ -347,7 +347,7 @@ try {
   execFileSync('gcloud', [
     'storage', 'rsync', TARGET, `${GCS_BUCKET}/gifs/`,
     '--recursive', '--delete-unmatched-destination-objects',
-    '--exclude=featured/.*', '--exclude=mp4/.*', '--exclude=webp/.*', '--exclude=gif/.*',
+    '--exclude=featured/**', '--exclude=mp4/**', '--exclude=webp/**', '--exclude=gif/**',
   ], { stdio: 'inherit', timeout: 300000 });
 
   // Sync converted subdirectories

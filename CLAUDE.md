@@ -21,14 +21,19 @@ shows with calendar + map links).
 All content in `content/` is hand-authored — AI assists with design/build
 only, and may help summarize or draft blog posts.
 
-### Blog Co-Authorship Convention
+### Co-Authorship Convention
 
-Posts where `authors` includes both `sam` and `claude` use this formatting convention:
+Blog posts and project descriptions use the same formatting convention for
+co-authored content (Sam's voice + Claude's technical detail):
 
-- **Blockquote paragraphs** = Claude-generated technical summary (from PR history)
-- **_Italic paragraphs_** = Sam's hand-written reflection and context
+- **Plain prose** = Sam's voice (intro, closing, personal context) — always first
+- **Blockquote paragraphs** = Claude-generated technical summary
 
-The intro and closing are always Sam's voice (plain prose, no special formatting).
+In project descriptions, personal context comes first, then the blockquote
+technical summary with bullet points. A "Technical details" label is
+auto-injected above blockquotes via CSS (`::before` on `.project-desc
+blockquote`). The `descUpdated` field tracks when the description was last
+refreshed.
 
 ### Content Voice
 
