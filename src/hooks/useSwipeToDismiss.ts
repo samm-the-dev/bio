@@ -2,6 +2,11 @@ import { useRef, useCallback, type RefObject } from 'react';
 
 const SWIPE_THRESHOLD = 80;
 const TRANSITION_MS = 200;
+/**
+ * Dead zone (px) before the swipe gesture visually engages on scrollable panels.
+ * Prevents casual touches from moving the dialog when there's content to scroll.
+ */
+const DEAD_ZONE = 20;
 
 interface UseSwipeToDismissOptions {
   /** Only dismiss when at a scroll limit in the swipe direction. */
@@ -11,6 +16,10 @@ interface UseSwipeToDismissOptions {
    * Use this when the scrollable element is a child of the panel (e.g. an inner overflow-auto div).
    */
   scrollRef?: RefObject<HTMLDivElement | null>;
+}
+
+function isScrollable(el: HTMLElement): boolean {
+  return el.scrollHeight > el.clientHeight + 1;
 }
 
 export function useSwipeToDismiss(
@@ -57,10 +66,21 @@ export function useSwipeToDismiss(
         }
       }
 
-      translateY.current = dy;
+      // Apply dead zone on scrollable panels to avoid accidental dismiss
+      const scroller = (scrollRef ?? panelRef).current;
+      const useDeadZone = checkScrollLimits && scroller && isScrollable(scroller);
+      const absDy = Math.abs(dy);
+      if (useDeadZone && absDy < DEAD_ZONE) {
+        translateY.current = 0;
+        return;
+      }
+      // Offset by dead zone so the panel doesn't jump when engaging
+      const effectiveDy = useDeadZone ? dy - Math.sign(dy) * DEAD_ZONE : dy;
+
+      translateY.current = effectiveDy;
       if (panel) {
-        panel.style.transform = `translateY(${dy}px)`;
-        panel.style.opacity = `${Math.max(0.2, 1 - Math.abs(dy) / 400)}`;
+        panel.style.transform = `translateY(${effectiveDy}px)`;
+        panel.style.opacity = `${Math.max(0.2, 1 - Math.abs(effectiveDy) / 400)}`;
       }
     },
     [panelRef, scrollRef, checkScrollLimits],
