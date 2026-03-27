@@ -18,9 +18,9 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
   const canShare = typeof navigator.share === 'function';
   const ext = gif.src.split('.').pop() || 'gif';
   const formatOptions = [
-    gif.srcGif ? { label: 'GIF', src: gif.srcGif, ext: 'gif' } : null,
-    gif.srcWebp ? { label: 'WebP', src: gif.srcWebp, ext: 'webp' } : null,
     gif.srcMp4 ? { label: 'MP4', src: gif.srcMp4, ext: 'mp4' } : null,
+    gif.srcWebp ? { label: 'WebP', src: gif.srcWebp, ext: 'webp' } : null,
+    gif.srcGif ? { label: 'GIF', src: gif.srcGif, ext: 'gif' } : null,
   ].filter(Boolean) as { label: string; src: string; ext: string }[];
   const downloadFormats =
     formatOptions.length > 0 ? formatOptions : [{ label: ext.toUpperCase(), src: gif.src, ext }];
