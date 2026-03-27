@@ -18,3 +18,5 @@ src/data/shows.ts
 src/data/gifs.ts
 public/feed.xml
 public/gifs/featured/
+public/gifs/mp4/
+public/gifs/webp/

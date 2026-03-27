@@ -39,6 +39,8 @@ export interface Gif {
   slug: string;
   alt: string;
   src: string;
+  srcMp4: string | null;
+  srcWebp: string | null;
   width: number;
   height: number;
   tags: string[];

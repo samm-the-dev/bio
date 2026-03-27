@@ -88,15 +88,20 @@ const projects = (projectsFile.projects || []).map((p) => ({
 const GCS_BUCKET = 'https://storage.googleapis.com/samm-bio-gifs';
 const gifsRaw = yaml.load(readFileSync('content/gifs.yaml', 'utf-8')) || [];
 const gifsList = Array.isArray(gifsRaw) ? gifsRaw : gifsRaw.gifs || [];
-const gifs = gifsList.map((g) => ({
-  slug: g.slug,
-  alt: g.alt,
-  src: process.env.NODE_ENV === 'production' ? `${GCS_BUCKET}${g.src}` : g.src,
-  width: g.width || 0,
-  height: g.height || 0,
-  tags: g.tags || [],
-  featured: !!g.featured,
-}));
+const gifs = gifsList.map((g) => {
+  const prod = process.env.NODE_ENV === 'production';
+  return {
+    slug: g.slug,
+    alt: g.alt,
+    src: prod ? `${GCS_BUCKET}${g.src}` : g.src,
+    srcMp4: g.srcMp4 ? (prod ? `${GCS_BUCKET}${g.srcMp4}` : g.srcMp4) : null,
+    srcWebp: g.srcWebp ? (prod ? `${GCS_BUCKET}${g.srcWebp}` : g.srcWebp) : null,
+    width: g.width || 0,
+    height: g.height || 0,
+    tags: g.tags || [],
+    featured: !!g.featured,
+  };
+});
 
 // --- Shows ---
 const showsData = yaml.load(readFileSync('content/shows.yaml', 'utf-8')) || {};
