@@ -5,9 +5,9 @@
  * Source: ~/OneDrive/Pictures/{Dropout, Game Grumps, YouTube, Movies & TV}
  * Target: public/gifs/  (all files flat in one directory)
  *
- * Also converts each GIF to MP4 (via ffmpeg) and animated WebP (via sharp)
- * in public/gifs/mp4/ and public/gifs/webp/ respectively.
- * Only files missing a converted counterpart are processed.
+ * Also converts GIF sources to MP4 (via ffmpeg) and animated WebP (via sharp)
+ * into public/gifs/mp4/ and public/gifs/webp/, and converts WebP sources to GIF
+ * into public/gifs/gif/. Only files missing a converted counterpart are processed.
  *
  * Tags are derived from the folder hierarchy (show/series name).
  * Featured status is determined by presence in public/gifs/featured/.
@@ -209,7 +209,7 @@ async function convertToMp4(srcFile, outFile) {
       '-preset', 'medium',
       '-an',
       outFile,
-    ], { timeout: 60000 });
+    ], { timeout: 60000, maxBuffer: 10 * 1024 * 1024 });
     return true;
   } catch (err) {
     console.warn(`  MP4 failed: ${basename(srcFile)} — ${err.message}`);
@@ -277,19 +277,19 @@ const gifTasks = [];
 
 for (const entry of entries) {
   const srcFile = join(TARGET, basename(entry.src));
-  const mp4Out = join(MP4_DIR, `${entry.stem}.mp4`);
+  const mp4Out = join(MP4_DIR, `${entry.slug}.mp4`);
 
   if (hasFfmpeg && !existsSync(mp4Out)) {
     mp4Tasks.push(() => convertToMp4(srcFile, mp4Out));
   }
 
   if (entry.ext === '.gif') {
-    const webpOut = join(WEBP_DIR, `${entry.stem}.webp`);
+    const webpOut = join(WEBP_DIR, `${entry.slug}.webp`);
     if (!existsSync(webpOut)) {
       webpTasks.push(() => convertToWebp(srcFile, webpOut));
     }
   } else if (entry.ext === '.webp') {
-    const gifOut = join(GIF_DIR, `${entry.stem}.gif`);
+    const gifOut = join(GIF_DIR, `${entry.slug}.gif`);
     if (!existsSync(gifOut)) {
       gifTasks.push(() => convertToGif(srcFile, gifOut));
     }
@@ -320,17 +320,17 @@ if (totalTasks > 0) {
 
 // Backfill format paths — only reference files that actually exist
 for (const entry of entries) {
-  const mp4Path = join(MP4_DIR, `${entry.stem}.mp4`);
-  if (existsSync(mp4Path)) entry.srcMp4 = `/gifs/mp4/${entry.stem}.mp4`;
+  const mp4Path = join(MP4_DIR, `${entry.slug}.mp4`);
+  if (existsSync(mp4Path)) entry.srcMp4 = `/gifs/mp4/${entry.slug}.mp4`;
 
   if (entry.ext === '.gif') {
-    const webpPath = join(WEBP_DIR, `${entry.stem}.webp`);
-    entry.srcWebp = existsSync(webpPath) ? `/gifs/webp/${entry.stem}.webp` : undefined;
+    const webpPath = join(WEBP_DIR, `${entry.slug}.webp`);
+    entry.srcWebp = existsSync(webpPath) ? `/gifs/webp/${entry.slug}.webp` : undefined;
     entry.srcGif = entry.src;
   } else if (entry.ext === '.webp') {
     entry.srcWebp = entry.src;
-    const gifPath = join(GIF_DIR, `${entry.stem}.gif`);
-    entry.srcGif = existsSync(gifPath) ? `/gifs/gif/${entry.stem}.gif` : undefined;
+    const gifPath = join(GIF_DIR, `${entry.slug}.gif`);
+    entry.srcGif = existsSync(gifPath) ? `/gifs/gif/${entry.slug}.gif` : undefined;
   }
 }
 
