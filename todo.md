@@ -43,3 +43,5 @@
 - [ ] Smarter GIF loading to prevent stuttering (pause off-screen GIFs, consider video format)
 - [ ] Stats page (Letterboxd, GitHub, "terminally online" meter)
 - [ ] Analytics (Plausible/Fathom vs. none — TBD)
+
+- [ ] Update .toolbox submodule to 2a1bf9d (TW v4, stricter tsconfig, mkcert, test stubs)

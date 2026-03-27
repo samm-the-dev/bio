@@ -17,6 +17,13 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
   const swipe = useSwipeToDismiss(panelRef, onClose, { checkScrollLimits: true, scrollRef });
   const canShare = typeof navigator.share === 'function';
   const ext = gif.src.split('.').pop() || 'gif';
+  const formatOptions = [
+    gif.srcGif ? { label: 'GIF', src: gif.srcGif, ext: 'gif' } : null,
+    gif.srcWebp ? { label: 'WebP', src: gif.srcWebp, ext: 'webp' } : null,
+    gif.srcMp4 ? { label: 'MP4', src: gif.srcMp4, ext: 'mp4' } : null,
+  ].filter(Boolean) as { label: string; src: string; ext: string }[];
+  const downloadFormats =
+    formatOptions.length > 0 ? formatOptions : [{ label: ext.toUpperCase(), src: gif.src, ext }];
 
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -48,15 +55,15 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
     return () => backdrop.removeEventListener('wheel', onWheel);
   }, [onClose]);
 
-  async function handleDownload() {
+  async function handleDownload(src: string, dlExt: string) {
     try {
-      const res = await fetch(gif.src);
+      const res = await fetch(src);
       if (!res.ok) return;
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `${gif.slug}.${ext}`;
+      a.download = `${gif.slug}.${dlExt}`;
       a.click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch {
@@ -121,13 +128,16 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
             ))}
           </div>
           <div className="mt-1.5 flex items-center justify-end gap-2">
-            <button
-              onClick={handleDownload}
-              className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-            >
-              <Download className="h-3.5 w-3.5" />
-              Download
-            </button>
+            {downloadFormats.map((fmt) => (
+              <button
+                key={fmt.ext}
+                onClick={() => handleDownload(fmt.src, fmt.ext)}
+                className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              >
+                <Download className="h-3.5 w-3.5" />
+                {fmt.label}
+              </button>
+            ))}
             {canShare && (
               <button
                 onClick={handleShare}
