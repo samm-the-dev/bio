@@ -35,6 +35,7 @@ const EXTS = new Set(['.gif', '.webp']);
 const TARGET = 'public/gifs';
 const MP4_DIR = join(TARGET, 'mp4');
 const WEBP_DIR = join(TARGET, 'webp');
+const GIF_DIR = join(TARGET, 'gif');
 const FEATURED_DIR = join(TARGET, 'featured');
 /** Max concurrent conversions. */
 const CONCURRENCY = 4;
@@ -158,8 +159,9 @@ for (const folder of SOURCES) {
       slug,
       alt: stem,
       src,
-      srcMp4: extname(file).toLowerCase() === '.gif' ? `/gifs/mp4/${stem}.mp4` : null,
-      srcWebp: extname(file).toLowerCase() === '.gif' ? `/gifs/webp/${stem}.webp` : null,
+      srcMp4: `/gifs/mp4/${stem}.mp4`,
+      srcWebp: extname(file).toLowerCase() === '.gif' ? `/gifs/webp/${stem}.webp` : src,
+      srcGif: extname(file).toLowerCase() === '.gif' ? src : `/gifs/gif/${stem}.gif`,
       width,
       height,
       tags,
@@ -186,6 +188,7 @@ for (const entry of entries) {
   lines.push(`  src: "${entry.src}"`);
   if (entry.srcMp4) lines.push(`  srcMp4: "${entry.srcMp4}"`);
   if (entry.srcWebp) lines.push(`  srcWebp: "${entry.srcWebp}"`);
+  if (entry.srcGif) lines.push(`  srcGif: "${entry.srcGif}"`);
   if (entry.width && entry.height) {
     lines.push(`  width: ${entry.width}`);
     lines.push(`  height: ${entry.height}`);
@@ -204,9 +207,10 @@ if (featuredCount > 0) console.log(`${featuredCount} marked as featured`);
 const tagSet = new Set(entries.flatMap((e) => e.tags));
 console.log(`${tagSet.size} unique tags: ${[...tagSet].sort().join(', ')}`);
 
-// --- Convert to MP4 and WebP ---
+// --- Convert to MP4, WebP, and GIF ---
 mkdirSync(MP4_DIR, { recursive: true });
 mkdirSync(WEBP_DIR, { recursive: true });
+mkdirSync(GIF_DIR, { recursive: true });
 
 const execFileAsync = promisify(execFile);
 
@@ -245,6 +249,20 @@ async function convertToWebp(srcFile, outFile) {
   }
 }
 
+/** Convert an animated WebP source to GIF via sharp. Returns true if converted. */
+async function convertToGif(srcFile, outFile) {
+  try {
+    const sharp = (await import('sharp')).default;
+    await sharp(srcFile, { animated: true })
+      .gif()
+      .toFile(outFile);
+    return true;
+  } catch (err) {
+    console.warn(`  GIF failed: ${basename(srcFile)} — ${err.message}`);
+    return false;
+  }
+}
+
 /** Run async tasks with limited concurrency. */
 async function runPool(tasks, concurrency) {
   let i = 0;
@@ -260,28 +278,38 @@ async function runPool(tasks, concurrency) {
   return completed;
 }
 
-// Only convert GIF files (WebP sources are already optimized)
-const gifEntries = entries.filter((e) => e.src.endsWith('.gif'));
+// All entries get MP4; GIF sources get WebP; WebP sources get GIF
 const mp4Tasks = [];
 const webpTasks = [];
+const gifTasks = [];
 
-for (const entry of gifEntries) {
+for (const entry of entries) {
   const file = basename(entry.src);
   const stem = basename(file, extname(file));
   const srcFile = join(TARGET, file);
+  const ext = extname(file).toLowerCase();
   const mp4Out = join(MP4_DIR, `${stem}.mp4`);
-  const webpOut = join(WEBP_DIR, `${stem}.webp`);
 
   if (!existsSync(mp4Out)) {
     mp4Tasks.push(() => convertToMp4(srcFile, mp4Out));
   }
-  if (!existsSync(webpOut)) {
-    webpTasks.push(() => convertToWebp(srcFile, webpOut));
+
+  if (ext === '.gif') {
+    const webpOut = join(WEBP_DIR, `${stem}.webp`);
+    if (!existsSync(webpOut)) {
+      webpTasks.push(() => convertToWebp(srcFile, webpOut));
+    }
+  } else if (ext === '.webp') {
+    const gifOut = join(GIF_DIR, `${stem}.gif`);
+    if (!existsSync(gifOut)) {
+      gifTasks.push(() => convertToGif(srcFile, gifOut));
+    }
   }
 }
 
-if (mp4Tasks.length > 0 || webpTasks.length > 0) {
-  console.log(`\nConverting: ${mp4Tasks.length} MP4, ${webpTasks.length} WebP (concurrency: ${CONCURRENCY})...`);
+const totalTasks = mp4Tasks.length + webpTasks.length + gifTasks.length;
+if (totalTasks > 0) {
+  console.log(`\nConverting: ${mp4Tasks.length} MP4, ${webpTasks.length} WebP, ${gifTasks.length} GIF (concurrency: ${CONCURRENCY})...`);
 
   // Check ffmpeg availability
   let hasFfmpeg = true;
@@ -299,6 +327,9 @@ if (mp4Tasks.length > 0 || webpTasks.length > 0) {
     webpTasks.length > 0
       ? runPool(webpTasks, CONCURRENCY).then((n) => ({ format: 'WebP', count: n }))
       : Promise.resolve({ format: 'WebP', count: 0 }),
+    gifTasks.length > 0
+      ? runPool(gifTasks, CONCURRENCY).then((n) => ({ format: 'GIF', count: n }))
+      : Promise.resolve({ format: 'GIF', count: 0 }),
   ]);
 
   for (const { format, count } of results) {
@@ -316,23 +347,17 @@ try {
   execFileSync('gcloud', [
     'storage', 'rsync', TARGET, `${GCS_BUCKET}/gifs/`,
     '--recursive', '--delete-unmatched-destination-objects',
-    '--exclude=featured/.*', '--exclude=mp4/.*', '--exclude=webp/.*',
+    '--exclude=featured/.*', '--exclude=mp4/.*', '--exclude=webp/.*', '--exclude=gif/.*',
   ], { stdio: 'inherit', timeout: 300000 });
 
-  // Sync converted MP4s
-  if (existsSync(MP4_DIR) && readdirSync(MP4_DIR).length > 0) {
-    execFileSync('gcloud', [
-      'storage', 'rsync', MP4_DIR, `${GCS_BUCKET}/gifs/mp4/`,
-      '--recursive', '--delete-unmatched-destination-objects',
-    ], { stdio: 'inherit', timeout: 300000 });
-  }
-
-  // Sync converted WebPs
-  if (existsSync(WEBP_DIR) && readdirSync(WEBP_DIR).length > 0) {
-    execFileSync('gcloud', [
-      'storage', 'rsync', WEBP_DIR, `${GCS_BUCKET}/gifs/webp/`,
-      '--recursive', '--delete-unmatched-destination-objects',
-    ], { stdio: 'inherit', timeout: 300000 });
+  // Sync converted subdirectories
+  for (const [dir, name] of [[MP4_DIR, 'mp4'], [WEBP_DIR, 'webp'], [GIF_DIR, 'gif']]) {
+    if (existsSync(dir) && readdirSync(dir).length > 0) {
+      execFileSync('gcloud', [
+        'storage', 'rsync', dir, `${GCS_BUCKET}/gifs/${name}/`,
+        '--recursive', '--delete-unmatched-destination-objects',
+      ], { stdio: 'inherit', timeout: 300000 });
+    }
   }
 
   console.log('GCS sync complete.');

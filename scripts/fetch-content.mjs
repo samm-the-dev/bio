@@ -96,6 +96,7 @@ const gifs = gifsList.map((g) => {
     src: prod ? `${GCS_BUCKET}${g.src}` : g.src,
     srcMp4: g.srcMp4 ? (prod ? `${GCS_BUCKET}${g.srcMp4}` : g.srcMp4) : null,
     srcWebp: g.srcWebp ? (prod ? `${GCS_BUCKET}${g.srcWebp}` : g.srcWebp) : null,
+    srcGif: g.srcGif ? (prod ? `${GCS_BUCKET}${g.srcGif}` : g.srcGif) : null,
     width: g.width || 0,
     height: g.height || 0,
     tags: g.tags || [],
