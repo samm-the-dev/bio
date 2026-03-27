@@ -6,7 +6,7 @@ const TRANSITION_MS = 200;
  * Dead zone (px) before the swipe gesture visually engages on scrollable panels.
  * Prevents casual touches from moving the dialog when there's content to scroll.
  */
-const DEAD_ZONE = 20;
+const DEAD_ZONE = 30;
 
 interface UseSwipeToDismissOptions {
   /** Only dismiss when at a scroll limit in the swipe direction. */

@@ -119,7 +119,7 @@ describe('useSwipeToDismiss', () => {
     );
 
     act(() => result.current.onTouchStart(touch(100)));
-    act(() => result.current.onTouchMove(touch(115))); // dy=15, within 20px dead zone
+    act(() => result.current.onTouchMove(touch(125))); // dy=25, within 30px dead zone
 
     expect(panel.style.transform).toBe('');
   });
@@ -135,9 +135,9 @@ describe('useSwipeToDismiss', () => {
     );
 
     act(() => result.current.onTouchStart(touch(100)));
-    act(() => result.current.onTouchMove(touch(150))); // dy=50, effective=30 (50-20)
+    act(() => result.current.onTouchMove(touch(150))); // dy=50, effective=20 (50-30)
 
-    expect(panel.style.transform).toBe('translateY(30px)');
+    expect(panel.style.transform).toBe('translateY(20px)');
   });
 
   it('skips dead zone on non-scrollable panels', () => {
