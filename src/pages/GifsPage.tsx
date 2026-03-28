@@ -1,9 +1,11 @@
-import { useState, useMemo, useRef, useEffect } from 'react';
+import { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { ArrowUp } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 import { SearchInput } from '@/components/SearchInput';
 import { TagFilter } from '@/components/TagFilter';
 import { GifDialog } from '@/components/GifDialog';
+import { GifVideo, type GifVideoHandle } from '@/components/GifVideo';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 import { useModalState } from '@/hooks/useModalState';
 import { gifs } from '@/data/gifs';
@@ -35,47 +37,6 @@ function toSlug(tag: string) {
 
 const tagSlugMap = new Map(gifTags.map((t) => [toSlug(t), t]));
 
-/**
- * Always shows the animated GIF when near the viewport.
- * When far off-screen, replaces with an aspect-ratio placeholder to free memory.
- */
-function LazyGifCard({ gif, onClick }: { gif: Gif; onClick: () => void }) {
-  const btnRef = useRef<HTMLButtonElement>(null);
-  const [near, setNear] = useState(false);
-  const ratio = gif.width && gif.height ? gif.width / gif.height : 4 / 3;
-
-  useEffect(() => {
-    const el = btnRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(([entry]) => setNear(entry!.isIntersecting), {
-      rootMargin: OFFSCREEN_MARGIN,
-    });
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <button
-      ref={btnRef}
-      type="button"
-      onClick={onClick}
-      className="mb-4 block w-full cursor-pointer break-inside-avoid overflow-hidden rounded-lg border border-border bg-card transition-transform hover:scale-[1.02]"
-    >
-      {near ? (
-        <img
-          src={gif.src}
-          alt={gif.alt}
-          decoding="async"
-          className="w-full"
-          style={{ aspectRatio: ratio }}
-        />
-      ) : (
-        <div className="w-full bg-card" style={{ aspectRatio: ratio }} />
-      )}
-    </button>
-  );
-}
-
 export function GifsPage() {
   const { tagSlug } = useParams<{ tagSlug?: string }>();
   const urlTag = tagSlug ? (tagSlugMap.get(tagSlug) ?? null) : null;
@@ -99,8 +60,6 @@ export function GifsPage() {
       navigate('/projects/gifs', { replace: true });
     }
   };
-  const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
-  const sentinelRef = useRef<HTMLDivElement>(null);
 
   const shuffled = useMemo(() => shuffle(gifs), []);
 
@@ -109,18 +68,24 @@ export function GifsPage() {
     [shuffled, search, activeTag],
   );
 
+  // Infinite scroll batching
+  const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  // Reset batch count when filters change
+  useEffect(() => {
+    setVisibleCount(BATCH_SIZE);
+  }, [filtered]);
+
   const visible = filtered.slice(0, visibleCount);
   const hasMore = visibleCount < filtered.length;
 
-  // Auto-load next batch when sentinel scrolls into view
   useEffect(() => {
     const el = sentinelRef.current;
     if (!el || !hasMore) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry!.isIntersecting) {
-          setVisibleCount((n) => n + BATCH_SIZE);
-        }
+        if (entry!.isIntersecting) setVisibleCount((n) => n + BATCH_SIZE);
       },
       { rootMargin: '600px' },
     );
@@ -128,34 +93,86 @@ export function GifsPage() {
     return () => observer.disconnect();
   }, [hasMore, visibleCount]);
 
+  // Single shared IntersectionObserver for all grid cards
+  const videoHandles = useRef<Map<string, GifVideoHandle>>(new Map());
+  const elementMap = useRef<WeakMap<Element, string>>(new WeakMap());
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const slug = elementMap.current.get(entry.target);
+          if (!slug) continue;
+          const handle = videoHandles.current.get(slug);
+          if (!handle) continue;
+          if (entry.isIntersecting) handle.play();
+          else handle.pause();
+        }
+      },
+      { rootMargin: OFFSCREEN_MARGIN },
+    );
+    observerRef.current = observer;
+    return () => observer.disconnect();
+  }, []);
+
+  // Show back-to-top FAB after scrolling down
+  const [showTop, setShowTop] = useState(false);
+  useEffect(() => {
+    function onScroll() {
+      setShowTop(window.scrollY > 600);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const registerCard = useCallback((slug: string, el: HTMLButtonElement | null) => {
+    if (el) {
+      elementMap.current.set(el, slug);
+      observerRef.current?.observe(el);
+    }
+  }, []);
+
+  const registerVideo = useCallback((slug: string, handle: GifVideoHandle | null) => {
+    if (handle) videoHandles.current.set(slug, handle);
+    else videoHandles.current.delete(slug);
+  }, []);
+
   return (
-    <div className="mx-auto max-w-4xl">
+    <div className="mx-auto max-w-4xl overflow-x-hidden">
       <PageHeader title="GIFs" backTo={{ label: 'Projects', path: '/projects' }} />
 
       <div className="mb-6 space-y-3">
         <SearchInput
           value={search}
-          onChange={(v) => {
-            setSearch(v);
-            setVisibleCount(BATCH_SIZE);
-          }}
+          onChange={setSearch}
           placeholder="Search by name or tag..."
           label="Search GIFs by name or tag"
         />
-        <TagFilter
-          tags={gifTags}
-          activeTag={activeTag}
-          onTagChange={(tag) => {
-            handleTagChange(tag);
-            setVisibleCount(BATCH_SIZE);
-          }}
-        />
+        <TagFilter tags={gifTags} activeTag={activeTag} onTagChange={handleTagChange} />
       </div>
 
       <div className="columns-1 gap-4 sm:columns-2">
-        {visible.map((gif) => (
-          <LazyGifCard key={gif.slug} gif={gif} onClick={() => modal.open(gif)} />
-        ))}
+        {visible.map((gif) => {
+          const ratio = gif.width && gif.height ? gif.width / gif.height : 4 / 3;
+          return (
+            <button
+              key={gif.slug}
+              ref={(el) => registerCard(gif.slug, el)}
+              type="button"
+              onClick={() => modal.open(gif)}
+              className="mb-4 block w-full cursor-pointer break-inside-avoid overflow-hidden rounded-lg border border-border bg-card hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
+            >
+              <GifVideo
+                ref={(handle) => registerVideo(gif.slug, handle)}
+                gif={gif}
+                lazy
+                className="w-full"
+                style={{ aspectRatio: ratio }}
+              />
+            </button>
+          );
+        })}
       </div>
 
       {hasMore && <div ref={sentinelRef} className="h-px" />}
@@ -165,6 +182,19 @@ export function GifsPage() {
       )}
 
       {modal.item && <GifDialog gif={modal.item} onClose={modal.close} />}
+
+      {showTop && (
+        <div className="fixed inset-x-0 bottom-6 z-40 mx-auto w-full max-w-4xl px-4">
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            aria-label="Back to top"
+            className="absolute -right-2 bottom-0 rounded-full border border-border bg-card p-3 text-muted-foreground shadow-lg transition-colors hover:bg-muted hover:text-foreground max-lg:right-4"
+          >
+            <ArrowUp className="h-5 w-5" />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
