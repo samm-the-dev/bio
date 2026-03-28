@@ -139,7 +139,13 @@ export function GifCarousel({ gifs }: { gifs: Gif[] }) {
       onTouchStart={pause}
       onTouchEnd={resume}
     >
-      <div ref={scrollRef} className="gif-carousel flex w-full gap-4 overflow-x-auto pb-2">
+      <div
+        ref={scrollRef}
+        tabIndex={0}
+        role="region"
+        aria-label="Featured GIFs"
+        className="gif-carousel flex w-full gap-4 overflow-x-auto pb-2 focus:outline-none"
+      >
         {loopItems.map((gif, i) => (
           <button
             key={`${gif.slug}-${i}`}
