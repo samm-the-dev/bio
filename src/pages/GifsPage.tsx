@@ -96,6 +96,7 @@ export function GifsPage() {
   // Single shared IntersectionObserver for all grid cards
   const videoHandles = useRef<Map<string, GifVideoHandle>>(new Map());
   const elementMap = useRef<WeakMap<Element, string>>(new WeakMap());
+  const pendingElements = useRef<Set<Element>>(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
@@ -113,6 +114,9 @@ export function GifsPage() {
       { rootMargin: OFFSCREEN_MARGIN },
     );
     observerRef.current = observer;
+    // Observe elements that registered before the observer was ready
+    for (const el of pendingElements.current) observer.observe(el);
+    pendingElements.current.clear();
     return () => observer.disconnect();
   }, []);
 
@@ -130,7 +134,11 @@ export function GifsPage() {
   const registerCard = useCallback((slug: string, el: HTMLButtonElement | null) => {
     if (el) {
       elementMap.current.set(el, slug);
-      observerRef.current?.observe(el);
+      if (observerRef.current) {
+        observerRef.current.observe(el);
+      } else {
+        pendingElements.current.add(el);
+      }
     }
   }, []);
 
