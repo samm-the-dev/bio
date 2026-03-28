@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Bridesmaids, 2011 - ★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/bridesmaids/',
+    publishedAt: '2026-03-28T05:16:00.000Z',
+    filmTitle: 'Bridesmaids',
+    filmYear: '2011',
+    rating: '4.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/0/4/4/2/10442-bridesmaids-0-600-0-900-crop.jpg?v=da67bea0aa',
+    reviewHtml: null,
+  },
+  {
     title: 'Simon Sez, 1999',
     link: 'https://letterboxd.com/samm_loves_film/film/simon-sez/',
     publishedAt: '2026-03-24T01:40:47.000Z',
@@ -642,19 +655,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/9/9/2/7/8/6/992786-28-years-later-0-600-0-900-crop.jpg?v=014e09c066',
-    reviewHtml: null,
-  },
-  {
-    title: 'Wake Up Dead Man, 2025 - ★★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/wake-up-dead-man/',
-    publishedAt: '2025-11-24T02:33:06.000Z',
-    filmTitle: 'Wake Up Dead Man',
-    filmYear: '2025',
-    rating: '5.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/7/2/9/1/1/3/729113-wake-up-dead-man-0-600-0-900-crop.jpg?v=85f3366617',
     reviewHtml: null,
   },
 ];
