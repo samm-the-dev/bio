@@ -139,7 +139,7 @@ export function GifCarousel({ gifs }: { gifs: Gif[] }) {
       onTouchStart={pause}
       onTouchEnd={resume}
     >
-      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex -- scrollable region needs keyboard access (axe: scrollable-region-focusable) */}
+      {/* eslint-disable jsx-a11y/no-noninteractive-tabindex -- scrollable region needs keyboard access (axe: scrollable-region-focusable) */}
       <div
         ref={scrollRef}
         tabIndex={0}
@@ -147,6 +147,7 @@ export function GifCarousel({ gifs }: { gifs: Gif[] }) {
         aria-label="Featured GIFs"
         className="gif-carousel flex w-full gap-4 overflow-x-auto pb-2 focus:outline-none"
       >
+        {/* eslint-enable jsx-a11y/no-noninteractive-tabindex */}
         {loopItems.map((gif, i) => (
           <button
             key={`${gif.slug}-${i}`}
