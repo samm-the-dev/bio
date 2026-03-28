@@ -27,7 +27,7 @@ export const GifVideo = forwardRef<GifVideoHandle, GifVideoProps>(function GifVi
   useImperativeHandle(ref, () => ({
     play: () => {
       if (!activated) setActivated(true);
-      videoRef.current?.play().catch(() => {});
+      if (!reduced) videoRef.current?.play().catch(() => {});
     },
     pause: () => {
       videoRef.current?.pause();
@@ -35,7 +35,7 @@ export const GifVideo = forwardRef<GifVideoHandle, GifVideoProps>(function GifVi
   }));
 
   if (failed || !gif.srcMp4) {
-    return <img src={gif.src} alt={gif.alt} className={className} style={style} />;
+    return <img src={gif.srcGif ?? gif.src} alt={gif.alt} className={className} style={style} />;
   }
 
   return (
