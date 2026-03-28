@@ -110,12 +110,12 @@ describe('ProjectsPage', () => {
     expect(link).toHaveAttribute('href', '/projects/gifs');
   });
 
-  it('renders GIF carousel images', () => {
+  it('renders GIF carousel items', () => {
     renderWithRouter(<ProjectsPage />);
-    const gifImages = screen.getAllByRole('img');
     const featuredCount = mockGifs.filter((g) => g.featured).length;
-    // Carousel duplicates items for seamless looping
-    expect(gifImages.length).toBe(featuredCount * 2);
+    // Carousel duplicates items for seamless looping — each gets a .gif-card button
+    const carouselButtons = document.querySelectorAll('.gif-card');
+    expect(carouselButtons.length).toBe(featuredCount * 2);
   });
 
   it('filters projects by search query', () => {

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { X, Download, Share2 } from 'lucide-react';
 import type { Gif } from '@/lib/queries';
+import { GifVideo, type GifVideoHandle } from './GifVideo';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { useSwipeToDismiss } from '@/hooks/useSwipeToDismiss';
 
@@ -14,6 +15,7 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
   const panelRef = useRef<HTMLDivElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<GifVideoHandle>(null);
   const swipe = useSwipeToDismiss(panelRef, onClose, { checkScrollLimits: true, scrollRef });
   const canShare = typeof navigator.share === 'function';
   const ext = gif.src.split('.').pop() || 'gif';
@@ -55,6 +57,10 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
     backdrop.addEventListener('wheel', onWheel, { passive: false });
     return () => backdrop.removeEventListener('wheel', onWheel);
   }, [onClose]);
+
+  useEffect(() => {
+    videoRef.current?.play();
+  }, []);
 
   async function handleDownload(src: string, dlExt: string) {
     try {
@@ -115,7 +121,7 @@ export function GifDialog({ gif, onClose }: GifDialogProps) {
           <X className="h-4 w-4" />
         </button>
         <div ref={scrollRef} className="overflow-auto">
-          <img src={gif.src} alt={gif.alt} className="w-full" />
+          <GifVideo ref={videoRef} gif={gif} className="w-full" />
         </div>
         <div className="px-3 py-2">
           <div className="flex flex-wrap gap-1">
