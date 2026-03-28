@@ -155,6 +155,7 @@ export function GifCarousel({ gifs }: { gifs: Gif[] }) {
             type="button"
             tabIndex={-1}
             onClick={() => modal.open(gif)}
+            aria-label={gif.alt}
             className="gif-card h-48 flex-none cursor-pointer overflow-hidden rounded-lg border border-border bg-card transition-transform hover:scale-[1.02] focus:outline-none sm:h-56"
             style={{ aspectRatio: `${gif.width}/${gif.height}` }}
           >

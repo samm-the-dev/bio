@@ -123,6 +123,7 @@ export function GifsPage() {
       setShowTop(window.scrollY > 600);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
@@ -161,6 +162,7 @@ export function GifsPage() {
               ref={(el) => registerCard(gif.slug, el)}
               type="button"
               onClick={() => modal.open(gif)}
+              aria-label={gif.alt}
               className="mb-4 block w-full cursor-pointer break-inside-avoid overflow-hidden rounded-lg border border-border bg-card hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
             >
               <GifVideo

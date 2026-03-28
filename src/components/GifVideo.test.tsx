@@ -1,6 +1,6 @@
 import { createRef } from 'react';
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { render, screen, act } from '@testing-library/react';
+import { render, screen, act, fireEvent } from '@testing-library/react';
 import { GifVideo, type GifVideoHandle } from './GifVideo';
 import type { Gif } from '@/lib/queries';
 
@@ -91,5 +91,27 @@ describe('GifVideo', () => {
     // src should be activated (to show first frame) but play() should not be called
     expect(video).toHaveAttribute('src', '/gifs/mp4/test.mp4');
     expect(playSpy).not.toHaveBeenCalled();
+  });
+
+  it('falls back to img when video fires error', () => {
+    render(<GifVideo gif={gif} />);
+    const video = screen.getByLabelText('test gif alt');
+    expect(video.tagName).toBe('VIDEO');
+
+    fireEvent.error(video);
+
+    const img = screen.getByAltText('test gif alt');
+    expect(img.tagName).toBe('IMG');
+    expect(img).toHaveAttribute('src', '/gifs/test.gif');
+  });
+
+  it('falls back to srcGif on error when src is WebP', () => {
+    const webpGif = { ...gif, src: '/gifs/test.webp', srcGif: '/gifs/gif/test.gif' };
+    render(<GifVideo gif={webpGif} />);
+
+    fireEvent.error(screen.getByLabelText('test gif alt'));
+
+    const img = screen.getByAltText('test gif alt');
+    expect(img).toHaveAttribute('src', '/gifs/gif/test.gif');
   });
 });
