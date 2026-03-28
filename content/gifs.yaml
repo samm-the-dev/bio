@@ -145,23 +145,13 @@
 
 - slug: blood-heart
   alt: "blood heart"
-  src: "/gifs/blood heart.gif"
-  srcMp4: "/gifs/mp4/blood-heart.mp4"
-  srcWebp: "/gifs/webp/blood-heart.webp"
-  srcGif: "/gifs/blood heart.gif"
-  width: 480
-  height: 270
-  tags: ["Movies & TV"]
-
-- slug: blood-heart-2
-  alt: "blood heart"
   src: "/gifs/blood heart.webp"
-  srcMp4: "/gifs/mp4/blood-heart-2.mp4"
+  srcMp4: "/gifs/mp4/blood-heart.mp4"
   srcWebp: "/gifs/blood heart.webp"
-  srcGif: "/gifs/gif/blood-heart-2.gif"
+  srcGif: "/gifs/gif/blood-heart.gif"
   width: 640
   height: 360
-  tags: ["Movies & TV"]
+  tags: ["Movies & TV", "Invincible"]
   featured: true
 
 - slug: brain-beats-brawn
@@ -1985,6 +1975,46 @@
   width: 640
   height: 320
   tags: ["Movies & TV", "One Piece (Netflix)"]
+
+- slug: s4-asteroid-hitting-venture
+  alt: "asteroid_hitting_venture"
+  src: "/gifs/asteroid_hitting_venture.webp"
+  srcMp4: "/gifs/mp4/s4-asteroid-hitting-venture.mp4"
+  srcWebp: "/gifs/asteroid_hitting_venture.webp"
+  srcGif: "/gifs/gif/s4-asteroid-hitting-venture.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
+
+- slug: s4-nolans-dad-smacking-mom
+  alt: "nolans_dad_smacking_mom"
+  src: "/gifs/nolans_dad_smacking_mom.webp"
+  srcMp4: "/gifs/mp4/s4-nolans-dad-smacking-mom.mp4"
+  srcWebp: "/gifs/nolans_dad_smacking_mom.webp"
+  srcGif: "/gifs/gif/s4-nolans-dad-smacking-mom.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
+
+- slug: s4-punched-my-head-off
+  alt: "punched_my_head_off"
+  src: "/gifs/punched_my_head_off.webp"
+  srcMp4: "/gifs/mp4/s4-punched-my-head-off.mp4"
+  srcWebp: "/gifs/punched_my_head_off.webp"
+  srcGif: "/gifs/gif/s4-punched-my-head-off.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
+
+- slug: s4-triadic-relationship
+  alt: "triadic_relationship"
+  src: "/gifs/triadic_relationship.webp"
+  srcMp4: "/gifs/mp4/s4-triadic-relationship.mp4"
+  srcWebp: "/gifs/triadic_relationship.webp"
+  srcGif: "/gifs/gif/s4-triadic-relationship.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
 
 - slug: sam-react
   alt: "sam react"
