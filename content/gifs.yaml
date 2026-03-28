@@ -174,6 +174,16 @@
   height: 360
   tags: ["Movies & TV", "Superman"]
 
+- slug: but-i-dont-want-to
+  alt: "but_i_dont_want_to"
+  src: "/gifs/but_i_dont_want_to.webp"
+  srcMp4: "/gifs/mp4/but-i-dont-want-to.mp4"
+  srcWebp: "/gifs/but_i_dont_want_to.webp"
+  srcGif: "/gifs/gif/but-i-dont-want-to.gif"
+  width: 640
+  height: 268
+  tags: ["Movies & TV", "Bridesmaids"]
+
 - slug: but-im-in-fact-a-large-fat-man
   alt: "but im in fact a large fat man"
   src: "/gifs/but im in fact a large fat man.gif"
@@ -687,6 +697,16 @@
   tags: ["Dropout", "Cloudward Ho"]
   featured: true
 
+- slug: help-me-im-poor
+  alt: "help_me_im_poor"
+  src: "/gifs/help_me_im_poor.webp"
+  srcMp4: "/gifs/mp4/help-me-im-poor.mp4"
+  srcWebp: "/gifs/help_me_im_poor.webp"
+  srcGif: "/gifs/gif/help-me-im-poor.gif"
+  width: 640
+  height: 268
+  tags: ["Movies & TV", "Bridesmaids"]
+
 - slug: hollywood-is-fake
   alt: "hollywood is fake"
   src: "/gifs/hollywood is fake.gif"
@@ -768,6 +788,16 @@
   width: 480
   height: 270
   tags: ["Dropout", "Neverafter"]
+
+- slug: i-dont-want-to-think-about-that
+  alt: "i_dont_want_to_think_about_that"
+  src: "/gifs/i_dont_want_to_think_about_that.webp"
+  srcMp4: "/gifs/mp4/i-dont-want-to-think-about-that.mp4"
+  srcWebp: "/gifs/i_dont_want_to_think_about_that.webp"
+  srcGif: "/gifs/gif/i-dont-want-to-think-about-that.gif"
+  width: 640
+  height: 268
+  tags: ["Movies & TV", "Bridesmaids"]
 
 - slug: i-feel-really-bad
   alt: "I feel really bad"
@@ -1024,6 +1054,16 @@
   width: 600
   height: 338
   tags: ["Dropout"]
+
+- slug: its-called-humor-learn-about-it
+  alt: "its_called_humor_learn_about_it"
+  src: "/gifs/its_called_humor_learn_about_it.webp"
+  srcMp4: "/gifs/mp4/its-called-humor-learn-about-it.mp4"
+  srcWebp: "/gifs/its_called_humor_learn_about_it.webp"
+  srcGif: "/gifs/gif/its-called-humor-learn-about-it.gif"
+  width: 640
+  height: 268
+  tags: ["Movies & TV", "Bridesmaids"]
 
 - slug: jake-the-dad-hats
   alt: "jake the dad hats"
@@ -1431,6 +1471,16 @@
   width: 640
   height: 360
   tags: ["Dropout", "Cloudward Ho"]
+
+- slug: not-with-his-mouth-telepathically
+  alt: "not_with_his_mouth_telepathically"
+  src: "/gifs/not_with_his_mouth_telepathically.webp"
+  srcMp4: "/gifs/mp4/not-with-his-mouth-telepathically.mp4"
+  srcWebp: "/gifs/not_with_his_mouth_telepathically.webp"
+  srcGif: "/gifs/gif/not-with-his-mouth-telepathically.gif"
+  width: 640
+  height: 268
+  tags: ["Movies & TV", "Bridesmaids"]
 
 - slug: nsbu
   alt: "NSBU"
@@ -2093,6 +2143,16 @@
   tags: ["Movies & TV", "Ted Lasso"]
   featured: true
 
+- slug: stone-cold-pack-of-weirdos
+  alt: "stone_cold_pack_of_weirdos"
+  src: "/gifs/stone_cold_pack_of_weirdos.webp"
+  srcMp4: "/gifs/mp4/stone-cold-pack-of-weirdos.mp4"
+  srcWebp: "/gifs/stone_cold_pack_of_weirdos.webp"
+  srcGif: "/gifs/gif/stone-cold-pack-of-weirdos.gif"
+  width: 640
+  height: 268
+  tags: ["Movies & TV", "Bridesmaids"]
+
 - slug: sunrise
   alt: "sunrise"
   src: "/gifs/sunrise.webp"
@@ -2678,6 +2738,26 @@
   tags: ["Dropout", "Cloudward Ho"]
   featured: true
 
+- slug: you-are-so-cute-you-are-so-sweet
+  alt: "you_are_so_cute_you_are_so_sweet"
+  src: "/gifs/you_are_so_cute_you_are_so_sweet.webp"
+  srcMp4: "/gifs/mp4/you-are-so-cute-you-are-so-sweet.mp4"
+  srcWebp: "/gifs/you_are_so_cute_you_are_so_sweet.webp"
+  srcGif: "/gifs/gif/you-are-so-cute-you-are-so-sweet.gif"
+  width: 640
+  height: 268
+  tags: ["Movies & TV", "Bridesmaids"]
+
+- slug: you-cannot-trust-anybody-ever
+  alt: "you_cannot_trust_anybody_ever"
+  src: "/gifs/you_cannot_trust_anybody_ever.webp"
+  srcMp4: "/gifs/mp4/you-cannot-trust-anybody-ever.mp4"
+  srcWebp: "/gifs/you_cannot_trust_anybody_ever.webp"
+  srcGif: "/gifs/gif/you-cannot-trust-anybody-ever.gif"
+  width: 640
+  height: 268
+  tags: ["Movies & TV", "Bridesmaids"]
+
 - slug: you-never-knew-me
   alt: "you never knew me"
   src: "/gifs/you never knew me.gif"
@@ -2727,6 +2807,16 @@
   width: 600
   height: 338
   tags: ["Dropout"]
+
+- slug: you-smell-like-pine-needles
+  alt: "you_smell_like_pine_needles"
+  src: "/gifs/you_smell_like_pine_needles.webp"
+  srcMp4: "/gifs/mp4/you-smell-like-pine-needles.mp4"
+  srcWebp: "/gifs/you_smell_like_pine_needles.webp"
+  srcGif: "/gifs/gif/you-smell-like-pine-needles.gif"
+  width: 640
+  height: 268
+  tags: ["Movies & TV", "Bridesmaids"]
 
 - slug: you-were-my-brother
   alt: "You were my brother"
