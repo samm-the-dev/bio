@@ -139,6 +139,7 @@ export function GifCarousel({ gifs }: { gifs: Gif[] }) {
       onTouchStart={pause}
       onTouchEnd={resume}
     >
+      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex -- scrollable region needs keyboard access (axe: scrollable-region-focusable) */}
       <div
         ref={scrollRef}
         tabIndex={0}
