@@ -3,6 +3,32 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Chicken Run, 2000 - ★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/chicken-run/',
+    publishedAt: '2026-03-31T03:31:15.000Z',
+    filmTitle: 'Chicken Run',
+    filmYear: '2000',
+    rating: '3.5',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/4/8/0/3/3/48033-chicken-run-0-600-0-900-crop.jpg?v=e8ee6a3b20',
+    reviewHtml: null,
+  },
+  {
+    title: 'Nausicaä of the Valley of the Wind, 1984 - ★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/nausicaa-of-the-valley-of-the-wind/1/',
+    publishedAt: '2026-03-31T03:30:59.000Z',
+    filmTitle: 'Nausicaä of the Valley of the Wind',
+    filmYear: '1984',
+    rating: '4.0',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/5/1/9/6/9/51969-nausicaa-of-the-valley-of-the-wind-0-600-0-900-crop.jpg?v=059bc2bbc0',
+    reviewHtml: null,
+  },
+  {
     title: 'Bridesmaids, 2011 - ★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/bridesmaids/',
     publishedAt: '2026-03-28T05:16:00.000Z',
@@ -629,32 +655,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/2/2/6/3/3/0/226330-scarecrow-in-a-garden-of-cucumbers-0-600-0-900-crop.jpg?v=aadba53be5',
-    reviewHtml: null,
-  },
-  {
-    title: 'Rental Family, 2025 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/rental-family-2025/',
-    publishedAt: '2025-11-25T00:55:14.000Z',
-    filmTitle: 'Rental Family',
-    filmYear: '2025',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/0/9/2/7/7/8/1092778-rental-family-2025-0-600-0-900-crop.jpg?v=36ab9fb4e8',
-    reviewHtml: null,
-  },
-  {
-    title: '28 Years Later, 2025 - ★★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/28-years-later/1/',
-    publishedAt: '2025-11-24T07:34:30.000Z',
-    filmTitle: '28 Years Later',
-    filmYear: '2025',
-    rating: '5.0',
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/9/9/2/7/8/6/992786-28-years-later-0-600-0-900-crop.jpg?v=014e09c066',
     reviewHtml: null,
   },
 ];
