@@ -159,6 +159,7 @@ for (const folder of SOURCES) {
       slug,
       alt: stem,
       src,
+      srcPath,
       ext: extname(file).toLowerCase(),
       width,
       height,
@@ -178,6 +179,35 @@ const featuredCount = entries.filter((e) => e.featured).length;
 if (featuredCount > 0) console.log(`${featuredCount} marked as featured`);
 const tagSet = new Set(entries.flatMap((e) => e.tags));
 console.log(`${tagSet.size} unique tags: ${[...tagSet].sort().join(', ')}`);
+
+// --- Clean up orphaned files (not in any source folder anymore) ---
+const knownFiles = new Set(entries.map((e) => basename(e.src)));
+const knownSlugs = new Set(entries.map((e) => e.slug));
+let orphanCount = 0;
+
+// Clean main target dir (skip subdirectories)
+for (const f of readdirSync(TARGET)) {
+  const full = join(TARGET, f);
+  if (statSync(full).isDirectory()) continue;
+  if (!knownFiles.has(f)) {
+    unlinkSync(full);
+    orphanCount++;
+  }
+}
+
+// Clean converted subdirs by slug
+for (const [dir, fmtExt] of [[MP4_DIR, '.mp4'], [WEBP_DIR, '.webp'], [GIF_DIR, '.gif']]) {
+  if (!existsSync(dir)) continue;
+  for (const f of readdirSync(dir)) {
+    const slug = basename(f, fmtExt);
+    if (!knownSlugs.has(slug)) {
+      unlinkSync(join(dir, f));
+      orphanCount++;
+    }
+  }
+}
+
+if (orphanCount > 0) console.log(`Removed ${orphanCount} orphaned files`);
 
 // --- Convert to MP4, WebP, and GIF ---
 mkdirSync(MP4_DIR, { recursive: true });
@@ -274,23 +304,30 @@ const mp4Tasks = [];
 const webpTasks = [];
 const gifTasks = [];
 
+/** True if outFile is missing or older than srcFile. */
+function needsConvert(srcFile, outFile) {
+  if (!existsSync(outFile)) return true;
+  return statSync(srcFile).mtimeMs > statSync(outFile).mtimeMs;
+}
+
 for (const entry of entries) {
-  const srcFile = join(TARGET, basename(entry.src));
+  const targetFile = join(TARGET, basename(entry.src));
   const mp4Out = join(MP4_DIR, `${entry.slug}.mp4`);
 
-  if (hasFfmpeg && !existsSync(mp4Out)) {
-    mp4Tasks.push(() => convertToMp4(srcFile, mp4Out));
+  // Compare against OneDrive source mtime, not the copy in public/gifs/
+  if (hasFfmpeg && needsConvert(entry.srcPath, mp4Out)) {
+    mp4Tasks.push(() => convertToMp4(targetFile, mp4Out));
   }
 
   if (entry.ext === '.gif') {
     const webpOut = join(WEBP_DIR, `${entry.slug}.webp`);
-    if (!existsSync(webpOut)) {
-      webpTasks.push(() => convertToWebp(srcFile, webpOut));
+    if (needsConvert(entry.srcPath, webpOut)) {
+      webpTasks.push(() => convertToWebp(targetFile, webpOut));
     }
   } else if (entry.ext === '.webp') {
     const gifOut = join(GIF_DIR, `${entry.slug}.gif`);
-    if (!existsSync(gifOut)) {
-      gifTasks.push(() => convertToGif(srcFile, gifOut));
+    if (needsConvert(entry.srcPath, gifOut)) {
+      gifTasks.push(() => convertToGif(targetFile, gifOut));
     }
   }
 }
