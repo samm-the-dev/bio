@@ -159,6 +159,7 @@ for (const folder of SOURCES) {
       slug,
       alt: stem,
       src,
+      srcPath,
       ext: extname(file).toLowerCase(),
       width,
       height,
@@ -310,22 +311,23 @@ function needsConvert(srcFile, outFile) {
 }
 
 for (const entry of entries) {
-  const srcFile = join(TARGET, basename(entry.src));
+  const targetFile = join(TARGET, basename(entry.src));
   const mp4Out = join(MP4_DIR, `${entry.slug}.mp4`);
 
-  if (hasFfmpeg && needsConvert(srcFile, mp4Out)) {
-    mp4Tasks.push(() => convertToMp4(srcFile, mp4Out));
+  // Compare against OneDrive source mtime, not the copy in public/gifs/
+  if (hasFfmpeg && needsConvert(entry.srcPath, mp4Out)) {
+    mp4Tasks.push(() => convertToMp4(targetFile, mp4Out));
   }
 
   if (entry.ext === '.gif') {
     const webpOut = join(WEBP_DIR, `${entry.slug}.webp`);
-    if (needsConvert(srcFile, webpOut)) {
-      webpTasks.push(() => convertToWebp(srcFile, webpOut));
+    if (needsConvert(entry.srcPath, webpOut)) {
+      webpTasks.push(() => convertToWebp(targetFile, webpOut));
     }
   } else if (entry.ext === '.webp') {
     const gifOut = join(GIF_DIR, `${entry.slug}.gif`);
-    if (needsConvert(srcFile, gifOut)) {
-      gifTasks.push(() => convertToGif(srcFile, gifOut));
+    if (needsConvert(entry.srcPath, gifOut)) {
+      gifTasks.push(() => convertToGif(targetFile, gifOut));
     }
   }
 }
