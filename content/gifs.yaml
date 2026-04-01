@@ -328,16 +328,6 @@
   tags: ["Movies & TV", "Adventure Time"]
   featured: true
 
-- slug: eat-me
-  alt: "eat me"
-  src: "/gifs/eat me.gif"
-  srcMp4: "/gifs/mp4/eat-me.mp4"
-  srcWebp: "/gifs/webp/eat-me.webp"
-  srcGif: "/gifs/eat me.gif"
-  width: 640
-  height: 360
-  tags: ["Movies & TV"]
-
 - slug: emily-ally-celebrate
   alt: "emily ally celebrate"
   src: "/gifs/emily ally celebrate.gif"
@@ -1986,12 +1976,62 @@
   height: 358
   tags: ["Movies & TV", "Invincible"]
 
+- slug: s4-battle-of-fire-watch-me-burn
+  alt: "battle_of_fire_watch_me_burn"
+  src: "/gifs/battle_of_fire_watch_me_burn.webp"
+  srcMp4: "/gifs/mp4/s4-battle-of-fire-watch-me-burn.mp4"
+  srcWebp: "/gifs/battle_of_fire_watch_me_burn.webp"
+  srcGif: "/gifs/gif/s4-battle-of-fire-watch-me-burn.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
+
+- slug: s4-conquest-behind-oliver
+  alt: "conquest_behind_oliver"
+  src: "/gifs/conquest_behind_oliver.webp"
+  srcMp4: "/gifs/mp4/s4-conquest-behind-oliver.mp4"
+  srcWebp: "/gifs/conquest_behind_oliver.webp"
+  srcGif: "/gifs/gif/s4-conquest-behind-oliver.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
+
+- slug: s4-dude-gross
+  alt: "dude_gross"
+  src: "/gifs/dude_gross.webp"
+  srcMp4: "/gifs/mp4/s4-dude-gross.mp4"
+  srcWebp: "/gifs/dude_gross.webp"
+  srcGif: "/gifs/gif/s4-dude-gross.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
+
+- slug: s4-need-not-be-summoned
+  alt: "need_not_be_summoned"
+  src: "/gifs/need_not_be_summoned.webp"
+  srcMp4: "/gifs/mp4/s4-need-not-be-summoned.mp4"
+  srcWebp: "/gifs/need_not_be_summoned.webp"
+  srcGif: "/gifs/gif/s4-need-not-be-summoned.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
+
 - slug: s4-nolans-dad-smacking-mom
   alt: "nolans_dad_smacking_mom"
   src: "/gifs/nolans_dad_smacking_mom.webp"
   srcMp4: "/gifs/mp4/s4-nolans-dad-smacking-mom.mp4"
   srcWebp: "/gifs/nolans_dad_smacking_mom.webp"
   srcGif: "/gifs/gif/s4-nolans-dad-smacking-mom.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
+
+- slug: s4-not-bowing-to-satan
+  alt: "not_bowing_to_satan"
+  src: "/gifs/not_bowing_to_satan.webp"
+  srcMp4: "/gifs/mp4/s4-not-bowing-to-satan.mp4"
+  srcWebp: "/gifs/not_bowing_to_satan.webp"
+  srcGif: "/gifs/gif/s4-not-bowing-to-satan.gif"
   width: 640
   height: 358
   tags: ["Movies & TV", "Invincible"]
@@ -2012,6 +2052,46 @@
   srcMp4: "/gifs/mp4/s4-triadic-relationship.mp4"
   srcWebp: "/gifs/triadic_relationship.webp"
   srcGif: "/gifs/gif/s4-triadic-relationship.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
+
+- slug: s4-violence-like-that
+  alt: "violence_like_that"
+  src: "/gifs/violence_like_that.webp"
+  srcMp4: "/gifs/mp4/s4-violence-like-that.mp4"
+  srcWebp: "/gifs/violence_like_that.webp"
+  srcGif: "/gifs/gif/s4-violence-like-that.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
+
+- slug: s4-what-was-the-problem
+  alt: "what_was_the_problem"
+  src: "/gifs/what_was_the_problem.webp"
+  srcMp4: "/gifs/mp4/s4-what-was-the-problem.mp4"
+  srcWebp: "/gifs/what_was_the_problem.webp"
+  srcGif: "/gifs/gif/s4-what-was-the-problem.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
+
+- slug: s4-whats-going-on-kid
+  alt: "whats_going_on_kid"
+  src: "/gifs/whats_going_on_kid.webp"
+  srcMp4: "/gifs/mp4/s4-whats-going-on-kid.mp4"
+  srcWebp: "/gifs/whats_going_on_kid.webp"
+  srcGif: "/gifs/gif/s4-whats-going-on-kid.gif"
+  width: 640
+  height: 358
+  tags: ["Movies & TV", "Invincible"]
+
+- slug: s4-yeah-baby-im-back
+  alt: "yeah_baby_im_back"
+  src: "/gifs/yeah_baby_im_back.webp"
+  srcMp4: "/gifs/mp4/s4-yeah-baby-im-back.mp4"
+  srcWebp: "/gifs/yeah_baby_im_back.webp"
+  srcGif: "/gifs/gif/s4-yeah-baby-im-back.gif"
   width: 640
   height: 358
   tags: ["Movies & TV", "Invincible"]
