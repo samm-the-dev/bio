@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: '28 Years Later: The Bone Temple, 2026 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/28-years-later-the-bone-temple/1/',
+    publishedAt: '2026-04-02T14:57:47.000Z',
+    filmTitle: '28 Years Later: The Bone Temple',
+    filmYear: '2026',
+    rating: '4.5',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/5/6/4/0/9/1156409-28-years-later-the-bone-temple-0-600-0-900-crop.jpg?v=131058c6ff',
+    reviewHtml: null,
+  },
+  {
     title: 'Chicken Run, 2000 - ★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/chicken-run/',
     publishedAt: '2026-03-31T03:31:15.000Z',
@@ -642,19 +655,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/3/7/8/4/7/3/378473-bad-times-at-the-el-royale-0-600-0-900-crop.jpg?v=3c8a34b920',
-    reviewHtml: null,
-  },
-  {
-    title: 'Scarecrow in a Garden of Cucumbers, 1972',
-    link: 'https://letterboxd.com/samm_loves_film/film/scarecrow-in-a-garden-of-cucumbers/',
-    publishedAt: '2025-11-25T03:13:34.000Z',
-    filmTitle: 'Scarecrow in a Garden of Cucumbers',
-    filmYear: '1972',
-    rating: null,
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/2/2/6/3/3/0/226330-scarecrow-in-a-garden-of-cucumbers-0-600-0-900-crop.jpg?v=aadba53be5',
     reviewHtml: null,
   },
 ];
