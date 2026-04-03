@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'The Super Mario Galaxy Movie, 2026 - ★',
+    link: 'https://letterboxd.com/samm_loves_film/film/the-super-mario-galaxy-movie/',
+    publishedAt: '2026-04-03T04:21:00.000Z',
+    filmTitle: 'The Super Mario Galaxy Movie',
+    filmYear: '2026',
+    rating: '1.0',
+    isRewatch: false,
+    isLiked: false,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/1/0/0/8/0/1110080-the-super-mario-galaxy-movie-0-600-0-900-crop.jpg?v=fefcfca134',
+    reviewHtml: '<p>nah</p><p>edit: why was Donald Glover the voice of Yoshi lmao</p>',
+  },
+  {
     title: '28 Years Later: The Bone Temple, 2026 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/28-years-later-the-bone-temple/1/',
     publishedAt: '2026-04-02T14:57:47.000Z',
@@ -642,19 +655,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/1/2/5/3/8/3/1125383-train-dreams-0-600-0-900-crop.jpg?v=55740bb5b4',
-    reviewHtml: null,
-  },
-  {
-    title: 'Bad Times at the El Royale, 2018 - ★★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/bad-times-at-the-el-royale/1/',
-    publishedAt: '2025-11-29T05:24:32.000Z',
-    filmTitle: 'Bad Times at the El Royale',
-    filmYear: '2018',
-    rating: '5.0',
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/3/7/8/4/7/3/378473-bad-times-at-the-el-royale-0-600-0-900-crop.jpg?v=3c8a34b920',
     reviewHtml: null,
   },
 ];
