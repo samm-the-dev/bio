@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'The Drama, 2026 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/the-drama/',
+    publishedAt: '2026-04-07T02:48:47.000Z',
+    filmTitle: 'The Drama',
+    filmYear: '2026',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/2/0/5/4/9/4/1205494-the-drama-0-600-0-900-crop.jpg?v=2320acafd5',
+    reviewHtml:
+      '<p>Pretty darn good! Might end up being one of my favorites of the year. </p><p>It has this frenetic, stream of consciousness, almost dream-like editing that I found fascinating. Excellent character work too.</p>',
+  },
+  {
     title: 'The Super Mario Galaxy Movie, 2026 - ★',
     link: 'https://letterboxd.com/samm_loves_film/film/the-super-mario-galaxy-movie/',
     publishedAt: '2026-04-03T04:21:00.000Z',
@@ -642,19 +656,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: false,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/4/3/7/1/6/5/437165-the-killers-game-0-600-0-900-crop.jpg?v=5ea208b15f',
-    reviewHtml: null,
-  },
-  {
-    title: 'Train Dreams, 2025 - ★★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/train-dreams/',
-    publishedAt: '2025-11-29T16:36:31.000Z',
-    filmTitle: 'Train Dreams',
-    filmYear: '2025',
-    rating: '5.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/1/2/5/3/8/3/1125383-train-dreams-0-600-0-900-crop.jpg?v=55740bb5b4',
     reviewHtml: null,
   },
 ];
