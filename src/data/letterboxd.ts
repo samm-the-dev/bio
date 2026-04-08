@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'They Will Kill You, 2026 - ★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/they-will-kill-you/',
+    publishedAt: '2026-04-08T02:42:50.000Z',
+    filmTitle: 'They Will Kill You',
+    filmYear: '2026',
+    rating: '2.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/7/5/5/2/8/1175528-they-will-kill-you-0-600-0-900-crop.jpg?v=ed2974424c',
+    reviewHtml:
+      "<p>this movie is trying to be 8 better movies and it mostly gets there with 5 of them</p><p>it made me laugh out loud at least a few times so credit where it's due</p><p>best enjoyed with fried chicken and the devil's lettuce</p>",
+  },
+  {
     title: 'The Drama, 2026 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/the-drama/',
     publishedAt: '2026-04-07T02:48:47.000Z',
@@ -643,19 +657,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/9/7/7/3/4/2/977342-zootopia-2-0-600-0-900-crop.jpg?v=00a15a97bc',
-    reviewHtml: null,
-  },
-  {
-    title: "The Killer's Game, 2024 - ★★",
-    link: 'https://letterboxd.com/samm_loves_film/film/the-killers-game/',
-    publishedAt: '2025-11-29T20:54:07.000Z',
-    filmTitle: "The Killer's Game",
-    filmYear: '2024',
-    rating: '2.0',
-    isRewatch: false,
-    isLiked: false,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/4/3/7/1/6/5/437165-the-killers-game-0-600-0-900-crop.jpg?v=5ea208b15f',
     reviewHtml: null,
   },
 ];
