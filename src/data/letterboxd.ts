@@ -504,11 +504,11 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     reviewHtml: null,
   },
   {
-    title: 'Kill Bill: The Whole Bloody Affair, 2006 - ★★★★½',
+    title: 'Kill Bill: The Whole Bloody Affair, 2004 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/kill-bill-the-whole-bloody-affair/',
     publishedAt: '2025-12-21T04:21:16.000Z',
     filmTitle: 'Kill Bill: The Whole Bloody Affair',
-    filmYear: '2006',
+    filmYear: '2004',
     rating: '4.5',
     isRewatch: false,
     isLiked: true,
