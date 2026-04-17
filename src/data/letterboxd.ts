@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Avatar: Aang, The Last Airbender, 2026 - ★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/avatar-aang-the-last-airbender/',
+    publishedAt: '2026-04-17T01:38:03.000Z',
+    filmTitle: 'Avatar: Aang, The Last Airbender',
+    filmYear: '2026',
+    rating: '3.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/8/8/2/4/3/2/882432-avatar-aang-the-last-airbender-0-600-0-900-crop.jpg?v=63b91e4d83',
+    reviewHtml:
+      "<p>Would've loved to see this on a big screen. I don't love the combination of changing voice actors and invoking nostalgia. I would've liked this more if it had less fan service and hit the emotional themes harder. Great set pieces and animation though (again, clearly meant for the big screen 😔).</p>",
+  },
+  {
     title: 'They Will Kill You, 2026 - ★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/they-will-kill-you/',
     publishedAt: '2026-04-08T02:42:50.000Z',
@@ -644,19 +658,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/7/7/2/2/3/2/772232-hamnet-0-600-0-900-crop.jpg?v=631489314d',
-    reviewHtml: null,
-  },
-  {
-    title: 'Zootopia 2, 2025 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/zootopia-2/',
-    publishedAt: '2025-12-04T01:05:03.000Z',
-    filmTitle: 'Zootopia 2',
-    filmYear: '2025',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/9/7/7/3/4/2/977342-zootopia-2-0-600-0-900-crop.jpg?v=00a15a97bc',
     reviewHtml: null,
   },
 ];
