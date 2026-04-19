@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'The Big Lebowski, 1998 - ★★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/the-big-lebowski/',
+    publishedAt: '2026-04-19T07:29:49.000Z',
+    filmTitle: 'The Big Lebowski',
+    filmYear: '1998',
+    rating: '5.0',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/5/1/9/3/5/51935-the-big-lebowski-0-600-0-900-crop.jpg?v=5cd64defcf',
+    reviewHtml:
+      '<p>John Goodman is the of the greatest actors of his generation. Both Jeff Bridges and Lebowski are timelessly cool. Sam Elliot makes me proud to be a Sam.</p>',
+  },
+  {
     title: 'Avatar: Aang, The Last Airbender, 2026 - ★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/avatar-aang-the-last-airbender/',
     publishedAt: '2026-04-17T01:38:03.000Z',
@@ -645,19 +659,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/2/2/3/3/9/8/223398-the-night-before-0-600-0-900-crop.jpg?v=08d4aafe92',
-    reviewHtml: null,
-  },
-  {
-    title: 'Hamnet, 2025 - ★★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/hamnet/',
-    publishedAt: '2025-12-06T02:50:20.000Z',
-    filmTitle: 'Hamnet',
-    filmYear: '2025',
-    rating: '4.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/7/7/2/2/3/2/772232-hamnet-0-600-0-900-crop.jpg?v=631489314d',
     reviewHtml: null,
   },
 ];
