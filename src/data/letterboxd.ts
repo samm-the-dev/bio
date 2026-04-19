@@ -14,7 +14,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/5/1/9/3/5/51935-the-big-lebowski-0-600-0-900-crop.jpg?v=5cd64defcf',
     reviewHtml:
-      '<p>John Goodman is the of the greatest actors of his generation. Both Jeff Bridges and Lebowski are timelessly cool. Sam Elliot makes me proud to be a Sam.</p>',
+      '<p>John Goodman is one of the greatest actors of his generation. Both Jeff Bridges and Lebowski are timelessly cool. Sam Elliot makes me proud to be a Sam.</p>',
   },
   {
     title: 'Avatar: Aang, The Last Airbender, 2026 - ★★★',
