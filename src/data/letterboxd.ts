@@ -26,7 +26,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isRewatch: false,
     isLiked: true,
     posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/8/8/2/4/3/2/882432-avatar-aang-the-last-airbender-0-600-0-900-crop.jpg?v=d9689a3b4a',
+      'https://a.ltrbxd.com/resized/film-poster/8/8/2/4/3/2/882432-avatar-aang-the-last-airbender-0-600-0-900-crop.jpg?v=44a03a95e2',
     reviewHtml:
       "<p>Would've loved to see this on a big screen. I don't love the combination of changing voice actors and invoking nostalgia. I would've liked this more if it had less fan service and hit the emotional themes harder. Great set pieces and animation though (again, clearly meant for the big screen 😔).</p>",
   },
