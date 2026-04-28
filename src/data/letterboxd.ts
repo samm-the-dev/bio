@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Exit 8, 2025 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/exit-8/',
+    publishedAt: '2026-04-28T05:43:53.000Z',
+    filmTitle: 'Exit 8',
+    filmYear: '2025',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/2/9/0/7/1/8/1290718-exit-8-0-600-0-900-crop.jpg?v=583d86664f',
+    reviewHtml:
+      '<blockquote><p>What about when you got trapped in a mind dungeon for a buncha years?</p></blockquote><p>- Jake the Dog, Adventure Time</p><p>So many times I woulda been like "nah" and bailed much sooner, probably solved that thing much faster. 30 minute adventure, in &amp; out.</p>',
+  },
+  {
     title: 'The Big Lebowski, 1998 - ★★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/the-big-lebowski/',
     publishedAt: '2026-04-19T07:29:49.000Z',
@@ -646,19 +660,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/2/4/6/7/7/24677-the-brain-0-600-0-900-crop.jpg?v=4b2c582fd8',
-    reviewHtml: null,
-  },
-  {
-    title: 'The Night Before, 2015 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/the-night-before-2015/',
-    publishedAt: '2025-12-06T05:33:31.000Z',
-    filmTitle: 'The Night Before',
-    filmYear: '2015',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/2/2/3/3/9/8/223398-the-night-before-0-600-0-900-crop.jpg?v=08d4aafe92',
     reviewHtml: null,
   },
 ];
