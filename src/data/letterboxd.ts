@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Mother Mary, 2026 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/mother-mary-2026/',
+    publishedAt: '2026-04-28T23:04:40.000Z',
+    filmTitle: 'Mother Mary',
+    filmYear: '2026',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/9/9/4/3/5/3/994353-mother-mary-2026-0-600-0-900-crop.jpg?v=a2644168b4',
+    reviewHtml: null,
+  },
+  {
     title: 'Exit 8, 2025 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/exit-8/',
     publishedAt: '2026-04-28T05:43:53.000Z',
@@ -647,19 +660,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/7/5/7/6/1/2/757612-the-life-of-chuck-0-600-0-900-crop.jpg?v=7ac670c0be',
-    reviewHtml: null,
-  },
-  {
-    title: 'The Brain, 1988',
-    link: 'https://letterboxd.com/samm_loves_film/film/the-brain/',
-    publishedAt: '2025-12-09T02:44:15.000Z',
-    filmTitle: 'The Brain',
-    filmYear: '1988',
-    rating: null,
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/2/4/6/7/7/24677-the-brain-0-600-0-900-crop.jpg?v=4b2c582fd8',
     reviewHtml: null,
   },
 ];
