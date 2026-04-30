@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Hot Fuzz, 2007 - ★★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/hot-fuzz/1/',
+    publishedAt: '2026-04-30T16:43:21.000Z',
+    filmTitle: 'Hot Fuzz',
+    filmYear: '2007',
+    rating: '5.0',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/sm/upload/xe/2y/e6/gy/4XLSKzQcE4lIgJgd71Y8UhAhxqQ-0-600-0-900-crop.jpg?v=45bc32b708',
+    reviewHtml: '<p>This is a perfect movie.</p>',
+  },
+  {
     title: 'Mother Mary, 2026 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/mother-mary-2026/',
     publishedAt: '2026-04-28T23:04:40.000Z',
@@ -647,19 +660,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/sm/upload/7j/8o/rt/sd/8wBKXZNod4frLZjAKSDuAcQ2dEU-0-600-0-900-crop.jpg?v=09dbc5bbcb',
-    reviewHtml: null,
-  },
-  {
-    title: 'The Life of Chuck, 2024 - ★★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/the-life-of-chuck/',
-    publishedAt: '2025-12-15T12:57:22.000Z',
-    filmTitle: 'The Life of Chuck',
-    filmYear: '2024',
-    rating: '5.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/7/5/7/6/1/2/757612-the-life-of-chuck-0-600-0-900-crop.jpg?v=7ac670c0be',
     reviewHtml: null,
   },
 ];
