@@ -57,10 +57,10 @@ export const letterboxdEntries: LetterboxdEntry[] = [
       '<p>John Goodman is one of the greatest actors of his generation. Both Jeff Bridges and Lebowski are timelessly cool. Sam Elliot makes me proud to be a Sam.</p>',
   },
   {
-    title: 'Avatar: Aang, The Last Airbender, 2026 - ★★★',
+    title: 'Avatar Aang: The Last Airbender, 2026 - ★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/avatar-aang-the-last-airbender/',
     publishedAt: '2026-04-17T01:38:03.000Z',
-    filmTitle: 'Avatar: Aang, The Last Airbender',
+    filmTitle: 'Avatar Aang: The Last Airbender',
     filmYear: '2026',
     rating: '3.0',
     isRewatch: false,
