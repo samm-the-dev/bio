@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Mārama, 2025 - ★★ (contains spoilers)',
+    link: 'https://letterboxd.com/samm_loves_film/film/marama/',
+    publishedAt: '2026-05-01T22:58:30.000Z',
+    filmTitle: 'Mārama',
+    filmYear: '2025',
+    rating: '2.0',
+    isRewatch: false,
+    isLiked: false,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/2/5/2/9/2/9/1252929-marama-0-600-0-900-crop.jpg?v=c89bb2aa8a',
+    reviewHtml:
+      "<p><em>This review may contain spoilers.</em></p> <p>I admire the intent but I mostly found this very boring.</p><blockquote><p>I might have a small collection of human heads but at least I'm not GAY.</p></blockquote><p>- Daddy Warbucks (or whatever his name was)</p>",
+  },
+  {
     title: 'Hot Fuzz, 2007 - ★★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/hot-fuzz/1/',
     publishedAt: '2026-04-30T16:43:21.000Z',
@@ -647,19 +661,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/sm/upload/j1/1c/as/56/bUzOyCgsb6FLXco6mxaNufY0joi-0-600-0-900-crop.jpg?v=42a89a6ebb',
-    reviewHtml: null,
-  },
-  {
-    title: 'Jumanji, 1995 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/jumanji/',
-    publishedAt: '2025-12-15T22:55:50.000Z',
-    filmTitle: 'Jumanji',
-    filmYear: '1995',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/sm/upload/7j/8o/rt/sd/8wBKXZNod4frLZjAKSDuAcQ2dEU-0-600-0-900-crop.jpg?v=09dbc5bbcb',
     reviewHtml: null,
   },
 ];
