@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'One Spoon of Chocolate, 2025 - ★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/one-spoon-of-chocolate/',
+    publishedAt: '2026-05-02T04:24:43.000Z',
+    filmTitle: 'One Spoon of Chocolate',
+    filmYear: '2025',
+    rating: '2.5',
+    isRewatch: false,
+    isLiked: false,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/7/3/8/7/7/1173877-one-spoon-of-chocolate-0-600-0-900-crop.jpg?v=5192bfa03f',
+    reviewHtml:
+      '<p>this movie is fucked up and weird and indulgent and wildly paced, kinda fun in the third act, overall not very good</p><p>big year for blonde death cult leaders named Jimmy in cinema</p>',
+  },
+  {
     title: 'Mārama, 2025 - ★★ (contains spoilers)',
     link: 'https://letterboxd.com/samm_loves_film/film/marama/',
     publishedAt: '2026-05-01T22:58:30.000Z',
@@ -648,19 +662,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/2/5/7/9/2/3/1257923-song-sung-blue-2025-0-600-0-900-crop.jpg?v=cbd714fcd7',
-    reviewHtml: null,
-  },
-  {
-    title: 'Jumanji: Welcome to the Jungle, 2017 - ★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/jumanji-welcome-to-the-jungle/',
-    publishedAt: '2025-12-15T23:23:25.000Z',
-    filmTitle: 'Jumanji: Welcome to the Jungle',
-    filmYear: '2017',
-    rating: '3.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/sm/upload/j1/1c/as/56/bUzOyCgsb6FLXco6mxaNufY0joi-0-600-0-900-crop.jpg?v=42a89a6ebb',
     reviewHtml: null,
   },
 ];
