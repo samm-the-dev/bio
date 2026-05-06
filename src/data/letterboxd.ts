@@ -26,7 +26,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isRewatch: false,
     isLiked: false,
     posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/2/5/2/9/2/9/1252929-marama-0-600-0-900-crop.jpg?v=c89bb2aa8a',
+      'https://a.ltrbxd.com/resized/film-poster/1/2/5/2/9/2/9/1252929-marama-0-600-0-900-crop.jpg?v=85a46f61e3',
     reviewHtml:
       "<p><em>This review may contain spoilers.</em></p> <p>I admire the intent but I mostly found this very boring.</p><blockquote><p>I might have a small collection of human heads but at least I'm not GAY.</p></blockquote><p>- Daddy Warbucks (or whatever his name was)</p>",
   },
