@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'The Bluff, 2026 - ★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/the-bluff-2026/',
+    publishedAt: '2026-05-09T04:48:41.000Z',
+    filmTitle: 'The Bluff',
+    filmYear: '2026',
+    rating: '3.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/7/1/7/5/3/9/717539-the-bluff-2026-0-600-0-900-crop.jpg?v=de73814bb0',
+    reviewHtml: null,
+  },
+  {
     title: 'One Spoon of Chocolate, 2025 - ★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/one-spoon-of-chocolate/',
     publishedAt: '2026-05-02T04:24:43.000Z',
@@ -649,19 +662,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/4/4/1/8/6/2/441862-jumanji-the-next-level-0-600-0-900-crop.jpg?v=f233388973',
-    reviewHtml: null,
-  },
-  {
-    title: 'Song Sung Blue, 2025 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/song-sung-blue-2025/',
-    publishedAt: '2025-12-16T04:17:44.000Z',
-    filmTitle: 'Song Sung Blue',
-    filmYear: '2025',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/2/5/7/9/2/3/1257923-song-sung-blue-2025-0-600-0-900-crop.jpg?v=cbd714fcd7',
     reviewHtml: null,
   },
 ];
