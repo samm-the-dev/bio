@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Mortal Kombat II, 2026 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/mortal-kombat-ii/',
+    publishedAt: '2026-05-12T05:28:47.000Z',
+    filmTitle: 'Mortal Kombat II',
+    filmYear: '2026',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/8/3/6/5/7/1/836571-mortal-kombat-ii-0-600-0-900-crop.jpg?v=6fea3b13de',
+    reviewHtml:
+      '<p>This is perfect popcorn cinema.</p><p>Kano is an absolute piece of shit but I love him all the same.</p><p>Karl Urban might be my favorite character actor.</p>',
+  },
+  {
     title: 'The Bluff, 2026 - ★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/the-bluff-2026/',
     publishedAt: '2026-05-09T04:48:41.000Z',
@@ -649,19 +663,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: false,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/2/4/2/0/9/7/1242097-the-mastermind-2025-0-600-0-900-crop.jpg?v=7294314d40',
-    reviewHtml: null,
-  },
-  {
-    title: 'Jumanji: The Next Level, 2019 - ★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/jumanji-the-next-level/',
-    publishedAt: '2025-12-16T15:37:46.000Z',
-    filmTitle: 'Jumanji: The Next Level',
-    filmYear: '2019',
-    rating: '2.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/4/4/1/8/6/2/441862-jumanji-the-next-level-0-600-0-900-crop.jpg?v=f233388973',
     reviewHtml: null,
   },
 ];
