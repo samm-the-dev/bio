@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'The Devil Wears Prada, 2006 - ★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/the-devil-wears-prada/',
+    publishedAt: '2026-05-18T02:26:11.000Z',
+    filmTitle: 'The Devil Wears Prada',
+    filmYear: '2006',
+    rating: '4.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/5/1/7/1/2/51712-the-devil-wears-prada-0-600-0-900-crop.jpg?v=65a9cdb330',
+    reviewHtml: "<p>oh no girl don't do that</p>",
+  },
+  {
     title: 'Mortal Kombat II, 2026 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/mortal-kombat-ii/',
     publishedAt: '2026-05-12T05:28:47.000Z',
@@ -650,19 +663,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/4/6/9/3/9/46939-starman-0-600-0-900-crop.jpg?v=c0046f1463',
-    reviewHtml: null,
-  },
-  {
-    title: 'The Mastermind, 2025 - ★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/the-mastermind-2025/',
-    publishedAt: '2025-12-18T18:54:58.000Z',
-    filmTitle: 'The Mastermind',
-    filmYear: '2025',
-    rating: '2.0',
-    isRewatch: false,
-    isLiked: false,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/2/4/2/0/9/7/1242097-the-mastermind-2025-0-600-0-900-crop.jpg?v=7294314d40',
     reviewHtml: null,
   },
 ];
