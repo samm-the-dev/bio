@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Star Wars: The Mandalorian and Grogu, 2026 - ★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/star-wars-the-mandalorian-and-grogu/',
+    publishedAt: '2026-05-24T20:21:27.000Z',
+    filmTitle: 'Star Wars: The Mandalorian and Grogu',
+    filmYear: '2026',
+    rating: '2.0',
+    isRewatch: false,
+    isLiked: false,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/1/1/0/7/3/1111073-star-wars-the-mandalorian-and-grogu-0-600-0-900-crop.jpg?v=5da24e2cba',
+    reviewHtml:
+      "<p>droids with mismatched heads and capes fuck yeah</p><p>this movie didn't know what it wanted to be but mostly it wanted to be four to six episodes of the hit Disney Plus™ television series The Mandalorian by Dave Filoni and Jon Favreau</p><p>it's also not very good</p>",
+  },
+  {
     title: 'The Devil Wears Prada, 2006 - ★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/the-devil-wears-prada/',
     publishedAt: '2026-05-18T02:26:11.000Z',
@@ -650,19 +664,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/3/4/8/4/3/9/348439-kill-bill-the-whole-bloody-affair-0-600-0-900-crop.jpg?v=5d08ead101',
-    reviewHtml: null,
-  },
-  {
-    title: 'Starman, 1984',
-    link: 'https://letterboxd.com/samm_loves_film/film/starman/',
-    publishedAt: '2025-12-19T18:52:49.000Z',
-    filmTitle: 'Starman',
-    filmYear: '1984',
-    rating: null,
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/4/6/9/3/9/46939-starman-0-600-0-900-crop.jpg?v=c0046f1463',
     reviewHtml: null,
   },
 ];
