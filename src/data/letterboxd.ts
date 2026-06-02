@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'I Love Boosters, 2026 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/i-love-boosters/',
+    publishedAt: '2026-06-02T05:06:18.000Z',
+    filmTitle: 'I Love Boosters',
+    filmYear: '2026',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/1/0/8/1/0/1110810-i-love-boosters-0-600-0-900-crop.jpg?v=a760551168',
+    reviewHtml:
+      "<blockquote><p>People don't want to be the art. They want to be the artist.</p></blockquote><p>Keke Palmer is a great actor and also one of the hottest people on the planet. Naomi Ackie continues to rule. I hadn't seen Taylour Paige before but I have a crush on her now. I'm not gonna list the whole cast but they're all great.</p><p>Demi Moore is two for two on buck wild socially conscious maximalist movies, and I love that for her.</p><blockquote><p>No more sucking souls out of pussies.</p></blockquote>",
+  },
+  {
     title: 'Star Wars: The Mandalorian and Grogu, 2026 - ★★',
     link: 'https://letterboxd.com/samm_loves_film/film/star-wars-the-mandalorian-and-grogu/',
     publishedAt: '2026-05-24T20:21:27.000Z',
@@ -651,19 +665,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/sm/upload/1p/mh/li/l2/b7nR3eKeTOwHPKmDLUWunIGasKo-0-600-0-900-crop.jpg?v=0bb5ec98ec',
-    reviewHtml: null,
-  },
-  {
-    title: 'Kill Bill: The Whole Bloody Affair, 2004 - ★★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/kill-bill-the-whole-bloody-affair/',
-    publishedAt: '2025-12-21T04:21:16.000Z',
-    filmTitle: 'Kill Bill: The Whole Bloody Affair',
-    filmYear: '2004',
-    rating: '4.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/3/4/8/4/3/9/348439-kill-bill-the-whole-bloody-affair-0-600-0-900-crop.jpg?v=5d08ead101',
     reviewHtml: null,
   },
 ];
