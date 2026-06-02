@@ -3,12 +3,12 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
-    title: 'I Love Boosters, 2026 - ★★★★½',
+    title: 'I Love Boosters, 2026 - ★★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/i-love-boosters/',
     publishedAt: '2026-06-02T05:06:18.000Z',
     filmTitle: 'I Love Boosters',
     filmYear: '2026',
-    rating: '4.5',
+    rating: '5.0',
     isRewatch: false,
     isLiked: true,
     posterUrl:
