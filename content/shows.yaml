@@ -17,7 +17,7 @@ venues:
     address: "150 W College St, Grapevine, TX 76051"
 
 shows:
-# ACT shows are almost always 8–10, call time 7. Calendar start = call time; use posted show/doors time for datetime.
+# ACT shows are almost always 8–10 PM, call time 7 PM. Calendar start = call time; use the posted show/doors time for datetime.
 
   - title: "The ACT: Mash 'em Ups"
     venue: bull-lion-winery
