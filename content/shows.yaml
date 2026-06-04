@@ -17,12 +17,13 @@ venues:
     address: "150 W College St, Grapevine, TX 76051"
 
 shows:
-# Calendar start times = Sam's call time, not public show time. Use posted doors/show time for datetime.
+# ACT shows are almost always 8–10, call time 7. Calendar start = call time; use posted show/doors time for datetime.
 
   - title: "The ACT: Mash 'em Ups"
     venue: bull-lion-winery
-    datetime: "2026-06-06T19:00"
+    datetime: "2026-06-06T20:00"
     endDatetime: "2026-06-06T22:00"
+    note: "Show at 8. Arrive by 7:30 for food and wine. Pay what you can."
 
   - title: "The ACT: Goofs & Goblins"
     venue: pocket-sandwich
