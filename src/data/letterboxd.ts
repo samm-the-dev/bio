@@ -3,12 +3,12 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
-    title: 'Masters of the Universe, 2026 - ★★★★★',
+    title: 'Masters of the Universe, 2026 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/masters-of-the-universe-2026/',
     publishedAt: '2026-06-04T02:26:38.000Z',
     filmTitle: 'Masters of the Universe',
     filmYear: '2026',
-    rating: '5.0',
+    rating: '4.5',
     isRewatch: false,
     isLiked: true,
     posterUrl:
