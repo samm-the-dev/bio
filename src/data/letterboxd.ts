@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Masters of the Universe, 2026 - ★★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/masters-of-the-universe-2026/',
+    publishedAt: '2026-06-04T02:26:38.000Z',
+    filmTitle: 'Masters of the Universe',
+    filmYear: '2026',
+    rating: '5.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/3/8/6/6/1/3/386613-masters-of-the-universe-2026-0-600-0-900-crop.jpg?v=8340b3dfbe',
+    reviewHtml:
+      '<blockquote><p>BY THE POWER OF GRAYSKULL</p></blockquote><p>every single character in this movie is queer</p><p>#Pride2026</p><blockquote><p>and UHN - does it feel good</p></blockquote>',
+  },
+  {
     title: 'I Love Boosters, 2026 - ★★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/i-love-boosters/',
     publishedAt: '2026-06-02T05:06:18.000Z',
@@ -652,19 +666,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/6/3/0/5/8/63058-avatar-the-way-of-water-0-600-0-900-crop.jpg?v=cc3269e69d',
-    reviewHtml: null,
-  },
-  {
-    title: 'Avatar, 2009 - ★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/avatar/',
-    publishedAt: '2025-12-22T03:07:43.000Z',
-    filmTitle: 'Avatar',
-    filmYear: '2009',
-    rating: '3.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/sm/upload/1p/mh/li/l2/b7nR3eKeTOwHPKmDLUWunIGasKo-0-600-0-900-crop.jpg?v=0bb5ec98ec',
     reviewHtml: null,
   },
 ];
