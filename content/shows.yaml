@@ -17,6 +17,7 @@ venues:
     address: "150 W College St, Grapevine, TX 76051"
 
 shows:
+# Calendar start times = Sam's call time, not public show time. Use posted doors/show time for datetime.
 
   - title: "The ACT: Mash 'em Ups"
     venue: bull-lion-winery
