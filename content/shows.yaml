@@ -12,24 +12,27 @@ venues:
     url: https://stompinggroundcomedy.org/
     address: "1350 Manufacturing St #109, Dallas, TX 75207"
     mapsUrl: https://maps.app.goo.gl/ZpCHLiCU6vnAtSvD8
+  bull-lion-winery:
+    name: Bull Lion Winery
+    address: "150 W College St, Grapevine, TX 76051"
 
 shows:
+# ACT shows are almost always 8–10 PM, call time 7 PM. Calendar start = call time; use the posted show/doors time for datetime.
 
   - title: "The ACT: Mash 'em Ups"
-    venue: cafe-bohemia
-    datetime: "2026-04-18T20:00"
-    endDatetime: "2026-04-18T22:00"
-    note: "Pay what you can (suggested $10). Arrive by 7:30 for a good seat."
-
-  - title: "Student Showcase: Nan's Level Two and Shenelle's Level Three Improv"
-    venue: stomping-ground
-    datetime: "2026-04-25T16:30"
-    endDatetime: "2026-04-25T17:30"
-    ticketsUrl: https://events.humanitix.com/student-showcase-nan-s-level-two-and-shenelle-s-level-three-improv
-    note: "Rated M for Mature. Ticket prices are $10 (plus fees) in advance and $14 at the door."
+    venue: bull-lion-winery
+    datetime: "2026-06-06T20:00"
+    endDatetime: "2026-06-06T22:00"
+    note: "Arrive by 7:30 for food and wine. Pay what you can."
 
   - title: "The ACT: Goofs & Goblins"
     venue: pocket-sandwich
-    datetime: "2026-04-21T20:00"
-    endDatetime: "2026-04-21T22:00"
-    note: "Doors at 7 PM. $12 / $10 students and military (with ID)."
+    datetime: "2026-06-09T20:00"
+    endDatetime: "2026-06-09T22:00"
+    note: "Doors at 7 PM. $12 / $10 students."
+
+  - title: "The ACT: La Ronde"
+    venue: cafe-bohemia
+    datetime: "2026-06-20T20:00"
+    endDatetime: "2026-06-20T22:00"
+    note: "Arrive by 7:30 for a good seat. Pay what you can (suggested $10)."
