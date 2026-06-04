@@ -23,7 +23,7 @@ shows:
     venue: bull-lion-winery
     datetime: "2026-06-06T20:00"
     endDatetime: "2026-06-06T22:00"
-    note: "Show at 8. Arrive by 7:30 for food and wine. Pay what you can."
+    note: "Arrive by 7:30 for food and wine. Pay what you can."
 
   - title: "The ACT: Goofs & Goblins"
     venue: pocket-sandwich
@@ -35,4 +35,4 @@ shows:
     venue: cafe-bohemia
     datetime: "2026-06-20T20:00"
     endDatetime: "2026-06-20T22:00"
-    note: "Pay what you can (suggested $10). Arrive by 7:30 for a good seat."
+    note: "Arrive by 7:30 for a good seat. Pay what you can (suggested $10)."
