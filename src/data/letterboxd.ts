@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Scary Movie, 2026 - ★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/scary-movie-2026/',
+    publishedAt: '2026-06-05T04:13:42.000Z',
+    filmTitle: 'Scary Movie',
+    filmYear: '2026',
+    rating: '2.5',
+    isRewatch: false,
+    isLiked: false,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/5/6/9/1/0/1156910-scary-movie-2026-0-600-0-900-crop.jpg?v=b50abf5b96',
+    reviewHtml: null,
+  },
+  {
     title: 'Masters of the Universe, 2026 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/masters-of-the-universe-2026/',
     publishedAt: '2026-06-04T02:26:38.000Z',
@@ -653,19 +666,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/7/0/0/0/7/70007-avatar-fire-and-ash-0-600-0-900-crop.jpg?v=5d2f8b35b1',
-    reviewHtml: null,
-  },
-  {
-    title: 'Avatar: The Way of Water, 2022 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/avatar-the-way-of-water/',
-    publishedAt: '2025-12-22T07:41:13.000Z',
-    filmTitle: 'Avatar: The Way of Water',
-    filmYear: '2022',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/6/3/0/5/8/63058-avatar-the-way-of-water-0-600-0-900-crop.jpg?v=cc3269e69d',
     reviewHtml: null,
   },
 ];
