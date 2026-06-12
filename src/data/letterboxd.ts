@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Hail, Caesar!, 2016 - ★★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/hail-caesar-2016/',
+    publishedAt: '2026-06-12T06:24:53.000Z',
+    filmTitle: 'Hail, Caesar!',
+    filmYear: '2016',
+    rating: '5.0',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/9/3/7/4/8/193748-hail-caesar--0-600-0-900-crop.jpg?v=148db9cc83',
+    reviewHtml:
+      "<blockquote><p>DIVINE PRESENCE TO BE SHOT</p></blockquote><p>This movie is a masterpiece. </p><p>I feel like I could write an essay on this movie and its thematic layers, touching on just about every moment of every scene. The Coens are worshipping at the alter of Hollywood while interrogating what it means to do that, to revere the ugly machine that almost incidentally paints deeply human myth in gorgeous light. They do it with their characteristic absurdism which meshes so well with the themes of contradiction and irrationality they're playing with.</p><p>There really is so much more I could say about this but it's 1 AM and I need to get to bed.</p><blockquote><p>A truth beyond the truth that we can see. A truth beyond this world, a truth told not in words but in light. A truth we can see if we have but...</p></blockquote>",
+  },
+  {
     title: 'Scary Movie, 2026 - ★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/scary-movie-2026/',
     publishedAt: '2026-06-05T04:13:42.000Z',
@@ -653,19 +667,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/5/1/7/1/7/51717-eyes-wide-shut-0-600-0-900-crop.jpg?v=7010402aeb',
-    reviewHtml: null,
-  },
-  {
-    title: 'Avatar: Fire and Ash, 2025 - ★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/avatar-fire-and-ash/',
-    publishedAt: '2025-12-22T22:59:35.000Z',
-    filmTitle: 'Avatar: Fire and Ash',
-    filmYear: '2025',
-    rating: '3.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/7/0/0/0/7/70007-avatar-fire-and-ash-0-600-0-900-crop.jpg?v=5d2f8b35b1',
     reviewHtml: null,
   },
 ];
