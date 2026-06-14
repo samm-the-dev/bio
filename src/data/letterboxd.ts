@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Fargo, 1996 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/fargo/',
+    publishedAt: '2026-06-14T16:53:45.000Z',
+    filmTitle: 'Fargo',
+    filmYear: '1996',
+    rating: '4.5',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/5/1/7/8/1/51781-fargo-0-600-0-900-crop.jpg?v=44835e3b35',
+    reviewHtml:
+      '<blockquote><p>Oh yah.</p></blockquote><p>The Coens on impotent men.</p><blockquote><p>You betcha.</p></blockquote>',
+  },
+  {
     title: 'Disclosure Day, 2026 - ★★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/disclosure-day/',
     publishedAt: '2026-06-13T23:43:26.000Z',
@@ -655,19 +669,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/4/2/4/0/0/3/424003-dungeons-dragons-honor-among-thieves-0-600-0-900-crop.jpg?v=7c3c4fddf9',
-    reviewHtml: null,
-  },
-  {
-    title: 'Anaconda, 2025 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/anaconda-2025/',
-    publishedAt: '2025-12-24T19:59:07.000Z',
-    filmTitle: 'Anaconda',
-    filmYear: '2025',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/1/1/8/2/7/7/1118277-anaconda-2025-0-600-0-900-crop.jpg?v=8f1d3ec1ce',
     reviewHtml: null,
   },
 ];
