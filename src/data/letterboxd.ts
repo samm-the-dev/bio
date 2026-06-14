@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Disclosure Day, 2026 - ★★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/disclosure-day/',
+    publishedAt: '2026-06-13T23:43:26.000Z',
+    filmTitle: 'Disclosure Day',
+    filmYear: '2026',
+    rating: '5.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/5/9/2/5/1/1159251-disclosure-day-0-600-0-900-crop.jpg?v=9ae810e4bb',
+    reviewHtml:
+      '<blockquote><p>You are not alone.</p></blockquote><p>A lot of movies last year felt like filmmakers weighing in on our fractured yet piled together culture, like we\'re all looking through stained glass but each of us is only looking at our own reflections in one of the colored fragments. </p><p>This movie feels like Spielberg saying "fuckin\' BREAK the glass and LOOK."</p><blockquote><p>Listen.</p></blockquote>',
+  },
+  {
     title: 'Hail, Caesar!, 2016 - ★★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/hail-caesar-2016/',
     publishedAt: '2026-06-12T06:24:53.000Z',
@@ -654,19 +668,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/1/1/8/2/7/7/1118277-anaconda-2025-0-600-0-900-crop.jpg?v=8f1d3ec1ce',
-    reviewHtml: null,
-  },
-  {
-    title: 'Eyes Wide Shut, 1999 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/eyes-wide-shut/',
-    publishedAt: '2025-12-23T03:11:35.000Z',
-    filmTitle: 'Eyes Wide Shut',
-    filmYear: '1999',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/5/1/7/1/7/51717-eyes-wide-shut-0-600-0-900-crop.jpg?v=7010402aeb',
     reviewHtml: null,
   },
 ];
