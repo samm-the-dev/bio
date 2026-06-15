@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Backrooms, 2026 - ★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/backrooms-2026/',
+    publishedAt: '2026-06-14T20:19:20.000Z',
+    filmTitle: 'Backrooms',
+    filmYear: '2026',
+    rating: '3.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/9/7/6/4/1/9/976419-backrooms-2026-0-600-0-900-crop.jpg?v=f7a99e3fc8',
+    reviewHtml:
+      '<p>have you had your chair hole checked?</p><p>be sure to keep your chair hole clear of chairs</p>',
+  },
+  {
     title: 'Fargo, 1996 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/fargo/',
     publishedAt: '2026-06-14T16:53:45.000Z',
@@ -656,19 +670,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/sm/upload/pf/lk/cj/4e/nCx0EESDNxwXGn7rkCU6cvXTpIB-0-600-0-900-crop.jpg?v=67361260f7',
-    reviewHtml: null,
-  },
-  {
-    title: 'Dungeons & Dragons: Honor Among Thieves, 2023',
-    link: 'https://letterboxd.com/samm_loves_film/film/dungeons-dragons-honor-among-thieves/',
-    publishedAt: '2025-12-29T12:51:39.000Z',
-    filmTitle: 'Dungeons & Dragons: Honor Among Thieves',
-    filmYear: '2023',
-    rating: null,
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/4/2/4/0/0/3/424003-dungeons-dragons-honor-among-thieves-0-600-0-900-crop.jpg?v=7c3c4fddf9',
     reviewHtml: null,
   },
 ];
