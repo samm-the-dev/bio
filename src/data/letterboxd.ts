@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'No Other Choice, 2025 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/no-other-choice-2025/',
+    publishedAt: '2026-06-16T04:12:15.000Z',
+    filmTitle: 'No Other Choice',
+    filmYear: '2025',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/5/6/5/9/5/2/565952-no-other-choice-2025-0-600-0-900-crop.jpg?v=87ef42b9f5',
+    reviewHtml: null,
+  },
+  {
     title: 'Backrooms, 2026 - ★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/backrooms-2026/',
     publishedAt: '2026-06-14T20:19:20.000Z',
@@ -657,19 +670,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/1/9/7/4/9/9/1197499-marty-supreme-0-600-0-900-crop.jpg?v=b14a26bb43',
-    reviewHtml: null,
-  },
-  {
-    title: 'Porco Rosso, 1992',
-    link: 'https://letterboxd.com/samm_loves_film/film/porco-rosso/',
-    publishedAt: '2025-12-29T14:28:43.000Z',
-    filmTitle: 'Porco Rosso',
-    filmYear: '1992',
-    rating: null,
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/sm/upload/pf/lk/cj/4e/nCx0EESDNxwXGn7rkCU6cvXTpIB-0-600-0-900-crop.jpg?v=67361260f7',
     reviewHtml: null,
   },
 ];
