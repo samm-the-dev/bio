@@ -3,6 +3,33 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Bullet Train, 2022 - ★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/bullet-train/',
+    publishedAt: '2026-06-17T02:01:13.000Z',
+    filmTitle: 'Bullet Train',
+    filmYear: '2022',
+    rating: '4.0',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/6/4/1/9/6/1/641961-bullet-train-0-600-0-900-crop.jpg?v=9245faa1ba',
+    reviewHtml:
+      "<p>Large swathes of this movie are little more than aura farming and celebrity cameos, but Leitch brings a genuine tenderness and humor to his movies that I adore. Also he's just great with needle drops and action scenes.</p>",
+  },
+  {
+    title: 'How to Make a Killing, 2026 - ★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/how-to-make-a-killing-2026/',
+    publishedAt: '2026-06-16T23:42:50.000Z',
+    filmTitle: 'How to Make a Killing',
+    filmYear: '2026',
+    rating: '3.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/3/9/9/5/0/4/399504-how-to-make-a-killing-2026-0-600-0-900-crop.jpg?v=be2948f44a',
+    reviewHtml: null,
+  },
+  {
     title: 'No Other Choice, 2025 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/no-other-choice-2025/',
     publishedAt: '2026-06-16T04:12:15.000Z',
@@ -644,32 +671,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/7/2/9/1/1/3/729113-wake-up-dead-man-0-600-0-900-crop.jpg?v=85f3366617',
-    reviewHtml: null,
-  },
-  {
-    title: "If I Had Legs I'd Kick You, 2025 - ★★",
-    link: 'https://letterboxd.com/samm_loves_film/film/if-i-had-legs-id-kick-you/',
-    publishedAt: '2026-01-02T04:07:15.000Z',
-    filmTitle: "If I Had Legs I'd Kick You",
-    filmYear: '2025',
-    rating: '2.0',
-    isRewatch: false,
-    isLiked: false,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/0/4/6/5/2/2/1046522-if-i-had-legs-id-kick-you-0-600-0-900-crop.jpg?v=831a0c76c9',
-    reviewHtml: null,
-  },
-  {
-    title: 'Marty Supreme, 2025 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/marty-supreme/',
-    publishedAt: '2026-01-01T21:12:59.000Z',
-    filmTitle: 'Marty Supreme',
-    filmYear: '2025',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/1/9/7/4/9/9/1197499-marty-supreme-0-600-0-900-crop.jpg?v=b14a26bb43',
     reviewHtml: null,
   },
 ];
