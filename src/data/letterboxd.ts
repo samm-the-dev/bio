@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Burn After Reading, 2008 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/burn-after-reading/1/',
+    publishedAt: '2026-06-18T01:04:44.000Z',
+    filmTitle: 'Burn After Reading',
+    filmYear: '2008',
+    rating: '4.5',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/4/9/0/5/4/49054-burn-after-reading-0-600-0-900-crop.jpg?v=1a29d1c090',
+    reviewHtml:
+      "<blockquote><p>Worried?</p></blockquote><blockquote><p>About the security... of your shit.</p></blockquote><p>This movie is a park full of dogs chasing half as many sticks, and they're all very surprised when they slam into one another.</p><p>The owners are equally confused.</p><blockquote><p>I don’t fucking know either. I guess we learned not to do it again.</p></blockquote>",
+  },
+  {
     title: 'Bullet Train, 2022 - ★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/bullet-train/',
     publishedAt: '2026-06-17T02:01:13.000Z',
@@ -659,18 +673,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
       'https://a.ltrbxd.com/resized/film-poster/4/7/0/4/4/47044-darkman-0-600-0-900-crop.jpg?v=0ce4651ae6',
     reviewHtml:
       "<p>Raimi is at his best when executing maximalist schlock. The drama here is pretty weak, but there's plenty of fun to be had. Especially in the fucking bonkers third act.</p>",
-  },
-  {
-    title: 'Wake Up Dead Man, 2025 - ★★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/wake-up-dead-man/1/',
-    publishedAt: '2026-01-04T00:27:36.000Z',
-    filmTitle: 'Wake Up Dead Man',
-    filmYear: '2025',
-    rating: '5.0',
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/7/2/9/1/1/3/729113-wake-up-dead-man-0-600-0-900-crop.jpg?v=85f3366617',
-    reviewHtml: null,
   },
 ];
