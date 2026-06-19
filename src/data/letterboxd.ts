@@ -3,18 +3,18 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
-    title: 'The Furious, 2025 - ★★★★',
+    title: 'The Furious, 2025 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/the-furious/',
     publishedAt: '2026-06-19T01:25:53.000Z',
     filmTitle: 'The Furious',
     filmYear: '2025',
-    rating: '4.0',
+    rating: '4.5',
     isRewatch: false,
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/1/6/4/1/5/4/1164154-the-furious-0-600-0-900-crop.jpg?v=f880a59523',
     reviewHtml:
-      "<blockquote><p>Father says no trespassing.</p></blockquote><p>dang we got a Ram Man spinoff already</p><p>nary a rib unbroken, and never the twain shall meet</p><p>those shots where Ram Man 2 momentarily crab scuttles MENACINGLY</p><p>this movie got fuckin' MEAN towards the end</p><p>Ram Man 2 was my favorite character</p><blockquote><p>EAT SHIT, AND DIE!</p></blockquote>",
+      "<blockquote><p>Father says no trespassing.</p></blockquote><p>dang we got a Ram Man spinoff already</p><p>nary a rib unbroken, and never the twain shall meet</p><p>those shots where Ram Man 2 momentarily crab scuttles MENACINGLY</p><p>this movie got fuckin' MEAN towards the end</p><p>Ram Man 2 was my favorite character</p><blockquote><p>EAT SHIT, AND DIE!</p></blockquote><p>Edit: Okay jokes aside, the actors's name is Brian Le and he and his brother are apparently self-taught success stories in the stunt world. He really did steal the show in his scenes; I added a half star to my rating just for him.</p>",
   },
   {
     title: 'Burn After Reading, 2008 - ★★★★½',
