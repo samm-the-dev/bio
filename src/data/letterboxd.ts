@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'The Death of Robin Hood, 2026 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/the-death-of-robin-hood/',
+    publishedAt: '2026-06-20T05:48:28.000Z',
+    filmTitle: 'The Death of Robin Hood',
+    filmYear: '2026',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/6/7/8/5/8/1167858-the-death-of-robin-hood-0-600-0-900-crop.jpg?v=39347a2edd',
+    reviewHtml:
+      '<blockquote><p>Robin... ROBIN! Bread!</p></blockquote><p>A beautiful yet BRUTAL meditation on life, violence, love, and death. On the stories we tell to make sense of it all, or at least to carry on.</p><blockquote><p>Knives cut bread as well as they do flesh. It is a question of balance.</p></blockquote>',
+  },
+  {
     title: 'The Furious, 2025 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/the-furious/',
     publishedAt: '2026-06-19T01:25:53.000Z',
@@ -659,19 +673,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/8/6/1/2/9/4/861294-moonage-daydream-0-600-0-900-crop.jpg?v=94747f28c1',
-    reviewHtml: null,
-  },
-  {
-    title: 'Three Days of the Condor, 1975 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/three-days-of-the-condor/',
-    publishedAt: '2026-01-10T23:11:57.000Z',
-    filmTitle: 'Three Days of the Condor',
-    filmYear: '1975',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/4/4/8/4/5/44845-three-days-of-the-condor-0-600-0-900-crop.jpg?v=c17a05b17b',
     reviewHtml: null,
   },
 ];
