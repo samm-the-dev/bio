@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Toy Soldiers, 1991 - ★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/toy-soldiers/',
+    publishedAt: '2026-06-23T02:08:40.000Z',
+    filmTitle: 'Toy Soldiers',
+    filmYear: '1991',
+    rating: '2.0',
+    isRewatch: false,
+    isLiked: false,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/4/5/9/3/2/45932-toy-soldiers-0-600-0-900-crop.jpg?v=44c9a76a92',
+    reviewHtml:
+      '<p>this movie had some fuckin weird sexual energy to it</p><p>also tedious with plot and tonally all over the place</p><p>some nice camera work though</p>',
+  },
+  {
     title: 'The Death of Robin Hood, 2026 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/the-death-of-robin-hood/',
     publishedAt: '2026-06-20T05:48:28.000Z',
@@ -660,19 +674,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/sm/upload/l1/b1/8g/pk/74N5jFd8VEky0FaSlh0nXkZsmxS-0-600-0-900-crop.jpg?v=9bbf90c7f6',
-    reviewHtml: null,
-  },
-  {
-    title: 'Moonage Daydream, 2022 - ★★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/moonage-daydream/',
-    publishedAt: '2026-01-11T21:35:18.000Z',
-    filmTitle: 'Moonage Daydream',
-    filmYear: '2022',
-    rating: '5.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/8/6/1/2/9/4/861294-moonage-daydream-0-600-0-900-crop.jpg?v=94747f28c1',
     reviewHtml: null,
   },
 ];
