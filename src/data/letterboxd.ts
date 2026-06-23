@@ -14,7 +14,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/4/5/9/3/2/45932-toy-soldiers-0-600-0-900-crop.jpg?v=44c9a76a92',
     reviewHtml:
-      '<p>this movie had some fuckin weird sexual energy to it</p><p>also tedious with plot and tonally all over the place</p><p>some nice camera work though</p>',
+      '<p>tedious with plot and tonally all over the place</p><p>some nice camera work though</p>',
   },
   {
     title: 'The Death of Robin Hood, 2026 - ★★★★½',
