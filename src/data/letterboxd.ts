@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Supergirl, 2026 - ★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/supergirl-2026/',
+    publishedAt: '2026-06-25T02:12:50.000Z',
+    filmTitle: 'Supergirl',
+    filmYear: '2026',
+    rating: '3.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/9/7/4/2/8/6/974286-supergirl-2026-0-600-0-900-crop.jpg?v=e85ddf39db',
+    reviewHtml:
+      "<blockquote><p>Aren't you that ditz from the dive bar?</p></blockquote><p>Delightful if a bit too messy in its plotting. Momoa is sickos_yes.gif for his entire screentime and it's perfect (for his limited role). Could've done with less CGI and greenscreen. Milly Alcock is a powerhouse.</p><p>Don't you just hate it when your weird fascist brother is kinda right about how to survive the apocalypse?</p><blockquote><p>Be good. That doesn't mean you can't be tough, or that you have to be nice.</p></blockquote>",
+  },
+  {
     title: 'Toy Soldiers, 1991 - ★★',
     link: 'https://letterboxd.com/samm_loves_film/film/toy-soldiers/',
     publishedAt: '2026-06-23T02:08:40.000Z',
@@ -661,19 +675,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/2/4/0/2/4/24024-terror-train-0-600-0-900-crop.jpg?v=568e262a3a',
-    reviewHtml: null,
-  },
-  {
-    title: 'The Commitments, 1991 - ★★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/the-commitments/',
-    publishedAt: '2026-01-12T03:14:40.000Z',
-    filmTitle: 'The Commitments',
-    filmYear: '1991',
-    rating: '4.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/sm/upload/l1/b1/8g/pk/74N5jFd8VEky0FaSlh0nXkZsmxS-0-600-0-900-crop.jpg?v=9bbf90c7f6',
     reviewHtml: null,
   },
 ];
