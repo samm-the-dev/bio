@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Barbie, 2023 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/barbie/1/',
+    publishedAt: '2026-06-29T02:53:21.000Z',
+    filmTitle: 'Barbie',
+    filmYear: '2023',
+    rating: '4.5',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/2/7/7/0/6/4/277064-barbie-0-600-0-900-crop.jpg?v=1b83dc7a71',
+    reviewHtml: null,
+  },
+  {
     title: 'Supergirl, 2026 - ★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/supergirl-2026/',
     publishedAt: '2026-06-25T02:12:50.000Z',
@@ -663,18 +676,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
       'https://a.ltrbxd.com/resized/film-poster/1/1/5/6/4/0/9/1156409-28-years-later-the-bone-temple-0-600-0-900-crop.jpg?v=131058c6ff',
     reviewHtml:
       "<p><em>This review may contain spoilers.</em></p> <p>This doesn't quite reach the heights of the last movie for me, but it's still a great time at the movies. </p><p>For a while in the middle I was worried I wouldn't like this one. The St. Jimmy plot was feeling a little too dark and indulgent for me, and the Samson plot was delightful but I felt a more cynical conclusion was coming.</p><p>The diverging fates dealt out by Dr. Kelson at the end are fascinating and thematically rich. Both men did horrible things under their apocalyptic circumstances, but Kelson being the brilliantly perceptive humanist he is knew which deserved salvation and which deserved damnation.</p><p>Memento amoris; memento mori.</p>",
-  },
-  {
-    title: 'Terror Train, 1980',
-    link: 'https://letterboxd.com/samm_loves_film/film/terror-train/',
-    publishedAt: '2026-01-13T02:57:19.000Z',
-    filmTitle: 'Terror Train',
-    filmYear: '1980',
-    rating: null,
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/2/4/0/2/4/24024-terror-train-0-600-0-900-crop.jpg?v=568e262a3a',
-    reviewHtml: null,
   },
 ];
