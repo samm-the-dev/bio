@@ -5,7 +5,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
   {
     title: 'Barbie, 2023 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/barbie/1/',
-    publishedAt: '2026-06-29T02:53:21.000Z',
+    publishedAt: '2026-06-29T19:00:28.000Z',
     filmTitle: 'Barbie',
     filmYear: '2023',
     rating: '4.5',
@@ -13,7 +13,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/2/7/7/0/6/4/277064-barbie-0-600-0-900-crop.jpg?v=1b83dc7a71',
-    reviewHtml: null,
+    reviewHtml: '<blockquote><p>SUBLIME!</p></blockquote>',
   },
   {
     title: 'Supergirl, 2026 - ★★★',
