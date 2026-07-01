@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'The Wrecking Crew, 2026 - ★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/the-wrecking-crew-2026/',
+    publishedAt: '2026-07-01T20:04:42.000Z',
+    filmTitle: 'The Wrecking Crew',
+    filmYear: '2026',
+    rating: '3.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/0/5/5/5/2/7/1055527-the-wrecking-crew-2026-0-600-0-900-crop.jpg?v=de42adc9d0',
+    reviewHtml: null,
+  },
+  {
     title: 'Barbie, 2023 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/barbie/1/',
     publishedAt: '2026-06-29T19:00:28.000Z',
@@ -662,19 +675,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/2/5/1/9/4/3/251943-spider-man-into-the-spider-verse-0-600-0-900-crop.jpg?v=538fe0ada6',
     reviewHtml: null,
-  },
-  {
-    title: '28 Years Later: The Bone Temple, 2026 - ★★★★½ (contains spoilers)',
-    link: 'https://letterboxd.com/samm_loves_film/film/28-years-later-the-bone-temple/',
-    publishedAt: '2026-01-16T03:46:50.000Z',
-    filmTitle: '28 Years Later: The Bone Temple',
-    filmYear: '2026',
-    rating: '4.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/1/5/6/4/0/9/1156409-28-years-later-the-bone-temple-0-600-0-900-crop.jpg?v=131058c6ff',
-    reviewHtml:
-      "<p><em>This review may contain spoilers.</em></p> <p>This doesn't quite reach the heights of the last movie for me, but it's still a great time at the movies. </p><p>For a while in the middle I was worried I wouldn't like this one. The St. Jimmy plot was feeling a little too dark and indulgent for me, and the Samson plot was delightful but I felt a more cynical conclusion was coming.</p><p>The diverging fates dealt out by Dr. Kelson at the end are fascinating and thematically rich. Both men did horrible things under their apocalyptic circumstances, but Kelson being the brilliantly perceptive humanist he is knew which deserved salvation and which deserved damnation.</p><p>Memento amoris; memento mori.</p>",
   },
 ];
