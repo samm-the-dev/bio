@@ -26,7 +26,8 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/2/7/7/0/6/4/277064-barbie-0-600-0-900-crop.jpg?v=1b83dc7a71',
-    reviewHtml: '<blockquote><p>SUBLIME!</p></blockquote>',
+    reviewHtml:
+      '<blockquote><p>"Do you guys ever think about dying?"</p></blockquote><p>The Promethean triumph of Ken discovering toxic masculinity is so fucking funny.</p><p>And then we get Barbie just... taking in the real world and its full spectrum of emotion, the gorgeous ache of it.</p><p>SUBLIME!</p><blockquote><p>"You\'re so beautiful." "I know it!"</p></blockquote>',
   },
   {
     title: 'Supergirl, 2026 - ★★★',
