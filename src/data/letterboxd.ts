@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Power Ballad, 2026 - ★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/power-ballad/',
+    publishedAt: '2026-07-06T16:39:05.000Z',
+    filmTitle: 'Power Ballad',
+    filmYear: '2026',
+    rating: '4.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/6/7/6/3/4/1167634-power-ballad-0-600-0-900-crop.jpg?v=31a4723ff8',
+    reviewHtml: null,
+  },
+  {
     title: 'The Wrecking Crew, 2026 - ★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/the-wrecking-crew-2026/',
     publishedAt: '2026-07-01T20:04:42.000Z',
@@ -662,19 +675,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/4/9/7/6/3/1/497631-spider-man-across-the-spider-verse-0-600-0-900-crop.jpg?v=f2acbf1b8a',
-    reviewHtml: null,
-  },
-  {
-    title: 'Spider-Man: Into the Spider-Verse, 2018 - ★★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/spider-man-into-the-spider-verse/',
-    publishedAt: '2026-01-24T17:05:04.000Z',
-    filmTitle: 'Spider-Man: Into the Spider-Verse',
-    filmYear: '2018',
-    rating: '5.0',
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/2/5/1/9/4/3/251943-spider-man-into-the-spider-verse-0-600-0-900-crop.jpg?v=538fe0ada6',
     reviewHtml: null,
   },
 ];
