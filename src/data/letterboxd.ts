@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'The Blob, 1988 - ★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/the-blob-1988/',
+    publishedAt: '2026-07-07T13:04:28.000Z',
+    filmTitle: 'The Blob',
+    filmYear: '1988',
+    rating: '4.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/4/7/0/0/2/47002-the-blob-0-600-0-900-crop.jpg?v=02a0472038',
+    reviewHtml: null,
+  },
+  {
     title: 'Power Ballad, 2026 - ★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/power-ballad/',
     publishedAt: '2026-07-06T16:39:05.000Z',
@@ -662,19 +675,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: false,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/2/8/4/6/2/7/1284627-the-testament-of-ann-lee-0-600-0-900-crop.jpg?v=3da6a9dae0',
-    reviewHtml: null,
-  },
-  {
-    title: 'Spider-Man: Across the Spider-Verse, 2023 - ★★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/spider-man-across-the-spider-verse/',
-    publishedAt: '2026-01-27T03:43:12.000Z',
-    filmTitle: 'Spider-Man: Across the Spider-Verse',
-    filmYear: '2023',
-    rating: '4.5',
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/4/9/7/6/3/1/497631-spider-man-across-the-spider-verse-0-600-0-900-crop.jpg?v=f2acbf1b8a',
     reviewHtml: null,
   },
 ];
