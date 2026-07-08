@@ -263,10 +263,10 @@ export const letterboxdEntries: LetterboxdEntry[] = [
       "<blockquote><p>People don't want to be the art. They want to be the artist.</p></blockquote><p>Keke Palmer is a great actor and also one of the hottest people on the planet. Naomi Ackie continues to rule. I hadn't seen Taylour Paige before but I have a crush on her now. I'm not gonna list the whole cast but they're all great.</p><p>Demi Moore is two for two on buck wild socially conscious maximalist movies, and I love that for her.</p><blockquote><p>No more sucking souls out of pussies.</p></blockquote>",
   },
   {
-    title: 'Star Wars: The Mandalorian and Grogu, 2026 - ★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/star-wars-the-mandalorian-and-grogu/',
+    title: 'The Mandalorian and Grogu, 2026 - ★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/the-mandalorian-and-grogu/',
     publishedAt: '2026-05-24T20:21:27.000Z',
-    filmTitle: 'Star Wars: The Mandalorian and Grogu',
+    filmTitle: 'The Mandalorian and Grogu',
     filmYear: '2026',
     rating: '2.0',
     isRewatch: false,
@@ -408,7 +408,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isRewatch: false,
     isLiked: true,
     posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/8/8/2/4/3/2/882432-avatar-aang-the-last-airbender-0-600-0-900-crop.jpg?v=af8b648638',
+      'https://a.ltrbxd.com/resized/film-poster/8/8/2/4/3/2/882432-avatar-aang-the-last-airbender-0-600-0-900-crop.jpg?v=7049f9a3e5',
     reviewHtml:
       "<p>Would've loved to see this on a big screen. I don't love the combination of changing voice actors and invoking nostalgia. I would've liked this more if it had less fan service and hit the emotional themes harder. Great set pieces and animation though (again, clearly meant for the big screen 😔).</p>",
   },
