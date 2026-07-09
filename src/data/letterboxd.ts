@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Obsession, 2025 - ★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/obsession-2025/',
+    publishedAt: '2026-07-09T03:46:04.000Z',
+    filmTitle: 'Obsession',
+    filmYear: '2025',
+    rating: '4.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/2/3/4/4/7/2/1234472-obsession-2025-2-0-600-0-900-crop.jpg?v=cff6fc00b6',
+    reviewHtml: '<p>The Romeo &amp; Juliet of the modern era.</p>',
+  },
+  {
     title: 'The Blob, 1988 - ★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/the-blob-1988/',
     publishedAt: '2026-07-07T13:04:28.000Z',
@@ -663,18 +676,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
       'https://a.ltrbxd.com/resized/film-poster/7/2/1/5/6/6/721566-arco-0-600-0-900-crop.jpg?v=dcaae85d56',
     reviewHtml:
       "<blockquote><p>Do you think wishes really come true, like in the fairy tales?</p><p>I don't know, Iris, but what's to stop you from trying?</p></blockquote>",
-  },
-  {
-    title: 'The Testament of Ann Lee, 2025 - ★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/the-testament-of-ann-lee/',
-    publishedAt: '2026-01-29T02:31:23.000Z',
-    filmTitle: 'The Testament of Ann Lee',
-    filmYear: '2025',
-    rating: '2.5',
-    isRewatch: false,
-    isLiked: false,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/2/8/4/6/2/7/1284627-the-testament-of-ann-lee-0-600-0-900-crop.jpg?v=3da6a9dae0',
-    reviewHtml: null,
   },
 ];
