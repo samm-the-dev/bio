@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Gail Daughtry and the Celebrity Sex Pass, 2026 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/gail-daughtry-and-the-celebrity-sex-pass/',
+    publishedAt: '2026-07-09T23:39:37.000Z',
+    filmTitle: 'Gail Daughtry and the Celebrity Sex Pass',
+    filmYear: '2026',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/3/5/3/4/0/8/1353408-gail-daughtry-and-the-celebrity-sex-pass-0-600-0-900-crop.jpg?v=cd9d330b88',
+    reviewHtml: '<p>The Romeo &amp; Juliet of the modern era.</p>',
+  },
+  {
     title: 'Obsession, 2025 - ★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/obsession-2025/',
     publishedAt: '2026-07-09T03:46:04.000Z',
@@ -662,19 +675,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/0/8/4/1/1/7/1084117-send-help-0-600-0-900-crop.jpg?v=9d8917c355',
     reviewHtml: null,
-  },
-  {
-    title: 'Arco, 2025 - ★★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/arco/',
-    publishedAt: '2026-01-30T02:28:49.000Z',
-    filmTitle: 'Arco',
-    filmYear: '2025',
-    rating: '5.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/7/2/1/5/6/6/721566-arco-0-600-0-900-crop.jpg?v=dcaae85d56',
-    reviewHtml:
-      "<blockquote><p>Do you think wishes really come true, like in the fairy tales?</p><p>I don't know, Iris, but what's to stop you from trying?</p></blockquote>",
   },
 ];
