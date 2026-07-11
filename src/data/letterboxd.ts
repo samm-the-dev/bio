@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Trainspotting, 1996 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/trainspotting/',
+    publishedAt: '2026-07-11T05:26:30.000Z',
+    filmTitle: 'Trainspotting',
+    filmYear: '1996',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/5/1/4/9/7/51497-trainspotting-0-600-0-900-crop.jpg?v=c8597f6cb5',
+    reviewHtml:
+      "<blockquote><p>Choose life. Choose a job. Choose a career. Choose a family. Choose a fucking big television, choose washing machines, cars, compact disc players, and electrical tin openers.</p></blockquote><p>yes</p><blockquote><p>Choose good health, low cholesterol and dental insurance. Choose fixed-interest mortgage repayments. Choose a starter home. Choose your friends.</p></blockquote><p>I am</p><blockquote><p>Choose leisure wear and matching luggage. Choose a three piece suite on hire purchase in a range of fucking fabrics. Choose D.I.Y. and wondering who you are on a Sunday morning. Choose sitting on that couch watching mind-numbing, spirit-crushing game shows, stuffing fucking junk food into your mouth. Choose rotting away at the end of it all, pissing your last in a miserable home, nothing more than an embarrassment to the selfish, fucked-up brats you have spawned to replace yourself. Choose your future. Choose life.</p></blockquote><p>going to post the whole quote</p><blockquote><p>So why did I do it? I could offer a million answers, all false. The truth is that I'm a bad person, but that's going to change, I'm going to change. This is the last of this sort of thing. I'm cleaning up and I'm moving on, going straight and choosing life. I'm looking forward to it already. I'm going to be just like you: the job, the family, the fucking big television, the washing machine, the car, the compact disc and electrical tin opener, good health, low cholesterol, dental insurance, mortgage, starter home, leisurewear, luggage, three-piece suite, D.I.Y., game shows, junk food, children, walks in the park, nine to five, good at golf, washing the car, choice of sweaters, family Christmas, indexed pension, tax exemption, clearing the gutters, getting by, looking ahead, to the day you die.</p></blockquote>",
+  },
+  {
     title: 'Gail Daughtry and the Celebrity Sex Pass, 2026 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/gail-daughtry-and-the-celebrity-sex-pass/',
     publishedAt: '2026-07-09T23:39:37.000Z',
@@ -662,18 +676,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
       'https://a.ltrbxd.com/resized/film-poster/1/3/9/4/0/9/2/1394092-fuck-my-son-0-600-0-900-crop.jpg?v=dc0342a44e',
     reviewHtml:
       "<p>WHAT. THE. FUCK.</p><p>Easily the most fucked up and gross movie I've ever seen. Makes The Greasy Strangler look like Iron Man 2, or maybe Iron Man 1.</p>",
-  },
-  {
-    title: 'Send Help, 2026 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/send-help/',
-    publishedAt: '2026-01-31T05:34:38.000Z',
-    filmTitle: 'Send Help',
-    filmYear: '2026',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/0/8/4/1/1/7/1084117-send-help-0-600-0-900-crop.jpg?v=9d8917c355',
-    reviewHtml: null,
   },
 ];
