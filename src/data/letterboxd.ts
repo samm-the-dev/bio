@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: '28 Years Later, 2025 - ★★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/28-years-later/2/',
+    publishedAt: '2026-07-12T16:28:38.000Z',
+    filmTitle: '28 Years Later',
+    filmYear: '2025',
+    rating: '5.0',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/9/9/2/7/8/6/992786-28-years-later-0-600-0-900-crop.jpg?v=014e09c066',
+    reviewHtml:
+      "<blockquote><p>hold... hold...</p></blockquote><p>men would rather build and climb mountains of skulls, start colorful death cults, than go to therapy </p><p>though in this case it's rather more a case of availability in the post-apocalypse than any kind of bias or preference</p><blockquote><p>a-fucking go</p></blockquote>",
+  },
+  {
     title: 'Yesterday, 2019 - ★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/yesterday-2019/',
     publishedAt: '2026-07-12T07:31:52.000Z',
@@ -663,18 +677,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/sm/upload/0f/wo/u4/2q/kifgXnv8i8h7gCZvvwoUWUo4mBf-0-600-0-900-crop.jpg?v=f0383e9d2b',
     reviewHtml: null,
-  },
-  {
-    title: 'Space Truckers, 1996 - ★★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/space-truckers/',
-    publishedAt: '2026-02-03T03:08:35.000Z',
-    filmTitle: 'Space Truckers',
-    filmYear: '1996',
-    rating: '4.5',
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/4/5/9/8/6/45986-space-truckers-0-600-0-900-crop.jpg?v=f8ad9fd0fd',
-    reviewHtml: '<p>Caught this at a theater with a packed crowd. GREAT time at the movies.</p>',
   },
 ];
