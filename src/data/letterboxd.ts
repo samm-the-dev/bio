@@ -3,6 +3,33 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Yesterday, 2019 - ★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/yesterday-2019/',
+    publishedAt: '2026-07-12T07:31:52.000Z',
+    filmTitle: 'Yesterday',
+    filmYear: '2019',
+    rating: '3.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/4/4/4/7/9/9/444799-yesterday-0-600-0-900-crop.jpg?v=5f26868151',
+    reviewHtml: null,
+  },
+  {
+    title: 'T2 Trainspotting, 2017 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/t2-trainspotting/',
+    publishedAt: '2026-07-12T04:36:12.000Z',
+    filmTitle: 'T2 Trainspotting',
+    filmYear: '2017',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/sm/upload/qb/bg/ys/eg/ckYQm2LWP7fqg16HvJ3hYfAXnpT-0-600-0-900-crop.jpg?v=5cbd8dc67c',
+    reviewHtml:
+      "<blockquote><p>It's not a mess, is it?</p></blockquote><p>Danny Boyle is a master at finding human beauty in horrid shit.</p><blockquote><p>No. It's just masculine.</p></blockquote>",
+  },
+  {
     title: 'Trainspotting, 1996 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/trainspotting/',
     publishedAt: '2026-07-11T05:26:30.000Z',
@@ -649,32 +676,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/4/5/9/8/6/45986-space-truckers-0-600-0-900-crop.jpg?v=f8ad9fd0fd',
     reviewHtml: '<p>Caught this at a theater with a packed crowd. GREAT time at the movies.</p>',
-  },
-  {
-    title: 'Sinners, 2025 - ★★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/sinners-2025/2/',
-    publishedAt: '2026-02-02T03:46:17.000Z',
-    filmTitle: 'Sinners',
-    filmYear: '2025',
-    rating: '5.0',
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/1/1/6/6/0/0/1116600-sinners-2025-0-600-0-900-crop.jpg?v=5996b7d555',
-    reviewHtml: null,
-  },
-  {
-    title: 'Fuck My Son!, 2025',
-    link: 'https://letterboxd.com/samm_loves_film/film/fuck-my-son/',
-    publishedAt: '2026-02-01T06:45:52.000Z',
-    filmTitle: 'Fuck My Son!',
-    filmYear: '2025',
-    rating: null,
-    isRewatch: false,
-    isLiked: false,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/3/9/4/0/9/2/1394092-fuck-my-son-0-600-0-900-crop.jpg?v=dc0342a44e',
-    reviewHtml:
-      "<p>WHAT. THE. FUCK.</p><p>Easily the most fucked up and gross movie I've ever seen. Makes The Greasy Strangler look like Iron Man 2, or maybe Iron Man 1.</p>",
   },
 ];
