@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'The Sheep Detectives, 2026 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/the-sheep-detectives/',
+    publishedAt: '2026-07-14T00:32:26.000Z',
+    filmTitle: 'The Sheep Detectives',
+    filmYear: '2026',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/8/3/1/3/5/1183135-the-sheep-detectives-0-600-0-900-crop.jpg?v=c7b622176e',
+    reviewHtml:
+      '<p>I need a sheep detective to solve the mystery of these tears </p><p>or at least help me dry them.</p>',
+  },
+  {
     title: '28 Years Later, 2025 - ★★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/28-years-later/2/',
     publishedAt: '2026-07-12T16:28:38.000Z',
@@ -663,19 +677,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/0/0/9/2/3/7/1009237-good-luck-have-fun-dont-die-0-600-0-900-crop.jpg?v=be79007f48',
-    reviewHtml: null,
-  },
-  {
-    title: 'Repo Man, 1984 - ★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/repo-man/',
-    publishedAt: '2026-02-12T03:14:14.000Z',
-    filmTitle: 'Repo Man',
-    filmYear: '1984',
-    rating: '3.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/sm/upload/0f/wo/u4/2q/kifgXnv8i8h7gCZvvwoUWUo4mBf-0-600-0-900-crop.jpg?v=f0383e9d2b',
     reviewHtml: null,
   },
 ];
