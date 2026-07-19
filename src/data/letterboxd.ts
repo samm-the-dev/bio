@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'The Terminator, 1984 - ★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/the-terminator/',
+    publishedAt: '2026-07-19T04:20:26.000Z',
+    filmTitle: 'The Terminator',
+    filmYear: '1984',
+    rating: '4.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/sm/upload/g2/2g/f0/6b/the-terminator-original-0-600-0-900-crop.jpg?v=677a47d94a',
+    reviewHtml: '<blockquote><p>Machines need love, too.</p></blockquote>',
+  },
+  {
     title: 'The Sheep Detectives, 2026 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/the-sheep-detectives/',
     publishedAt: '2026-07-14T00:32:26.000Z',
@@ -664,19 +677,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/4/7/1/9/1/47191-double-team-0-600-0-900-crop.jpg?v=6cc7342bb2',
-    reviewHtml: null,
-  },
-  {
-    title: "Good Luck, Have Fun, Don't Die, 2025 - ★★★★½",
-    link: 'https://letterboxd.com/samm_loves_film/film/good-luck-have-fun-dont-die/',
-    publishedAt: '2026-02-14T03:59:25.000Z',
-    filmTitle: "Good Luck, Have Fun, Don't Die",
-    filmYear: '2025',
-    rating: '4.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/0/0/9/2/3/7/1009237-good-luck-have-fun-dont-die-0-600-0-900-crop.jpg?v=be79007f48',
     reviewHtml: null,
   },
 ];
