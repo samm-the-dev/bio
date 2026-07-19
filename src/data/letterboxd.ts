@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Terminator 2: Judgment Day, 1991 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/terminator-2-judgment-day/',
+    publishedAt: '2026-07-19T10:38:45.000Z',
+    filmTitle: 'Terminator 2: Judgment Day',
+    filmYear: '1991',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/5/1/7/7/6/51776-terminator-2-judgment-day-0-600-0-900-crop.jpg?v=64f1721e62',
+    reviewHtml: "<blockquote><p>But it doesn't love you like we do.</p></blockquote>",
+  },
+  {
     title: 'The Terminator, 1984 - ★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/the-terminator/',
     publishedAt: '2026-07-19T04:20:26.000Z',
@@ -664,19 +677,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/8/7/9/2/2/9/879229-perfect-days-0-600-0-900-crop.jpg?v=4ea80661fd',
-    reviewHtml: null,
-  },
-  {
-    title: 'Double Team, 1997',
-    link: 'https://letterboxd.com/samm_loves_film/film/double-team/',
-    publishedAt: '2026-02-24T02:55:31.000Z',
-    filmTitle: 'Double Team',
-    filmYear: '1997',
-    rating: null,
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/4/7/1/9/1/47191-double-team-0-600-0-900-crop.jpg?v=6cc7342bb2',
     reviewHtml: null,
   },
 ];
