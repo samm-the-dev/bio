@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'The Odyssey, 2026 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/the-odyssey-2026/',
+    publishedAt: '2026-07-23T02:15:55.000Z',
+    filmTitle: 'The Odyssey',
+    filmYear: '2026',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/2/5/5/3/9/4/1255394-the-odyssey-2026-0-600-0-900-crop.jpg?v=1eed046d0c',
+    reviewHtml: null,
+  },
+  {
     title: 'Terminator 2: Judgment Day, 1991 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/terminator-2-judgment-day/',
     publishedAt: '2026-07-19T10:38:45.000Z',
@@ -664,19 +677,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/2/0/7/5/5/7/1207557-hoppers-0-600-0-900-crop.jpg?v=7711e7b5a7',
-    reviewHtml: null,
-  },
-  {
-    title: 'Perfect Days, 2023 - ★★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/perfect-days-2023/1/',
-    publishedAt: '2026-02-27T03:44:03.000Z',
-    filmTitle: 'Perfect Days',
-    filmYear: '2023',
-    rating: '4.5',
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/8/7/9/2/2/9/879229-perfect-days-0-600-0-900-crop.jpg?v=4ea80661fd',
     reviewHtml: null,
   },
 ];
