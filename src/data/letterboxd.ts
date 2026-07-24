@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'GOAT, 2026 - ★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/goat-2026/',
+    publishedAt: '2026-07-24T05:34:12.000Z',
+    filmTitle: 'GOAT',
+    filmYear: '2026',
+    rating: '4.0',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/7/9/9/5/3/1179953-goat-2026-0-600-0-900-crop.jpg?v=35c7b7eebe',
+    reviewHtml: null,
+  },
+  {
     title: 'The Odyssey, 2026 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/the-odyssey-2026/',
     publishedAt: '2026-07-23T02:15:55.000Z',
@@ -665,18 +678,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
       'https://a.ltrbxd.com/resized/film-poster/6/1/1/2/8/8/611288-project-hail-mary-0-600-0-900-crop.jpg?v=ac31b6ec03',
     reviewHtml:
       '<p>Andy Weir writes love letters to tenacity and connection with idiosyncratic panache, and I just adore it.</p>',
-  },
-  {
-    title: 'Hoppers, 2026 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/hoppers/',
-    publishedAt: '2026-03-07T04:48:48.000Z',
-    filmTitle: 'Hoppers',
-    filmYear: '2026',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/2/0/7/5/5/7/1207557-hoppers-0-600-0-900-crop.jpg?v=7711e7b5a7',
-    reviewHtml: null,
   },
 ];
