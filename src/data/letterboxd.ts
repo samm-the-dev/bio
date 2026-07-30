@@ -3,6 +3,34 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Spider-Man: Far From Home, 2019 - ★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/spider-man-far-from-home/1/',
+    publishedAt: '2026-07-30T05:32:00.000Z',
+    filmTitle: 'Spider-Man: Far From Home',
+    filmYear: '2019',
+    rating: '2.5',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/3/6/2/9/7/7/362977-spider-man-far-from-home-0-600-0-900-crop.jpg?v=d139fbf2ae',
+    reviewHtml:
+      "<p>The only things that really work here are Gyllenhaal as Mysterio and Holland's performance in the third act. Favreau and Jackson are fun supporting roles. The illusion sequences were great too.</p><p>Pretty much everything else is empty spectacle and a weird, tense combination of cashing in on Spider-Man fandom while also changing a ton of the fundamental aspects of Spider-Man. Pick a lane!</p><p>Is Talos technically doing blackface in this movie?</p>",
+  },
+  {
+    title: 'Spider-Man: Homecoming, 2017 - ★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/spider-man-homecoming/',
+    publishedAt: '2026-07-30T05:31:06.000Z',
+    filmTitle: 'Spider-Man: Homecoming',
+    filmYear: '2017',
+    rating: '3.5',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/2/4/2/7/1/0/242710-spider-man-homecoming-0-600-0-900-crop.jpg?v=61e8c57229',
+    reviewHtml:
+      "<p>It's interesting to view Spider-Man's tension with Tony Stark as whether or not he *should* integrate with the MCU - whether or not there's anything left on the table for this era of this Spider-Man as a solo hero after so many adaptations. They really throw a lot of spaghetti at the wall trying to make him distinct.</p><p>His street-level shenanigans are super fun. I love all of the side characters, even the one-off joke characters (Zach Cherry I am envious of your career). His relationship with Iron Man feels clunky. It drives Peter's emotional arc well enough, but the poor communication feels artificial.</p><p>Keaton's Vulture is an all-time fave CBM villain for me.</p>",
+  },
+  {
     title: 'GOAT, 2026 - ★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/goat-2026/',
     publishedAt: '2026-07-24T05:34:12.000Z',
@@ -651,32 +679,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/0/4/4/2/10442-bridesmaids-0-600-0-900-crop.jpg?v=da67bea0aa',
     reviewHtml: null,
-  },
-  {
-    title: 'Simon Sez, 1999',
-    link: 'https://letterboxd.com/samm_loves_film/film/simon-sez/',
-    publishedAt: '2026-03-24T01:40:47.000Z',
-    filmTitle: 'Simon Sez',
-    filmYear: '1999',
-    rating: null,
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/3/0/4/8/5/30485-simon-sez-0-600-0-900-crop.jpg?v=c416e5430e',
-    reviewHtml: null,
-  },
-  {
-    title: 'Project Hail Mary, 2026 - ★★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/project-hail-mary/',
-    publishedAt: '2026-03-17T02:48:59.000Z',
-    filmTitle: 'Project Hail Mary',
-    filmYear: '2026',
-    rating: '4.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/6/1/1/2/8/8/611288-project-hail-mary-0-600-0-900-crop.jpg?v=ac31b6ec03',
-    reviewHtml:
-      '<p>Andy Weir writes love letters to tenacity and connection with idiosyncratic panache, and I just adore it.</p>',
   },
 ];
