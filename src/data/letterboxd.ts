@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Spider-Man: Brand New Day, 2026 - ★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/spider-man-brand-new-day/',
+    publishedAt: '2026-07-31T02:35:10.000Z',
+    filmTitle: 'Spider-Man: Brand New Day',
+    filmYear: '2026',
+    rating: '2.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/8/7/2/8/7/1/872871-spider-man-brand-new-day-0-600-0-900-crop.jpg?v=ebe6beb4fc',
+    reviewHtml: '<p>fun and neat but also a weird exhausting mess</p>',
+  },
+  {
     title: 'Spider-Man: Far From Home, 2019 - ★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/spider-man-far-from-home/1/',
     publishedAt: '2026-07-30T05:32:00.000Z',
@@ -14,7 +27,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/3/6/2/9/7/7/362977-spider-man-far-from-home-0-600-0-900-crop.jpg?v=d139fbf2ae',
     reviewHtml:
-      "<p>The only things that really work here are Gyllenhaal as Mysterio and Holland's performance in the third act. Favreau and Jackson are fun supporting roles. The illusion sequences were great too.</p><p>Pretty much everything else is empty spectacle and a weird, tense combination of cashing in on Spider-Man fandom while also changing a ton of the fundamental aspects of Spider-Man. Pick a lane!</p><p>Is Talos technically doing blackface in this movie?</p>",
+      '<p>The only things that really work here are Gyllenhaal as Mysterio and Holland&#039;s performance in the third act. Favreau and Jackson are fun supporting roles. The illusion sequences were great too.</p><p>Pretty much everything else is empty spectacle and a weird, tense combination of cashing in on Spider-Man fandom while also changing a ton of the fundamental aspects of Spider-Man. Pick a lane!</p><p>Is Talos technically doing blackface in this movie?</p>',
   },
   {
     title: 'Spider-Man: Homecoming, 2017 - ★★★½',
@@ -28,7 +41,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/2/4/2/7/1/0/242710-spider-man-homecoming-0-600-0-900-crop.jpg?v=61e8c57229',
     reviewHtml:
-      "<p>It's interesting to view Spider-Man's tension with Tony Stark as whether or not he *should* integrate with the MCU - whether or not there's anything left on the table for this era of this Spider-Man as a solo hero after so many adaptations. They really throw a lot of spaghetti at the wall trying to make him distinct.</p><p>His street-level shenanigans are super fun. I love all of the side characters, even the one-off joke characters (Zach Cherry I am envious of your career). His relationship with Iron Man feels clunky. It drives Peter's emotional arc well enough, but the poor communication feels artificial.</p><p>Keaton's Vulture is an all-time fave CBM villain for me.</p>",
+      '<p>It&#039;s interesting to view Spider-Man&#039;s tension with Tony Stark as whether or not he *should* integrate with the MCU - whether or not there&#039;s anything left on the table for this era of this Spider-Man as a solo hero after so many adaptations. They really throw a lot of spaghetti at the wall trying to make him distinct.</p><p>His street-level shenanigans are super fun. I love all of the side characters, even the one-off joke characters (Zach Cherry I am envious of your career). His relationship with Iron Man feels clunky. It drives Peter&#039;s emotional arc well enough, but the poor communication feels artificial.</p><p>Keaton&#039;s Vulture is an all-time fave CBM villain for me.</p>',
   },
   {
     title: 'GOAT, 2026 - ★★★★',
@@ -67,7 +80,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/5/1/7/7/6/51776-terminator-2-judgment-day-0-600-0-900-crop.jpg?v=64f1721e62',
-    reviewHtml: "<blockquote><p>But it doesn't love you like we do.</p></blockquote>",
+    reviewHtml: '<blockquote><p>But it doesn&#039;t love you like we do.</p></blockquote>',
   },
   {
     title: 'The Terminator, 1984 - ★★★★',
@@ -108,7 +121,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/9/9/2/7/8/6/992786-28-years-later-0-600-0-900-crop.jpg?v=014e09c066',
     reviewHtml:
-      "<blockquote><p>hold... hold...</p></blockquote><p>men would rather build and climb mountains of skulls, start colorful death cults, than go to therapy </p><p>though in this case it's rather more a case of availability in the post-apocalypse than any kind of bias or preference</p><blockquote><p>a-fucking go</p></blockquote>",
+      '<blockquote><p>hold... hold...</p></blockquote><p>men would rather build and climb mountains of skulls, start colorful death cults, than go to therapy </p><p>though in this case it&#039;s rather more a case of availability in the post-apocalypse than any kind of bias or preference</p><blockquote><p>a-fucking go</p></blockquote>',
   },
   {
     title: 'Yesterday, 2019 - ★★★½',
@@ -135,7 +148,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/sm/upload/qb/bg/ys/eg/ckYQm2LWP7fqg16HvJ3hYfAXnpT-0-600-0-900-crop.jpg?v=5cbd8dc67c',
     reviewHtml:
-      "<blockquote><p>It's not a mess, is it?</p></blockquote><p>Danny Boyle is a master at finding human beauty in horrid shit.</p><blockquote><p>No. It's just masculine.</p></blockquote>",
+      '<blockquote><p>It&#039;s not a mess, is it?</p></blockquote><p>Danny Boyle is a master at finding human beauty in horrid shit.</p><blockquote><p>No. It&#039;s just masculine.</p></blockquote>',
   },
   {
     title: 'Trainspotting, 1996 - ★★★★½',
@@ -149,7 +162,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/5/1/4/9/7/51497-trainspotting-0-600-0-900-crop.jpg?v=c8597f6cb5',
     reviewHtml:
-      "<blockquote><p>Choose life. Choose a job. Choose a career. Choose a family. Choose a fucking big television, choose washing machines, cars, compact disc players, and electrical tin openers.</p></blockquote><p>yes</p><blockquote><p>Choose good health, low cholesterol and dental insurance. Choose fixed-interest mortgage repayments. Choose a starter home. Choose your friends.</p></blockquote><p>I am</p><blockquote><p>Choose leisure wear and matching luggage. Choose a three piece suite on hire purchase in a range of fucking fabrics. Choose D.I.Y. and wondering who you are on a Sunday morning. Choose sitting on that couch watching mind-numbing, spirit-crushing game shows, stuffing fucking junk food into your mouth. Choose rotting away at the end of it all, pissing your last in a miserable home, nothing more than an embarrassment to the selfish, fucked-up brats you have spawned to replace yourself. Choose your future. Choose life.</p></blockquote><p>going to post the whole quote</p><blockquote><p>So why did I do it? I could offer a million answers, all false. The truth is that I'm a bad person, but that's going to change, I'm going to change. This is the last of this sort of thing. I'm cleaning up and I'm moving on, going straight and choosing life. I'm looking forward to it already. I'm going to be just like you: the job, the family, the fucking big television, the washing machine, the car, the compact disc and electrical tin opener, good health, low cholesterol, dental insurance, mortgage, starter home, leisurewear, luggage, three-piece suite, D.I.Y., game shows, junk food, children, walks in the park, nine to five, good at golf, washing the car, choice of sweaters, family Christmas, indexed pension, tax exemption, clearing the gutters, getting by, looking ahead, to the day you die.</p></blockquote>",
+      '<blockquote><p>Choose life. Choose a job. Choose a career. Choose a family. Choose a fucking big television, choose washing machines, cars, compact disc players, and electrical tin openers.</p></blockquote><p>yes</p><blockquote><p>Choose good health, low cholesterol and dental insurance. Choose fixed-interest mortgage repayments. Choose a starter home. Choose your friends.</p></blockquote><p>I am</p><blockquote><p>Choose leisure wear and matching luggage. Choose a three piece suite on hire purchase in a range of fucking fabrics. Choose D.I.Y. and wondering who you are on a Sunday morning. Choose sitting on that couch watching mind-numbing, spirit-crushing game shows, stuffing fucking junk food into your mouth. Choose rotting away at the end of it all, pissing your last in a miserable home, nothing more than an embarrassment to the selfish, fucked-up brats you have spawned to replace yourself. Choose your future. Choose life.</p></blockquote><p>going to post the whole quote</p><blockquote><p>So why did I do it? I could offer a million answers, all false. The truth is that I&#039;m a bad person, but that&#039;s going to change, I&#039;m going to change. This is the last of this sort of thing. I&#039;m cleaning up and I&#039;m moving on, going straight and choosing life. I&#039;m looking forward to it already. I&#039;m going to be just like you: the job, the family, the fucking big television, the washing machine, the car, the compact disc and electrical tin opener, good health, low cholesterol, dental insurance, mortgage, starter home, leisurewear, luggage, three-piece suite, D.I.Y., game shows, junk food, children, walks in the park, nine to five, good at golf, washing the car, choice of sweaters, family Christmas, indexed pension, tax exemption, clearing the gutters, getting by, looking ahead, to the day you die.</p></blockquote>',
   },
   {
     title: 'Gail Daughtry and the Celebrity Sex Pass, 2026 - ★★★★½',
@@ -228,7 +241,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/2/7/7/0/6/4/277064-barbie-0-600-0-900-crop.jpg?v=1b83dc7a71',
     reviewHtml:
-      '<blockquote><p>"Do you guys ever think about dying?"</p></blockquote><p>The Promethean triumph of Ken discovering toxic masculinity is so fucking funny.</p><p>And then we get Barbie just... taking in the real world and its full spectrum of emotion, the gorgeous ache of it.</p><p>SUBLIME!</p><blockquote><p>"You\'re so beautiful." "I know it!"</p></blockquote>',
+      '<blockquote><p>&quot;Do you guys ever think about dying?&quot;</p></blockquote><p>The Promethean triumph of Ken discovering toxic masculinity is so fucking funny.</p><p>And then we get Barbie just... taking in the real world and its full spectrum of emotion, the gorgeous ache of it.</p><p>SUBLIME!</p><blockquote><p>&quot;You&#039;re so beautiful.&quot; &quot;I know it!&quot;</p></blockquote>',
   },
   {
     title: 'Supergirl, 2026 - ★★★',
@@ -242,7 +255,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/9/7/4/2/8/6/974286-supergirl-2026-0-600-0-900-crop.jpg?v=e85ddf39db',
     reviewHtml:
-      "<blockquote><p>Aren't you that ditz from the dive bar?</p></blockquote><p>Delightful if a bit too messy in its plotting. Momoa is sickos_yes.gif for his entire screentime and it's perfect (for his limited role). Could've done with less CGI and greenscreen. Milly Alcock is a powerhouse.</p><p>Don't you just hate it when your weird fascist brother is kinda right about how to survive the apocalypse?</p><blockquote><p>Be good. That doesn't mean you can't be tough, or that you have to be nice.</p></blockquote>",
+      '<blockquote><p>Aren&#039;t you that ditz from the dive bar?</p></blockquote><p>Delightful if a bit too messy in its plotting. Momoa is sickos_yes.gif for his entire screentime and it&#039;s perfect (for his limited role). Could&#039;ve done with less CGI and greenscreen. Milly Alcock is a powerhouse.</p><p>Don&#039;t you just hate it when your weird fascist brother is kinda right about how to survive the apocalypse?</p><blockquote><p>Be good. That doesn&#039;t mean you can&#039;t be tough, or that you have to be nice.</p></blockquote>',
   },
   {
     title: 'Toy Soldiers, 1991 - ★★',
@@ -284,7 +297,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/1/6/4/1/5/4/1164154-the-furious-0-600-0-900-crop.jpg?v=f880a59523',
     reviewHtml:
-      "<blockquote><p>Father says no trespassing.</p></blockquote><p>dang we got a Ram Man spinoff already</p><p>nary a rib unbroken, and never the twain shall meet</p><p>those shots where Ram Man 2 momentarily crab scuttles MENACINGLY</p><p>this movie got fuckin' MEAN towards the end</p><p>Ram Man 2 was my favorite character</p><blockquote><p>EAT SHIT, AND DIE!</p></blockquote><p>Edit: Okay jokes aside, the actors's name is Brian Le and he and his brother are apparently self-taught success stories in the stunt world. He really did steal the show in his scenes; I added a half star to my rating just for him.</p>",
+      '<blockquote><p>Father says no trespassing.</p></blockquote><p>dang we got a Ram Man spinoff already</p><p>nary a rib unbroken, and never the twain shall meet</p><p>those shots where Ram Man 2 momentarily crab scuttles MENACINGLY</p><p>this movie got fuckin&#039; MEAN towards the end</p><p>Ram Man 2 was my favorite character</p><blockquote><p>EAT SHIT, AND DIE!</p></blockquote><p>Edit: Okay jokes aside, the actors&#039;s name is Brian Le and he and his brother are apparently self-taught success stories in the stunt world. He really did steal the show in his scenes; I added a half star to my rating just for him.</p>',
   },
   {
     title: 'Burn After Reading, 2008 - ★★★★½',
@@ -298,7 +311,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/4/9/0/5/4/49054-burn-after-reading-0-600-0-900-crop.jpg?v=1a29d1c090',
     reviewHtml:
-      "<blockquote><p>Worried?</p></blockquote><blockquote><p>About the security... of your shit.</p></blockquote><p>This movie is a park full of dogs chasing half as many sticks, and they're all very surprised when they slam into one another.</p><p>The owners are equally confused.</p><blockquote><p>I don’t fucking know either. I guess we learned not to do it again.</p></blockquote>",
+      '<blockquote><p>Worried?</p></blockquote><blockquote><p>About the security... of your shit.</p></blockquote><p>This movie is a park full of dogs chasing half as many sticks, and they&#039;re all very surprised when they slam into one another.</p><p>The owners are equally confused.</p><blockquote><p>I don’t fucking know either. I guess we learned not to do it again.</p></blockquote>',
   },
   {
     title: 'Bullet Train, 2022 - ★★★★',
@@ -312,7 +325,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/6/4/1/9/6/1/641961-bullet-train-0-600-0-900-crop.jpg?v=9245faa1ba',
     reviewHtml:
-      "<p>Large swathes of this movie are little more than aura farming and celebrity cameos, but Leitch brings a genuine tenderness and humor to his movies that I adore. Also he's just great with needle drops and action scenes.</p>",
+      '<p>Large swathes of this movie are little more than aura farming and celebrity cameos, but Leitch brings a genuine tenderness and humor to his movies that I adore. Also he&#039;s just great with needle drops and action scenes.</p>',
   },
   {
     title: 'How to Make a Killing, 2026 - ★★★',
@@ -380,7 +393,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/1/5/9/2/5/1/1159251-disclosure-day-0-600-0-900-crop.jpg?v=9ae810e4bb',
     reviewHtml:
-      '<blockquote><p>You are not alone.</p></blockquote><p>A lot of movies last year felt like filmmakers weighing in on our fractured yet piled together culture, like we\'re all looking through stained glass but each of us is only looking at our own reflections in one of the colored fragments. </p><p>This movie feels like Spielberg saying "fuckin\' BREAK the glass and LOOK."</p><blockquote><p>Listen.</p></blockquote>',
+      '<blockquote><p>You are not alone.</p></blockquote><p>A lot of movies last year felt like filmmakers weighing in on our fractured yet piled together culture, like we&#039;re all looking through stained glass but each of us is only looking at our own reflections in one of the colored fragments. </p><p>This movie feels like Spielberg saying &quot;fuckin&#039; BREAK the glass and LOOK.&quot;</p><blockquote><p>Listen.</p></blockquote>',
   },
   {
     title: 'Hail, Caesar!, 2016 - ★★★★★',
@@ -394,7 +407,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/9/3/7/4/8/193748-hail-caesar--0-600-0-900-crop.jpg?v=148db9cc83',
     reviewHtml:
-      "<blockquote><p>DIVINE PRESENCE TO BE SHOT</p></blockquote><p>This movie is a masterpiece. </p><p>I feel like I could write an essay on this movie and its thematic layers, touching on just about every moment of every scene. The Coens are worshipping at the alter of Hollywood while interrogating what it means to do that, to revere the ugly machine that almost incidentally paints deeply human myth in gorgeous light. They do it with their characteristic absurdism which meshes so well with the themes of contradiction and irrationality they're playing with.</p><p>There really is so much more I could say about this but it's 1 AM and I need to get to bed.</p><blockquote><p>A truth beyond the truth that we can see. A truth beyond this world, a truth told not in words but in light. A truth we can see if we have but...</p></blockquote>",
+      '<blockquote><p>DIVINE PRESENCE TO BE SHOT</p></blockquote><p>This movie is a masterpiece. </p><p>I feel like I could write an essay on this movie and its thematic layers, touching on just about every moment of every scene. The Coens are worshipping at the alter of Hollywood while interrogating what it means to do that, to revere the ugly machine that almost incidentally paints deeply human myth in gorgeous light. They do it with their characteristic absurdism which meshes so well with the themes of contradiction and irrationality they&#039;re playing with.</p><p>There really is so much more I could say about this but it&#039;s 1 AM and I need to get to bed.</p><blockquote><p>A truth beyond the truth that we can see. A truth beyond this world, a truth told not in words but in light. A truth we can see if we have but...</p></blockquote>',
   },
   {
     title: 'Scary Movie, 2026 - ★★½',
@@ -435,7 +448,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/1/1/0/8/1/0/1110810-i-love-boosters-0-600-0-900-crop.jpg?v=a760551168',
     reviewHtml:
-      "<blockquote><p>People don't want to be the art. They want to be the artist.</p></blockquote><p>Keke Palmer is a great actor and also one of the hottest people on the planet. Naomi Ackie continues to rule. I hadn't seen Taylour Paige before but I have a crush on her now. I'm not gonna list the whole cast but they're all great.</p><p>Demi Moore is two for two on buck wild socially conscious maximalist movies, and I love that for her.</p><blockquote><p>No more sucking souls out of pussies.</p></blockquote>",
+      '<blockquote><p>People don&#039;t want to be the art. They want to be the artist.</p></blockquote><p>Keke Palmer is a great actor and also one of the hottest people on the planet. Naomi Ackie continues to rule. I hadn&#039;t seen Taylour Paige before but I have a crush on her now. I&#039;m not gonna list the whole cast but they&#039;re all great.</p><p>Demi Moore is two for two on buck wild socially conscious maximalist movies, and I love that for her.</p><blockquote><p>No more sucking souls out of pussies.</p></blockquote>',
   },
   {
     title: 'The Mandalorian and Grogu, 2026 - ★★',
@@ -449,7 +462,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/1/1/1/0/7/3/1111073-star-wars-the-mandalorian-and-grogu-0-600-0-900-crop.jpg?v=5da24e2cba',
     reviewHtml:
-      "<p>droids with mismatched heads and capes fuck yeah</p><p>this movie didn't know what it wanted to be but mostly it wanted to be four to six episodes of the hit Disney Plus™ television series The Mandalorian by Dave Filoni and Jon Favreau</p><p>it's also not very good</p>",
+      '<p>droids with mismatched heads and capes fuck yeah</p><p>this movie didn&#039;t know what it wanted to be but mostly it wanted to be four to six episodes of the hit Disney Plus™ television series The Mandalorian by Dave Filoni and Jon Favreau</p><p>it&#039;s also not very good</p>',
   },
   {
     title: 'The Devil Wears Prada, 2006 - ★★★★',
@@ -462,7 +475,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/5/1/7/1/2/51712-the-devil-wears-prada-0-600-0-900-crop.jpg?v=65a9cdb330',
-    reviewHtml: "<p>oh no girl don't do that</p>",
+    reviewHtml: '<p>oh no girl don&#039;t do that</p>',
   },
   {
     title: 'Mortal Kombat II, 2026 - ★★★★½',
@@ -517,7 +530,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/2/5/2/9/2/9/1252929-marama-0-600-0-900-crop.jpg?v=85a46f61e3',
     reviewHtml:
-      "<p><em>This review may contain spoilers.</em></p> <p>I admire the intent but I mostly found this very boring.</p><blockquote><p>I might have a small collection of human heads but at least I'm not GAY.</p></blockquote><p>- Daddy Warbucks (or whatever his name was)</p>",
+      '<p><em>This review may contain spoilers.</em></p> <p>I admire the intent but I mostly found this very boring.</p><blockquote><p>I might have a small collection of human heads but at least I&#039;m not GAY.</p></blockquote><p>- Daddy Warbucks (or whatever his name was)</p>',
   },
   {
     title: 'Hot Fuzz, 2007 - ★★★★★',
@@ -557,7 +570,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/2/9/0/7/1/8/1290718-exit-8-0-600-0-900-crop.jpg?v=583d86664f',
     reviewHtml:
-      '<blockquote><p>What about when you got trapped in a mind dungeon for a buncha years?</p></blockquote><p>- Jake the Dog, Adventure Time</p><p>So many times I woulda been like "nah" and bailed much sooner, probably solved that thing much faster. 30 minute adventure, in &amp; out.</p>',
+      '<blockquote><p>What about when you got trapped in a mind dungeon for a buncha years?</p></blockquote><p>- Jake the Dog, Adventure Time</p><p>So many times I woulda been like &quot;nah&quot; and bailed much sooner, probably solved that thing much faster. 30 minute adventure, in &amp; out.</p>',
   },
   {
     title: 'The Big Lebowski, 1998 - ★★★★★',
@@ -585,7 +598,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/8/8/2/4/3/2/882432-avatar-aang-the-last-airbender-0-600-0-900-crop.jpg?v=7049f9a3e5',
     reviewHtml:
-      "<p>Would've loved to see this on a big screen. I don't love the combination of changing voice actors and invoking nostalgia. I would've liked this more if it had less fan service and hit the emotional themes harder. Great set pieces and animation though (again, clearly meant for the big screen 😔).</p>",
+      '<p>Would&#039;ve loved to see this on a big screen. I don&#039;t love the combination of changing voice actors and invoking nostalgia. I would&#039;ve liked this more if it had less fan service and hit the emotional themes harder. Great set pieces and animation though (again, clearly meant for the big screen 😔).</p>',
   },
   {
     title: 'They Will Kill You, 2026 - ★★½',
@@ -599,7 +612,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/1/7/5/5/2/8/1175528-they-will-kill-you-0-600-0-900-crop.jpg?v=ed2974424c',
     reviewHtml:
-      "<p>this movie is trying to be 8 better movies and it mostly gets there with 5 of them</p><p>it made me laugh out loud at least a few times so credit where it's due</p><p>best enjoyed with fried chicken and the devil's lettuce</p>",
+      '<p>this movie is trying to be 8 better movies and it mostly gets there with 5 of them</p><p>it made me laugh out loud at least a few times so credit where it&#039;s due</p><p>best enjoyed with fried chicken and the devil&#039;s lettuce</p>',
   },
   {
     title: 'The Drama, 2026 - ★★★★½',
@@ -665,19 +678,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/5/1/9/6/9/51969-nausicaa-of-the-valley-of-the-wind-0-600-0-900-crop.jpg?v=059bc2bbc0',
-    reviewHtml: null,
-  },
-  {
-    title: 'Bridesmaids, 2011 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/bridesmaids/',
-    publishedAt: '2026-03-28T05:16:00.000Z',
-    filmTitle: 'Bridesmaids',
-    filmYear: '2011',
-    rating: '4.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/0/4/4/2/10442-bridesmaids-0-600-0-900-crop.jpg?v=da67bea0aa',
     reviewHtml: null,
   },
 ];
