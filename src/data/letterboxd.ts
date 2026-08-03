@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Galaxy Quest, 1999 - ★★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/galaxy-quest/',
+    publishedAt: '2026-08-03T19:42:08.000Z',
+    filmTitle: 'Galaxy Quest',
+    filmYear: '1999',
+    rating: '5.0',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/5/1/2/2/7/51227-galaxy-quest-0-600-0-900-crop.jpg?v=77947eabcc',
+    reviewHtml: '<p>A perfect love letter to nerds.</p>',
+  },
+  {
     title: 'Spider-Man: Brand New Day, 2026 - ★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/spider-man-brand-new-day/',
     publishedAt: '2026-07-31T02:35:10.000Z',
@@ -665,19 +678,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/4/8/0/3/3/48033-chicken-run-0-600-0-900-crop.jpg?v=e8ee6a3b20',
-    reviewHtml: null,
-  },
-  {
-    title: 'Nausicaä of the Valley of the Wind, 1984 - ★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/nausicaa-of-the-valley-of-the-wind/1/',
-    publishedAt: '2026-03-31T03:30:59.000Z',
-    filmTitle: 'Nausicaä of the Valley of the Wind',
-    filmYear: '1984',
-    rating: '4.0',
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/5/1/9/6/9/51969-nausicaa-of-the-valley-of-the-wind-0-600-0-900-crop.jpg?v=059bc2bbc0',
     reviewHtml: null,
   },
 ];
