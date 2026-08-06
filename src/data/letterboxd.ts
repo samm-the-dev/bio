@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Spider-Man: Brand New Day, 2026 - ★★ (contains spoilers)',
+    link: 'https://letterboxd.com/samm_loves_film/film/spider-man-brand-new-day/1/',
+    publishedAt: '2026-08-06T05:19:09.000Z',
+    filmTitle: 'Spider-Man: Brand New Day',
+    filmYear: '2026',
+    rating: '2.0',
+    isRewatch: true,
+    isLiked: false,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/8/7/2/8/7/1/872871-spider-man-brand-new-day-0-600-0-900-crop.jpg?v=ebe6beb4fc',
+    reviewHtml:
+      '<p><em>This review may contain spoilers.</em></p> <p>I was hoping I&#039;d like this more on another watch but uh, no.</p><p>The character beats are all over the place and mostly feel unearned. Is this about Peter choosing between the Spider and the Man? Is the Spider a monster? Does Peter feel that way about that half of him, or is it more that he&#039;s losing his humanity because of his isolation? The story pays lip service to these themes but doesn&#039;t engage with them all that much, instead choosing to focus on emotionally hollow setpieces and guest stars.</p><p>Granted, Yelena and Frank do challenge him on being closed off, but the climax feels more like a level up in a video game than an emotional choice. Right after that he lets Jean in, but it&#039;s represented as a speech from Aunt May that&#039;s weirdly very specifically about what Jean went through, AND the moral of it doesn&#039;t actually address what Peter and Jean are struggling with.</p><p>There are so many interesting themes, good character beats, and admittedly fun and cool action scenes at play here, but they just don&#039;t connect into a coherent story for me. Death by a thousand corporate executive notes, I assume. </p><p>Gotta wonder what was in that bearded guy&#039;s head that caused Jean to brutally murder him by having him walk into traffic.</p>',
+  },
+  {
     title: 'Galaxy Quest, 1999 - ★★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/galaxy-quest/',
     publishedAt: '2026-08-03T19:42:08.000Z',
@@ -665,19 +679,6 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isLiked: true,
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/1/1/5/6/4/0/9/1156409-28-years-later-the-bone-temple-0-600-0-900-crop.jpg?v=131058c6ff',
-    reviewHtml: null,
-  },
-  {
-    title: 'Chicken Run, 2000 - ★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/chicken-run/',
-    publishedAt: '2026-03-31T03:31:15.000Z',
-    filmTitle: 'Chicken Run',
-    filmYear: '2000',
-    rating: '3.5',
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/4/8/0/3/3/48033-chicken-run-0-600-0-900-crop.jpg?v=e8ee6a3b20',
     reviewHtml: null,
   },
 ];
