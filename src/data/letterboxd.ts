@@ -446,7 +446,7 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     isRewatch: false,
     isLiked: false,
     posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/1/5/6/9/1/0/1156910-scary-movie-2026-0-600-0-900-crop.jpg?v=b50abf5b96',
+      'https://a.ltrbxd.com/resized/film-poster/1/1/5/6/9/1/0/1156910-scary-movie-2026-0-600-0-900-crop.jpg?v=4714559ea7',
     reviewHtml: null,
   },
   {
