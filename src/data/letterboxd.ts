@@ -3,6 +3,32 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Men in Black II, 2002 - ★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/men-in-black-ii/',
+    publishedAt: '2026-08-24T05:21:56.000Z',
+    filmTitle: 'Men in Black II',
+    filmYear: '2002',
+    rating: '3.0',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/5/1/5/1/3/51513-men-in-black-ii-0-600-0-900-crop.jpg?v=e67cb29305',
+    reviewHtml: null,
+  },
+  {
+    title: 'Men in Black, 1997 - ★★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/men-in-black/',
+    publishedAt: '2026-08-24T03:59:16.000Z',
+    filmTitle: 'Men in Black',
+    filmYear: '1997',
+    rating: '5.0',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/5/1/5/1/4/51514-men-in-black-0-600-0-900-crop.jpg?v=b5749570bd',
+    reviewHtml: null,
+  },
+  {
     title: 'Spider-Man: Brand New Day, 2026 - ★★ (contains spoilers)',
     link: 'https://letterboxd.com/samm_loves_film/film/spider-man-brand-new-day/1/',
     publishedAt: '2026-08-06T05:19:09.000Z',
@@ -654,31 +680,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
       'https://a.ltrbxd.com/resized/film-poster/1/2/0/5/4/9/4/1205494-the-drama-0-600-0-900-crop.jpg?v=2320acafd5',
     reviewHtml:
       '<p>Pretty darn good! Might end up being one of my favorites of the year. </p><p>It has this frenetic, stream of consciousness, almost dream-like editing that I found fascinating. Excellent character work too.</p>',
-  },
-  {
-    title: 'The Super Mario Galaxy Movie, 2026 - ★',
-    link: 'https://letterboxd.com/samm_loves_film/film/the-super-mario-galaxy-movie/',
-    publishedAt: '2026-04-03T04:21:00.000Z',
-    filmTitle: 'The Super Mario Galaxy Movie',
-    filmYear: '2026',
-    rating: '1.0',
-    isRewatch: false,
-    isLiked: false,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/1/1/0/0/8/0/1110080-the-super-mario-galaxy-movie-0-600-0-900-crop.jpg?v=fefcfca134',
-    reviewHtml: '<p>nah</p><p>edit: why was Donald Glover the voice of Yoshi lmao</p>',
-  },
-  {
-    title: '28 Years Later: The Bone Temple, 2026 - ★★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/28-years-later-the-bone-temple/1/',
-    publishedAt: '2026-04-02T14:57:47.000Z',
-    filmTitle: '28 Years Later: The Bone Temple',
-    filmYear: '2026',
-    rating: '4.5',
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/1/5/6/4/0/9/1156409-28-years-later-the-bone-temple-0-600-0-900-crop.jpg?v=131058c6ff',
-    reviewHtml: null,
   },
 ];
