@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Men in Black 3, 2012 - ★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/men-in-black-3/1/',
+    publishedAt: '2026-08-24T21:53:18.000Z',
+    filmTitle: 'Men in Black 3',
+    filmYear: '2012',
+    rating: '4.0',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/sm/upload/tq/ip/el/3z/l9hrvXyGq19f6jPRZhSVRibTMwW-0-600-0-900-crop.jpg?v=91141e41b0',
+    reviewHtml: null,
+  },
+  {
     title: 'Men in Black II, 2002 - ★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/men-in-black-ii/',
     publishedAt: '2026-08-24T05:21:56.000Z',
@@ -666,19 +679,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
       'https://a.ltrbxd.com/resized/film-poster/1/1/7/5/5/2/8/1175528-they-will-kill-you-0-600-0-900-crop.jpg?v=ed2974424c',
     reviewHtml:
       '<p>this movie is trying to be 8 better movies and it mostly gets there with 5 of them</p><p>it made me laugh out loud at least a few times so credit where it&#039;s due</p><p>best enjoyed with fried chicken and the devil&#039;s lettuce</p>',
-  },
-  {
-    title: 'The Drama, 2026 - ★★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/the-drama/',
-    publishedAt: '2026-04-07T02:48:47.000Z',
-    filmTitle: 'The Drama',
-    filmYear: '2026',
-    rating: '4.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/2/0/5/4/9/4/1205494-the-drama-0-600-0-900-crop.jpg?v=2320acafd5',
-    reviewHtml:
-      '<p>Pretty darn good! Might end up being one of my favorites of the year. </p><p>It has this frenetic, stream of consciousness, almost dream-like editing that I found fascinating. Excellent character work too.</p>',
   },
 ];
