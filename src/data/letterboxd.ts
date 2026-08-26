@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Watchmen, 2009 - ★★★★',
+    link: 'https://letterboxd.com/samm_loves_film/film/watchmen/',
+    publishedAt: '2026-08-26T00:23:42.000Z',
+    filmTitle: 'Watchmen',
+    filmYear: '2009',
+    rating: '4.0',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/4/4/0/7/0/44070-watchmen-0-600-0-900-crop.jpg?v=dccd60903f',
+    reviewHtml: null,
+  },
+  {
     title: 'Men in Black 3, 2012 - ★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/men-in-black-3/1/',
     publishedAt: '2026-08-24T21:53:18.000Z',
@@ -665,19 +678,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
       'https://a.ltrbxd.com/resized/film-poster/8/8/2/4/3/2/882432-avatar-aang-the-last-airbender-0-600-0-900-crop.jpg?v=7049f9a3e5',
     reviewHtml:
       '<p>Would&#039;ve loved to see this on a big screen. I don&#039;t love the combination of changing voice actors and invoking nostalgia. I would&#039;ve liked this more if it had less fan service and hit the emotional themes harder. Great set pieces and animation though (again, clearly meant for the big screen 😔).</p>',
-  },
-  {
-    title: 'They Will Kill You, 2026 - ★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/they-will-kill-you/',
-    publishedAt: '2026-04-08T02:42:50.000Z',
-    filmTitle: 'They Will Kill You',
-    filmYear: '2026',
-    rating: '2.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/1/7/5/5/2/8/1175528-they-will-kill-you-0-600-0-900-crop.jpg?v=ed2974424c',
-    reviewHtml:
-      '<p>this movie is trying to be 8 better movies and it mostly gets there with 5 of them</p><p>it made me laugh out loud at least a few times so credit where it&#039;s due</p><p>best enjoyed with fried chicken and the devil&#039;s lettuce</p>',
   },
 ];
