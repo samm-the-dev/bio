@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Hell or High Water, 2016 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/hell-or-high-water/',
+    publishedAt: '2026-09-02T02:36:59.000Z',
+    filmTitle: 'Hell or High Water',
+    filmYear: '2016',
+    rating: '4.5',
+    isRewatch: true,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/sm/upload/os/sk/tr/0a/6YOrNBdoXvT8aC5VPLkkN6t5z0V-0-600-0-900-crop.jpg?v=ae04fa804c',
+    reviewHtml: null,
+  },
+  {
     title: 'Watchmen, 2009 - ★★★★',
     link: 'https://letterboxd.com/samm_loves_film/film/watchmen/',
     publishedAt: '2026-08-26T00:23:42.000Z',
@@ -664,19 +677,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
       'https://a.ltrbxd.com/resized/film-poster/5/1/9/3/5/51935-the-big-lebowski-0-600-0-900-crop.jpg?v=5cd64defcf',
     reviewHtml:
       '<p>John Goodman is one of the greatest actors of his generation. Both Jeff Bridges and Lebowski are timelessly cool. Sam Elliot makes me proud to be a Sam.</p>',
-  },
-  {
-    title: 'Avatar Aang: The Last Airbender, 2026 - ★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/avatar-aang-the-last-airbender/',
-    publishedAt: '2026-04-17T01:38:03.000Z',
-    filmTitle: 'Avatar Aang: The Last Airbender',
-    filmYear: '2026',
-    rating: '3.0',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/8/8/2/4/3/2/882432-avatar-aang-the-last-airbender-0-600-0-900-crop.jpg?v=7049f9a3e5',
-    reviewHtml:
-      '<p>Would&#039;ve loved to see this on a big screen. I don&#039;t love the combination of changing voice actors and invoking nostalgia. I would&#039;ve liked this more if it had less fan service and hit the emotional themes harder. Great set pieces and animation though (again, clearly meant for the big screen 😔).</p>',
   },
 ];
