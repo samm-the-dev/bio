@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Coyote vs. Acme, 2026 - ★★★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/coyote-vs-acme/',
+    publishedAt: '2026-09-07T23:32:43.000Z',
+    filmTitle: 'Coyote vs. Acme',
+    filmYear: '2026',
+    rating: '4.5',
+    isRewatch: false,
+    isLiked: true,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/0/8/9/0/8/8/1089088-coyote-vs-acme-0-600-0-900-crop.jpg?v=735eb10cc7',
+    reviewHtml:
+      '<p>one must imagine Coyote brand loyal</p><p>funny seeing Disney and Amazon ads before this</p><p>they should&#039;ve kissed at the end</p>',
+  },
+  {
     title: 'Hell or High Water, 2016 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/hell-or-high-water/',
     publishedAt: '2026-09-02T02:36:59.000Z',
@@ -663,19 +677,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
       'https://a.ltrbxd.com/resized/film-poster/1/2/9/0/7/1/8/1290718-exit-8-0-600-0-900-crop.jpg?v=583d86664f',
     reviewHtml:
       '<blockquote><p>What about when you got trapped in a mind dungeon for a buncha years?</p></blockquote><p>- Jake the Dog, Adventure Time</p><p>So many times I woulda been like &quot;nah&quot; and bailed much sooner, probably solved that thing much faster. 30 minute adventure, in &amp; out.</p>',
-  },
-  {
-    title: 'The Big Lebowski, 1998 - ★★★★★',
-    link: 'https://letterboxd.com/samm_loves_film/film/the-big-lebowski/',
-    publishedAt: '2026-04-19T07:29:49.000Z',
-    filmTitle: 'The Big Lebowski',
-    filmYear: '1998',
-    rating: '5.0',
-    isRewatch: true,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/5/1/9/3/5/51935-the-big-lebowski-0-600-0-900-crop.jpg?v=5cd64defcf',
-    reviewHtml:
-      '<p>John Goodman is one of the greatest actors of his generation. Both Jeff Bridges and Lebowski are timelessly cool. Sam Elliot makes me proud to be a Sam.</p>',
   },
 ];
