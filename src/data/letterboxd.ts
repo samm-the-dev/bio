@@ -3,6 +3,19 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Onslaught, 2026 - ★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/onslaught-2026/',
+    publishedAt: '2026-09-15T03:23:42.000Z',
+    filmTitle: 'Onslaught',
+    filmYear: '2026',
+    rating: '2.5',
+    isRewatch: false,
+    isLiked: false,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/1/1/6/7/3/2/8/1167328-onslaught-2026-0-600-0-900-crop.jpg?v=54130fd313',
+    reviewHtml: null,
+  },
+  {
     title: 'Coyote vs. Acme, 2026 - ★★★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/coyote-vs-acme/',
     publishedAt: '2026-09-07T23:32:43.000Z',
@@ -663,19 +676,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/film-poster/9/9/4/3/5/3/994353-mother-mary-2026-0-600-0-900-crop.jpg?v=a2644168b4',
     reviewHtml: null,
-  },
-  {
-    title: 'Exit 8, 2025 - ★★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/exit-8/',
-    publishedAt: '2026-04-28T05:43:53.000Z',
-    filmTitle: 'Exit 8',
-    filmYear: '2025',
-    rating: '4.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/1/2/9/0/7/1/8/1290718-exit-8-0-600-0-900-crop.jpg?v=583d86664f',
-    reviewHtml:
-      '<blockquote><p>What about when you got trapped in a mind dungeon for a buncha years?</p></blockquote><p>- Jake the Dog, Adventure Time</p><p>So many times I woulda been like &quot;nah&quot; and bailed much sooner, probably solved that thing much faster. 30 minute adventure, in &amp; out.</p>',
   },
 ];
