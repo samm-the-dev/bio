@@ -3,6 +3,20 @@ import type { LetterboxdEntry } from '@/lib/queries';
 
 export const letterboxdEntries: LetterboxdEntry[] = [
   {
+    title: 'Scary Movie, 1991 - ★★½',
+    link: 'https://letterboxd.com/samm_loves_film/film/scary-movie/',
+    publishedAt: '2026-10-27T01:43:02.000Z',
+    filmTitle: 'Scary Movie',
+    filmYear: '1991',
+    rating: '2.5',
+    isRewatch: false,
+    isLiked: false,
+    posterUrl:
+      'https://a.ltrbxd.com/resized/film-poster/4/9/4/4/8/49448-scary-movie-0-600-0-900-crop.jpg?v=cebddbead1',
+    reviewHtml:
+      '<p>bless em they tried</p><p>extra half star for the character that existed solely to laugh derisively at the main character</p>',
+  },
+  {
     title: 'Onslaught, 2026 - ★★½',
     link: 'https://letterboxd.com/samm_loves_film/film/onslaught-2026/',
     publishedAt: '2026-09-15T03:23:42.000Z',
@@ -663,18 +677,5 @@ export const letterboxdEntries: LetterboxdEntry[] = [
     posterUrl:
       'https://a.ltrbxd.com/resized/sm/upload/xe/2y/e6/gy/4XLSKzQcE4lIgJgd71Y8UhAhxqQ-0-600-0-900-crop.jpg?v=45bc32b708',
     reviewHtml: '<p>This is a perfect movie.</p>',
-  },
-  {
-    title: 'Mother Mary, 2026 - ★★★★½',
-    link: 'https://letterboxd.com/samm_loves_film/film/mother-mary-2026/',
-    publishedAt: '2026-04-28T23:04:40.000Z',
-    filmTitle: 'Mother Mary',
-    filmYear: '2026',
-    rating: '4.5',
-    isRewatch: false,
-    isLiked: true,
-    posterUrl:
-      'https://a.ltrbxd.com/resized/film-poster/9/9/4/3/5/3/994353-mother-mary-2026-0-600-0-900-crop.jpg?v=a2644168b4',
-    reviewHtml: null,
   },
 ];
